@@ -63,7 +63,7 @@ def _write_manifest(
 
 def fetch_nasa_power() -> pd.DataFrame:
     """Daily NASA POWER (AG community) at the Kanpur centroid, 2010-2024."""
-    params = {
+    params: dict[str, Any] = {
         "parameters": POWER_PARAMS,
         "community": "AG",
         "longitude": KANPUR_LON,

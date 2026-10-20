@@ -29,5 +29,5 @@ def force_ipv4() -> None:
     ) -> Any:
         return _orig_getaddrinfo(host, port, socket.AF_INET, type, proto, flags)
 
-    socket.getaddrinfo = _ipv4_only  # type: ignore[assignment]
+    socket.getaddrinfo = _ipv4_only
     _patched = True
