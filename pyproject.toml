@@ -39,6 +39,8 @@ dependencies = [
     "matplotlib>=3.9",
     "seaborn>=0.13",
     "dvc>=3.50",
+    "pyproj>=3.7.2",
+    "google-cloud-storage>=3.17.1",  # UNUSED: kept in case GCS is needed later (ADR-024)
 ]
 
 [dependency-groups]
