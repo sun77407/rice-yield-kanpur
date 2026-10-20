@@ -28,13 +28,14 @@ from sklearn.pipeline import make_pipeline
 from src.models import common as c
 from src.models.evaluate import evaluate
 from src.models.feature_sets import FULL
+from src.utils.seed import GLOBAL_SEED
 
 MODELS = Path("models")
 TUNE_ROWS = {"xgboost": 150_000, "lightgbm": 150_000, "random_forest": 80_000, "gbr": 40_000}
 TRIALS = {"xgboost": 30, "lightgbm": 30, "random_forest": 12, "gbr": 10}
 TIMEOUT_S = 900
 GBR_FIT_ROWS = 300_000
-SEED = c.GLOBAL_SEED
+SEED = GLOBAL_SEED
 
 
 def xgb_device() -> str:

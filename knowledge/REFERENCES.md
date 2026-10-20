@@ -258,3 +258,39 @@ Per ADR-015: every reference above must be verified before citation in the manus
 - **KB-1 through KB-7** — populate the knowledge base; cited in the advisory outputs, not in the paper body.
 
 Together these provide complete methodological cover for every claim in the manuscript. No claim should appear in the paper without a reference from this list (or a verified addition to it).
+
+---
+
+## 6. Additions (verified by web search 2026-10-21; see REFERENCES_AUDIT.md)
+
+### R17 — Son et al. 2014b (phenology-based rice classification)
+**Citation.** Son, N.-T., Chen, C.-F., Chen, C.-R., Duc, H.-N., & Chang, L.-Y. (2014). *A phenology-based classification of time-series MODIS data for rice crop monitoring in Mekong Delta, Vietnam.* Remote Sensing, 6(1), 135-156. https://doi.org/10.3390/rs6010135
+**Our use.** Precedent for smoothing MODIS EVI series (empirical mode decomposition, not Savitzky-Golay) before rice-phenology analysis (ADR-025). Distinct from R4. **BibTeX key.** `son2014phenology`
+
+### R18 — Nussbaum et al. 2024 (Nomic Embed)
+**Citation.** Nussbaum, Z., Morris, J. X., Duderstadt, B., & Mulyar, A. (2024). *Nomic Embed: Training a Reproducible Long Context Text Embedder.* arXiv:2402.01613 (accepted at TMLR). https://arxiv.org/abs/2402.01613
+**Our use.** The embedding model (`nomic-embed-text`, ADR-008). **BibTeX key.** `nussbaum2024nomic`
+
+### R19 — Qwen Team 2024 (Qwen2.5)
+**Citation.** Qwen Team. (2024). *Qwen2.5 Technical Report.* arXiv:2412.15115. https://arxiv.org/abs/2412.15115
+**Our use.** The LLM family behind `qwen2.5:14b-instruct-q6_K` (ADR-007). **BibTeX key.** `qwen2024qwen25`
+
+### R20 — Salvatier et al. 2016 (PyMC)
+**Citation.** Salvatier, J., Wiecki, T. V., & Fonnesbeck, C. (2016). *Probabilistic programming in Python using PyMC3.* PeerJ Computer Science, 2, e55. https://doi.org/10.7717/peerj-cs.55
+**Our use.** The hierarchical Bayesian model (code uses PyMC 6). **BibTeX key.** `salvatier2016pymc`
+
+### R21 — Akiba et al. 2019 (Optuna)
+**Citation.** Akiba, T., Sano, S., Yanase, T., Ohta, T., & Koyama, M. (2019). *Optuna: A Next-generation Hyperparameter Optimization Framework.* KDD 2019. arXiv:1907.10902. (KDD DOI not yet confirmed.)
+**Our use.** Hyperparameter search for the tree ensembles. **BibTeX key.** `akiba2019optuna`
+
+### R22 — Poggio et al. 2021 (SoilGrids 2.0)
+**Citation.** Poggio, L., de Sousa, L. M., Batjes, N. H., Heuvelink, G. B. M., Kempen, B., Ribeiro, E., & Rossiter, D. (2021). *SoilGrids 2.0: producing soil information for the globe with quantified spatial uncertainty.* SOIL, 7, 217-240. https://doi.org/10.5194/soil-7-217-2021
+**Our use.** Soil covariates (0-5 cm). **BibTeX key.** `poggio2021soilgrids`
+
+### R23 — Zanaga et al. 2022 (ESA WorldCover)
+**Citation.** Zanaga, D., et al. (2022). *ESA WorldCover 10 m 2021 v200.* Zenodo. https://doi.org/10.5281/zenodo.7254221
+**Our use.** Cropland fraction mask (class 40). **BibTeX key.** `zanaga2022worldcover`
+
+### R24 — Savitzky & Golay 1964
+**Citation.** Savitzky, A., & Golay, M. J. E. (1964). *Smoothing and differentiation of data by simplified least squares procedures.* Analytical Chemistry, 36(8), 1627-1639. https://doi.org/10.1021/ac60214a047
+**Our use.** The filter itself (applied following R16). **BibTeX key.** `savitzky1964smoothing`

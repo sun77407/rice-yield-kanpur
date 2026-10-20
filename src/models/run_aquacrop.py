@@ -33,7 +33,7 @@ def et0_pm(p: pd.DataFrame, lat: float = 26.45, elev: float = 122.5) -> pd.Serie
     et = (0.408 * delta * rn + gamma * 900 / (tmean + 273) * u2 * (es - ea)) / (
         delta + gamma * (1 + 0.34 * u2)
     )
-    return et.clip(lower=0)
+    return pd.Series(et.clip(lower=0))
 
 
 def main() -> None:
@@ -52,7 +52,7 @@ def main() -> None:
     p["ET0"] = et0_pm(p)
     soil = Soil("ClayLoam")  # mean topsoil clay 23%, sand 37% -> loam/clay loam
     apy = load_apy()
-    rows = []
+    rows: list[dict[str, object]] = []
     for dist in c.DISTRICTS:
         r = rain[rain.district == dist][["date", "precip_mm"]]
         w = p.merge(r, on="date")
@@ -94,7 +94,7 @@ def main() -> None:
     sim = pd.DataFrame(rows).merge(apy, on=["district", "year"])
     out: dict[str, object] = {
         "n": len(sim),
-        "pooled": c.metrics(sim.yield_t_ha, sim.sim_yield_t_ha),
+        "pooled": c.metrics(sim.yield_t_ha.to_numpy(), sim.sim_yield_t_ha.to_numpy()),
     }
     for d in c.DISTRICTS:
         s = sim[sim.district == d]

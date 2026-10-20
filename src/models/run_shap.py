@@ -15,6 +15,7 @@ import shap
 
 from src.models import common as c
 from src.models.feature_sets import FULL
+from src.utils.seed import GLOBAL_SEED
 
 FIG = Path("figures")
 
@@ -23,7 +24,7 @@ def main() -> None:
     """Compute SHAP on 5,000 random test pixel-years."""
     x = c.load_matrix()
     _, te = c.split(x)
-    sample = te.sample(5000, random_state=c.GLOBAL_SEED)[FULL]
+    sample = te.sample(5000, random_state=GLOBAL_SEED)[FULL]
     with Path("models/xgboost.pkl").open("rb") as fh:
         model = pickle.load(fh)
     ex = shap.TreeExplainer(model)

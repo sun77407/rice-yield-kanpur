@@ -521,3 +521,23 @@ SoilGrids' catalog labels nitrogen as cg/kg, but the raw median over Kanpur is 1
 - Dropping `raw_peak_ndvi` lowers XGBoost pixel test R^2 from 0.897 to 0.596 (0.069 with no satellite features at all). Most pixel-level skill comes from NDVI-derived features.
 - District-aggregated, leave-one-year-out vs APY, XGBoost pooled R^2 0.379 (r 0.62; Nagar 0.47, Dehat 0.18). These equal the NDVI-calibration R^2 of ADR-002 (Nagar 0.47, Dehat 0.19), i.e. the model reproduces the calibrated NDVI relationship and adds nothing measurable. A per-district linear **time trend** alone scores pooled R^2 0.464 under the same protocol, so the models do not beat a trend on APY.
 - The AquaCrop simulated yield has correlation 1.00 with calendar year (the library's built-in rising CO2 series drives it), so its r = 0.75-0.78 with APY is two trends coinciding (APY vs year r = 0.74-0.78; detrended r about 0.10). As a feature it acts as a year index and adds nothing (pooled LOYO R^2 0.381 vs 0.379).
+
+---
+
+## ADR-032: Paper framing: spatial disaggregation and an offline advisory system, not temporal yield forecasting
+
+**Status:** Accepted (user decision 2026-10-21).
+
+**Context.** Phase 3 (ADR-031) showed that, against 13 APY years per district under leave-one-year-out, the XGBoost aggregate scores pooled R^2 0.379 (Pearson r 0.62; Nagar 0.47, Dehat 0.18), while a per-district linear time trend scores 0.464 (r 0.69; Nagar 0.38, Dehat 0.47), and predicting the district mean of other years scores -0.091. The satellite/weather models therefore do not beat a time trend at district level, and their district-level R^2 equals the NDVI-calibration R^2 of ADR-002 (Nagar 0.47, Dehat 0.19).
+
+**Decision.**
+1. The primary claim is **spatial disaggregation of district yield statistics to MODIS pixels** (what the pixel-level phenology + soil + weather models do within a district-year), plus an **offline, locally-run RAG advisory system**. Temporal yield forecasting and the scenario-based (P10/P50/P90 weather) forecasting novelty are dropped as claims.
+2. The manuscript headline metric is the district-aggregated leave-one-year-out R^2 against APY (0.379), shown in the primary results table **next to the time-trend baseline (0.464)** and the district-mean baseline (-0.091). The trend baseline is not moved to a supplement.
+3. AquaCrop is removed from results and discussion. Its results go to a supplementary appendix titled "Exploratory, not recommended", and the main text mentions it in one sentence in the "features considered but not used" paragraph. The code and ADR-030 stay in the repository. Reason: the simulated yield has correlation 1.00 with calendar year, so its correlation with APY (r 0.75-0.78; detrended about 0.10) cannot be interpreted as climate signal.
+4. The Discussion contains a subsection "Why satellite phenology does not improve on a time trend in this region" with three hypotheses (see `paper/FRAMING.md` for the evidence and citation status of each).
+5. App (Phase 5): the primary model is the full-feature XGBoost; a toggle exposes the "without raw_peak_ndvi" variant; every scenario plot shows the time-trend baseline as a reference line.
+
+**Consequences.** ADR-016 (live-forecast flag) and any "scenario forecast" wording in README, PROJECT_FLOW and the planned abstract no longer describe a contribution. Pixel-level R^2 is reported only with the caveats of ADR-028 and ADR-031. The pixel-level results are still reportable as disaggregation fidelity to a calibrated target, not as yield accuracy.
+
+### ADR-030 addendum (2026-10-21)
+AquaCrop (Agent 3D) was run as a stretch task, uncalibrated, with library PaddyRice parameters. Its results are exploratory and excluded from the paper's main text (ADR-032).

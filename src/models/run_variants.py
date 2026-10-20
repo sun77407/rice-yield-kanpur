@@ -1,7 +1,7 @@
 """ADR-031 sensitivity: XGBoost with raw_peak_ndvi dropped, no satellite, and AquaCrop feature.
 
 All variants reuse the hyper-parameters tuned for the full feature set (no re-tuning), so the
-comparison isolates the feature change; a re-tuned dropped-feature model could score slightly higher.
+comparison isolates the feature change; a re-tuned reduced model could score slightly higher.
 """
 
 from __future__ import annotations

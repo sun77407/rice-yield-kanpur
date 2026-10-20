@@ -20,7 +20,7 @@ def pipe(model: object) -> Pipeline:
     """Median imputation (+ missingness indicators: censoring is informative) then scaling."""
     return make_pipeline(
         SimpleImputer(strategy="median", add_indicator=True), StandardScaler(), model
-    )  # type: ignore[arg-type]
+    )
 
 
 def vif_table(x: pd.DataFrame, cols: list[str]) -> pd.Series:

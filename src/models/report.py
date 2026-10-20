@@ -3,7 +3,6 @@
 from __future__ import annotations
 
 import json
-from pathlib import Path
 from typing import Any
 
 import matplotlib
@@ -15,6 +14,7 @@ import pandas as pd
 
 from src.features.targets import load_apy
 from src.models import common as c
+from src.utils.seed import GLOBAL_SEED
 
 R = c.RESULTS
 PIXEL_MODELS = [
@@ -39,7 +39,7 @@ VARIANTS = [
 
 
 def load(name: str) -> dict[str, Any] | None:
-    """Result JSON for ``name`` or None."""
+    """Load the result JSON for ``name`` (None if absent)."""
     p = R / f"{name}.json"
     return json.loads(p.read_text()) if p.exists() else None
 
@@ -150,7 +150,7 @@ def residuals(name: str = "xgboost") -> str:
     lines += ["", "By district:", by_d.to_string(), "", "By year x district:", by_y.to_string()]
     lines += ["", "Mean residual by prediction decile (0=lowest):", by_q.to_string()]
     fig, ax = plt.subplots(1, 3, figsize=(17, 5))
-    s = df.sample(30_000, random_state=c.GLOBAL_SEED)
+    s = df.sample(30_000, random_state=GLOBAL_SEED)
     ax[0].scatter(s.pred, s.res, s=2, alpha=0.2)
     ax[0].axhline(0, color="k")
     ax[0].set(xlabel="predicted (t/ha)", ylabel="residual", title=f"{name}: residual vs predicted")
@@ -184,7 +184,8 @@ def main() -> None:
     tr = trend_reference()
     parts.append(
         "Reference (per-district linear time trend, leave-one-year-out): "
-        f"pooled R2 {tr['pooled']['r2']:.3f}, RMSE {tr['pooled']['rmse']:.3f}, r {tr['pooled_r']:.3f}; "
+        f"pooled R2 {tr['pooled']['r2']:.3f}, RMSE {tr['pooled']['rmse']:.3f}, "
+        f"r {tr['pooled_r']:.3f}; "
         f"Nagar R2 {tr['KanpurNagar']['r2']:.3f}, Dehat R2 {tr['KanpurDehat']['r2']:.3f}"
     )
     parts.append("### C2. All 13 APY years, in-sample for 2010-2020 (not a test)")

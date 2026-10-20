@@ -11,6 +11,7 @@ import numpy as np
 import pandas as pd
 from sklearn.base import BaseEstimator, clone
 
+from src.features.targets import load_apy
 from src.models import common as c
 
 Factory = Callable[[], BaseEstimator]
@@ -20,8 +21,8 @@ def _fit_predict(
     make: Factory, feats: list[str], tr: pd.DataFrame, te: pd.DataFrame
 ) -> tuple[BaseEstimator, np.ndarray]:
     est = clone(make())
-    est.fit(tr[feats], tr["y"])  # type: ignore[attr-defined]
-    return est, np.asarray(est.predict(te[feats]))  # type: ignore[attr-defined]
+    est.fit(tr[feats], tr["y"])
+    return est, np.asarray(est.predict(te[feats]))
 
 
 def lodo(make: Factory, feats: list[str], x: pd.DataFrame) -> dict[str, Any]:
@@ -51,7 +52,7 @@ def loyo_district_agg(make: Factory, feats: list[str], x: pd.DataFrame) -> dict[
 
     This is the only district-level comparison with APY that is not in-sample.
     """
-    apy_years = sorted(c.load_apy().year.unique())
+    apy_years = sorted(load_apy().year.unique())
     parts = []
     for yr in apy_years:
         tr, te = x[x.year != yr], x[x.year == yr]
@@ -79,8 +80,8 @@ def evaluate(
     est, p = _fit_predict(make, feats, tr, te)
     fit_s = time.time() - t0
     te = te.assign(pred=p)
-    ptr = np.asarray(est.predict(tr[feats]))  # type: ignore[attr-defined]
-    full = x.assign(pred=np.asarray(est.predict(x[feats])))  # type: ignore[attr-defined]
+    ptr = np.asarray(est.predict(tr[feats]))
+    full = x.assign(pred=np.asarray(est.predict(x[feats])))
     res: dict[str, Any] = {
         "model": name,
         "n_features": len(feats),

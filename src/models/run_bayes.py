@@ -27,8 +27,9 @@ from src.models import common as c
 from src.models.evaluate import evaluate
 from src.models.feature_sets import FULL
 from src.models.run_baselines import pipe
+from src.utils.seed import GLOBAL_SEED
 
-SEED = c.GLOBAL_SEED
+SEED = GLOBAL_SEED
 N_TRAIN = 30_000
 QUICK = os.environ.get("BAYES_QUICK") == "1"  # smoke test of the post-processing path
 DRAWS, TUNE = (60, 60) if QUICK else (2000, 1000)
@@ -183,7 +184,8 @@ def main() -> None:
     fig.savefig("figures/bayes_posterior_predictive.png", dpi=130)
     t = res["test"]["combined"]
     print(
-        f"pymc test R2 {t['r2']:.3f} RMSE {t['rmse']:.3f}; coverage {res['coverage_95_predictive_test']:.3f}"
+        f"pymc test R2 {t['r2']:.3f} RMSE {t['rmse']:.3f}; "
+        f"coverage {res['coverage_95_predictive_test']:.3f}"
     )
     print(sample20.round(3).to_string())
 
