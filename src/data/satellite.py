@@ -54,7 +54,7 @@ class ExportJob:
     """A started GEE batch export to an Earth Engine asset."""
 
     export_id: str
-    task: ee.batch.Task
+    task_id: str
     asset_id: str
 
 
@@ -141,16 +141,31 @@ def year_stack(year: int, region: ee.Geometry) -> tuple[ee.Image, list[int]]:
     return stack.clip(region).unmask(NODATA), doys
 
 
-def cropland_fraction(grid_crs: str, transform: list[float], region: ee.Geometry) -> ee.Image:
-    """Fraction (permille) of 10 m WorldCover-2021 cropland (class 40) in each MODIS pixel."""
-    wc = ee.ImageCollection(WORLDCOVER).first().select("Map")
-    frac = (
-        wc.eq(40)
-        .reduceResolution(ee.Reducer.mean(), maxPixels=1024)
-        .reproject(crs=grid_crs, crsTransform=transform)
-        .rename("cropland_frac")
-    )
-    return frac.multiply(1000).clip(region).unmask(NODATA).toInt16()
+def cropland_fraction(tile: ee.Geometry) -> ee.Image:
+    """Fraction (permille) of 10 m WorldCover-2021 cropland (class 40) per MODIS pixel in ``tile``.
+
+    The source is clipped to the tile *before* reduceResolution so EE only has to aggregate
+    that tile's 10 m pixels (the full region exceeds its reprojection limit). The aggregation
+    itself happens at the export grid (crs/crsTransform on the export).
+    """
+    wc = ee.ImageCollection(WORLDCOVER).first().select("Map").clip(tile)
+    frac = wc.eq(40).reduceResolution(ee.Reducer.mean(), maxPixels=1024).rename("cropland_frac")
+    return frac.multiply(1000).unmask(NODATA).toInt16()
+
+
+def tile_regions(region: ee.Geometry, nx: int, ny: int) -> list[ee.Geometry]:
+    """Split the bounding box of ``region`` into an ``nx`` x ``ny`` grid of rectangles."""
+    ring = region.bounds().coordinates().getInfo()[0]
+    xs, ys = [c[0] for c in ring], [c[1] for c in ring]
+    x0, x1, y0, y1 = min(xs), max(xs), min(ys), max(ys)
+    dx, dy = (x1 - x0) / nx, (y1 - y0) / ny
+    return [
+        ee.Geometry.Rectangle(
+            [x0 + i * dx, y0 + j * dy, x0 + (i + 1) * dx, y0 + (j + 1) * dy], geodesic=False
+        )
+        for j in range(ny)
+        for i in range(nx)
+    ]
 
 
 def start_export(
@@ -165,8 +180,8 @@ def start_export(
     details: dict[str, Any],
 ) -> ExportJob:
     """Log the EECU estimate (raises ``QuotaExceeded`` over the ceiling), then start the task."""
-    log_estimate(export_id, estimated_eecu_hours, basis, {**details, "asset": asset})
     ensure_folders(asset)
+    log_estimate(export_id, estimated_eecu_hours, basis, {**details, "asset": asset})
     task = ee.batch.Export.image.toAsset(
         image=image,
         description=export_id,
@@ -177,21 +192,29 @@ def start_export(
         maxPixels=int(1e9),
     )
     task.start()
-    return ExportJob(export_id, task, asset)
+    return ExportJob(export_id, str(task.id), asset)
+
+
+def adopt_running(export_id: str, asset: str) -> ExportJob | None:
+    """Return a handle for an already submitted, unfinished task named ``export_id``, if any."""
+    for st in ee.data.getTaskList():
+        if st.get("description") == export_id and st["state"] in {"READY", "RUNNING"}:
+            return ExportJob(export_id, str(st["id"]), asset)
+    return None
 
 
 def wait_and_log(job: ExportJob, poll_s: int = 10, timeout_s: int = 3600) -> float | None:
     """Poll until the task ends, log the metered EECU-seconds, return them (None if unreported)."""
     t0 = time.time()
     while True:
-        st = ee.data.getTaskStatus(job.task.id)[0]
+        st = ee.data.getTaskStatus(job.task_id)[0]
         if st["state"] in {"COMPLETED", "FAILED", "CANCELLED"}:
             break
         if time.time() - t0 > timeout_s:
             raise TimeoutError(f"{job.export_id} still {st['state']} after {timeout_s}s")
         time.sleep(poll_s)
     eecu = st.get("batch_eecu_usage_seconds")
-    log_actual(job.export_id, job.task.id, None if eecu is None else float(eecu), st["state"])
+    log_actual(job.export_id, job.task_id, None if eecu is None else float(eecu), st["state"])
     if st["state"] != "COMPLETED":
         raise RuntimeError(f"{job.export_id} {st['state']}: {st.get('error_message')}")
     return None if eecu is None else float(eecu)
@@ -214,24 +237,36 @@ def download_asset(
     resp = requests.get(url, timeout=600)
     resp.raise_for_status()
     out_zip.write_bytes(resp.content)
+    save_band_names(asset, out_zip)
     return out_zip
 
 
+def _sidecar(zip_path: Path) -> Path:
+    return zip_path.with_name(zip_path.stem + ".bands.json")
+
+
+def save_band_names(asset: str, zip_path: Path) -> None:
+    """Persist the asset's band order next to the download (the GeoTIFF carries no names)."""
+    names = ee.Image(asset).bandNames().getInfo()
+    _sidecar(zip_path).write_text(json.dumps(names), encoding="utf-8")
+
+
 def read_band_zip(path: Path) -> tuple[dict[str, np.ndarray], rasterio.Affine]:
-    """Read a ZIPPED_GEO_TIFF download into ``{band_name: 2-D array}`` plus the affine transform."""
-    bands: dict[str, np.ndarray] = {}
-    transform: rasterio.Affine | None = None
+    """Read a download into ``{band_name: 2-D array}`` plus the affine transform.
+
+    Band names come from the ``.bands.json`` sidecar written at download time.
+    """
+    names: list[str] = json.loads(_sidecar(path).read_text(encoding="utf-8"))
     with zipfile.ZipFile(path) as z:
-        for name in sorted(z.namelist()):
-            if not name.endswith(".tif"):
-                continue
-            band = name.removesuffix(".tif").rsplit(".", 1)[-1]
-            with MemoryFile(z.read(name)) as mf, mf.open() as src:
-                bands[band] = src.read(1)
-                transform = transform or src.transform
-    if transform is None:
-        raise ValueError(f"no GeoTIFF bands in {path}")
-    return bands, transform
+        tifs = [n for n in z.namelist() if n.endswith(".tif")]
+        if len(tifs) != 1:
+            raise ValueError(f"{path.name}: expected one GeoTIFF, found {tifs}")
+        with MemoryFile(z.read(tifs[0])) as mf, mf.open() as src:
+            if src.count != len(names):
+                raise ValueError(f"{path.name}: {src.count} bands but {len(names)} names")
+            data = src.read()
+            transform = src.transform
+    return {n: data[i] for i, n in enumerate(names)}, transform
 
 
 def _district_raster(
@@ -253,16 +288,39 @@ def _district_raster(
     return rasterize(shapes, out_shape=shape, transform=transform, fill=0, dtype="uint8")
 
 
+def mosaic_tiles(
+    tile_zips: list[Path], shape: tuple[int, int], transform: rasterio.Affine, band: str
+) -> np.ndarray:
+    """Paste grid-aligned tile downloads into one array on the year grid (``NODATA`` elsewhere)."""
+    out = np.full(shape, NODATA, dtype=float)
+    for zp in tile_zips:
+        bands, tf = read_band_zip(zp)
+        arr = bands[band]
+        col_off = (tf.c - transform.c) / transform.a
+        row_off = (tf.f - transform.f) / transform.e
+        if abs(col_off - round(col_off)) > 1e-3 or abs(row_off - round(row_off)) > 1e-3:
+            raise ValueError(f"{zp.name} is not aligned to the MODIS grid")
+        r0, c0 = round(row_off), round(col_off)
+        # edge tiles can spill a pixel or two past the year grid; paste only the overlap
+        rs, cs = max(r0, 0), max(c0, 0)
+        re_, ce = min(r0 + arr.shape[0], shape[0]), min(c0 + arr.shape[1], shape[1])
+        if re_ > rs and ce > cs:
+            piece = arr[rs - r0 : re_ - r0, cs - c0 : ce - c0]
+            # A lon/lat tile is a slanted shape on the sinusoidal grid: its bbox is padded with
+            # masked (-32768) pixels that belong to neighbouring tiles, so never paste those.
+            valid = piece != np.iinfo(np.int16).min
+            view = out[rs:re_, cs:ce]
+            view[valid] = piece[valid]
+    return out
+
+
 def stack_to_frame(
-    year_zip: Path, crop_zip: Path, districts: dict[str, dict[str, Any]], year: int
+    year_zip: Path, crop_zips: list[Path], districts: dict[str, dict[str, Any]], year: int
 ) -> pd.DataFrame:
     """Convert the year stack to long-format pixel-time rows (one row per pixel per composite)."""
-    crop_bands, crop_tf = read_band_zip(crop_zip)
-    crop = crop_bands["cropland_frac"].astype(float)
     bands, transform = read_band_zip(year_zip)
-    h, w = crop.shape
-    if next(iter(bands.values())).shape != (h, w) or crop_tf != transform:
-        raise ValueError("crop raster and year stack are not on the same grid")
+    h, w = next(iter(bands.values())).shape
+    crop = mosaic_tiles(crop_zips, (h, w), transform, "cropland_frac")
     rows, cols = np.mgrid[0:h, 0:w]
     xs, ys = transform * (cols + 0.5, rows + 0.5)
     xs, ys = np.asarray(xs), np.asarray(ys)

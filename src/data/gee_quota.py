@@ -43,7 +43,7 @@ def cumulative_hours(log: Path = QUOTA_LOG) -> float:
     for r in _read(log):
         if r["event"] == "estimate":
             est[r["export_id"]] = float(r["estimated_eecu_hours"])
-        elif r["event"] == "actual":
+        elif r["event"] == "actual" and r.get("actual_eecu_hours") is not None:
             act[r["export_id"]] = float(r["actual_eecu_hours"])
     return sum(act.get(k, v) for k, v in est.items())
 

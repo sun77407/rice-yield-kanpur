@@ -358,3 +358,10 @@ Each entry follows the ADR format: **Context → Options → Decision → Ration
 **Rationale.** No billing account is attached, which keeps the project on the free Community tier and strengthens the zero-cost claim of the paper. A batch export (unlike (c)) reports a metered `batch_eecu_usage_seconds`, which the quota ledger needs (the 100 EECU-hour ceiling).
 
 **Consequences.** (1) The download from the asset is an interactive request and is not metered in batch EECU; it is limited to about 48 MB per request, which is why exports are per year. (2) Asset storage counts against the Earth Engine asset quota (verify the quota before the full-range export). (3) Manifest entries record the `ee_asset_id` instead of a `gs://` URL.
+
+**Dry-run findings (2020, appended to ADR-024).**
+- Asset root `projects/notifyproj-a28b2/assets` did not exist for the service account; it was created once with `ee.data.createAssetHome`. Quota shown by EE: 250 GB / 50,000 assets.
+- `reduceResolution` of 10 m WorldCover fails ("Reprojection output too large") when the export footprint exceeds roughly 20M source pixels (probed: 0.15 x 0.15 degrees works, 0.3 x 0.5 fails). The cropland-fraction export is therefore tiled 4 x 4 (16 assets, `worldcover/2021/cropland_frac_t<i>`) and mosaicked locally.
+- A lon/lat rectangle is slanted on the MODIS sinusoidal grid, so each tile's bounding box carries ~40% masked padding (-32768). The mosaic must paste only valid pixels.
+- `getDownloadURL` returns one unnamed multi-band GeoTIFF; band names are saved in a `<zip>.bands.json` sidecar at download time.
+- Measured cost: year stack 11.2 EECU-s; one-off cropland tiles 104 EECU-s total.
