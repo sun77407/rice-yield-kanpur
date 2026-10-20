@@ -157,11 +157,11 @@ def fetch_chirps(project: str) -> pd.DataFrame:
     return df
 
 
-def fetch_era5_year(year: int, out_dir: Path) -> Path:
-    """One year of hourly ERA5-Land (4 variables, Kanpur box) as NetCDF via the CDS API."""
+def fetch_era5_month(year: int, month: int, out_dir: Path) -> Path:
+    """One month of hourly ERA5-Land (4 variables, Kanpur box) as NetCDF via the CDS API."""
     import cdsapi
 
-    target = out_dir / f"era5land_{year}.nc"
+    target = out_dir / f"era5land_{year}{month:02d}.nc"
     if target.exists():
         return target
     w, s, e, n = BBOX
@@ -173,7 +173,7 @@ def fetch_era5_year(year: int, out_dir: Path) -> Path:
             "surface_pressure",
         ],
         "year": str(year),
-        "month": [f"{m:02d}" for m in range(1, 13)],
+        "month": f"{month:02d}",
         "day": [f"{d:02d}" for d in range(1, 32)],
         "time": [f"{h:02d}:00" for h in range(24)],
         "area": [n, w, s, e],
@@ -190,7 +190,7 @@ def fetch_era5_year(year: int, out_dir: Path) -> Path:
         tmp.replace(target)
         return target
 
-    return with_retries("era5_land", f"year {year}", call)
+    return with_retries("era5_land", f"{year}-{month:02d}", call)
 
 
 def era5_daily(files: list[Path]) -> pd.DataFrame:

@@ -19,9 +19,10 @@ def era5() -> None:
     """Download ERA5-Land per year (parallel), aggregate to daily, write parquet + manifest."""
     out_dir = w.RAW / "era5_land"
     out_dir.mkdir(parents=True, exist_ok=True)
-    years = list(range(2010, 2025))
-    with ThreadPoolExecutor(max_workers=2) as ex:
-        files = list(ex.map(lambda y: w.fetch_era5_year(y, out_dir), years))
+    ym = [(y, m) for y in range(2010, 2025) for m in range(1, 13)]
+    # a full year of 4 hourly variables is rejected ("cost limits exceeded"), so go monthly
+    with ThreadPoolExecutor(max_workers=3) as ex:
+        files = list(ex.map(lambda t: w.fetch_era5_month(t[0], t[1], out_dir), ym))
     tail = out_dir / "era5land_20250101.nc"  # 00 UTC on 2025-01-01 closes the 2024-12-31 total
     if not tail.exists():
         lo, so, ea, no = w.BBOX[0], w.BBOX[1], w.BBOX[2], w.BBOX[3]
