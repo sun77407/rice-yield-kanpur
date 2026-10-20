@@ -40,6 +40,8 @@ def build() -> tuple[pd.DataFrame, pd.DataFrame]:
         .merge(soil, on="pixel_id", how="left")
         .merge(tpx, on=["pixel_id", "district", "year"], how="left")
     )
+    # ADR-028: calibration-derived / target-correlated NDVI features never enter the matrix
+    x = x.drop(columns=["grain_filling_ndvi", "integrated_ndvi", "peak_ndvi", "smooth_roughness"])
     x["district_kanpur_dehat"] = (x.district == "KanpurDehat").astype(int)
     x["district_kanpur_nagar"] = (x.district == "KanpurNagar").astype(int)
     sat_dy = ph.groupby(["district", "year"])[PHENO].mean().add_prefix("mean_").reset_index()

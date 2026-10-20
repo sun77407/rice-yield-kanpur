@@ -20,6 +20,7 @@ def load_apy(path: Path = APY_CSV) -> pd.DataFrame:
     missing = {"district", "year", "yield_t_ha"} - set(df.columns)
     if missing:
         raise ValueError(f"{path}: missing columns {missing}")
+    df["district"] = df.district.str.replace(" ", "", regex=False)  # "Kanpur Nagar" -> GADM name
     return df[["district", "year", "yield_t_ha"]]
 
 
