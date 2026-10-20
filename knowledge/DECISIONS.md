@@ -387,3 +387,21 @@ Each entry follows the ADR format: **Context → Options → Decision → Ration
 - Son, N.-T., Chen, C.-F., Chen, C.-R., Duc, H.-N., Chang, L.-Y. (2014). A phenology-based classification of time-series MODIS data for rice crop monitoring in Mekong Delta, Vietnam. *Remote Sensing* 6(1), 135-156. doi:10.3390/rs6010135.
 
 **Citation note.** Son et al. (2014) smooths MODIS EVI with *empirical mode decomposition*, not Savitzky-Golay. It is cited here only as precedent for smoothing MODIS series before rice-phenology analysis; the SG method itself rests on Chen et al. (2004). The request to cite Son et al. for the SG methodology could not be honoured as stated.
+
+### ADR-025 addendum (2026-10-20): minimum valid observations
+
+After the QA <= 1 rule and before gap-filling, each pixel-year must have **at least 4 valid observations** (of 9 composites). Pixel-years with 0-3 are dropped *for that year only*; the pixel stays in other years. This replaces the "fewer than 5" floor stated in item 3 above. Dropped counts per year are reported in the Phase 2 report.
+
+---
+
+## ADR-026: CHIRPS is the primary rainfall source; IMD kept as a secondary column
+
+**Status:** Accepted (user decision, 2026-10-20).
+
+**Context.** Over 2010-2024 the district-mean annual rainfall is 884-918 mm in CHIRPS (Nagar/Dehat) and 863 mm at the NASA POWER point, but 629 mm in the IMD 0.25 deg grid (5x5 cells over the box), about 30% below CHIRPS. Year totals diverge most in 2014 (466 mm), 2015 (446 mm) and 2017 (453 mm).
+
+**Decision.** All rainfall features use CHIRPS (0.05 deg). IMD rainfall stays in the feature matrix as a secondary column (`imd_*`), not dropped, so reviewers can see the sensitivity. IMD Tmax/Tmin remain secondary too.
+
+**Rationale.** CHIRPS' totals agree with the Kanpur climatological normal range (820-900 mm, as stated by the project owner; not independently re-checked here) and with NASA POWER, and CHIRPS is validated over South Asia (Funk et al. 2015, R15). The suggested mechanism for the IMD shortfall (0.25 deg gridding under-representing convective peaks) is a hypothesis; it was not tested.
+
+**Consequences.** IMD-based sensitivity features can be added later without re-acquisition. The CHIRPS-vs-IMD gap is disclosed in the manuscript's limitations.

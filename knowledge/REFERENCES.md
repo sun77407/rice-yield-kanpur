@@ -198,6 +198,19 @@ Also: the agent **MUST** append any additional reference discovered during the b
 
 ---
 
+### R16 — Chen et al. 2004 (Savitzky-Golay NDVI smoothing)
+
+**Citation.** Chen, J., Jönsson, P., Tamura, M., Gu, Z., Matsushita, B., & Eklundh, L. (2004). *A simple method for reconstructing a high-quality NDVI time-series data set based on the Savitzky-Golay filter.* Remote Sensing of Environment, 91(3-4), 332-344. https://doi.org/10.1016/j.rse.2004.03.014
+
+**Key finding.** An iterative Savitzky-Golay filter that pulls cloud-depressed NDVI toward the upper envelope of the annual cycle outperformed BISE and Fourier fitting on 10-day SPOT-VGT composites. (Verified via web search, 2026-10-20.)
+
+**Our use.** Methodology citation for Savitzky-Golay NDVI smoothing in Phase 2 feature engineering (ADR-025). We use the plain (non-iterative) filter, order 2, window 5, after linear gap interpolation.
+
+**BibTeX key.** `chen2004sg`
+
+---
+
+
 ## Additional sources for the RAG knowledge base (not cited in paper, but included in KB corpus)
 
 ### KB-1 — IRRI Rice Knowledge Bank
