@@ -541,3 +541,43 @@ SoilGrids' catalog labels nitrogen as cg/kg, but the raw median over Kanpur is 1
 
 ### ADR-030 addendum (2026-10-21)
 AquaCrop (Agent 3D) was run as a stretch task, uncalibrated, with library PaddyRice parameters. Its results are exploratory and excluded from the paper's main text (ADR-032).
+
+---
+
+## ADR-033: Knowledge-base assembly constraint (Phase 4)
+
+**Status:** Accepted (user decision 2026-10-21).
+
+**Context.** The institutional sources planned in REFERENCES.md (KB-1 to KB-7: IRRI Knowledge Bank, ICAR-IIRR, ICAR-IIFSR, KVK Kanpur, UP Agriculture Department, FAO manual, ICAR-CRRI) could not be obtained in English text form. The user assembled `kb/raw/kb_corpus.txt` (about 5,400 words, parts A-J) from IRRI Rice Knowledge Bank (water module), Wikipedia articles (used as a consolidated reference), a 2018 NDUAT Faizabad NPK field trial, the DRDPAT variety database, a notified-varieties list, NDUAT 2021 variety releases and IndiaAgronet. Provenance is in `kb/raw/SOURCES.md`.
+
+**Decision.** Build the RAG index from this corpus as delivered; do not edit it. Each chunk records its source URL(s), description and a `source_type` (`other_source` = a documented non-Wikipedia source, `wikipedia`, `synthesis`) so that the app can show provenance and the paper can state the limitation.
+
+**Known limitations (recorded, not fixed).**
+- No KVK Kanpur or CSAUAT content; scope is "North Indian plains / eastern UP with Kanpur applicability".
+- Wikipedia is the source for much of the pest, disease, establishment and regional text; it is not citable in the manuscript, so the manuscript should describe the KB as a prototype corpus, not an authoritative agronomic source.
+- Passages J1-J5, E7, F3 and I1 are the corpus author's synthesis, not sourced documents.
+- Passage A6 reports yields of 36.60 and 33.56 t/ha from the NDUAT trial and notes inside the passage that these look like biomass, not grain yield. The advisory model could repeat them; the app should not present them as grain yields.
+- Several numbers are single-source (NPK dose from one Faizabad trial on Pusa Basmati 1; Narendra-80 and Pant Dhan-6 specifications from one database).
+- No numeric economic thresholds for pests.
+The advisory is decision support, not a substitute for an agronomist.
+
+---
+
+## ADR-034: Phase 4 retrieval, grounding threshold and what the grounding score does and does not show
+
+**Status:** Accepted by the implementer for the Phase 4 build; the grounding-metric question is **open for user decision**.
+
+**Retrieval.** 54 chunks (one per `###` subsection; none exceeded the 200-word split limit, median 82 words). nomic-embed-text with its `search_document:` / `search_query:` prefixes, ChromaDB cosine index. On 20 handcrafted queries with section-level gold labels written before retrieval: precision@3 0.50, recall@5 0.85, hit@3 1.00, precision@1 0.95, MRR 0.975. Precision@3 cannot exceed min(|gold|,3)/3 per query, so with these label sets (1-4 relevant sections each) the attainable maximum is 0.65; the ceiling-normalised value is 0.84. The 0.70 target is therefore not reachable under this labelling and was not met. Chunk sizes of about 100 and 200 words gave 0.48 and 0.50, so the default (about 150 words) was kept. Labels were not changed after seeing results.
+
+**Grounding threshold.** ADR-010 started at cosine 0.6 and cited RAGAS (Es et al. 2023) as the source of that value; RAGAS verifies claims with an LLM and does not use a cosine threshold, so R13 does not support the number. On 61 handcrafted sentences (41 supported by their passages, 20 plausible but unsupported, 10 passage sets), the maximum cosine to the passages was 0.73-0.97 (median 0.83) for supported and 0.63-0.83 (median 0.74) for unsupported sentences (AUC 0.90). At 0.6 every unsupported sentence passed (0% rejected). Balanced accuracy peaked at **0.78** (88% of supported kept, 80% of unsupported rejected, 5 false negatives, 4 false positives); 0.78 is locked as the default `THRESHOLD` in `src/llm/grounding.py`. The grid had no held-out set, so 0.78 is fitted to those 61 sentences.
+
+**Result on generated advisories (30 analog-year scenarios, qwen2.5:14b-instruct-q6_K, no fallback used).**
+- Share of advice sentences with cosine >= 0.78: mean 0.57, median 0.60, 10th percentile 0.20; 18 of 30 advisories below 0.70 (bad-year advisories 0.32, average 0.68, good 0.71). This misses the 80% target.
+- At 0.6 the share is 1.00 for every advisory, which carries no information.
+- A self-judge (the same model, temperature 0) rated 84% of 141 advice sentences fully supported, 16% partly supported, 0% unsupported. Cosine does not follow it: mean max cosine 0.790 for supported vs 0.797 for partly supported sentences. Against the judge, "everything grounded" (0.6) agrees on 84% of sentences and 0.78 on 55%.
+- Hand-reading the three Nagar examples and 14 randomly drawn sentences, almost all advice is faithful to the passages, so 0.78 mostly produces false negatives on real output (advice sentences are short and abstract, so their cosine to a longer passage is lower than for the handcrafted paraphrases it was fitted on). Sentences that mix scenario facts into advice score lowest.
+- Cosine also passes factual slips: in the first run, 7 of 30 bad-year advisories said "reduce nitrogen to 60 kg per hectare" because passage J3 says "split dose at 60 DAT" and the corpus never defines DAT; those sentences scored 0.74-0.80. The prompt now carries a glossary (DAT = days after transplanting and others); the slip fell to 1 of 30 advisories. The glossary was added after seeing the first results; the first-run files are kept as `*_v1_no_glossary`.
+
+**Other measured properties.** 24 of 30 advisories cite at least 3 distinct passages (6 cite 2); no citation number was out of range; every advisory follows the Scenario/Advice format. Median end-to-end latency (retrieve, generate, ground) 4.0 s, 95th percentile 4.6 s on the RTX 5070 Ti with the model already loaded. The judge, given only the passages each sentence cites, rated 36% fully supported, so citation numbers are often attached to the wrong or an incomplete passage.
+
+**Decision pending.** The cosine score cannot be shown to measure faithfulness on this system. Options: (a) keep cosine as a retrieval-relevance diagnostic only and report the claim-level judge (preferably a different model, to avoid self-judging bias) as the grounding metric; (b) add the second LLM pass of ADR-010 option (c); (c) keep 0.78 and report the failure. Nothing was changed beyond locking 0.78.

@@ -1,0 +1,2314 @@
+{
+ "summary": {
+  "n_sentences": 141,
+  "judge_supported_any": 0.8368794326241135,
+  "judge_supported_cited": 0.3617021276595745,
+  "verdict_counts_any": {
+   "supported": 118,
+   "partly": 23,
+   "unsupported": 0
+  },
+  "mean_cosine_supported": 0.7902202469817663,
+  "mean_cosine_not_supported": 0.796916241231172,
+  "sweep": [
+   {
+    "threshold": 0.5,
+    "share_grounded": 1.0,
+    "agree_with_judge_any": 0.8368794326241135,
+    "grounded_but_judged_unsupported": 23,
+    "ungrounded_but_judged_supported": 0
+   },
+   {
+    "threshold": 0.52,
+    "share_grounded": 1.0,
+    "agree_with_judge_any": 0.8368794326241135,
+    "grounded_but_judged_unsupported": 23,
+    "ungrounded_but_judged_supported": 0
+   },
+   {
+    "threshold": 0.54,
+    "share_grounded": 1.0,
+    "agree_with_judge_any": 0.8368794326241135,
+    "grounded_but_judged_unsupported": 23,
+    "ungrounded_but_judged_supported": 0
+   },
+   {
+    "threshold": 0.56,
+    "share_grounded": 1.0,
+    "agree_with_judge_any": 0.8368794326241135,
+    "grounded_but_judged_unsupported": 23,
+    "ungrounded_but_judged_supported": 0
+   },
+   {
+    "threshold": 0.58,
+    "share_grounded": 1.0,
+    "agree_with_judge_any": 0.8368794326241135,
+    "grounded_but_judged_unsupported": 23,
+    "ungrounded_but_judged_supported": 0
+   },
+   {
+    "threshold": 0.6,
+    "share_grounded": 1.0,
+    "agree_with_judge_any": 0.8368794326241135,
+    "grounded_but_judged_unsupported": 23,
+    "ungrounded_but_judged_supported": 0
+   },
+   {
+    "threshold": 0.62,
+    "share_grounded": 1.0,
+    "agree_with_judge_any": 0.8368794326241135,
+    "grounded_but_judged_unsupported": 23,
+    "ungrounded_but_judged_supported": 0
+   },
+   {
+    "threshold": 0.64,
+    "share_grounded": 1.0,
+    "agree_with_judge_any": 0.8368794326241135,
+    "grounded_but_judged_unsupported": 23,
+    "ungrounded_but_judged_supported": 0
+   },
+   {
+    "threshold": 0.66,
+    "share_grounded": 1.0,
+    "agree_with_judge_any": 0.8368794326241135,
+    "grounded_but_judged_unsupported": 23,
+    "ungrounded_but_judged_supported": 0
+   },
+   {
+    "threshold": 0.68,
+    "share_grounded": 1.0,
+    "agree_with_judge_any": 0.8368794326241135,
+    "grounded_but_judged_unsupported": 23,
+    "ungrounded_but_judged_supported": 0
+   },
+   {
+    "threshold": 0.7,
+    "share_grounded": 0.9645390070921985,
+    "agree_with_judge_any": 0.8014184397163121,
+    "grounded_but_judged_unsupported": 23,
+    "ungrounded_but_judged_supported": 5
+   },
+   {
+    "threshold": 0.72,
+    "share_grounded": 0.8865248226950354,
+    "agree_with_judge_any": 0.7659574468085106,
+    "grounded_but_judged_unsupported": 20,
+    "ungrounded_but_judged_supported": 13
+   },
+   {
+    "threshold": 0.74,
+    "share_grounded": 0.8297872340425532,
+    "agree_with_judge_any": 0.7092198581560284,
+    "grounded_but_judged_unsupported": 20,
+    "ungrounded_but_judged_supported": 21
+   },
+   {
+    "threshold": 0.76,
+    "share_grounded": 0.7375886524822695,
+    "agree_with_judge_any": 0.6595744680851063,
+    "grounded_but_judged_unsupported": 17,
+    "ungrounded_but_judged_supported": 31
+   },
+   {
+    "threshold": 0.78,
+    "share_grounded": 0.5602836879432624,
+    "agree_with_judge_any": 0.5531914893617021,
+    "grounded_but_judged_unsupported": 12,
+    "ungrounded_but_judged_supported": 51
+   },
+   {
+    "threshold": 0.8,
+    "share_grounded": 0.41843971631205673,
+    "agree_with_judge_any": 0.45390070921985815,
+    "grounded_but_judged_unsupported": 9,
+    "ungrounded_but_judged_supported": 68
+   },
+   {
+    "threshold": 0.82,
+    "share_grounded": 0.2978723404255319,
+    "agree_with_judge_any": 0.3475177304964539,
+    "grounded_but_judged_unsupported": 8,
+    "ungrounded_but_judged_supported": 84
+   },
+   {
+    "threshold": 0.84,
+    "share_grounded": 0.14893617021276595,
+    "agree_with_judge_any": 0.2127659574468085,
+    "grounded_but_judged_unsupported": 7,
+    "ungrounded_but_judged_supported": 104
+   },
+   {
+    "threshold": 0.86,
+    "share_grounded": 0.0851063829787234,
+    "agree_with_judge_any": 0.19148936170212766,
+    "grounded_but_judged_unsupported": 4,
+    "ungrounded_but_judged_supported": 110
+   },
+   {
+    "threshold": 0.88,
+    "share_grounded": 0.05673758865248227,
+    "agree_with_judge_any": 0.19148936170212766,
+    "grounded_but_judged_unsupported": 2,
+    "ungrounded_but_judged_supported": 112
+   }
+  ]
+ },
+ "rows": [
+  {
+   "run": 0,
+   "district": "Kanpur Dehat",
+   "scenario": "bad",
+   "analog_year": 2010,
+   "sentence": "Reduce nitrogen split dose at 60 DAT to conserve cash as it's a forecasted bad year [2].",
+   "cited": [
+    2
+   ],
+   "max_cosine": 0.8141272664070129,
+   "best_passage": "J3",
+   "judge_any": "supported",
+   "judge_cited": "supported",
+   "judge_reason": "Matches passage 2's advice for a forecasted bad year."
+  },
+  {
+   "run": 0,
+   "district": "Kanpur Dehat",
+   "scenario": "bad",
+   "analog_year": 2010,
+   "sentence": "Prioritize insecticide application only if BPH presence is confirmed through scouting due to the high risk of infestation in Kanpur during August and September [3][4].",
+   "cited": [
+    3,
+    4
+   ],
+   "max_cosine": 0.7961871027946472,
+   "best_passage": "J3",
+   "judge_any": "partly",
+   "judge_cited": "partly",
+   "judge_reason": "Sentence implies scouting but not specific to Kanpur season."
+  },
+  {
+   "run": 0,
+   "district": "Kanpur Dehat",
+   "scenario": "bad",
+   "analog_year": 2010,
+   "sentence": "Register for PMFBY insurance before the cut-off date to mitigate financial risks associated with reduced yields [2].",
+   "cited": [
+    2
+   ],
+   "max_cosine": 0.772834837436676,
+   "best_passage": "J3",
+   "judge_any": "supported",
+   "judge_cited": "partly",
+   "judge_reason": "Directly stated in passage [2]."
+  },
+  {
+   "run": 0,
+   "district": "Kanpur Dehat",
+   "scenario": "bad",
+   "analog_year": 2010,
+   "sentence": "Maintain 5 cm standing water during flowering (August-September) as a thermal buffer against heat stress days exceeding 35\u00b0C [6].",
+   "cited": [
+    6
+   ],
+   "max_cosine": 0.7211463451385498,
+   "best_passage": "I3",
+   "judge_any": "supported",
+   "judge_cited": "supported",
+   "judge_reason": "Matches passage 6 exactly."
+  },
+  {
+   "run": 0,
+   "district": "Kanpur Dehat",
+   "scenario": "bad",
+   "analog_year": 2010,
+   "sentence": "Activate pump irrigation at least 48 hours in advance of any predicted dry spells to protect tillering and panicle initiation stages [6].",
+   "cited": [
+    6
+   ],
+   "max_cosine": 0.7126088738441467,
+   "best_passage": "I3",
+   "judge_any": "supported",
+   "judge_cited": "partly",
+   "judge_reason": "Directly implied by passage [6]."
+  },
+  {
+   "run": 1,
+   "district": "Kanpur Dehat",
+   "scenario": "good",
+   "analog_year": 2011,
+   "sentence": "Apply the full recommended NPK schedule of 120 kg Nitrogen per hectare, 60 kg Phosphorus (as P2O5) per hectare, and 60 kg Potassium (as K2O) per hectare, along with 5 kg Zinc per hectare as zinc sulphate [1][2].",
+   "cited": [
+    1,
+    2
+   ],
+   "max_cosine": 0.8296095132827759,
+   "best_passage": "A1",
+   "judge_any": "supported",
+   "judge_cited": "supported",
+   "judge_reason": "Matches NPK and zinc details from passage 1."
+  },
+  {
+   "run": 1,
+   "district": "Kanpur Dehat",
+   "scenario": "good",
+   "analog_year": 2011,
+   "sentence": "Add a third top-dress nitrogen split at 75 DAT if the canopy remains green and vigorous to support strong growth during this good year scenario [2].",
+   "cited": [
+    2
+   ],
+   "max_cosine": 0.7885864973068237,
+   "best_passage": "J4",
+   "judge_any": "supported",
+   "judge_cited": "supported",
+   "judge_reason": "Matches good year scenario in passage [2] exactly."
+  },
+  {
+   "run": 1,
+   "district": "Kanpur Dehat",
+   "scenario": "good",
+   "analog_year": 2011,
+   "sentence": "Be vigilant for brown planthopper (BPH) outbreaks, given that ideal weather conditions for BPH coincide with vigorous rice growth in Kanpur during August and September [3][2].",
+   "cited": [
+    2,
+    3
+   ],
+   "max_cosine": 0.8922228813171387,
+   "best_passage": "C1",
+   "judge_any": "partly",
+   "judge_cited": "partly",
+   "judge_reason": "Weather conditions not explicitly linked to vigorous growth."
+  },
+  {
+   "run": 1,
+   "district": "Kanpur Dehat",
+   "scenario": "good",
+   "analog_year": 2011,
+   "sentence": "Plan storage capacity ahead of time to avoid distress sale at harvest due to the anticipated higher yield from this good year scenario [2].",
+   "cited": [
+    2
+   ],
+   "max_cosine": 0.6937892436981201,
+   "best_passage": "J4",
+   "judge_any": "supported",
+   "judge_cited": "partly",
+   "judge_reason": "Passage [2] mentions planning storage for good year scenario."
+  },
+  {
+   "run": 1,
+   "district": "Kanpur Dehat",
+   "scenario": "good",
+   "analog_year": 2011,
+   "sentence": "Weekly scouting should begin from the panicle initiation stage onward to detect early signs of brown planthopper infestation, as visible hopper burn indicates high population levels and curative action becomes difficult [4].",
+   "cited": [
+    4
+   ],
+   "max_cosine": 0.8476324081420898,
+   "best_passage": "C2",
+   "judge_any": "supported",
+   "judge_cited": "partly",
+   "judge_reason": "Matches scouting advice and hopper burn description in passage [4]."
+  },
+  {
+   "run": 2,
+   "district": "Kanpur Dehat",
+   "scenario": "average",
+   "analog_year": 2012,
+   "sentence": "Follow the standard NPK recommendation of 120 kg Nitrogen, 60 kg Phosphorus (as P2O5), and 60 kg Potassium (as K2O) per hectare along with 5 kg Zinc as zinc sulphate [1][4].",
+   "cited": [
+    1,
+    4
+   ],
+   "max_cosine": 0.8264071941375732,
+   "best_passage": "A1",
+   "judge_any": "supported",
+   "judge_cited": "partly",
+   "judge_reason": "Matches NPK and Zinc recommendation in passage 1."
+  },
+  {
+   "run": 2,
+   "district": "Kanpur Dehat",
+   "scenario": "average",
+   "analog_year": 2012,
+   "sentence": "Scout for brown planthopper weekly starting from the panicle initiation stage to prevent hopper burn, which is a common symptom of BPH infestation [3][4].",
+   "cited": [
+    3,
+    4
+   ],
+   "max_cosine": 0.8687901496887207,
+   "best_passage": "C2",
+   "judge_any": "supported",
+   "judge_cited": "partly",
+   "judge_reason": "Matches scouting advice and hopper burn description in passages."
+  },
+  {
+   "run": 2,
+   "district": "Kanpur Dehat",
+   "scenario": "average",
+   "analog_year": 2012,
+   "sentence": "Maintain standard split irrigation practices such as alternate wetting and drying (AWD) or continuous flooding until 7 to 10 days before harvest [5].",
+   "cited": [
+    5
+   ],
+   "max_cosine": 0.8290106058120728,
+   "best_passage": "J5",
+   "judge_any": "supported",
+   "judge_cited": "partly",
+   "judge_reason": "Matches passage 5's description of irrigation practices."
+  },
+  {
+   "run": 2,
+   "district": "Kanpur Dehat",
+   "scenario": "average",
+   "analog_year": 2012,
+   "sentence": "Be vigilant for brown planthopper outbreaks given the ideal weather conditions for this pest during August and September in Kanpur [2].",
+   "cited": [
+    2
+   ],
+   "max_cosine": 0.8073513507843018,
+   "best_passage": "C1",
+   "judge_any": "supported",
+   "judge_cited": "partly",
+   "judge_reason": "Matches passage 2 on BPH outbreak ideal weather conditions."
+  },
+  {
+   "run": 3,
+   "district": "Kanpur Dehat",
+   "scenario": "good",
+   "analog_year": 2013,
+   "sentence": "Follow the full NPK recommendation of 120 kg Nitrogen per hectare, 60 kg Phosphorus (as P2O5) per hectare, and 60 kg Potassium (as K2O) per hectare, plus 5 kg Zinc as zinc sulphate [1][2].",
+   "cited": [
+    1,
+    2
+   ],
+   "max_cosine": 0.8254926204681396,
+   "best_passage": "A1",
+   "judge_any": "supported",
+   "judge_cited": "supported",
+   "judge_reason": "Matches NPK and zinc recommendation in passage 1."
+  },
+  {
+   "run": 3,
+   "district": "Kanpur Dehat",
+   "scenario": "good",
+   "analog_year": 2013,
+   "sentence": "Apply a third top-dress nitrogen split at 75 DAT if the canopy remains green and vigorous to support good growth in this favorable year [2].",
+   "cited": [
+    2
+   ],
+   "max_cosine": 0.7921550273895264,
+   "best_passage": "J4",
+   "judge_any": "supported",
+   "judge_cited": "supported",
+   "judge_reason": "Matches passage [2] exactly."
+  },
+  {
+   "run": 3,
+   "district": "Kanpur Dehat",
+   "scenario": "good",
+   "analog_year": 2013,
+   "sentence": "Be vigilant for BPH outbreaks starting from the panicle initiation stage onwards due to ideal weather conditions for pest proliferation [2][3].",
+   "cited": [
+    2,
+    3
+   ],
+   "max_cosine": 0.7717177867889404,
+   "best_passage": "J4",
+   "judge_any": "partly",
+   "judge_cited": "partly",
+   "judge_reason": "Weather conditions not explicitly linked to panicle initiation stage."
+  },
+  {
+   "run": 3,
+   "district": "Kanpur Dehat",
+   "scenario": "good",
+   "analog_year": 2013,
+   "sentence": "Plan storage capacity ahead of time to avoid distress sale at harvest, given the forecasted high yield potential in a good monsoon year [2].",
+   "cited": [
+    2
+   ],
+   "max_cosine": 0.772262692451477,
+   "best_passage": "J4",
+   "judge_any": "supported",
+   "judge_cited": "partly",
+   "judge_reason": "Passage [2] explicitly mentions planning storage capacity for high yields."
+  },
+  {
+   "run": 4,
+   "district": "Kanpur Dehat",
+   "scenario": "bad",
+   "analog_year": 2014,
+   "sentence": "Reduce the nitrogen split dose at 60 DAT to conserve cash as recommended for low expected yield scenarios [2].",
+   "cited": [
+    2
+   ],
+   "max_cosine": 0.8032609224319458,
+   "best_passage": "J3",
+   "judge_any": "supported",
+   "judge_cited": "partly",
+   "judge_reason": "Matches passage [2] exactly."
+  },
+  {
+   "run": 4,
+   "district": "Kanpur Dehat",
+   "scenario": "bad",
+   "analog_year": 2014,
+   "sentence": "Prioritize insecticide application only if BPH presence is confirmed through scouting, avoiding unnecessary expenses [2].",
+   "cited": [
+    2
+   ],
+   "max_cosine": 0.7685830593109131,
+   "best_passage": "J3",
+   "judge_any": "supported",
+   "judge_cited": "supported",
+   "judge_reason": "Matches advice in passage [2] exactly."
+  },
+  {
+   "run": 4,
+   "district": "Kanpur Dehat",
+   "scenario": "bad",
+   "analog_year": 2014,
+   "sentence": "Register for PMFBY insurance before the cut-off date to secure financial protection against potential losses due to adverse weather conditions [2].",
+   "cited": [
+    2
+   ],
+   "max_cosine": 0.7557217478752136,
+   "best_passage": "J3",
+   "judge_any": "supported",
+   "judge_cited": "partly",
+   "judge_reason": "Directly stated in passage [2]."
+  },
+  {
+   "run": 4,
+   "district": "Kanpur Dehat",
+   "scenario": "bad",
+   "analog_year": 2014,
+   "sentence": "Consider early contract with local mandis for whatever harvest materializes to ensure a fair price and reduce market risks [2].",
+   "cited": [
+    2
+   ],
+   "max_cosine": 0.7589441537857056,
+   "best_passage": "J3",
+   "judge_any": "supported",
+   "judge_cited": "partly",
+   "judge_reason": "Sentence directly implies early contract advice for uncertain harvests."
+  },
+  {
+   "run": 4,
+   "district": "Kanpur Dehat",
+   "scenario": "bad",
+   "analog_year": 2014,
+   "sentence": "Maintain 5 cm of standing water during flowering (August-September) as a thermal buffer against heat stress, which can cause spikelet sterility [6].",
+   "cited": [
+    6
+   ],
+   "max_cosine": 0.7054140567779541,
+   "best_passage": "I3",
+   "judge_any": "supported",
+   "judge_cited": "partly",
+   "judge_reason": "Matches passage 6 exactly."
+  },
+  {
+   "run": 5,
+   "district": "Kanpur Dehat",
+   "scenario": "bad",
+   "analog_year": 2015,
+   "sentence": "Reduce the nitrogen split dose at 60 DAT to conserve cash [2].",
+   "cited": [
+    2
+   ],
+   "max_cosine": 0.7575581073760986,
+   "best_passage": "J3",
+   "judge_any": "supported",
+   "judge_cited": "supported",
+   "judge_reason": "Passage [2] explicitly mentions reducing nitrogen split dose to conserve cash."
+  },
+  {
+   "run": 5,
+   "district": "Kanpur Dehat",
+   "scenario": "bad",
+   "analog_year": 2015,
+   "sentence": "Prioritize insecticide application only if BPH is confirmed through scouting [2].",
+   "cited": [
+    2
+   ],
+   "max_cosine": 0.7656913995742798,
+   "best_passage": "J3",
+   "judge_any": "supported",
+   "judge_cited": "supported",
+   "judge_reason": "Passage 2 advises insecticide use based on scouting confirmation."
+  },
+  {
+   "run": 5,
+   "district": "Kanpur Dehat",
+   "scenario": "bad",
+   "analog_year": 2015,
+   "sentence": "Register for PMFBY insurance before the cut-off date to secure financial protection [2].",
+   "cited": [
+    2
+   ],
+   "max_cosine": 0.7134032249450684,
+   "best_passage": "J3",
+   "judge_any": "supported",
+   "judge_cited": "supported",
+   "judge_reason": "Directly stated in passage [2]."
+  },
+  {
+   "run": 5,
+   "district": "Kanpur Dehat",
+   "scenario": "bad",
+   "analog_year": 2015,
+   "sentence": "Consider early contract with mandi for whatever harvest materializes due to the forecasted bad year conditions [2].",
+   "cited": [
+    2
+   ],
+   "max_cosine": 0.8149530291557312,
+   "best_passage": "J3",
+   "judge_any": "supported",
+   "judge_cited": "partly",
+   "judge_reason": "Passage [2] explicitly mentions early contract for harvest."
+  },
+  {
+   "run": 5,
+   "district": "Kanpur Dehat",
+   "scenario": "bad",
+   "analog_year": 2015,
+   "sentence": "Maintain 5 cm standing water during flowering stage to mitigate heat stress effects [5].",
+   "cited": [
+    5
+   ],
+   "max_cosine": 0.6940151453018188,
+   "best_passage": "I3",
+   "judge_any": "supported",
+   "judge_cited": "partly",
+   "judge_reason": "Passage 5 explicitly mentions maintaining 5 cm water for thermal buffer."
+  },
+  {
+   "run": 6,
+   "district": "Kanpur Dehat",
+   "scenario": "good",
+   "analog_year": 2016,
+   "sentence": "Follow the full NPK recommendation of 120 kg Nitrogen, 60 kg Phosphorus (as P2O5), and 60 kg Potassium (as K2O) per hectare plus 5 kg Zinc as zinc sulphate [1][2].",
+   "cited": [
+    1,
+    2
+   ],
+   "max_cosine": 0.8285508155822754,
+   "best_passage": "A1",
+   "judge_any": "supported",
+   "judge_cited": "supported",
+   "judge_reason": "Matches NPK and zinc recommendation in passage 1."
+  },
+  {
+   "run": 6,
+   "district": "Kanpur Dehat",
+   "scenario": "good",
+   "analog_year": 2016,
+   "sentence": "Consider adding a third top-dress nitrogen split at 75 DAT if the canopy remains green and vigorous to support robust growth [2].",
+   "cited": [
+    2
+   ],
+   "max_cosine": 0.7772679328918457,
+   "best_passage": "J4",
+   "judge_any": "supported",
+   "judge_cited": "supported",
+   "judge_reason": "Directly implied by passage [2]."
+  },
+  {
+   "run": 6,
+   "district": "Kanpur Dehat",
+   "scenario": "good",
+   "analog_year": 2016,
+   "sentence": "Be vigilant for BPH outbreaks, given that ideal weather conditions coincide with vigorous rice growth in this scenario [2].",
+   "cited": [
+    2
+   ],
+   "max_cosine": 0.8147531747817993,
+   "best_passage": "J4",
+   "judge_any": "supported",
+   "judge_cited": "partly",
+   "judge_reason": "Passage 2 mentions BPH outbreak in good weather with vigorous growth."
+  },
+  {
+   "run": 6,
+   "district": "Kanpur Dehat",
+   "scenario": "good",
+   "analog_year": 2016,
+   "sentence": "Weekly scouting from panicle initiation onward is crucial as hopper burn symptoms indicate high population levels of BPH by then [4][3].",
+   "cited": [
+    3,
+    4
+   ],
+   "max_cosine": 0.7992585301399231,
+   "best_passage": "C2",
+   "judge_any": "supported",
+   "judge_cited": "partly",
+   "judge_reason": "Scouting weekly from panicle initiation, symptoms indicate high BPH levels."
+  },
+  {
+   "run": 6,
+   "district": "Kanpur Dehat",
+   "scenario": "good",
+   "analog_year": 2016,
+   "sentence": "Plan storage capacity ahead to avoid distress sale at harvest due to the anticipated good yield in a favorable monsoon year [2].",
+   "cited": [
+    2
+   ],
+   "max_cosine": 0.7561032772064209,
+   "best_passage": "J4",
+   "judge_any": "supported",
+   "judge_cited": "partly",
+   "judge_reason": "Passage [2] advises planning storage for good monsoon years."
+  },
+  {
+   "run": 7,
+   "district": "Kanpur Dehat",
+   "scenario": "average",
+   "analog_year": 2017,
+   "sentence": "Follow the standard NPK recommendation of 120 kg Nitrogen per hectare, 60 kg Phosphorus (as P2O5) per hectare, and 60 kg Potassium (as K2O) per hectare as cited in [1].",
+   "cited": [
+    1
+   ],
+   "max_cosine": 0.8200221657752991,
+   "best_passage": "A1",
+   "judge_any": "supported",
+   "judge_cited": "supported",
+   "judge_reason": "Matches NPK recommendation in passage [1] exactly."
+  },
+  {
+   "run": 7,
+   "district": "Kanpur Dehat",
+   "scenario": "average",
+   "analog_year": 2017,
+   "sentence": "Scout for brown planthopper damage symptoms weekly from the panicle initiation stage onward to catch any potential infestations early as advised in [3].",
+   "cited": [
+    3
+   ],
+   "max_cosine": 0.8413003087043762,
+   "best_passage": "C2",
+   "judge_any": "supported",
+   "judge_cited": "partly",
+   "judge_reason": "Matches advice in passage [3] exactly."
+  },
+  {
+   "run": 7,
+   "district": "Kanpur Dehat",
+   "scenario": "average",
+   "analog_year": 2017,
+   "sentence": "Be vigilant for BPH outbreaks given that ideal weather conditions coincide with vigorous rice growth during this period, according to [4].",
+   "cited": [
+    4
+   ],
+   "max_cosine": 0.8137776851654053,
+   "best_passage": "J4",
+   "judge_any": "partly",
+   "judge_cited": "partly",
+   "judge_reason": "Sentence misattributes source; refers to [4] but info in [2,4]."
+  },
+  {
+   "run": 7,
+   "district": "Kanpur Dehat",
+   "scenario": "average",
+   "analog_year": 2017,
+   "sentence": "Plan irrigation schedules based on standard practice of split irrigation or AWD, and drain fields 7 to 10 days before harvest as per the average year scenario guidelines in [5].",
+   "cited": [
+    5
+   ],
+   "max_cosine": 0.8110417723655701,
+   "best_passage": "J5",
+   "judge_any": "supported",
+   "judge_cited": "partly",
+   "judge_reason": "Matches average year scenario guidelines in [5]."
+  },
+  {
+   "run": 7,
+   "district": "Kanpur Dehat",
+   "scenario": "average",
+   "analog_year": 2017,
+   "sentence": "Ensure weekly scouting for BPH from panicle initiation onward to prevent hopper burn, following the early-warning practices recommended in [3].",
+   "cited": [
+    3
+   ],
+   "max_cosine": 0.7706393599510193,
+   "best_passage": "C2",
+   "judge_any": "supported",
+   "judge_cited": "partly",
+   "judge_reason": "Matches scouting recommendation in passage [3]."
+  },
+  {
+   "run": 8,
+   "district": "Kanpur Dehat",
+   "scenario": "good",
+   "analog_year": 2018,
+   "sentence": "Apply the full recommended NPK schedule of 120:60:60 plus 5 kg zinc per hectare as specified for Kharif rice in eastern Uttar Pradesh [1][2].",
+   "cited": [
+    1,
+    2
+   ],
+   "max_cosine": 0.9301548600196838,
+   "best_passage": "A1",
+   "judge_any": "supported",
+   "judge_cited": "supported",
+   "judge_reason": "Matches NPK and zinc recommendation in Passage 1."
+  },
+  {
+   "run": 8,
+   "district": "Kanpur Dehat",
+   "scenario": "good",
+   "analog_year": 2018,
+   "sentence": "Add a third top-dress nitrogen split at 75 DAT if the canopy remains green and vigorous to support good growth [2].",
+   "cited": [
+    2
+   ],
+   "max_cosine": 0.7730096578598022,
+   "best_passage": "J4",
+   "judge_any": "supported",
+   "judge_cited": "supported",
+   "judge_reason": "Directly implied by passage [2]."
+  },
+  {
+   "run": 8,
+   "district": "Kanpur Dehat",
+   "scenario": "good",
+   "analog_year": 2018,
+   "sentence": "Be vigilant for brown planthopper (BPH) outbreaks, given that ideal weather conditions for this pest coincide with vigorous rice growth [3][2].",
+   "cited": [
+    2,
+    3
+   ],
+   "max_cosine": 0.8850758075714111,
+   "best_passage": "C1",
+   "judge_any": "supported",
+   "judge_cited": "partly",
+   "judge_reason": "Passages [2] and [3] confirm BPH outbreak risk with vigorous growth."
+  },
+  {
+   "run": 8,
+   "district": "Kanpur Dehat",
+   "scenario": "good",
+   "analog_year": 2018,
+   "sentence": "Weekly scouting from the panicle initiation stage onward is recommended as an early-warning practice for BPH damage symptoms such as hopper burn [4].",
+   "cited": [
+    4
+   ],
+   "max_cosine": 0.7922420501708984,
+   "best_passage": "C2",
+   "judge_any": "supported",
+   "judge_cited": "supported",
+   "judge_reason": "Matches passage 4 on scouting and hopper burn symptoms."
+  },
+  {
+   "run": 9,
+   "district": "Kanpur Dehat",
+   "scenario": "average",
+   "analog_year": 2019,
+   "sentence": "Follow the standard NPK recommendation of 120 kg Nitrogen per hectare, 60 kg Phosphorus, and 60 kg Potassium as outlined in [1].",
+   "cited": [
+    1
+   ],
+   "max_cosine": 0.8190613985061646,
+   "best_passage": "A1",
+   "judge_any": "supported",
+   "judge_cited": "supported",
+   "judge_reason": "Matches NPK recommendation in passage [1] exactly."
+  },
+  {
+   "run": 9,
+   "district": "Kanpur Dehat",
+   "scenario": "average",
+   "analog_year": 2019,
+   "sentence": "Scout for brown planthopper (BPH) weekly starting from panicle initiation stage onwards to catch any infestations early before hopper burn symptoms appear [5][3].",
+   "cited": [
+    3,
+    5
+   ],
+   "max_cosine": 0.8712548017501831,
+   "best_passage": "C2",
+   "judge_any": "supported",
+   "judge_cited": "partly",
+   "judge_reason": "Passages 3 and 5 recommend weekly scouting from panicle initiation."
+  },
+  {
+   "run": 9,
+   "district": "Kanpur Dehat",
+   "scenario": "average",
+   "analog_year": 2019,
+   "sentence": "Maintain a vigilant watch on irrigation practices; ensure the field is drained 7 to 10 days prior to harvest as per standard practice in an average year scenario [5].",
+   "cited": [
+    5
+   ],
+   "max_cosine": 0.7783849239349365,
+   "best_passage": "J5",
+   "judge_any": "partly",
+   "judge_cited": "partly",
+   "judge_reason": "Drainage timing supported, vigilance not mentioned."
+  },
+  {
+   "run": 9,
+   "district": "Kanpur Dehat",
+   "scenario": "average",
+   "analog_year": 2019,
+   "sentence": "Given that there were no days above 35\u00b0C between August 15 and September 15, focus less on thermal buffering during flowering but remain prepared for any unexpected heat waves [6].",
+   "cited": [
+    6
+   ],
+   "max_cosine": 0.7235666513442993,
+   "best_passage": "J5",
+   "judge_any": "supported",
+   "judge_cited": "partly",
+   "judge_reason": "Matches climate advisory and temperature range in passage [6]."
+  },
+  {
+   "run": 10,
+   "district": "Kanpur Dehat",
+   "scenario": "bad",
+   "analog_year": 2020,
+   "sentence": "Reduce the nitrogen split dose at 60 DAT as it becomes optional in forecasted low yield scenarios [2].",
+   "cited": [
+    2
+   ],
+   "max_cosine": 0.8077484965324402,
+   "best_passage": "J3",
+   "judge_any": "supported",
+   "judge_cited": "partly",
+   "judge_reason": "Matches passage [2] exactly."
+  },
+  {
+   "run": 10,
+   "district": "Kanpur Dehat",
+   "scenario": "bad",
+   "analog_year": 2020,
+   "sentence": "Prioritize insecticide application only if BPH presence is confirmed through scouting, to conserve cash [2].",
+   "cited": [
+    2
+   ],
+   "max_cosine": 0.7710673809051514,
+   "best_passage": "J3",
+   "judge_any": "supported",
+   "judge_cited": "supported",
+   "judge_reason": "Matches advice in passage [2] exactly."
+  },
+  {
+   "run": 10,
+   "district": "Kanpur Dehat",
+   "scenario": "bad",
+   "analog_year": 2020,
+   "sentence": "Register for PMFBY insurance before the cut-off date to secure financial protection against potential losses [2].",
+   "cited": [
+    2
+   ],
+   "max_cosine": 0.7288733124732971,
+   "best_passage": "J3",
+   "judge_any": "supported",
+   "judge_cited": "supported",
+   "judge_reason": "Directly stated in passage [2]."
+  },
+  {
+   "run": 10,
+   "district": "Kanpur Dehat",
+   "scenario": "bad",
+   "analog_year": 2020,
+   "sentence": "Consider early contract with mandi for whatever harvest materializes to ensure a market for your produce [2].",
+   "cited": [
+    2
+   ],
+   "max_cosine": 0.7593636512756348,
+   "best_passage": "J3",
+   "judge_any": "supported",
+   "judge_cited": "supported",
+   "judge_reason": "Sentence directly implies from passage [2]"
+  },
+  {
+   "run": 10,
+   "district": "Kanpur Dehat",
+   "scenario": "bad",
+   "analog_year": 2020,
+   "sentence": "Maintain 5 cm standing water during flowering as a thermal buffer since there are no days above 35\u00b0C, which could prevent spikelet sterility [5].",
+   "cited": [
+    5
+   ],
+   "max_cosine": 0.704622209072113,
+   "best_passage": "I3",
+   "judge_any": "partly",
+   "judge_cited": "partly",
+   "judge_reason": "Passage supports 5cm buffer but contradicts no days >35\u00b0C."
+  },
+  {
+   "run": 11,
+   "district": "Kanpur Dehat",
+   "scenario": "average",
+   "analog_year": 2021,
+   "sentence": "Follow the standard NPK recommendation of 120 kg Nitrogen per hectare, 60 kg Phosphorus (as P2O5) per hectare, and 60 kg Potassium (as K2O) per hectare as cited in [1].",
+   "cited": [
+    1
+   ],
+   "max_cosine": 0.8200221657752991,
+   "best_passage": "A1",
+   "judge_any": "supported",
+   "judge_cited": "supported",
+   "judge_reason": "Matches NPK recommendation in passage [1] exactly."
+  },
+  {
+   "run": 11,
+   "district": "Kanpur Dehat",
+   "scenario": "average",
+   "analog_year": 2021,
+   "sentence": "Add a third top-dress nitrogen split at 75 DAT if the canopy remains green and vigorous to ensure optimal growth [4].",
+   "cited": [
+    4
+   ],
+   "max_cosine": 0.7728604674339294,
+   "best_passage": "J4",
+   "judge_any": "supported",
+   "judge_cited": "partly",
+   "judge_reason": "Directly implied in passage [4]."
+  },
+  {
+   "run": 11,
+   "district": "Kanpur Dehat",
+   "scenario": "average",
+   "analog_year": 2021,
+   "sentence": "Be vigilant for Brown Planthopper (BPH) outbreaks starting from panicle initiation, given that ideal weather conditions for BPH coincide with vigorous rice growth as mentioned in [2][4].",
+   "cited": [
+    2,
+    4
+   ],
+   "max_cosine": 0.8694280385971069,
+   "best_passage": "C1",
+   "judge_any": "partly",
+   "judge_cited": "partly",
+   "judge_reason": "References BPH but not panicle initiation timing."
+  },
+  {
+   "run": 11,
+   "district": "Kanpur Dehat",
+   "scenario": "average",
+   "analog_year": 2021,
+   "sentence": "Scout weekly for BPH damage symptoms such as hopper burn after the panicle initiation stage to catch infestations early and prevent significant yield loss [3].",
+   "cited": [
+    3
+   ],
+   "max_cosine": 0.8565515875816345,
+   "best_passage": "C2",
+   "judge_any": "supported",
+   "judge_cited": "partly",
+   "judge_reason": "Matches passage 3 on scouting and hopper burn symptoms."
+  },
+  {
+   "run": 11,
+   "district": "Kanpur Dehat",
+   "scenario": "average",
+   "analog_year": 2021,
+   "sentence": "Since there were no days above 35\u00b0C between August 15 and September 15, focus on managing other climate risks like mid-season dry spells that can threaten tillering and panicle initiation as advised in [6].",
+   "cited": [
+    6
+   ],
+   "max_cosine": 0.7581875920295715,
+   "best_passage": "J5",
+   "judge_any": "partly",
+   "judge_cited": "partly",
+   "judge_reason": "Sentence partially aligns but omits August-September heat risk."
+  },
+  {
+   "run": 12,
+   "district": "Kanpur Dehat",
+   "scenario": "average",
+   "analog_year": 2022,
+   "sentence": "Follow the standard NPK recommendation of 120 kg Nitrogen per hectare, 60 kg Phosphorus (as P2O5) per hectare, and 60 kg Potassium (as K2O) per hectare with an additional 5 kg Zinc per hectare as zinc sulphate [1][5].",
+   "cited": [
+    1,
+    5
+   ],
+   "max_cosine": 0.8213489055633545,
+   "best_passage": "A1",
+   "judge_any": "supported",
+   "judge_cited": "partly",
+   "judge_reason": "Matches NPK and Zinc recommendation in Passage 1."
+  },
+  {
+   "run": 12,
+   "district": "Kanpur Dehat",
+   "scenario": "average",
+   "analog_year": 2022,
+   "sentence": "Scout for brown planthoppers weekly from the panicle initiation stage onward to prevent hopper burn damage that can spread rapidly through fields [3][5].",
+   "cited": [
+    3,
+    5
+   ],
+   "max_cosine": 0.8345602750778198,
+   "best_passage": "C2",
+   "judge_any": "supported",
+   "judge_cited": "partly",
+   "judge_reason": "Matches scouting advice in passages 3 and 5."
+  },
+  {
+   "run": 12,
+   "district": "Kanpur Dehat",
+   "scenario": "average",
+   "analog_year": 2022,
+   "sentence": "Maintain a vigilant watch on irrigation practices, ensuring adequate water availability during dry spells and maintaining 5 cm standing water during flowering stages to mitigate heat stress [6].",
+   "cited": [
+    6
+   ],
+   "max_cosine": 0.7229095101356506,
+   "best_passage": "J4",
+   "judge_any": "supported",
+   "judge_cited": "partly",
+   "judge_reason": "Matches passage on irrigation and heat stress actions."
+  },
+  {
+   "run": 12,
+   "district": "Kanpur Dehat",
+   "scenario": "average",
+   "analog_year": 2022,
+   "sentence": "Plan for potential pest outbreaks by being prepared with appropriate insecticides if brown planthopper populations are detected early [2][4].",
+   "cited": [
+    2,
+    4
+   ],
+   "max_cosine": 0.7472853064537048,
+   "best_passage": "C2",
+   "judge_any": "partly",
+   "judge_cited": "partly",
+   "judge_reason": "Sentence implies specific insecticides not mentioned in passages."
+  },
+  {
+   "run": 13,
+   "district": "Kanpur Dehat",
+   "scenario": "bad",
+   "analog_year": 2023,
+   "sentence": "Reduce the nitrogen split dose at 60 DAT to conserve cash as per the recommendation for low expected yield scenarios [2].",
+   "cited": [
+    2
+   ],
+   "max_cosine": 0.7927974462509155,
+   "best_passage": "J3",
+   "judge_any": "supported",
+   "judge_cited": "partly",
+   "judge_reason": "Matches passage [2] exactly."
+  },
+  {
+   "run": 13,
+   "district": "Kanpur Dehat",
+   "scenario": "bad",
+   "analog_year": 2023,
+   "sentence": "Prioritize insecticide application only when BPH presence is confirmed through scouting to avoid unnecessary expenses [2].",
+   "cited": [
+    2
+   ],
+   "max_cosine": 0.77006596326828,
+   "best_passage": "J3",
+   "judge_any": "supported",
+   "judge_cited": "supported",
+   "judge_reason": "Matches advice in passage [2] exactly."
+  },
+  {
+   "run": 13,
+   "district": "Kanpur Dehat",
+   "scenario": "bad",
+   "analog_year": 2023,
+   "sentence": "Register for PMFBY insurance before the cut-off date to secure financial protection against potential losses due to adverse weather conditions [2].",
+   "cited": [
+    2
+   ],
+   "max_cosine": 0.7557217478752136,
+   "best_passage": "J3",
+   "judge_any": "supported",
+   "judge_cited": "partly",
+   "judge_reason": "Directly stated in passage [2]."
+  },
+  {
+   "run": 13,
+   "district": "Kanpur Dehat",
+   "scenario": "bad",
+   "analog_year": 2023,
+   "sentence": "Consider early contract with mandi for whatever harvest materializes, ensuring a market for your produce despite uncertain yields [2].",
+   "cited": [
+    2
+   ],
+   "max_cosine": 0.7842655181884766,
+   "best_passage": "J3",
+   "judge_any": "supported",
+   "judge_cited": "supported",
+   "judge_reason": "Sentence directly implies from passage [2]"
+  },
+  {
+   "run": 13,
+   "district": "Kanpur Dehat",
+   "scenario": "bad",
+   "analog_year": 2023,
+   "sentence": "Maintain 5 cm standing water during flowering stage as a thermal buffer to mitigate heat stress effects on spikelet sterility [5].",
+   "cited": [
+    5
+   ],
+   "max_cosine": 0.6982806921005249,
+   "best_passage": "I3",
+   "judge_any": "supported",
+   "judge_cited": "partly",
+   "judge_reason": "Passage 5 explicitly mentions maintaining water for thermal buffer during heat stress."
+  },
+  {
+   "run": 14,
+   "district": "Kanpur Dehat",
+   "scenario": "good",
+   "analog_year": 2024,
+   "sentence": "Follow the full NPK recommendation of 120 kg Nitrogen per hectare, 60 kg Phosphorus (as P2O5) per hectare, and 60 kg Potassium (as K2O) per hectare plus 5 kg Zinc as zinc sulphate [1][2].",
+   "cited": [
+    1,
+    2
+   ],
+   "max_cosine": 0.8255518674850464,
+   "best_passage": "A1",
+   "judge_any": "supported",
+   "judge_cited": "supported",
+   "judge_reason": "Matches NPK and zinc recommendation in passage 1."
+  },
+  {
+   "run": 14,
+   "district": "Kanpur Dehat",
+   "scenario": "good",
+   "analog_year": 2024,
+   "sentence": "Add a third top-dress nitrogen split at 75 DAT if the canopy remains green and vigorous to support robust growth during this good year scenario [2].",
+   "cited": [
+    2
+   ],
+   "max_cosine": 0.7885520458221436,
+   "best_passage": "J4",
+   "judge_any": "supported",
+   "judge_cited": "supported",
+   "judge_reason": "Matches good year scenario in passage [2] exactly."
+  },
+  {
+   "run": 14,
+   "district": "Kanpur Dehat",
+   "scenario": "good",
+   "analog_year": 2024,
+   "sentence": "Be vigilant for BPH outbreaks, given that ideal weather conditions coincide with vigorous rice growth in a good monsoon year [2].",
+   "cited": [
+    2
+   ],
+   "max_cosine": 0.8439555168151855,
+   "best_passage": "J4",
+   "judge_any": "supported",
+   "judge_cited": "supported",
+   "judge_reason": "Passage [2] mentions BPH outbreak in good monsoon years."
+  },
+  {
+   "run": 14,
+   "district": "Kanpur Dehat",
+   "scenario": "good",
+   "analog_year": 2024,
+   "sentence": "Weekly scouting from the panicle initiation stage onward is crucial to detect early signs of hopper burn caused by BPH and prevent severe damage [4].",
+   "cited": [
+    4
+   ],
+   "max_cosine": 0.8084888458251953,
+   "best_passage": "C2",
+   "judge_any": "supported",
+   "judge_cited": "partly",
+   "judge_reason": "Matches passage 4 on scouting and hopper burn."
+  },
+  {
+   "run": 14,
+   "district": "Kanpur Dehat",
+   "scenario": "good",
+   "analog_year": 2024,
+   "sentence": "Plan storage capacity ahead of time to avoid distress sale at harvest due to anticipated higher yields in this forecasted good year scenario [2].",
+   "cited": [
+    2
+   ],
+   "max_cosine": 0.7017425298690796,
+   "best_passage": "J4",
+   "judge_any": "supported",
+   "judge_cited": "partly",
+   "judge_reason": "Passage [2] mentions planning storage for good year scenario."
+  },
+  {
+   "run": 15,
+   "district": "Kanpur Nagar",
+   "scenario": "bad",
+   "analog_year": 2010,
+   "sentence": "Reduce input intensity to conserve cash; consider applying nitrogen as a split dose at 60 DAT only if necessary [2].",
+   "cited": [
+    2
+   ],
+   "max_cosine": 0.7865524291992188,
+   "best_passage": "J3",
+   "judge_any": "partly",
+   "judge_cited": "partly",
+   "judge_reason": "Split dose optional, not conditional on necessity."
+  },
+  {
+   "run": 15,
+   "district": "Kanpur Nagar",
+   "scenario": "bad",
+   "analog_year": 2010,
+   "sentence": "Prioritize insecticide use for brown planthopper (BPH) control only when confirmed through scouting, given the forecasted conditions favorable for BPH population growth [3][4].",
+   "cited": [
+    3,
+    4
+   ],
+   "max_cosine": 0.7957260608673096,
+   "best_passage": "C1",
+   "judge_any": "partly",
+   "judge_cited": "partly",
+   "judge_reason": "Supported on scouting but not forecast conditions [3][4]"
+  },
+  {
+   "run": 15,
+   "district": "Kanpur Nagar",
+   "scenario": "bad",
+   "analog_year": 2010,
+   "sentence": "Register for PMFBY insurance before the cut-off date to mitigate financial risks associated with reduced yields in a bad year scenario [2].",
+   "cited": [
+    2
+   ],
+   "max_cosine": 0.786527156829834,
+   "best_passage": "J3",
+   "judge_any": "supported",
+   "judge_cited": "partly",
+   "judge_reason": "Directly implied by passage [2]."
+  },
+  {
+   "run": 15,
+   "district": "Kanpur Nagar",
+   "scenario": "bad",
+   "analog_year": 2010,
+   "sentence": "Maintain standing water at 5 cm during flowering (August-September) to act as a thermal buffer against heat stress days exceeding 35\u00b0C [6].",
+   "cited": [
+    6
+   ],
+   "max_cosine": 0.714647114276886,
+   "best_passage": "I3",
+   "judge_any": "supported",
+   "judge_cited": "supported",
+   "judge_reason": "Matches passage 6 exactly."
+  },
+  {
+   "run": 15,
+   "district": "Kanpur Nagar",
+   "scenario": "bad",
+   "analog_year": 2010,
+   "sentence": "Activate pump irrigation at least 48 hours in advance of any predicted dry spells during July-August to ensure adequate moisture for tillering and panicle initiation [6].",
+   "cited": [
+    6
+   ],
+   "max_cosine": 0.7402322888374329,
+   "best_passage": "F3",
+   "judge_any": "supported",
+   "judge_cited": "supported",
+   "judge_reason": "Matches passage 6 on dry spell response."
+  },
+  {
+   "run": 16,
+   "district": "Kanpur Nagar",
+   "scenario": "good",
+   "analog_year": 2011,
+   "sentence": "Apply the full recommended NPK schedule of 120 kg Nitrogen per hectare, 60 kg Phosphorus (as P2O5) per hectare, and 60 kg Potassium (as K2O) per hectare along with 5 kg Zinc as zinc sulphate [1][2].",
+   "cited": [
+    1,
+    2
+   ],
+   "max_cosine": 0.8332854509353638,
+   "best_passage": "A1",
+   "judge_any": "supported",
+   "judge_cited": "supported",
+   "judge_reason": "Matches NPK and zinc recommendation in passage 1."
+  },
+  {
+   "run": 16,
+   "district": "Kanpur Nagar",
+   "scenario": "good",
+   "analog_year": 2011,
+   "sentence": "Add a third top-dress nitrogen split at 75 DAT if the rice canopy remains green and vigorous to support healthy growth in this good year scenario [2].",
+   "cited": [
+    2
+   ],
+   "max_cosine": 0.8245902061462402,
+   "best_passage": "J4",
+   "judge_any": "supported",
+   "judge_cited": "supported",
+   "judge_reason": "Matches passage [2] exactly."
+  },
+  {
+   "run": 16,
+   "district": "Kanpur Nagar",
+   "scenario": "good",
+   "analog_year": 2011,
+   "sentence": "Be vigilant for brown planthopper (BPH) outbreaks, which are more likely under these conditions of above-normal monsoon and high NDVI tracking; monitor fields weekly from panicle initiation onward [2][3].",
+   "cited": [
+    2,
+    3
+   ],
+   "max_cosine": 0.8465703129768372,
+   "best_passage": "C1",
+   "judge_any": "partly",
+   "judge_cited": "partly",
+   "judge_reason": "Conditions mentioned but not explicitly linked to BPH outbreaks."
+  },
+  {
+   "run": 16,
+   "district": "Kanpur Nagar",
+   "scenario": "good",
+   "analog_year": 2011,
+   "sentence": "Plan storage capacity ahead of time to avoid distress sales at harvest due to the anticipated good yield in this favorable year [2].",
+   "cited": [
+    2
+   ],
+   "max_cosine": 0.7033655643463135,
+   "best_passage": "J4",
+   "judge_any": "supported",
+   "judge_cited": "partly",
+   "judge_reason": "Passage [2] advises planning storage for good yield years."
+  },
+  {
+   "run": 17,
+   "district": "Kanpur Nagar",
+   "scenario": "good",
+   "analog_year": 2012,
+   "sentence": "Follow the full NPK recommendation of 120 kg Nitrogen per hectare, 60 kg Phosphorus (as P2O5) per hectare, and 60 kg Potassium (as K2O) per hectare as well as 5 kg Zinc per hectare [1][2].",
+   "cited": [
+    1,
+    2
+   ],
+   "max_cosine": 0.8200774192810059,
+   "best_passage": "A1",
+   "judge_any": "supported",
+   "judge_cited": "supported",
+   "judge_reason": "Matches NPK and Zinc recommendation in passage 1."
+  },
+  {
+   "run": 17,
+   "district": "Kanpur Nagar",
+   "scenario": "good",
+   "analog_year": 2012,
+   "sentence": "Apply a third top-dress nitrogen split at 75 DAT if the canopy remains green and vigorous to support healthy growth during this good year scenario [2].",
+   "cited": [
+    2
+   ],
+   "max_cosine": 0.794976532459259,
+   "best_passage": "J4",
+   "judge_any": "supported",
+   "judge_cited": "supported",
+   "judge_reason": "Matches good year scenario in passage [2]."
+  },
+  {
+   "run": 17,
+   "district": "Kanpur Nagar",
+   "scenario": "good",
+   "analog_year": 2012,
+   "sentence": "Be vigilant for BPH outbreaks, given that ideal weather conditions coincide with vigorous rice growth in a good monsoon year; start scouting weekly from panicle initiation stage onward [2][3].",
+   "cited": [
+    2,
+    3
+   ],
+   "max_cosine": 0.8485971093177795,
+   "best_passage": "J4",
+   "judge_any": "partly",
+   "judge_cited": "partly",
+   "judge_reason": "Weather-vigorous growth link not explicitly stated, scouting timing supported."
+  },
+  {
+   "run": 17,
+   "district": "Kanpur Nagar",
+   "scenario": "good",
+   "analog_year": 2012,
+   "sentence": "Plan storage capacity ahead of time to avoid distress sale at harvest due to the anticipated higher yields in this favorable season [2].",
+   "cited": [
+    2
+   ],
+   "max_cosine": 0.6851483583450317,
+   "best_passage": "J4",
+   "judge_any": "supported",
+   "judge_cited": "partly",
+   "judge_reason": "Passage 2 mentions planning storage for good yields."
+  },
+  {
+   "run": 18,
+   "district": "Kanpur Nagar",
+   "scenario": "good",
+   "analog_year": 2013,
+   "sentence": "Apply the full recommended NPK schedule of 120:60:60 along with 5 kg zinc per hectare as specified for Kharif rice in eastern Uttar Pradesh [1][2].",
+   "cited": [
+    1,
+    2
+   ],
+   "max_cosine": 0.9312270283699036,
+   "best_passage": "A1",
+   "judge_any": "supported",
+   "judge_cited": "supported",
+   "judge_reason": "Matches NPK and zinc recommendation for Kharif rice in eastern UP."
+  },
+  {
+   "run": 18,
+   "district": "Kanpur Nagar",
+   "scenario": "good",
+   "analog_year": 2013,
+   "sentence": "Consider adding an additional top-dress nitrogen application at 75 DAT if the canopy remains green and vigorous to support plant health during a good year scenario [2].",
+   "cited": [
+    2
+   ],
+   "max_cosine": 0.7954076528549194,
+   "best_passage": "J4",
+   "judge_any": "supported",
+   "judge_cited": "partly",
+   "judge_reason": "Sentence matches passage [2] exactly."
+  },
+  {
+   "run": 18,
+   "district": "Kanpur Nagar",
+   "scenario": "good",
+   "analog_year": 2013,
+   "sentence": "Be vigilant for brown planthopper (BPH) outbreaks, which are more likely under conditions of high rainfall and vigorous rice growth; scout fields weekly from panicle initiation onwards [2][3].",
+   "cited": [
+    2,
+    3
+   ],
+   "max_cosine": 0.8634024262428284,
+   "best_passage": "C1",
+   "judge_any": "partly",
+   "judge_cited": "partly",
+   "judge_reason": "Rainfall not explicitly linked to BPH in passages."
+  },
+  {
+   "run": 18,
+   "district": "Kanpur Nagar",
+   "scenario": "good",
+   "analog_year": 2013,
+   "sentence": "Plan ahead for adequate storage capacity to avoid selling the harvest at distress prices due to an anticipated good yield in this favorable year [2].",
+   "cited": [
+    2
+   ],
+   "max_cosine": 0.7283003330230713,
+   "best_passage": "J4",
+   "judge_any": "supported",
+   "judge_cited": "partly",
+   "judge_reason": "Passage 2 advises planning storage for good yield to avoid distress sale."
+  },
+  {
+   "run": 19,
+   "district": "Kanpur Nagar",
+   "scenario": "bad",
+   "analog_year": 2014,
+   "sentence": "Reduce nitrogen input intensity by applying only half of the standard recommendation at 60 DAT as per [2].",
+   "cited": [
+    2
+   ],
+   "max_cosine": 0.7651064395904541,
+   "best_passage": "J3",
+   "judge_any": "partly",
+   "judge_cited": "partly",
+   "judge_reason": "Sentence correctly interprets nitrogen reduction but omits other advised actions."
+  },
+  {
+   "run": 19,
+   "district": "Kanpur Nagar",
+   "scenario": "bad",
+   "analog_year": 2014,
+   "sentence": "Prioritize insecticide application for BPH control only if confirmed through scouting after panicle initiation stage, following advice in [2] and [3].",
+   "cited": [
+    2,
+    3
+   ],
+   "max_cosine": 0.7664198279380798,
+   "best_passage": "J3",
+   "judge_any": "partly",
+   "judge_cited": "partly",
+   "judge_reason": "Scouting advised but not post-panicle initiation specifically."
+  },
+  {
+   "run": 19,
+   "district": "Kanpur Nagar",
+   "scenario": "bad",
+   "analog_year": 2014,
+   "sentence": "Maintain standing water to a depth of 5 cm during heat waves between August 15 and September 15 to protect rice from high temperatures as per [6].",
+   "cited": [
+    6
+   ],
+   "max_cosine": 0.7383096218109131,
+   "best_passage": "I3",
+   "judge_any": "supported",
+   "judge_cited": "partly",
+   "judge_reason": "Matches passage 6 on heat wave response."
+  },
+  {
+   "run": 19,
+   "district": "Kanpur Nagar",
+   "scenario": "bad",
+   "analog_year": 2014,
+   "sentence": "Consider early contract with local mandi for the expected lower harvest due to forecasted unfavorable conditions, adhering to advice in [2].",
+   "cited": [
+    2
+   ],
+   "max_cosine": 0.8207680583000183,
+   "best_passage": "J3",
+   "judge_any": "supported",
+   "judge_cited": "partly",
+   "judge_reason": "Matches advice in passage [2] exactly."
+  },
+  {
+   "run": 19,
+   "district": "Kanpur Nagar",
+   "scenario": "bad",
+   "analog_year": 2014,
+   "sentence": "Register PMFBY insurance before the cut-off date to mitigate financial risk associated with reduced yield expectations, following guidance in [2].",
+   "cited": [
+    2
+   ],
+   "max_cosine": 0.768778920173645,
+   "best_passage": "J3",
+   "judge_any": "supported",
+   "judge_cited": "partly",
+   "judge_reason": "Matches guidance in passage [2] exactly."
+  },
+  {
+   "run": 20,
+   "district": "Kanpur Nagar",
+   "scenario": "bad",
+   "analog_year": 2015,
+   "sentence": "Reduce input intensity to conserve cash; consider making the nitrogen split dose at 60 DAT optional [2].",
+   "cited": [
+    2
+   ],
+   "max_cosine": 0.7793074250221252,
+   "best_passage": "J3",
+   "judge_any": "supported",
+   "judge_cited": "supported",
+   "judge_reason": "Matches passage 2 exactly."
+  },
+  {
+   "run": 20,
+   "district": "Kanpur Nagar",
+   "scenario": "bad",
+   "analog_year": 2015,
+   "sentence": "Prioritize insecticide application only if BPH presence is confirmed through scouting [2].",
+   "cited": [
+    2
+   ],
+   "max_cosine": 0.7615493535995483,
+   "best_passage": "J3",
+   "judge_any": "supported",
+   "judge_cited": "supported",
+   "judge_reason": "Passage [4] implies scouting for BPH and applying insecticide if present."
+  },
+  {
+   "run": 20,
+   "district": "Kanpur Nagar",
+   "scenario": "bad",
+   "analog_year": 2015,
+   "sentence": "Register for PMFBY insurance before the cut-off date as a risk management strategy [2].",
+   "cited": [
+    2
+   ],
+   "max_cosine": 0.7452667951583862,
+   "best_passage": "J3",
+   "judge_any": "supported",
+   "judge_cited": "supported",
+   "judge_reason": "Directly stated in passage [2]."
+  },
+  {
+   "run": 20,
+   "district": "Kanpur Nagar",
+   "scenario": "bad",
+   "analog_year": 2015,
+   "sentence": "Consider early contract with mandi for whatever harvest materializes to secure prices and reduce market risks [2].",
+   "cited": [
+    2
+   ],
+   "max_cosine": 0.7719645500183105,
+   "best_passage": "J3",
+   "judge_any": "supported",
+   "judge_cited": "partly",
+   "judge_reason": "Sentence directly implies from passage [2]"
+  },
+  {
+   "run": 20,
+   "district": "Kanpur Nagar",
+   "scenario": "bad",
+   "analog_year": 2015,
+   "sentence": "Maintain 5 cm standing water during flowering (Aug-Sep) to act as a thermal buffer against heat stress [6].",
+   "cited": [
+    6
+   ],
+   "max_cosine": 0.7083878517150879,
+   "best_passage": "I3",
+   "judge_any": "supported",
+   "judge_cited": "partly",
+   "judge_reason": "Sentence matches passage [6] exactly."
+  },
+  {
+   "run": 21,
+   "district": "Kanpur Nagar",
+   "scenario": "average",
+   "analog_year": 2016,
+   "sentence": "Follow the standard NPK recommendation for Kharif rice in Uttar Pradesh, which is 120 kg Nitrogen per hectare, 60 kg Phosphorus as P2O5, and 60 kg Potassium as K2O, with 5 kg Zinc added [1][5].",
+   "cited": [
+    1,
+    5
+   ],
+   "max_cosine": 0.9630560874938965,
+   "best_passage": "A1",
+   "judge_any": "supported",
+   "judge_cited": "partly",
+   "judge_reason": "All details match passages [1] and [5]."
+  },
+  {
+   "run": 21,
+   "district": "Kanpur Nagar",
+   "scenario": "average",
+   "analog_year": 2016,
+   "sentence": "Scout weekly from the panicle initiation stage onward to detect early signs of brown planthopper (BPH) infestation, which can cause significant damage if not controlled promptly [3][5].",
+   "cited": [
+    3,
+    5
+   ],
+   "max_cosine": 0.8494668006896973,
+   "best_passage": "C2",
+   "judge_any": "supported",
+   "judge_cited": "partly",
+   "judge_reason": "Scouting weekly from panicle initiation is recommended in passages."
+  },
+  {
+   "run": 21,
+   "district": "Kanpur Nagar",
+   "scenario": "average",
+   "analog_year": 2016,
+   "sentence": "Be vigilant for BPH outbreaks given that ideal weather conditions for this pest coincide with vigorous rice growth in Kanpur during August and September [2][4].",
+   "cited": [
+    2,
+    4
+   ],
+   "max_cosine": 0.8225558400154114,
+   "best_passage": "C1",
+   "judge_any": "supported",
+   "judge_cited": "partly",
+   "judge_reason": "Matches info on BPH and weather conditions in August-September."
+  },
+  {
+   "run": 21,
+   "district": "Kanpur Nagar",
+   "scenario": "average",
+   "analog_year": 2016,
+   "sentence": "Plan supplementary irrigation using alternate wetting and drying (AWD) method or continuous flooding to manage mid-season dry spells, as the monsoon is critical for Kharif rice production in Kanpur [5][6].",
+   "cited": [
+    5,
+    6
+   ],
+   "max_cosine": 0.8543125987052917,
+   "best_passage": "H5",
+   "judge_any": "partly",
+   "judge_cited": "partly",
+   "judge_reason": "AWD method not explicitly mentioned for managing dry spells."
+  },
+  {
+   "run": 22,
+   "district": "Kanpur Nagar",
+   "scenario": "average",
+   "analog_year": 2017,
+   "sentence": "Follow the standard NPK recommendation of 120 kg Nitrogen per hectare, 60 kg Phosphorus (as P2O5) per hectare, and 60 kg Potassium (as K2O) per hectare [1].",
+   "cited": [
+    1
+   ],
+   "max_cosine": 0.8193979263305664,
+   "best_passage": "A1",
+   "judge_any": "supported",
+   "judge_cited": "supported",
+   "judge_reason": "Matches passage 1 exactly."
+  },
+  {
+   "run": 22,
+   "district": "Kanpur Nagar",
+   "scenario": "average",
+   "analog_year": 2017,
+   "sentence": "Be vigilant for brown planthopper outbreaks starting from the panicle initiation stage as temperatures are ideal for BPH population growth in August and September [2][3].",
+   "cited": [
+    2,
+    3
+   ],
+   "max_cosine": 0.8258799910545349,
+   "best_passage": "C1",
+   "judge_any": "partly",
+   "judge_cited": "partly",
+   "judge_reason": "Temperatures ideal for BPH not explicitly stated."
+  },
+  {
+   "run": 22,
+   "district": "Kanpur Nagar",
+   "scenario": "average",
+   "analog_year": 2017,
+   "sentence": "Scout weekly for hopper burn symptoms to detect BPH infestations early, as curative action is difficult once visible damage occurs [3].",
+   "cited": [
+    3
+   ],
+   "max_cosine": 0.8536293506622314,
+   "best_passage": "C2",
+   "judge_any": "supported",
+   "judge_cited": "partly",
+   "judge_reason": "Matches passage 3 on scouting and hopper burn symptoms."
+  },
+  {
+   "run": 22,
+   "district": "Kanpur Nagar",
+   "scenario": "average",
+   "analog_year": 2017,
+   "sentence": "Use standard split irrigation practices (continuous flooding or alternate wetting and drying) and drain the field 7 to 10 days before harvest [5].",
+   "cited": [
+    5
+   ],
+   "max_cosine": 0.8224250078201294,
+   "best_passage": "J5",
+   "judge_any": "supported",
+   "judge_cited": "partly",
+   "judge_reason": "Matches passage [5] exactly."
+  },
+  {
+   "run": 22,
+   "district": "Kanpur Nagar",
+   "scenario": "average",
+   "analog_year": 2017,
+   "sentence": "Plan storage capacity ahead of time to avoid distress sales at harvest despite it being an average year scenario [4].",
+   "cited": [
+    4
+   ],
+   "max_cosine": 0.7194936275482178,
+   "best_passage": "J4",
+   "judge_any": "partly",
+   "judge_cited": "partly",
+   "judge_reason": "Supported for good year, not average"
+  },
+  {
+   "run": 23,
+   "district": "Kanpur Nagar",
+   "scenario": "good",
+   "analog_year": 2018,
+   "sentence": "Apply the full recommended NPK schedule of 120:60:60 along with 5 kg Zinc per hectare as specified for Kharif rice [1][2].",
+   "cited": [
+    1,
+    2
+   ],
+   "max_cosine": 0.912168025970459,
+   "best_passage": "A1",
+   "judge_any": "supported",
+   "judge_cited": "supported",
+   "judge_reason": "Matches full NPK and Zinc recommendation in passages 1 and 2."
+  },
+  {
+   "run": 23,
+   "district": "Kanpur Nagar",
+   "scenario": "good",
+   "analog_year": 2018,
+   "sentence": "Add an additional top-dress nitrogen split at 75 DAT if the canopy remains green and vigorous to support growth [2].",
+   "cited": [
+    2
+   ],
+   "max_cosine": 0.7685422897338867,
+   "best_passage": "J4",
+   "judge_any": "supported",
+   "judge_cited": "supported",
+   "judge_reason": "Directly implied by passage [2]."
+  },
+  {
+   "run": 23,
+   "district": "Kanpur Nagar",
+   "scenario": "good",
+   "analog_year": 2018,
+   "sentence": "Be vigilant for BPH outbreaks, given that ideal weather conditions coincide with vigorous rice growth in this scenario [2].",
+   "cited": [
+    2
+   ],
+   "max_cosine": 0.8147531747817993,
+   "best_passage": "J4",
+   "judge_any": "supported",
+   "judge_cited": "partly",
+   "judge_reason": "Passage 2 mentions BPH outbreak risk with vigorous growth."
+  },
+  {
+   "run": 23,
+   "district": "Kanpur Nagar",
+   "scenario": "good",
+   "analog_year": 2018,
+   "sentence": "Plan storage capacity ahead of harvest to avoid distress sales due to anticipated good yields [2].",
+   "cited": [
+    2
+   ],
+   "max_cosine": 0.696140706539154,
+   "best_passage": "J4",
+   "judge_any": "supported",
+   "judge_cited": "partly",
+   "judge_reason": "Passage 2 advises planning storage for good yields."
+  },
+  {
+   "run": 23,
+   "district": "Kanpur Nagar",
+   "scenario": "good",
+   "analog_year": 2018,
+   "sentence": "Weekly scouting from panicle initiation onwards is crucial for early detection of BPH infestations and managing hopper burn symptoms [4].",
+   "cited": [
+    4
+   ],
+   "max_cosine": 0.7994951605796814,
+   "best_passage": "C2",
+   "judge_any": "supported",
+   "judge_cited": "partly",
+   "judge_reason": "Matches passage 4 on scouting and hopper burn."
+  },
+  {
+   "run": 24,
+   "district": "Kanpur Nagar",
+   "scenario": "average",
+   "analog_year": 2019,
+   "sentence": "Follow the standard NPK recommendation of 120 kg Nitrogen per hectare, 60 kg Phosphorus (as P2O5) per hectare, and 60 kg Potassium (as K2O) per hectare with an additional 5 kg Zinc as zinc sulphate [1][5].",
+   "cited": [
+    1,
+    5
+   ],
+   "max_cosine": 0.8250420093536377,
+   "best_passage": "A1",
+   "judge_any": "supported",
+   "judge_cited": "partly",
+   "judge_reason": "Matches NPK and Zinc recommendation in Passage 1."
+  },
+  {
+   "run": 24,
+   "district": "Kanpur Nagar",
+   "scenario": "average",
+   "analog_year": 2019,
+   "sentence": "Scout for brown planthopper weekly starting from the panicle initiation stage to prevent hopper burn damage [3][5].",
+   "cited": [
+    3,
+    5
+   ],
+   "max_cosine": 0.8227056264877319,
+   "best_passage": "C2",
+   "judge_any": "supported",
+   "judge_cited": "supported",
+   "judge_reason": "Weekly scouting from panicle initiation stage advised in passages."
+  },
+  {
+   "run": 24,
+   "district": "Kanpur Nagar",
+   "scenario": "average",
+   "analog_year": 2019,
+   "sentence": "Ensure timely irrigation management by maintaining alternate wetting and drying or continuous flooding methods, especially avoiding dry spells that could threaten tillering and panicle initiation [6][5].",
+   "cited": [
+    5,
+    6
+   ],
+   "max_cosine": 0.7688143253326416,
+   "best_passage": "J5",
+   "judge_any": "partly",
+   "judge_cited": "partly",
+   "judge_reason": "mentions dry spells but not specific irrigation methods."
+  },
+  {
+   "run": 24,
+   "district": "Kanpur Nagar",
+   "scenario": "average",
+   "analog_year": 2019,
+   "sentence": "Since there are no days above 35\u00b0C between August 15 and September 15, focus on managing pests rather than heat stress during the flowering stage [2][6].",
+   "cited": [
+    2,
+    6
+   ],
+   "max_cosine": 0.7167993783950806,
+   "best_passage": "J5",
+   "judge_any": "partly",
+   "judge_cited": "partly",
+   "judge_reason": "Heat stress not ruled out; pest management advised."
+  },
+  {
+   "run": 24,
+   "district": "Kanpur Nagar",
+   "scenario": "average",
+   "analog_year": 2019,
+   "sentence": "Given the average rainfall scenario, plan for standard irrigation practices without additional top-dressing nitrogen splits unless the canopy remains exceptionally green and vigorous [4][5].",
+   "cited": [
+    4,
+    5
+   ],
+   "max_cosine": 0.7568014860153198,
+   "best_passage": "J5",
+   "judge_any": "partly",
+   "judge_cited": "partly",
+   "judge_reason": "Sentence mixes good and average year practices."
+  },
+  {
+   "run": 25,
+   "district": "Kanpur Nagar",
+   "scenario": "bad",
+   "analog_year": 2020,
+   "sentence": "Reduce the nitrogen split dose at 60 DAT as it becomes optional during a forecasted bad year [2].",
+   "cited": [
+    2
+   ],
+   "max_cosine": 0.8174557089805603,
+   "best_passage": "J3",
+   "judge_any": "supported",
+   "judge_cited": "partly",
+   "judge_reason": "Matches passage [2] exactly."
+  },
+  {
+   "run": 25,
+   "district": "Kanpur Nagar",
+   "scenario": "bad",
+   "analog_year": 2020,
+   "sentence": "Prioritize insecticide application only if BPH presence is confirmed through scouting, to conserve cash in a low-yield scenario [2].",
+   "cited": [
+    2
+   ],
+   "max_cosine": 0.8000504970550537,
+   "best_passage": "J3",
+   "judge_any": "supported",
+   "judge_cited": "supported",
+   "judge_reason": "Matches advice in passage [2] exactly."
+  },
+  {
+   "run": 25,
+   "district": "Kanpur Nagar",
+   "scenario": "bad",
+   "analog_year": 2020,
+   "sentence": "Register for PMFBY insurance before the cut-off date to secure financial protection against potential yield losses [2].",
+   "cited": [
+    2
+   ],
+   "max_cosine": 0.7619322538375854,
+   "best_passage": "J3",
+   "judge_any": "supported",
+   "judge_cited": "supported",
+   "judge_reason": "Directly stated in passage [2]."
+  },
+  {
+   "run": 25,
+   "district": "Kanpur Nagar",
+   "scenario": "bad",
+   "analog_year": 2020,
+   "sentence": "Consider early contract with mandi for whatever harvest materializes to ensure market access and price stability [2].",
+   "cited": [
+    2
+   ],
+   "max_cosine": 0.7627373337745667,
+   "best_passage": "J3",
+   "judge_any": "supported",
+   "judge_cited": "partly",
+   "judge_reason": "Sentence directly implies from passage [2]"
+  },
+  {
+   "run": 25,
+   "district": "Kanpur Nagar",
+   "scenario": "bad",
+   "analog_year": 2020,
+   "sentence": "Maintain 5 cm standing water during flowering as a thermal buffer, given no forecasted heat waves above 35\u00b0C in late August and September [5].",
+   "cited": [
+    5
+   ],
+   "max_cosine": 0.7237632274627686,
+   "best_passage": "I3",
+   "judge_any": "supported",
+   "judge_cited": "partly",
+   "judge_reason": "Matches passage 5 on thermal buffer for heat stress."
+  },
+  {
+   "run": 26,
+   "district": "Kanpur Nagar",
+   "scenario": "average",
+   "analog_year": 2021,
+   "sentence": "Follow the standard NPK recommendation of 120 kg Nitrogen per hectare, 60 kg Phosphorus per hectare, and 60 kg Potassium per hectare [1].",
+   "cited": [
+    1
+   ],
+   "max_cosine": 0.8145455718040466,
+   "best_passage": "A1",
+   "judge_any": "supported",
+   "judge_cited": "supported",
+   "judge_reason": "Matches passage 1 exactly."
+  },
+  {
+   "run": 26,
+   "district": "Kanpur Nagar",
+   "scenario": "average",
+   "analog_year": 2021,
+   "sentence": "Apply zinc at a rate of 5 kg per hectare as recommended for Kharif rice in eastern Uttar Pradesh plains [1].",
+   "cited": [
+    1
+   ],
+   "max_cosine": 0.8980041146278381,
+   "best_passage": "A1",
+   "judge_any": "supported",
+   "judge_cited": "supported",
+   "judge_reason": "Matches NPK recommendation for Kharif rice in eastern Uttar Pradesh."
+  },
+  {
+   "run": 26,
+   "district": "Kanpur Nagar",
+   "scenario": "average",
+   "analog_year": 2021,
+   "sentence": "Scout fields weekly from the panicle initiation stage onward to detect early signs of brown planthopper infestation [3][4].",
+   "cited": [
+    3,
+    4
+   ],
+   "max_cosine": 0.7950089573860168,
+   "best_passage": "C2",
+   "judge_any": "supported",
+   "judge_cited": "supported",
+   "judge_reason": "Weekly scouting from panicle initiation stage is recommended in passages."
+  },
+  {
+   "run": 26,
+   "district": "Kanpur Nagar",
+   "scenario": "average",
+   "analog_year": 2021,
+   "sentence": "Use alternate wetting and drying (AWD) or continuous flooding methods for irrigation, aligning with standard practice for an average year scenario [5].",
+   "cited": [
+    5
+   ],
+   "max_cosine": 0.7775483727455139,
+   "best_passage": "J5",
+   "judge_any": "supported",
+   "judge_cited": "partly",
+   "judge_reason": "Matches standard practice in average year scenario."
+  },
+  {
+   "run": 26,
+   "district": "Kanpur Nagar",
+   "scenario": "average",
+   "analog_year": 2021,
+   "sentence": "Be vigilant for BPH outbreaks as ideal weather conditions coincide with vigorous rice growth stages in Kanpur during August and September [2].",
+   "cited": [
+    2
+   ],
+   "max_cosine": 0.8062374591827393,
+   "best_passage": "J4",
+   "judge_any": "supported",
+   "judge_cited": "partly",
+   "judge_reason": "Matches passage 2 on BPH outbreak conditions and timing."
+  },
+  {
+   "run": 27,
+   "district": "Kanpur Nagar",
+   "scenario": "average",
+   "analog_year": 2022,
+   "sentence": "Follow the standard NPK recommendation of 120 kg Nitrogen per hectare, 60 kg Phosphorus (as P2O5) per hectare, and 60 kg Potassium (as K2O) per hectare [1].",
+   "cited": [
+    1
+   ],
+   "max_cosine": 0.8193979263305664,
+   "best_passage": "A1",
+   "judge_any": "supported",
+   "judge_cited": "supported",
+   "judge_reason": "Matches NPK recommendation in passage 1 exactly."
+  },
+  {
+   "run": 27,
+   "district": "Kanpur Nagar",
+   "scenario": "average",
+   "analog_year": 2022,
+   "sentence": "Scout weekly for brown planthoppers from the panicle initiation stage onward to prevent hopper burn damage [3][4].",
+   "cited": [
+    3,
+    4
+   ],
+   "max_cosine": 0.8320074081420898,
+   "best_passage": "C2",
+   "judge_any": "supported",
+   "judge_cited": "supported",
+   "judge_reason": "Scouting weekly from panicle initiation is recommended in passages [3] and [4]."
+  },
+  {
+   "run": 27,
+   "district": "Kanpur Nagar",
+   "scenario": "average",
+   "analog_year": 2022,
+   "sentence": "Use alternate wetting and drying (AWD) or standard split irrigation methods as recommended for an average year scenario [5].",
+   "cited": [
+    5
+   ],
+   "max_cosine": 0.7769173383712769,
+   "best_passage": "J5",
+   "judge_any": "supported",
+   "judge_cited": "partly",
+   "judge_reason": "Passage [5] explicitly mentions AWD and standard split irrigation for average years."
+  },
+  {
+   "run": 27,
+   "district": "Kanpur Nagar",
+   "scenario": "average",
+   "analog_year": 2022,
+   "sentence": "Be vigilant about BPH population growth, which peaks at approximately 28 to 30\u00b0C, commonly reached in Kanpur during August and September [2].",
+   "cited": [
+    2
+   ],
+   "max_cosine": 0.7798753380775452,
+   "best_passage": "H5",
+   "judge_any": "supported",
+   "judge_cited": "supported",
+   "judge_reason": "Matches BPH peak growth temp range in Kanpur August-September."
+  },
+  {
+   "run": 27,
+   "district": "Kanpur Nagar",
+   "scenario": "average",
+   "analog_year": 2022,
+   "sentence": "Ensure that the rice field is drained 7 to 10 days before harvest to prepare for the upcoming season [5].",
+   "cited": [
+    5
+   ],
+   "max_cosine": 0.7567721009254456,
+   "best_passage": "J5",
+   "judge_any": "supported",
+   "judge_cited": "partly",
+   "judge_reason": "Passage 5 mentions draining 7 to 10 days before harvest."
+  },
+  {
+   "run": 28,
+   "district": "Kanpur Nagar",
+   "scenario": "bad",
+   "analog_year": 2023,
+   "sentence": "Adjust your nitrogen application to 60 kg per hectare as a split dose at 60 DAT becomes optional in forecast bad years [2].",
+   "cited": [
+    2
+   ],
+   "max_cosine": 0.796137809753418,
+   "best_passage": "J3",
+   "judge_any": "supported",
+   "judge_cited": "partly",
+   "judge_reason": "Matches passage [2] exactly."
+  },
+  {
+   "run": 28,
+   "district": "Kanpur Nagar",
+   "scenario": "bad",
+   "analog_year": 2023,
+   "sentence": "Prioritize insecticide use only if BPH presence is confirmed through scouting, given the significant yield losses this pest can cause [3][4].",
+   "cited": [
+    3,
+    4
+   ],
+   "max_cosine": 0.7865509986877441,
+   "best_passage": "J3",
+   "judge_any": "supported",
+   "judge_cited": "partly",
+   "judge_reason": "Matches BPH scouting and yield loss info from passages [3] and [4]."
+  },
+  {
+   "run": 28,
+   "district": "Kanpur Nagar",
+   "scenario": "bad",
+   "analog_year": 2023,
+   "sentence": "Register for PMFBY insurance before the cut-off date to mitigate financial risk associated with poor yields due to adverse weather conditions [2].",
+   "cited": [
+    2
+   ],
+   "max_cosine": 0.7956875562667847,
+   "best_passage": "J3",
+   "judge_any": "supported",
+   "judge_cited": "partly",
+   "judge_reason": "Directly implied in passage [2]."
+  },
+  {
+   "run": 28,
+   "district": "Kanpur Nagar",
+   "scenario": "bad",
+   "analog_year": 2023,
+   "sentence": "Maintain 5 cm of standing water during flowering stages in August and September to protect against heat stress days above 35\u00b0C [6].",
+   "cited": [
+    6
+   ],
+   "max_cosine": 0.7047944068908691,
+   "best_passage": "I3",
+   "judge_any": "supported",
+   "judge_cited": "supported",
+   "judge_reason": "Matches passage 6 exactly."
+  },
+  {
+   "run": 28,
+   "district": "Kanpur Nagar",
+   "scenario": "bad",
+   "analog_year": 2023,
+   "sentence": "Ensure timely irrigation at least 48 hours before any forecasted dry spells in July-August to support tillering and panicle initiation [6].",
+   "cited": [
+    6
+   ],
+   "max_cosine": 0.7562373280525208,
+   "best_passage": "I3",
+   "judge_any": "supported",
+   "judge_cited": "partly",
+   "judge_reason": "Matches passage 6 on dry spell irrigation."
+  },
+  {
+   "run": 29,
+   "district": "Kanpur Nagar",
+   "scenario": "good",
+   "analog_year": 2024,
+   "sentence": "Apply the full recommended NPK schedule of 120:60:60 along with 5 kg zinc per hectare as specified [1][2].",
+   "cited": [
+    1,
+    2
+   ],
+   "max_cosine": 0.7899402976036072,
+   "best_passage": "J4",
+   "judge_any": "supported",
+   "judge_cited": "supported",
+   "judge_reason": "Matches NPK and zinc details from passages 1 and 2."
+  },
+  {
+   "run": 29,
+   "district": "Kanpur Nagar",
+   "scenario": "good",
+   "analog_year": 2024,
+   "sentence": "Consider adding an additional top-dress nitrogen application at 75 DAT if the rice canopy remains green and vigorous to support robust growth [2].",
+   "cited": [
+    2
+   ],
+   "max_cosine": 0.8248537182807922,
+   "best_passage": "J4",
+   "judge_any": "supported",
+   "judge_cited": "supported",
+   "judge_reason": "Directly implied by passage [2]."
+  },
+  {
+   "run": 29,
+   "district": "Kanpur Nagar",
+   "scenario": "good",
+   "analog_year": 2024,
+   "sentence": "Be vigilant for brown planthopper (BPH) outbreaks, given that ideal weather conditions for this pest coincide with vigorous rice growth stages [2][3].",
+   "cited": [
+    2,
+    3
+   ],
+   "max_cosine": 0.8827840089797974,
+   "best_passage": "C1",
+   "judge_any": "partly",
+   "judge_cited": "partly",
+   "judge_reason": "Weather conditions not explicitly linked to growth stages."
+  },
+  {
+   "run": 29,
+   "district": "Kanpur Nagar",
+   "scenario": "good",
+   "analog_year": 2024,
+   "sentence": "Weekly scouting should begin from the panicle initiation stage onward to detect early signs of BPH infestation before hopper burn becomes visible [4].",
+   "cited": [
+    4
+   ],
+   "max_cosine": 0.7935265302658081,
+   "best_passage": "C2",
+   "judge_any": "supported",
+   "judge_cited": "partly",
+   "judge_reason": "Passage 4 explicitly states weekly scouting from panicle initiation stage."
+  },
+  {
+   "run": 29,
+   "district": "Kanpur Nagar",
+   "scenario": "good",
+   "analog_year": 2024,
+   "sentence": "Plan storage capacity in advance due to anticipated higher yields under good monsoon conditions, which may prevent distress sales at harvest time [2].",
+   "cited": [
+    2
+   ],
+   "max_cosine": 0.7371312379837036,
+   "best_passage": "J4",
+   "judge_any": "supported",
+   "judge_cited": "partly",
+   "judge_reason": "Passage 2 mentions planning storage for good monsoon yields."
+  }
+ ]
+}

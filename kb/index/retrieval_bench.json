@@ -1,0 +1,1088 @@
+{
+ "selected": "w150",
+ "configs": {
+  "w150": {
+   "collection": "kb_w150",
+   "n_queries": 20,
+   "precision_at_3": 0.5,
+   "recall_at_5": 0.85,
+   "hit_at_3": 1.0,
+   "precision_at_1": 0.95,
+   "mrr": 0.975,
+   "precision_at_3_ceiling": 0.65,
+   "precision_at_3_normalised": 0.8417,
+   "precision_at_3_by_topic": {
+    "disease": 0.444,
+    "establishment": 0.556,
+    "nutrient": 0.583,
+    "pest": 0.444,
+    "variety": 0.444,
+    "water": 0.5
+   },
+   "queries": [
+    {
+     "topic": "nutrient",
+     "query": "How much nitrogen, phosphorus and potash should I apply per hectare for kharif paddy?",
+     "gold": [
+      "A1",
+      "H4",
+      "J4"
+     ],
+     "top5": [
+      "A1",
+      "E1",
+      "J1",
+      "A5",
+      "E7"
+     ],
+     "precision_at_3": 0.333,
+     "recall_at_5": 0.333
+    },
+    {
+     "topic": "nutrient",
+     "query": "When should urea be split and top-dressed after transplanting?",
+     "gold": [
+      "A2",
+      "J3",
+      "J4"
+     ],
+     "top5": [
+      "A2",
+      "F3",
+      "J5",
+      "B4",
+      "B6"
+     ],
+     "precision_at_3": 0.333,
+     "recall_at_5": 0.333
+    },
+    {
+     "topic": "nutrient",
+     "query": "My soil pH is high and leaves show yellow patches with brown dead spots. Which micronutrient is lacking?",
+     "gold": [
+      "A3",
+      "A4",
+      "J1"
+     ],
+     "top5": [
+      "A4",
+      "J1",
+      "C2",
+      "A5",
+      "I2"
+     ],
+     "precision_at_3": 0.667,
+     "recall_at_5": 0.667
+    },
+    {
+     "topic": "nutrient",
+     "query": "Can farmyard manure and biofertilizers replace part of the chemical fertilizer?",
+     "gold": [
+      "A6",
+      "H4",
+      "I2"
+     ],
+     "top5": [
+      "A6",
+      "I2",
+      "H4",
+      "C3",
+      "J3"
+     ],
+     "precision_at_3": 1.0,
+     "recall_at_5": 1.0
+    },
+    {
+     "topic": "water",
+     "query": "How deep should standing water be after transplanting and when do I stop irrigating before harvest?",
+     "gold": [
+      "B4",
+      "B6"
+     ],
+     "top5": [
+      "B4",
+      "B6",
+      "J5",
+      "A2",
+      "G2"
+     ],
+     "precision_at_3": 0.667,
+     "recall_at_5": 1.0
+    },
+    {
+     "topic": "water",
+     "query": "Which growth stage is most sensitive to water shortage?",
+     "gold": [
+      "B5"
+     ],
+     "top5": [
+      "B5",
+      "E6",
+      "B4",
+      "B7",
+      "J5"
+     ],
+     "precision_at_3": 0.333,
+     "recall_at_5": 1.0
+    },
+    {
+     "topic": "water",
+     "query": "How can I save irrigation water by letting the field dry between irrigations?",
+     "gold": [
+      "B7"
+     ],
+     "top5": [
+      "B2",
+      "B7",
+      "B6",
+      "J5",
+      "B5"
+     ],
+     "precision_at_3": 0.333,
+     "recall_at_5": 1.0
+    },
+    {
+     "topic": "water",
+     "query": "The monsoon is late this year and I need pump irrigation. What should I change?",
+     "gold": [
+      "B8",
+      "F3",
+      "H5",
+      "J2"
+     ],
+     "top5": [
+      "B8",
+      "J5",
+      "J2",
+      "B7",
+      "B5"
+     ],
+     "precision_at_3": 0.667,
+     "recall_at_5": 0.5
+    },
+    {
+     "topic": "pest",
+     "query": "Plants are drying out in circular patches and tillers turn yellow at the base. Which insect is responsible?",
+     "gold": [
+      "C1",
+      "C2"
+     ],
+     "top5": [
+      "C2",
+      "C1",
+      "C3",
+      "D5",
+      "C4"
+     ],
+     "precision_at_3": 0.667,
+     "recall_at_5": 1.0
+    },
+    {
+     "topic": "pest",
+     "query": "How do I control planthoppers without causing an outbreak?",
+     "gold": [
+      "C3",
+      "I1"
+     ],
+     "top5": [
+      "C3",
+      "C1",
+      "D5",
+      "C2",
+      "C5"
+     ],
+     "precision_at_3": 0.333,
+     "recall_at_5": 0.5
+    },
+    {
+     "topic": "pest",
+     "query": "Which insects other than planthoppers attack paddy?",
+     "gold": [
+      "C4"
+     ],
+     "top5": [
+      "C4",
+      "C1",
+      "C3",
+      "D6",
+      "C5"
+     ],
+     "precision_at_3": 0.333,
+     "recall_at_5": 1.0
+    },
+    {
+     "topic": "disease",
+     "query": "Grey spindle-shaped spots on leaves and the stem breaks below the panicle. What disease is this?",
+     "gold": [
+      "D1"
+     ],
+     "top5": [
+      "D1",
+      "D4",
+      "C2",
+      "D5",
+      "D6"
+     ],
+     "precision_at_3": 0.333,
+     "recall_at_5": 1.0
+    },
+    {
+     "topic": "disease",
+     "query": "Water-soaked lesions on lower leaves in humid weather. How do I manage the disease?",
+     "gold": [
+      "D4",
+      "D5"
+     ],
+     "top5": [
+      "D5",
+      "B2",
+      "D4",
+      "B7",
+      "B5"
+     ],
+     "precision_at_3": 0.667,
+     "recall_at_5": 1.0
+    },
+    {
+     "topic": "disease",
+     "query": "Which weather conditions favour blast infection?",
+     "gold": [
+      "D2"
+     ],
+     "top5": [
+      "D2",
+      "I3",
+      "D1",
+      "J5",
+      "D3"
+     ],
+     "precision_at_3": 0.333,
+     "recall_at_5": 1.0
+    },
+    {
+     "topic": "variety",
+     "query": "Which short-duration variety should I choose if transplanting is late?",
+     "gold": [
+      "E4",
+      "E7",
+      "J2"
+     ],
+     "top5": [
+      "E7",
+      "A2",
+      "F3",
+      "J2",
+      "J5"
+     ],
+     "precision_at_3": 0.333,
+     "recall_at_5": 0.667
+    },
+    {
+     "topic": "variety",
+     "query": "Which paddy varieties tolerate sodic or salty soil?",
+     "gold": [
+      "E1",
+      "E6"
+     ],
+     "top5": [
+      "E6",
+      "E1",
+      "H4",
+      "H2",
+      "D2"
+     ],
+     "precision_at_3": 0.667,
+     "recall_at_5": 1.0
+    },
+    {
+     "topic": "variety",
+     "query": "What are the yield and disease resistance of Narendra-80?",
+     "gold": [
+      "E4"
+     ],
+     "top5": [
+      "E4",
+      "E6",
+      "E2",
+      "J2",
+      "E1"
+     ],
+     "precision_at_3": 0.333,
+     "recall_at_5": 1.0
+    },
+    {
+     "topic": "establishment",
+     "query": "How old should seedlings be at transplanting and when should the nursery be sown?",
+     "gold": [
+      "F3"
+     ],
+     "top5": [
+      "F3",
+      "J5",
+      "F1",
+      "A2",
+      "B4"
+     ],
+     "precision_at_3": 0.333,
+     "recall_at_5": 1.0
+    },
+    {
+     "topic": "establishment",
+     "query": "How much seed per hectare do I need and how should seed be treated?",
+     "gold": [
+      "F1",
+      "F2"
+     ],
+     "top5": [
+      "F2",
+      "F1",
+      "B2",
+      "J5",
+      "D5"
+     ],
+     "precision_at_3": 0.667,
+     "recall_at_5": 1.0
+    },
+    {
+     "topic": "establishment",
+     "query": "Does very hot weather during flowering reduce grain set?",
+     "gold": [
+      "F5",
+      "I3"
+     ],
+     "top5": [
+      "F5",
+      "B5",
+      "I3",
+      "G1",
+      "D2"
+     ],
+     "precision_at_3": 0.667,
+     "recall_at_5": 1.0
+    }
+   ]
+  },
+  "w100": {
+   "collection": "kb_w100",
+   "n_queries": 20,
+   "precision_at_3": 0.4833,
+   "recall_at_5": 0.85,
+   "hit_at_3": 1.0,
+   "precision_at_1": 0.95,
+   "mrr": 0.975,
+   "precision_at_3_ceiling": 0.65,
+   "precision_at_3_normalised": 0.825,
+   "precision_at_3_by_topic": {
+    "disease": 0.444,
+    "establishment": 0.556,
+    "nutrient": 0.583,
+    "pest": 0.444,
+    "variety": 0.444,
+    "water": 0.417
+   },
+   "queries": [
+    {
+     "topic": "nutrient",
+     "query": "How much nitrogen, phosphorus and potash should I apply per hectare for kharif paddy?",
+     "gold": [
+      "A1",
+      "H4",
+      "J4"
+     ],
+     "top5": [
+      "A1",
+      "E1",
+      "J1",
+      "A5",
+      "E7"
+     ],
+     "precision_at_3": 0.333,
+     "recall_at_5": 0.333
+    },
+    {
+     "topic": "nutrient",
+     "query": "When should urea be split and top-dressed after transplanting?",
+     "gold": [
+      "A2",
+      "J3",
+      "J4"
+     ],
+     "top5": [
+      "A2",
+      "F3",
+      "J5",
+      "B7-2",
+      "B4"
+     ],
+     "precision_at_3": 0.333,
+     "recall_at_5": 0.333
+    },
+    {
+     "topic": "nutrient",
+     "query": "My soil pH is high and leaves show yellow patches with brown dead spots. Which micronutrient is lacking?",
+     "gold": [
+      "A3",
+      "A4",
+      "J1"
+     ],
+     "top5": [
+      "A4",
+      "J1",
+      "C2",
+      "A5",
+      "I2"
+     ],
+     "precision_at_3": 0.667,
+     "recall_at_5": 0.667
+    },
+    {
+     "topic": "nutrient",
+     "query": "Can farmyard manure and biofertilizers replace part of the chemical fertilizer?",
+     "gold": [
+      "A6",
+      "H4",
+      "I2"
+     ],
+     "top5": [
+      "A6",
+      "I2",
+      "H4",
+      "C3",
+      "J3"
+     ],
+     "precision_at_3": 1.0,
+     "recall_at_5": 1.0
+    },
+    {
+     "topic": "water",
+     "query": "How deep should standing water be after transplanting and when do I stop irrigating before harvest?",
+     "gold": [
+      "B4",
+      "B6"
+     ],
+     "top5": [
+      "B4",
+      "B6",
+      "B7-2",
+      "J5",
+      "A2"
+     ],
+     "precision_at_3": 0.667,
+     "recall_at_5": 1.0
+    },
+    {
+     "topic": "water",
+     "query": "Which growth stage is most sensitive to water shortage?",
+     "gold": [
+      "B5"
+     ],
+     "top5": [
+      "B5",
+      "E6",
+      "B4",
+      "B7-2",
+      "J5"
+     ],
+     "precision_at_3": 0.333,
+     "recall_at_5": 1.0
+    },
+    {
+     "topic": "water",
+     "query": "How can I save irrigation water by letting the field dry between irrigations?",
+     "gold": [
+      "B7"
+     ],
+     "top5": [
+      "B2",
+      "B7-1",
+      "B6",
+      "B7-2",
+      "J5"
+     ],
+     "precision_at_3": 0.333,
+     "recall_at_5": 1.0
+    },
+    {
+     "topic": "water",
+     "query": "The monsoon is late this year and I need pump irrigation. What should I change?",
+     "gold": [
+      "B8",
+      "F3",
+      "H5",
+      "J2"
+     ],
+     "top5": [
+      "B8",
+      "B7-2",
+      "J5",
+      "J2",
+      "B5"
+     ],
+     "precision_at_3": 0.333,
+     "recall_at_5": 0.5
+    },
+    {
+     "topic": "pest",
+     "query": "Plants are drying out in circular patches and tillers turn yellow at the base. Which insect is responsible?",
+     "gold": [
+      "C1",
+      "C2"
+     ],
+     "top5": [
+      "C2",
+      "C1",
+      "C3",
+      "D5",
+      "C4"
+     ],
+     "precision_at_3": 0.667,
+     "recall_at_5": 1.0
+    },
+    {
+     "topic": "pest",
+     "query": "How do I control planthoppers without causing an outbreak?",
+     "gold": [
+      "C3",
+      "I1"
+     ],
+     "top5": [
+      "C3",
+      "C1",
+      "D5",
+      "C2",
+      "C5"
+     ],
+     "precision_at_3": 0.333,
+     "recall_at_5": 0.5
+    },
+    {
+     "topic": "pest",
+     "query": "Which insects other than planthoppers attack paddy?",
+     "gold": [
+      "C4"
+     ],
+     "top5": [
+      "C4",
+      "C1",
+      "C3",
+      "D6",
+      "C5"
+     ],
+     "precision_at_3": 0.333,
+     "recall_at_5": 1.0
+    },
+    {
+     "topic": "disease",
+     "query": "Grey spindle-shaped spots on leaves and the stem breaks below the panicle. What disease is this?",
+     "gold": [
+      "D1"
+     ],
+     "top5": [
+      "D1",
+      "D4",
+      "C2",
+      "D5",
+      "D6"
+     ],
+     "precision_at_3": 0.333,
+     "recall_at_5": 1.0
+    },
+    {
+     "topic": "disease",
+     "query": "Water-soaked lesions on lower leaves in humid weather. How do I manage the disease?",
+     "gold": [
+      "D4",
+      "D5"
+     ],
+     "top5": [
+      "D5",
+      "B2",
+      "D4",
+      "B5",
+      "B7-2"
+     ],
+     "precision_at_3": 0.667,
+     "recall_at_5": 1.0
+    },
+    {
+     "topic": "disease",
+     "query": "Which weather conditions favour blast infection?",
+     "gold": [
+      "D2"
+     ],
+     "top5": [
+      "D2",
+      "I3",
+      "D1",
+      "J5",
+      "D3"
+     ],
+     "precision_at_3": 0.333,
+     "recall_at_5": 1.0
+    },
+    {
+     "topic": "variety",
+     "query": "Which short-duration variety should I choose if transplanting is late?",
+     "gold": [
+      "E4",
+      "E7",
+      "J2"
+     ],
+     "top5": [
+      "E7",
+      "A2",
+      "F3",
+      "J2",
+      "J5"
+     ],
+     "precision_at_3": 0.333,
+     "recall_at_5": 0.667
+    },
+    {
+     "topic": "variety",
+     "query": "Which paddy varieties tolerate sodic or salty soil?",
+     "gold": [
+      "E1",
+      "E6"
+     ],
+     "top5": [
+      "E6",
+      "E1",
+      "H4",
+      "H2",
+      "D2"
+     ],
+     "precision_at_3": 0.667,
+     "recall_at_5": 1.0
+    },
+    {
+     "topic": "variety",
+     "query": "What are the yield and disease resistance of Narendra-80?",
+     "gold": [
+      "E4"
+     ],
+     "top5": [
+      "E4",
+      "E6",
+      "E2",
+      "J2",
+      "E1"
+     ],
+     "precision_at_3": 0.333,
+     "recall_at_5": 1.0
+    },
+    {
+     "topic": "establishment",
+     "query": "How old should seedlings be at transplanting and when should the nursery be sown?",
+     "gold": [
+      "F3"
+     ],
+     "top5": [
+      "F3",
+      "J5",
+      "F1",
+      "A2",
+      "B4"
+     ],
+     "precision_at_3": 0.333,
+     "recall_at_5": 1.0
+    },
+    {
+     "topic": "establishment",
+     "query": "How much seed per hectare do I need and how should seed be treated?",
+     "gold": [
+      "F1",
+      "F2"
+     ],
+     "top5": [
+      "F2",
+      "F1",
+      "B2",
+      "J5",
+      "D5"
+     ],
+     "precision_at_3": 0.667,
+     "recall_at_5": 1.0
+    },
+    {
+     "topic": "establishment",
+     "query": "Does very hot weather during flowering reduce grain set?",
+     "gold": [
+      "F5",
+      "I3"
+     ],
+     "top5": [
+      "F5",
+      "B5",
+      "I3",
+      "G1",
+      "D2"
+     ],
+     "precision_at_3": 0.667,
+     "recall_at_5": 1.0
+    }
+   ]
+  },
+  "w200": {
+   "collection": "kb_w200",
+   "n_queries": 20,
+   "precision_at_3": 0.5,
+   "recall_at_5": 0.85,
+   "hit_at_3": 1.0,
+   "precision_at_1": 0.95,
+   "mrr": 0.975,
+   "precision_at_3_ceiling": 0.65,
+   "precision_at_3_normalised": 0.8417,
+   "precision_at_3_by_topic": {
+    "disease": 0.444,
+    "establishment": 0.556,
+    "nutrient": 0.583,
+    "pest": 0.444,
+    "variety": 0.444,
+    "water": 0.5
+   },
+   "queries": [
+    {
+     "topic": "nutrient",
+     "query": "How much nitrogen, phosphorus and potash should I apply per hectare for kharif paddy?",
+     "gold": [
+      "A1",
+      "H4",
+      "J4"
+     ],
+     "top5": [
+      "A1",
+      "E1",
+      "J1",
+      "A5",
+      "E7"
+     ],
+     "precision_at_3": 0.333,
+     "recall_at_5": 0.333
+    },
+    {
+     "topic": "nutrient",
+     "query": "When should urea be split and top-dressed after transplanting?",
+     "gold": [
+      "A2",
+      "J3",
+      "J4"
+     ],
+     "top5": [
+      "A2",
+      "F3",
+      "J5",
+      "B4",
+      "B6"
+     ],
+     "precision_at_3": 0.333,
+     "recall_at_5": 0.333
+    },
+    {
+     "topic": "nutrient",
+     "query": "My soil pH is high and leaves show yellow patches with brown dead spots. Which micronutrient is lacking?",
+     "gold": [
+      "A3",
+      "A4",
+      "J1"
+     ],
+     "top5": [
+      "A4",
+      "J1",
+      "C2",
+      "A5",
+      "I2"
+     ],
+     "precision_at_3": 0.667,
+     "recall_at_5": 0.667
+    },
+    {
+     "topic": "nutrient",
+     "query": "Can farmyard manure and biofertilizers replace part of the chemical fertilizer?",
+     "gold": [
+      "A6",
+      "H4",
+      "I2"
+     ],
+     "top5": [
+      "A6",
+      "I2",
+      "H4",
+      "C3",
+      "J3"
+     ],
+     "precision_at_3": 1.0,
+     "recall_at_5": 1.0
+    },
+    {
+     "topic": "water",
+     "query": "How deep should standing water be after transplanting and when do I stop irrigating before harvest?",
+     "gold": [
+      "B4",
+      "B6"
+     ],
+     "top5": [
+      "B4",
+      "B6",
+      "J5",
+      "A2",
+      "G2"
+     ],
+     "precision_at_3": 0.667,
+     "recall_at_5": 1.0
+    },
+    {
+     "topic": "water",
+     "query": "Which growth stage is most sensitive to water shortage?",
+     "gold": [
+      "B5"
+     ],
+     "top5": [
+      "B5",
+      "E6",
+      "B4",
+      "B7",
+      "J5"
+     ],
+     "precision_at_3": 0.333,
+     "recall_at_5": 1.0
+    },
+    {
+     "topic": "water",
+     "query": "How can I save irrigation water by letting the field dry between irrigations?",
+     "gold": [
+      "B7"
+     ],
+     "top5": [
+      "B2",
+      "B7",
+      "B6",
+      "J5",
+      "B5"
+     ],
+     "precision_at_3": 0.333,
+     "recall_at_5": 1.0
+    },
+    {
+     "topic": "water",
+     "query": "The monsoon is late this year and I need pump irrigation. What should I change?",
+     "gold": [
+      "B8",
+      "F3",
+      "H5",
+      "J2"
+     ],
+     "top5": [
+      "B8",
+      "J5",
+      "J2",
+      "B7",
+      "B5"
+     ],
+     "precision_at_3": 0.667,
+     "recall_at_5": 0.5
+    },
+    {
+     "topic": "pest",
+     "query": "Plants are drying out in circular patches and tillers turn yellow at the base. Which insect is responsible?",
+     "gold": [
+      "C1",
+      "C2"
+     ],
+     "top5": [
+      "C2",
+      "C1",
+      "C3",
+      "D5",
+      "C4"
+     ],
+     "precision_at_3": 0.667,
+     "recall_at_5": 1.0
+    },
+    {
+     "topic": "pest",
+     "query": "How do I control planthoppers without causing an outbreak?",
+     "gold": [
+      "C3",
+      "I1"
+     ],
+     "top5": [
+      "C3",
+      "C1",
+      "D5",
+      "C2",
+      "C5"
+     ],
+     "precision_at_3": 0.333,
+     "recall_at_5": 0.5
+    },
+    {
+     "topic": "pest",
+     "query": "Which insects other than planthoppers attack paddy?",
+     "gold": [
+      "C4"
+     ],
+     "top5": [
+      "C4",
+      "C1",
+      "C3",
+      "D6",
+      "C5"
+     ],
+     "precision_at_3": 0.333,
+     "recall_at_5": 1.0
+    },
+    {
+     "topic": "disease",
+     "query": "Grey spindle-shaped spots on leaves and the stem breaks below the panicle. What disease is this?",
+     "gold": [
+      "D1"
+     ],
+     "top5": [
+      "D1",
+      "D4",
+      "C2",
+      "D5",
+      "D6"
+     ],
+     "precision_at_3": 0.333,
+     "recall_at_5": 1.0
+    },
+    {
+     "topic": "disease",
+     "query": "Water-soaked lesions on lower leaves in humid weather. How do I manage the disease?",
+     "gold": [
+      "D4",
+      "D5"
+     ],
+     "top5": [
+      "D5",
+      "B2",
+      "D4",
+      "B7",
+      "B5"
+     ],
+     "precision_at_3": 0.667,
+     "recall_at_5": 1.0
+    },
+    {
+     "topic": "disease",
+     "query": "Which weather conditions favour blast infection?",
+     "gold": [
+      "D2"
+     ],
+     "top5": [
+      "D2",
+      "I3",
+      "D1",
+      "J5",
+      "D3"
+     ],
+     "precision_at_3": 0.333,
+     "recall_at_5": 1.0
+    },
+    {
+     "topic": "variety",
+     "query": "Which short-duration variety should I choose if transplanting is late?",
+     "gold": [
+      "E4",
+      "E7",
+      "J2"
+     ],
+     "top5": [
+      "E7",
+      "A2",
+      "F3",
+      "J2",
+      "J5"
+     ],
+     "precision_at_3": 0.333,
+     "recall_at_5": 0.667
+    },
+    {
+     "topic": "variety",
+     "query": "Which paddy varieties tolerate sodic or salty soil?",
+     "gold": [
+      "E1",
+      "E6"
+     ],
+     "top5": [
+      "E6",
+      "E1",
+      "H4",
+      "H2",
+      "D2"
+     ],
+     "precision_at_3": 0.667,
+     "recall_at_5": 1.0
+    },
+    {
+     "topic": "variety",
+     "query": "What are the yield and disease resistance of Narendra-80?",
+     "gold": [
+      "E4"
+     ],
+     "top5": [
+      "E4",
+      "E6",
+      "E2",
+      "J2",
+      "E1"
+     ],
+     "precision_at_3": 0.333,
+     "recall_at_5": 1.0
+    },
+    {
+     "topic": "establishment",
+     "query": "How old should seedlings be at transplanting and when should the nursery be sown?",
+     "gold": [
+      "F3"
+     ],
+     "top5": [
+      "F3",
+      "J5",
+      "F1",
+      "A2",
+      "B4"
+     ],
+     "precision_at_3": 0.333,
+     "recall_at_5": 1.0
+    },
+    {
+     "topic": "establishment",
+     "query": "How much seed per hectare do I need and how should seed be treated?",
+     "gold": [
+      "F1",
+      "F2"
+     ],
+     "top5": [
+      "F2",
+      "F1",
+      "B2",
+      "J5",
+      "D5"
+     ],
+     "precision_at_3": 0.667,
+     "recall_at_5": 1.0
+    },
+    {
+     "topic": "establishment",
+     "query": "Does very hot weather during flowering reduce grain set?",
+     "gold": [
+      "F5",
+      "I3"
+     ],
+     "top5": [
+      "F5",
+      "B5",
+      "I3",
+      "G1",
+      "D2"
+     ],
+     "precision_at_3": 0.667,
+     "recall_at_5": 1.0
+    }
+   ]
+  }
+ }
+}

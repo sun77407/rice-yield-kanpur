@@ -9,6 +9,8 @@ ignore = ["D203", "D213"]
 [lint.per-file-ignores]
 "tests/**" = ["D"]
 "**/__init__.py" = ["D104"]
+# hand-labelled sentences and queries are data, one per line
+"src/llm/grounding_validation.py" = ["E501"]
 
 # ADR-018: no cloud LLM SDKs in the shipped pipeline
 [lint.flake8-tidy-imports.banned-api]

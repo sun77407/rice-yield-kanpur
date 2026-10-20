@@ -1,0 +1,388 @@
+# Rice Agronomy Knowledge Base for Kanpur, Uttar Pradesh
+
+## About this corpus
+
+This knowledge base was assembled from publicly accessible authoritative sources on rice cultivation, with a focus on practices applicable to Kanpur Nagar and Kanpur Dehat districts of Uttar Pradesh, India (soil pH 7.2 to 8.4, alkaline clay loam, Kharif season June to October). Each passage carries an explicit source citation. The corpus is intended for Retrieval-Augmented Generation (RAG) use in an offline agronomic advisory system.
+
+Primary sources used:
+- International Rice Research Institute (IRRI) Rice Knowledge Bank — water management module
+- Narendra Deva University of Agriculture and Technology (NDUAT) Faizabad — field trial data, variety releases
+- Phytojournal published research on NPK response in UP rice
+- Wikipedia (used as consolidated reference for well-established agronomic facts)
+- DRDPAT (Directorate of Research, Rice Varieties)
+- Global Agriculture notified varieties list
+- IndiaAgronet India-wide cultivation reference
+
+---
+
+## PART A — NUTRIENT MANAGEMENT
+
+### A1. Standard NPK recommendation for Kharif rice in Uttar Pradesh
+
+Source: Phytojournal 2018 field study at Narendra Deva University of Agriculture and Technology, Kumarganj, Faizabad, eastern Uttar Pradesh (variety: Pusa Basmati 1).
+
+The full recommended fertilizer dose for Kharif rice in the eastern Uttar Pradesh plains is 120 kg Nitrogen per hectare, 60 kg Phosphorus (as P2O5) per hectare, and 60 kg Potassium (as K2O) per hectare, with 5 kg Zinc per hectare applied as zinc sulphate. Standard fertilizer sources are urea for nitrogen, diammonium phosphate (DAP) for phosphorus, muriate of potash (MOP) for potassium, and zinc sulphate for zinc. This NPK schedule (120:60:60) is the baseline from which site-specific adjustments are made based on soil testing.
+
+### A2. Timing of NPK application
+
+Source: Phytojournal 2018 NDUAT field study.
+
+Half of the nitrogen plus the full dose of phosphorus, potassium, and zinc sulphate are applied as basal dressing during final field preparation, immediately before transplanting. The remaining half of nitrogen is split into two equal top-dressing applications: the first at 40 days after transplanting (coinciding with maximum tillering), the second at 60 days after transplanting (coinciding with panicle initiation). This split-dose approach minimizes nitrogen loss through volatilization and leaching, which can otherwise exceed 50% in puddled rice systems.
+
+### A3. Soil test values typical of eastern UP plains
+
+Source: Phytojournal 2018 NDUAT trial site characterization.
+
+Representative soil values for the eastern Uttar Pradesh plains (NDUAT Faizabad site) are: clay loam texture, pH 8.25 (alkaline), electrical conductivity 0.45 dS/m (low salts), organic carbon 0.46% (medium), available nitrogen 267 kg/ha (low), available phosphorus 17.4 kg/ha (medium), available potassium 247 kg/ha (high). These values are broadly representative of the broader Ganges plain including Kanpur district. Alkaline pH above 8.0 reduces zinc availability and makes zinc sulphate application essential rather than optional.
+
+### A4. Zinc deficiency management
+
+Source: Wikipedia article on zinc deficiency as plant disorder; cross-referenced with NDUAT trial zinc rate.
+
+Zinc deficiency is widespread in alkaline, calcareous, clay-rich, and waterlogged soils — all conditions present in UP rice fields. Visible symptoms include interveinal yellowing of leaves, bronze-colored patches, dead tissue (necrotic spots) within yellowed areas, and stunted growth with small, clustered leaves. Management options for rice: apply zinc sulphate to the soil at 5 to 25 kg per hectare, or use foliar sprays of zinc sulphate or zinc chelates. In strongly alkaline soils, soil application may underperform because added zinc rapidly binds to carbonates and becomes unavailable; foliar sprays applied at tillering and panicle initiation stages are more reliable in those conditions. Seed treatment or seedling root dip in zinc solution is a third option.
+
+### A5. Phosphorus fixation in rice soils
+
+Source: Phytojournal 2018 NDUAT literature review.
+
+More than two-thirds of applied phosphorus can become fixed in the soil and unavailable to the current rice crop. Critical plant tissue phosphorus during vegetative growth is approximately 1.0 to 2.0 g P per kg of leaf dry matter. Yoshida (1981) cites approximately 2.0 g P per kg in the first fully opened leaf as needed for maximum tillering; De Datta (1981) cites approximately 1.0 g P per kg in leaf blades at active tillering as the critical level below which deficiency symptoms appear. Residual phosphorus from the previous Rabi season reduces current Kharif application needs.
+
+### A6. Biofertilizer supplementation
+
+Source: Phytojournal 2018 NDUAT trial.
+
+Azotobacter and phosphate-solubilizing bacteria (PSB) can supplement chemical fertilizer. Standard application method: dip the roots of 23-day-old rice seedlings in biofertilizer inoculant solution for approximately half an hour before transplanting. The 2018 NDUAT trial found that half the recommended NPK dose plus 50% nitrogen as farmyard manure plus 5 kg Zn per hectare produced equivalent yields to 100% NPK plus zinc (36.60 t/ha vs 33.56 t/ha in the trial — note the trial reports t/ha but these appear to be total biomass figures not grain yield; standard grain yields are much lower). The benefit-cost ratio favored the integrated nutrient management approach at 1.86.
+
+---
+
+## PART B — WATER MANAGEMENT
+
+### B1. Overall water requirement for lowland rice
+
+Source: IRRI Rice Knowledge Bank — Water Management module.
+
+Irrigated lowland rice uses approximately 1,432 litres of water per 1 kg of grain produced. Total seasonal water input ranges from about 400 mm (on heavy clay soils with shallow groundwater) to over 2,000 mm (on coarse sandy or loamy soils with deep groundwater). The typical requirement for irrigated rice in Asia is 1,300 to 1,500 mm per season. Rice is highly sensitive to water shortage because of its semi-aquatic ancestry. Irrigated rice globally receives an estimated 34 to 43% of the world's irrigation water supply.
+
+### B2. Field preparation for water control
+
+Source: IRRI Rice Knowledge Bank.
+
+Build separate field channels to move water to and from each field; this allows individual control of water inflow and lets the main field stay dry until planting. Do shallow tillage before land soaking to close soil cracks, which reduces water loss. Puddling creates a compacted hard pan on clayey soils that reduces percolation; it is less effective on coarse sandy soils. Wet land preparation can use up to one-third of the total water needed for the crop. Dry preparation uses considerably less. Field levelling matters: an unlevelled field needs an extra 80 to 100 mm of water for full coverage, roughly 10% of the crop's total requirement.
+
+### B3. Bund maintenance
+
+Source: IRRI Rice Knowledge Bank.
+
+Bunds should be well compacted at the start of each season. Cracks and rat holes should be sealed with mud. Minimum bund height is 20 cm to prevent overflow during heavy monsoon rain. Low levees of 5 to 10 cm can hold ponded water at that depth and can be raised when more water storage is needed. Poor bund maintenance is a leading cause of water loss and uneven yield within the same field.
+
+### B4. Water depth by growth stage (continuous flooding)
+
+Source: IRRI Rice Knowledge Bank.
+
+For transplanted rice under continuous flooding: start at approximately 3 cm water depth after transplanting. Increase depth gradually to 5 to 10 cm as the plants grow taller. Maintain this depth until the field is drained 7 to 10 days before harvest. For direct wet seeding: flood the field only after plants reach the 3 to 4 leaf stage, when they can tolerate shallow water without being submerged.
+
+### B5. Critical flowering period
+
+Source: IRRI Rice Knowledge Bank.
+
+Lowland rice is extremely sensitive to water shortage during the flowering stage. Drought at flowering causes spikelet sterility, reducing grain number and final yield. Maintain 5 cm of standing water from heading (panicle emergence) through the end of flowering. In Kanpur conditions this corresponds roughly to mid-August through mid-September for Kharif rice. Water stress during this 30-day window is the single greatest water-related cause of yield loss.
+
+### B6. Drainage timing
+
+Source: IRRI Rice Knowledge Bank.
+
+Drain the field 7 to 10 days before harvest to allow the soil to dry sufficiently for mechanical or manual harvesting and to promote even grain maturation. Field channels and bunds allow controlled drainage. Retain standing water for several days after fertilizer application to prevent nitrogen loss through runoff.
+
+### B7. Alternate Wetting and Drying (AWD)
+
+Sources: Wikipedia article on rice; IndiaAgronet reference on Telangana AWD technique.
+
+AWD is a water-saving technology where the field is allowed to dry down between irrigations instead of maintaining continuous flooding. Procedure using a monitoring pipe: install a 30 cm long PVC pipe of 15 cm diameter, with 5 mm holes spaced 2 cm apart, buried flush with the soil surface. Flood the field to 5 cm above the soil, then allow water to drop until the level inside the pipe falls to 10 cm below the soil surface. Re-flood to 5 cm. Re-flooding typically starts a few days after transplanting, at intervals of 1 to 7 days depending on soil texture, weather, and growth stage. The Telangana demonstration programme reports approximately 30 to 35% water savings using AWD, bringing water requirement from approximately 3,250 litres per kg of paddy down to approximately 2,590 litres. AWD should be suspended during the flowering window, when continuous flooding should resume.
+
+### B8. Monsoon-rain context for UP
+
+Source: Wikipedia article on rice production in India.
+
+Rice is predominantly rain-fed in India, which is why it is categorized as a Kharif crop (monsoon-sown). Western Uttar Pradesh and northern Uttar Pradesh receive 700 to 900 mm of rainfall during the Kharif season on average, with roughly 80% concentrated in July, August, and early September. Rainfall deficit or late monsoon onset forces supplementary pump irrigation, which is a major cost input for smallholder farmers.
+
+---
+
+## PART C — PEST MANAGEMENT
+
+### C1. Brown planthopper (Nilaparvata lugens)
+
+Source: Wikipedia article on brown planthopper; Wikipedia article on rice.
+
+Brown planthopper (BPH) is the single most damaging insect pest of rice in Asia. It feeds on rice sap at the base of tillers and can also transmit two major viruses, rice ragged stunt virus and rice grassy stunt virus. Yield losses up to 60% are common in susceptible cultivars during outbreak years. The pest's winged (macropterous) adults migrate on seasonal winds and colonize new fields. Most females in the next generation are short-winged (brachypterous) and lay 300 to 350 eggs per female. Eggs hatch in 6 to 9 days; nymphs pass through 5 instars before becoming adults. Population growth peaks at approximately 28 to 30°C — temperatures routinely reached in Kanpur during August and September.
+
+### C2. Brown planthopper damage symptoms
+
+Source: Wikipedia article on brown planthopper.
+
+Feeding by BPH at the base of tillers causes plants to turn yellow and dry out, producing circular patches of dead plants known as "hopper burn." Hopper burn typically starts in a small area and radiates outward as the infestation spreads. By the time hopper burn is visible, population levels are already very high and curative action is difficult. Weekly scouting from the panicle initiation stage onward is the recommended early-warning practice.
+
+### C3. Brown planthopper management
+
+Source: Wikipedia article on brown planthopper; Wikipedia article on rice.
+
+Excess urea application and certain broad-spectrum insecticides, including abamectin and cypermethrin, can trigger BPH outbreaks by increasing BPH fecundity and simultaneously killing the pest's natural enemies. Integrated Pest Management therefore restricts these inputs. Resistant varieties such as IR64 provide meaningful suppression and should be preferred in BPH-prone areas. Some plant lectins deter BPH feeding. Natural predators including the spiders Pardosa pseudoannulata and Araneus inustus provide biological control. Avoid prophylactic spraying before scouting confirms economic thresholds have been reached.
+
+### C4. Other major rice insect pests
+
+Source: Wikipedia article on rice.
+
+Beyond BPH, the significant insect pests of Indian rice include: armyworms, rice bugs, black bugs, stem borers (yellow stem borer being the most important in UP), cutworms, planthoppers other than BPH, leafhoppers (including green leafhopper, a tungro virus vector), mealybugs, crickets, and grasshoppers. Gall midge outbreaks are linked to heavy rain and persistent cloudy weather. Thrips damage is linked to drought conditions. High nitrogen fertilizer use intensifies attack by most sap-feeding pests. Non-insect pests include nematodes, rodents (particularly during grain filling), snails in flooded fields, and birds during grain maturation.
+
+### C5. Rodent and bird control during grain filling
+
+Source: Wikipedia article on rice.
+
+Rodents cause significant losses in Kharif rice during grain filling and immediate post-harvest storage. Community-level rodent control is more effective than individual plot treatment because rodents move freely between fields. Birds (parakeets, mynas, sparrows) damage grain during the dough-and-maturity stages. Traditional bird-scaring methods (reflective materials, intermittent noisemakers, human scaring) remain the most practical approach for smallholder farmers; chemical repellents are typically not economically justified at smallholder scale.
+
+---
+
+## PART D — DISEASE MANAGEMENT
+
+### D1. Rice blast (Magnaporthe oryzae / grisea)
+
+Source: Wikipedia article on rice blast.
+
+Rice blast is caused by the ascomycete fungus Magnaporthe oryzae (formerly M. grisea). It is widely regarded as the most serious disease of growing rice globally. It infects all above-ground plant parts through specialized structures called appressoria. Early lesions are white to gray-green spots with darker borders. Older lesions are elliptical or spindle-shaped, whitish to gray, with necrotic borders. Lesions can merge and kill whole leaves. Infection of the leaf collar, culm, and nodes can cause the stem to break at the infected node — this is known as "rotten neck" and causes catastrophic yield loss when it occurs during panicle development.
+
+### D2. Rice blast favourable conditions
+
+Source: Wikipedia article on rice blast.
+
+Rice blast is favoured by: long periods of free moisture or high humidity (leaf wetness is required for spore germination and infection), temperatures of approximately 25 to 28°C, excess nitrogen fertilizer application (which weakens plant defences), and drought stress. Leaving fields drained for extended periods can also promote blast by changing soil nitrogen forms and stressing the crop. Kanpur Kharif conditions in July and August (high humidity, moderate temperatures) are highly favourable for blast — vigilance during this window is essential.
+
+### D3. Rice blast management
+
+Source: Wikipedia article on rice blast.
+
+Use an integrated management program rather than relying on a single tactic. Key practices: plant resistant varieties (consult the UP notified varieties list for currently recommended blast-resistant cultivars), remove crop residue to reduce overwintering inoculum, regulate irrigation to limit free water availability, and rotate chemical treatments across different modes of action to slow fungicide resistance development. Carpropamid is one systemic fungicide that prevents appressorial penetration. Avoid consecutive seasons of the same variety without a resistance refresh.
+
+### D4. Sheath blight (Rhizoctonia solani)
+
+Source: Wikipedia article on sheath blight.
+
+Sheath blight is caused by Rhizoctonia solani (teleomorph Thanatephorus cucumeris), a basidiomycete fungus. It is a major constraint on rice in India and other Asian countries. Yield losses can reach 50% in severely affected fields with corresponding reductions in grain quality. Symptoms begin with circular or oblong, greenish-gray, water-soaked lesions on lower leaves during late tillering or early internode elongation. In high humidity and low sunlight (typical August-September Kanpur conditions), lesions spread upward. Later they turn tan with brown borders.
+
+### D5. Sheath blight spread and management
+
+Source: Wikipedia article on sheath blight.
+
+The fungus survives as sclerotia (resting bodies) in soil and on crop debris. Irrigation flooding and field preparation mechanically move sclerotia to new plants. In tropical areas, sclerotia and mycelia overwinter on weed hosts between seasons. No fully resistant cultivars have been identified. Management relies on: systemic fungicides (azoxystrobin, a QoI fungicide, is commonly used), reduced plant density (which lowers canopy humidity), balanced rather than excess nitrogen fertilization, and removal of weed hosts between seasons. Biological control via plant growth-promoting rhizobacteria (particularly Pseudomonas fluorescens strains) applied to seed before planting shows promise but is not yet commercial standard practice.
+
+### D6. Other rice diseases of UP
+
+Source: Wikipedia article on rice.
+
+Beyond blast and sheath blight, UP rice is affected by: bacterial leaf streak (one of the two worst rice diseases worldwide alongside blast), bacterial blight, sheath rot, false smut, bacterial panicle blight, and viral diseases including tungro, bunchy stunt, dwarf, and yellow mottle. Tungro virus is transmitted by green leafhopper and is a major concern in late Kharif. Integrated pest and disease management, host-plant resistance via proper variety selection, and avoidance of excess nitrogen all reduce total disease pressure. An IRRI study found that an 87.5% reduction in pesticide use was possible without yield penalty when IPM principles were applied, as reduced spraying preserved natural enemies of pests.
+
+---
+
+## PART E — VARIETY SELECTION
+
+### E1. Varieties notified for Uttar Pradesh (summary)
+
+Source: Global Agriculture notified varieties list.
+
+Over 110 rice varieties are notified for Uttar Pradesh. The commonly recommended set for UP Kharif cultivation includes: Narendra Dhan-97 (NDR 97), Sarjoo-52, Narendra Dhan-118, Narendra Dhan-359, Narendra Shankar Dhan-2, Narendra-80, Narendra Usar-2 and Narendra Usar-3 (both tolerant to sodic/usar soils), Pant Dhan-4 (Sujata), Pant Dhan-6, Pant Dhan-10, Pant Dhan-11, Pant Dhan-12, Pant Dhan-16, Pant Shankar Dhan-1, Pusa Basmati-1, Pusa Sugandh-2, Pusa Sugandh-3, Govind, Jaya, Mahsuri, Malviya Dhan-36, and the salt-tolerant CSR-10, CSR-13, CSR-30. Choice depends on duration available, soil type (usar/alkaline vs normal), water availability, and intended grain quality.
+
+### E2. Narendra Dhan-97 (NDR 97)
+
+Sources: Global Agriculture notified varieties list; NDUAT variety release records.
+
+NDR 97 (Narendra Dhan-97) is a widely-adopted cultivar for the eastern UP Kharif season, bred and released by Narendra Deva University of Agriculture and Technology, Faizabad. It is suited to normal irrigated conditions and is one of the most commonly grown varieties by smallholder farmers in Kanpur Nagar, Kanpur Dehat, and surrounding districts.
+
+### E3. Sarjoo-52
+
+Source: Global Agriculture notified varieties list.
+
+Sarjoo-52 (also spelled Sarju-52) is a notified variety for Uttar Pradesh widely grown in central and eastern UP including Kanpur region. It is a medium-duration variety suited to irrigated Kharif conditions.
+
+### E4. Narendra-80 (specifications)
+
+Source: DRDPAT Rice Varieties database.
+
+Narendra-80 is a semi-dwarf variety (100 cm plant height) with 110 to 112 days maturity, suited to irrigated areas. Grain type: long slender. Average yield 5,000 kg per hectare (5.0 t/ha). Resistance profile: resistant to blast, Rice Tungro Virus (RTV), sheath blight, and stem borer; moderately resistant to leaf spot and gall midge. This is a strong default choice for Kanpur conditions when a short-duration irrigated variety is needed.
+
+### E5. Pant Dhan-6 (specifications)
+
+Source: DRDPAT Rice Varieties database.
+
+Pant Dhan-6 is a tall-stature variety (113 to 120 cm) with 113 to 120 days maturity, suited to lower and medium altitude areas including the UP plains. Grain type: medium slender. Average yield 4,100 kg per hectare (4.1 t/ha). Suitable for areas where lodging is not a severe concern.
+
+### E6. Submergence-tolerant and salt-tolerant varieties
+
+Source: NDUAT variety releases 2021.
+
+NDR 9930111 (IET 19117): 145 days duration, 5.5 t/ha, semi-tall, submergence tolerant, short bold grain. Milling recovery 68%, head rice recovery 57%, amylose 23.56%. Tolerant to multiple leaf, sheath, and stem pests and diseases under field conditions. Recommended where temporary flooding is a risk.
+
+NDGR 702: 115 days to flowering, 3.5 to 4.0 t/ha, long bold red kernel, submergence tolerant with good elongation and kneeing ability. Moderately resistant to neck blast and stem borer.
+
+For salt-affected (sodic/usar) soils common in parts of Kanpur Dehat: CSR-10, CSR-13, CSR-30, Narendra Usar-2, Narendra Usar-3.
+
+### E7. Variety selection decision factors
+
+Source: synthesis across references.
+
+Key decision factors when selecting a Kharif rice variety for Kanpur: (1) available growing season length — early varieties (90-110 days) if planting is delayed to late July or August, medium (110-130 days) for normal mid-June to early July transplanting, late (130-150 days) only if sufficient water for extended duration is assured; (2) soil condition — salt/sodic tolerance for affected plots; (3) water availability — submergence tolerance for low-lying flood-prone plots; (4) known local pest and disease pressure — choose documented resistant varieties where blast or BPH has caused past losses; (5) market preference — Basmati types (Pusa Basmati-1, Pusa Sugandh-2) if targeting premium market, coarse varieties for subsistence or local market.
+
+---
+
+## PART F — CROP ESTABLISHMENT AND NURSERY
+
+### F1. Seed rate and planting method
+
+Source: Wikipedia article on rice.
+
+Transplanted rice uses approximately 40 kg of seed per hectare in the nursery, with seedlings subsequently transplanted into the main field. Direct-sown rice uses approximately 60 to 80 kg of seed per hectare. Transplanting is predominantly used across UP including Kanpur. It allows better weed control through pre-transplanting puddling, more uniform plant stand, and better water use efficiency, but requires substantially more labour than direct seeding. Mechanical transplanting requires carefully prepared fields and seedlings raised on mats or in trays — not yet standard among smallholder farmers in Kanpur.
+
+### F2. Seed quality standards
+
+Source: IndiaAgronet rice reference.
+
+Seed should be the correct variety as labelled, clean (free of weed seeds and debris), plump (indicating full grain development), mature, and have high germination (ideally above 85%). Seed should be treated with fungicide before sowing to protect against soil-borne fungi that cause damping-off in the nursery stage. Standard treatments include carbendazim or thiram at 2 g per kg of seed.
+
+### F3. Nursery and transplanting timing for UP Kharif
+
+Source: synthesis of IndiaAgronet, Wikipedia rice production in India, NDUAT trial references.
+
+Standard Kharif rice schedule for UP: nursery sowing in mid-May to early June, approximately 25 to 30 days before intended transplanting. Transplanting ideally completed by first week of July. Seedlings should be transplanted at 23 to 25 days old (NDUAT trial used 23-day seedlings). Delayed transplanting (into August) results in overlapping flowering with high-humidity disease pressure and reduced total growing season length. The transplanting window is driven by monsoon onset: a late monsoon (post-June 20) forces delayed transplanting and typically lower yields.
+
+### F4. Rice growth stages
+
+Source: Wikipedia article on rice.
+
+Total duration from seed to harvest is approximately 6 months for medium-duration varieties, 3 to 4.5 months for short-duration varieties, and up to 6.5 months for long-duration varieties. Each node on the jointed stem bears a long slender leaf; plants may have several leafy stems called tillers. Plants typically grow 80 to 120 cm tall (over 5 m in deepwater rice ecotypes). Self-fertile flowers form in a panicle, which can hold up to 350 spikelets. Each spikelet contains male and female parts. A fertilized ovule develops into the edible grain (caryopsis). Sowing should occur only when daily average temperature is reliably above 12°C — not a constraint in UP Kharif.
+
+### F5. Temperature constraints
+
+Source: Wikipedia article on rice.
+
+Rice is sensitive to temperatures below 12°C. More critically, flowers exposed to 35°C or more for over an hour yield no grain due to spikelet sterility. In Kanpur Kharif conditions, peak daytime temperatures routinely exceed 35°C in August — making flowering-stage heat exposure a real yield constraint. Projections estimate approximately 3.2% yield decrease per 1°C rise in average seasonal temperature. IRRI predicts approximately 20% drop in Asian rice yields per 1°C of warming. Variety selection with staggered flowering can help avoid the hottest window.
+
+---
+
+## PART G — HARVEST AND POST-HARVEST
+
+### G1. Harvest timing
+
+Source: Wikipedia article on rice.
+
+Grain is ready for harvest when moisture content is approximately 20 to 25%. The crop is harvested by reaping, stacking, threshing, and cleaning. Grain is then dried quickly to a mold-safe moisture level (14% or below), traditionally by sun-drying on open floors. Delayed harvest increases shattering losses and bird damage. Harvest at over-mature stage also increases chalkiness and reduces milling recovery.
+
+### G2. Common post-harvest losses
+
+Source: Wikipedia article on rice.
+
+A substantial share of production is lost after harvest due to poor transport, storage, and milling practices. Field losses from flooding at harvest, uneven ripening, shattering, and bird damage can total 10 to 20% of standing crop under poor conditions. Storage losses to rodents, insects, and moisture-related fungal growth add another 5 to 15% at smallholder scale. Combine harvesting (where available) reduces field losses but requires fields drained properly 7 to 10 days before harvest.
+
+---
+
+## PART H — REGIONAL CONTEXT: UTTAR PRADESH AND KANPUR
+
+### H1. Uttar Pradesh in Indian rice production
+
+Source: Wikipedia article on rice production in India.
+
+Uttar Pradesh is one of the top rice-producing states in India. In 2014-15, UP ranked second nationally with 12.17 million tonnes of rice production, accounting for 11.5% of the national total (West Bengal led at 14.68 Mt, 13.9%). UP's five-year average 2010-11 to 2014-15 was 13.45 Mt. UP produces both common coarse rice and premium Basmati, with the Basmati-growing areas concentrated in the western UP districts. Central UP including Kanpur district primarily produces coarse rice for local consumption and the Public Distribution System under MSP procurement.
+
+### H2. UP rice ecosystems
+
+Source: Wikipedia article on rice production in India; IndiaAgronet reference.
+
+UP rice is grown under multiple ecosystems: predominantly irrigated transplanted (central and western UP), rainfed shallow lowland (parts of eastern UP), submergence-prone lowland (flood-prone districts near rivers), and salt-affected sodic/usar soils (parts of Kanpur Dehat, Unnao, Hardoi). "Autumn rice" in older terminology corresponds to the main Kharif season in UP, cultivated across UP, Maharashtra, Rajasthan, Madhya Pradesh, Punjab, and Himachal Pradesh. Yield levels in UP have grown from under 1 t/ha in the 1950s to approximately 2.1 to 2.7 t/ha in recent years, with district variation.
+
+### H3. Soil characteristics of the Ganges plain near Kanpur
+
+Source: Phytojournal 2018 NDUAT trial soil data; Wikipedia on zinc deficiency.
+
+The alluvial soils of the Ganges plain including Kanpur district are typically clay loam in texture, moderately alkaline (pH 7.2 to 8.4 common range, with values up to 8.5 documented at NDUAT Faizabad), low to medium in organic carbon (0.4 to 0.6%), low in available nitrogen (200 to 300 kg/ha), medium in phosphorus (15 to 25 kg/ha), and high in potassium (200 to 300 kg/ha). Zinc deficiency is widespread due to the alkaline pH and heavy phosphorus fertilization history. Sodic patches with pH above 9 and high exchangeable sodium occur in parts of Kanpur Dehat and require salt-tolerant varieties (CSR series, Narendra Usar series).
+
+### H4. Alluvial soil fertility management
+
+Source: Wikipedia article on rice production in India; cross-reference with Phytojournal NDUAT study.
+
+Fertile riverine alluvial soil is considered best for rice. Clayey loam is particularly suited to monsoon rice because of its high water retention — important when supplementary irrigation is unavailable. Standard practice for Kanpur-area alluvial soils is to combine chemical NPK (120:60:60 kg/ha + 5 kg Zn/ha) with organic amendment via farmyard manure (5 to 10 tonnes/ha) applied 2 to 3 weeks before transplanting. This integrated approach maintains soil organic carbon, improves microbial activity, and reduces chemical fertilizer requirements over multi-season rotation.
+
+### H5. Monsoon dependency for Kanpur Kharif rice
+
+Source: Wikipedia article on rice production in India; general climatology.
+
+Kanpur receives approximately 800 to 900 mm of annual rainfall, concentrated in the southwest monsoon season (June through September). Approximately 70 to 80% of annual rainfall falls during the Kharif cropping window. Normal monsoon onset date for Kanpur is June 20 to 25. Delayed monsoon onset (post-July 1) significantly compresses the rice growing calendar and favours short-duration variety selection. Mid-season dry spells (consecutive 10+ day periods without rain during July-August) are the most damaging rainfall anomaly, often requiring supplementary pump irrigation that smallholder farmers cannot always afford.
+
+### H6. MSP and procurement
+
+Source: Wikipedia article on rice production in India.
+
+Rice is one of the mandatory procurement crops under India's Minimum Support Price (MSP) scheme. The Food Corporation of India and state procurement agencies purchase paddy at announced MSP rates from farmers through regulated mandis (government-notified markets). Agmarknet publishes daily mandi prices for all notified markets including those serving Kanpur. For smallholder farmers, access to MSP procurement depends on mandi distance, documentation, moisture content at delivery, and procurement window timing. Delayed harvest beyond MSP procurement window often forces distress sales at below-MSP prices to private traders.
+
+---
+
+## PART I — INTEGRATED PRACTICES AND ADVISORY GUIDELINES
+
+### I1. Integrated Pest Management (IPM) principles
+
+Source: Wikipedia article on rice; synthesis.
+
+IPM for rice combines: resistant variety selection as the first line of defence, cultural controls (balanced fertilization, proper plant spacing, timely planting, destruction of alternate hosts), biological controls (preservation of natural enemies by avoiding broad-spectrum insecticides early in season), monitoring and scouting to confirm economic thresholds before intervention, and selective chemical control only when thresholds are exceeded. Prophylactic calendar spraying is explicitly discouraged — it drives pest resistance and triggers secondary pest outbreaks (notably BPH).
+
+### I2. Integrated Nutrient Management (INM)
+
+Source: Phytojournal 2018 NDUAT trial.
+
+INM combines chemical fertilizer with organic sources (farmyard manure, compost, green manure, biofertilizers). The NDUAT 2018 trial demonstrated that half the recommended NPK dose combined with 50% nitrogen contribution from FYM plus 5 kg zinc sulphate per hectare produced yields statistically equivalent to full chemical NPK plus zinc, with better benefit-cost ratio (1.86 for INM vs lower for 100% chemical). INM also maintains or improves soil organic carbon, improves soil physical properties, and reduces off-site nitrogen loss to groundwater.
+
+### I3. Climate-related risk advisory
+
+Source: Wikipedia article on rice; cross-reference with Kharif climatology.
+
+Three climate-driven risks dominate Kanpur Kharif rice outcomes: (1) delayed monsoon onset reducing total growing days and forcing variety switch; (2) mid-season dry spells during July-August threatening tillering and panicle initiation; (3) flowering-stage heat stress (daily max > 35°C) causing spikelet sterility in August-September. Advisory should link short-term weather forecast to actionable response: delayed monsoon → switch to short-duration variety; dry spell forecast → activate pump irrigation at least 48 hours in advance; heat wave forecast during flowering → maintain 5 cm standing water as a thermal buffer.
+
+### I4. Credit and risk advisory
+
+Source: Wikipedia article on rice production in India.
+
+PMFBY (Pradhan Mantri Fasal Bima Yojana) is the national crop insurance scheme available for Kharif rice. Enrolment is required before the state-notified cut-off date, which is typically late July for Kharif. Farmers pay a nominal premium (1.5% of sum insured for Kharif foodgrains) and the balance is government-subsidized. Payouts are triggered by state-level yield assessments showing shortfall below guaranteed yield levels. Prevented-sowing claims (when monsoon failure prevents transplanting) have a separate earlier cut-off, typically mid-October. Enrolment through local primary agricultural credit societies or cooperative banks is the standard channel.
+
+---
+
+## PART J — SPECIFIC ADVISORY SNIPPETS FOR COMMON SITUATIONS
+
+### J1. For alkaline soil (pH > 8.0)
+
+Source: synthesis of zinc deficiency sources and NDUAT trial.
+
+On alkaline soils common across Kanpur district: ensure zinc sulphate is applied at 5 kg/ha minimum at basal; expect poor soil-applied zinc response and consider following up with foliar zinc sulphate spray at 0.5% concentration at maximum tillering and panicle initiation stages; apply phosphorus to the band at planting rather than broadcast to reduce fixation in calcareous soil; avoid overliming (not usually applied to rice but worth noting if preparing new fields).
+
+### J2. For delayed monsoon onset
+
+Source: synthesis.
+
+If monsoon onset is delayed past July 5 for Kanpur: switch to a short-duration variety (90 to 110 days such as Narendra-80 or Birsa Dhan-101); reduce fertilizer dose proportionally (approximately 80% of standard NPK as shorter crop will not utilize full dose); plan harvest completion before mid-November to avoid winter rains affecting grain moisture.
+
+### J3. For low expected yield (bad year scenario)
+
+Source: synthesis.
+
+In a forecast bad year (below-normal monsoon, high heat stress days, poor NDVI tracking by late August): reduce input intensity to conserve cash — nitrogen split dose at 60 DAT becomes optional; prioritize insecticide only on scouting-confirmed BPH presence; register PMFBY insurance before cut-off; consider early contract with mandi for whatever harvest materializes.
+
+### J4. For good year scenario (above-normal monsoon, high NDVI tracking)
+
+Source: synthesis.
+
+In a forecast good year: apply the full 120-60-60 NPK + 5 Zn schedule; add a third top-dress nitrogen split at 75 DAT if canopy stays green and vigorous; be vigilant for BPH outbreak (ideal weather for the pest coincides with vigorous rice growth); plan storage capacity ahead of time to avoid distress sale at harvest.
+
+### J5. For average year scenario
+
+Source: synthesis.
+
+In an average year with monsoon on time and moderate temperatures: standard practice — recommended NPK, 23-day seedlings transplanted first week of July, standard split irrigation (continuous flooding or AWD), scout weekly from panicle initiation, drain 7 to 10 days before harvest. This is the baseline from which bad-year or good-year adjustments are made.
+
+---
+
+## END OF CORPUS
+
+This corpus is a starting knowledge base for RAG. It is deliberately conservative: every passage is sourced to a public document and all specific numeric recommendations are traceable. Hyperlocal Kanpur content (specific KVK Kanpur advisories, specific CSAUAT Kanpur bulletins) was not available in English PDF form during corpus assembly and should be added when accessible. Users of this corpus should treat all advisory outputs as decision support, not as a substitute for licensed agronomist consultation.
