@@ -1,0 +1,132 @@
+{
+  "model": "xgb_with_aquacrop",
+  "n_features": 24,
+  "features": [
+    "greenup_day",
+    "peak_ndvi_day",
+    "senescence_day",
+    "length_of_season",
+    "raw_peak_ndvi",
+    "kharif_rainfall_mm",
+    "monsoon_onset_day",
+    "dry_spell_count",
+    "kharif_tmax_mean",
+    "kharif_tmin_mean",
+    "heat_stress_days",
+    "kharif_rh_mean",
+    "rain_cv",
+    "gdd_kharif",
+    "kharif_gwetroot_mean",
+    "imd_kharif_rainfall_mm",
+    "ph",
+    "soc",
+    "clay_pct",
+    "sand_pct",
+    "cec",
+    "nitrogen",
+    "district_kanpur_dehat",
+    "aquacrop_sim_yield"
+  ],
+  "fit_seconds": 3.2,
+  "train": {
+    "r2": 0.9620818210288065,
+    "rmse": 0.13097264496090485,
+    "mae": 0.08268036552639933
+  },
+  "test": {
+    "combined": {
+      "r2": 0.8915930072464947,
+      "rmse": 0.21992074939639913,
+      "mae": 0.15636088550589852
+    },
+    "KanpurDehat": {
+      "r2": 0.871400338347079,
+      "rmse": 0.1795322660843757,
+      "mae": 0.1294686782944916
+    },
+    "KanpurNagar": {
+      "r2": 0.8997650260806329,
+      "rmse": 0.25920746908912407,
+      "mae": 0.18773711248790384
+    }
+  },
+  "agg_apy_all_years": {
+    "n": 26,
+    "pooled": {
+      "r2": 0.39828298003505447,
+      "rmse": 0.31430240476141774,
+      "mae": 0.2636837489788349,
+      "pearson_r": 0.6315020981416685
+    },
+    "KanpurDehat": {
+      "r2": 0.2295713264492577,
+      "rmse": 0.3371223067707366,
+      "mae": 0.3066835623521071,
+      "pearson_r": 0.4831368692630173,
+      "n": 13
+    },
+    "KanpurNagar": {
+      "r2": 0.4681840712598383,
+      "rmse": 0.28969044436293984,
+      "mae": 0.22068393560556268,
+      "pearson_r": 0.6843031711368899,
+      "n": 13
+    }
+  },
+  "agg_apy_test_years": {
+    "n": 4,
+    "pooled": {
+      "r2": -0.480266419873006,
+      "rmse": 0.18855807877766664,
+      "mae": 0.15300934791564946,
+      "pearson_r": 0.54022853895739
+    }
+  },
+  "bias_test_mean_residual": -0.041205708359025844,
+  "best_params_reused_from": "xgboost",
+  "lodo": {
+    "train_KanpurNagar_test_KanpurDehat_spatial": {
+      "r2": 0.5721343397373878,
+      "rmse": 0.3109133407423347,
+      "mae": 0.25004914754846547
+    },
+    "train_KanpurNagar_test_KanpurDehat_spatiotemporal": {
+      "r2": 0.5245257777082064,
+      "rmse": 0.3452121622565828,
+      "mae": 0.27894624300641097
+    },
+    "train_KanpurDehat_test_KanpurNagar_spatial": {
+      "r2": 0.7637896461230955,
+      "rmse": 0.40606164131730055,
+      "mae": 0.31953633079666466
+    },
+    "train_KanpurDehat_test_KanpurNagar_spatiotemporal": {
+      "r2": 0.7488809677586079,
+      "rmse": 0.4102774856073804,
+      "mae": 0.3258433343838821
+    }
+  },
+  "agg_apy_loyo": {
+    "n": 26,
+    "pooled": {
+      "r2": 0.38110546986558025,
+      "rmse": 0.3187571080938675,
+      "mae": 0.2664486984106211,
+      "pearson_r": 0.6196584656607959
+    },
+    "KanpurDehat": {
+      "r2": 0.18123295157983055,
+      "rmse": 0.3475373210041403,
+      "mae": 0.3111105368687556,
+      "pearson_r": 0.4299856935368878,
+      "n": 13
+    },
+    "KanpurNagar": {
+      "r2": 0.4776299212294286,
+      "rmse": 0.28710624937468043,
+      "mae": 0.2217868599524865,
+      "pearson_r": 0.6935824705861082,
+      "n": 13
+    }
+  }
+}

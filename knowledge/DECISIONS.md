@@ -471,3 +471,53 @@ The IMD shortfall is about **30%** below CHIRPS (629 mm vs 884-918 mm), not the 
 ## ADR-027 update (2026-10-20): SoilGrids nitrogen scale
 
 SoilGrids' catalog labels nitrogen as cg/kg, but the raw median over Kanpur is 1,465. Taken as cg/kg that is 14.7 g/kg, which with SOC at 17.4 g/kg gives C:N of about 1.2 (real topsoil is about 8-15). Dividing by 100 (the first fix) therefore left an implausible value. The column now holds raw / 10,000 = **0.15** (mean over pixels, range 0.12-0.30), which equals 1.5 g/kg or 0.15% N (C:N about 12). **The unit of the `nitrogen` column is percent N (g per 100 g), not g/kg**; the request's expectation of "0.1-0.3 g/kg" matches the number but 0.15 g/kg would be implausibly low for a topsoil, so the label is % N. The catalog unit/scale discrepancy was not independently confirmed with ISRIC.
+
+---
+
+## ADR-029: Clip pixel yield targets to [0.5, 5.0] t/ha
+
+**Status:** Accepted (user decision 2026-10-21).
+
+**Context.** The per-district calibration (alpha + beta * pixel grain-filling NDVI, ADR-002) is fitted on 13 district means and applied to individual pixels, whose NDVI varies far more than the district mean. Raw pixel targets reached -2.4 to 6.1 t/ha against APY values of 2.2-3.6 t/ha.
+
+**Decision.** `y = clip(yield_est_t_ha, 0.5, 5.0)` before any training or evaluation. The raw value is kept as `y_raw`. All pixel-level metrics are computed against the clipped target. The share of raw targets outside the bounds (overall, per district, per split) is written to `models/results/clip_stats.csv` and reported with every Phase 3 result.
+
+**Consequences.** Clipping hides, but does not fix, the amplification; it also compresses the tails, which can lower apparent variance explained. Because the target is a calibration of NDVI, not measured yield, clipping to a physical range is a plausibility filter, not evidence about true yield.
+
+---
+
+## ADR-030: Phase 3 modelling protocol
+
+**Status:** Accepted by the implementer (self-decision, flagged for review).
+
+- **Split:** train 2010-2020, test 2021-2024, every pixel of both districts in both splits; no year is shared. One combined model with `district_kanpur_dehat` as a feature (user decision); per-district metrics reported separately.
+- **Tuning:** Optuna TPE (seed 42) with 5-fold CV *inside the training years*, folds grouped by year (weather is constant within a district-year, so random folds would leak year information). Tuning runs on a random subsample of training rows (XGBoost/LightGBM 150k, random forest 80k, GBR 40k), with a trial/time cap per model. The test split is never used for tuning or model selection; the best model is selected by CV R^2.
+- **Final fits:** all training rows, except sklearn GBR (300k-row random subsample; it does not scale to ~1M rows). Linear models and GBR median-impute with missingness indicators; XGBoost, LightGBM and random forest use native NaN handling.
+- **Baselines:** Linear, Lasso, ElasticNet use the LINEAR set (no `gdd_kharif`); Ridge and all other models use the full allowed set (ADR-028). Regularisation is fixed, not tuned (Ridge alpha 1, Lasso/ElasticNet alpha 0.001, l1 0.5).
+- **Secondary metric (leave-one-district-out), two variants:** `spatial` (train on district A, all years; test on B, all years - weather years are shared between districts, so this tests spatial transfer only) and `spatiotemporal` (train A in 2010-2020, test B in 2021-2024). The district dummy is dropped.
+- **Tertiary metric (district aggregation vs APY):** pixel predictions are averaged to district-year and compared with APY. Years 2010-2020 are in-sample for the trained model; only 2021-2022 are out-of-sample (4 points). A leave-one-year-out version (13 refits, each predicting an unseen APY year) is computed for Linear, Ridge and XGBoost and is the only non-in-sample district-level number.
+- **Bayesian:** Bayesian Ridge on all training rows; PyMC hierarchical model (district intercepts with a shared hyperprior, common standardised slopes, one pixel noise) on a district-year-stratified training subsample of about 30k rows, NUTS 2 chains x 2000 draws (1000 tuning), numba backend (no C compiler on this machine). Slopes are not district-specific.
+- **Caveat that applies to every pixel-level number:** see ADR-028. The target is a calibration of satellite NDVI, and the allowed features include satellite phenology correlated with it, so pixel R^2 is not yield skill.
+
+---
+
+## ADR-031: Residual leakage via raw_peak_ndvi; district-aggregated APY comparison is the headline metric
+
+**Status:** Accepted (user decision 2026-10-21).
+
+**Context.** XGBoost, LightGBM and random forest reach pixel-level test R^2 of about 0.89-0.90 on 2021-2024, and Ridge 0.72. The pixel target is a per-district linear function of `grain_filling_ndvi` (ADR-002), and `raw_peak_ndvi`, the unsmoothed peak of the same NDVI series, correlates at r = 0.848 with it (ADR-028 recorded this r and the residual-leakage risk when `raw_peak_ndvi` was kept; this ADR makes it a reporting rule).
+
+**Decision.**
+1. `raw_peak_ndvi` stays in the main models as a legitimate quality signal.
+2. The headline result is **not** the pixel-level R^2. It is the district-aggregated comparison against APY: average predicted pixel yields per district-year over every pixel of that district-year, compare the 13 district-year means per district with the 13 APY values, and report Pearson r, R^2 and RMSE per district and pooled.
+3. Because the 2010-2020 years are in the model's training data, the headline uses the **leave-one-year-out** version (each APY year predicted by a model that never saw that year), with the in-sample and the 2021-2022-only (4 points) versions shown beside it.
+4. A sensitivity analysis is mandatory: XGBoost with and without `raw_peak_ndvi` (and with no satellite features), same hyper-parameters, reported side by side; plus a variant with the AquaCrop simulated yield as a feature (ADR-030).
+5. The report states what pixel-level R^2 measures: agreement with a target built from the same satellite signal, plus the spatial pattern of NDVI-derived phenology. It does not measure agreement with farm yields.
+
+**Residual limitation that the leave-one-year-out test does not remove.** The calibration constants alpha and beta (ADR-002) were fitted on all 13 APY years, so the targets already contain information about every APY year, including the one held out in the leave-one-year-out loop. District-level agreement is therefore optimistic relative to a fully nested protocol (re-calibrating inside each fold), which was not run.
+
+### ADR-031 addendum (2026-10-21): Phase 3 findings that constrain the claims
+
+- Dropping `raw_peak_ndvi` lowers XGBoost pixel test R^2 from 0.897 to 0.596 (0.069 with no satellite features at all). Most pixel-level skill comes from NDVI-derived features.
+- District-aggregated, leave-one-year-out vs APY, XGBoost pooled R^2 0.379 (r 0.62; Nagar 0.47, Dehat 0.18). These equal the NDVI-calibration R^2 of ADR-002 (Nagar 0.47, Dehat 0.19), i.e. the model reproduces the calibrated NDVI relationship and adds nothing measurable. A per-district linear **time trend** alone scores pooled R^2 0.464 under the same protocol, so the models do not beat a trend on APY.
+- The AquaCrop simulated yield has correlation 1.00 with calendar year (the library's built-in rising CO2 series drives it), so its r = 0.75-0.78 with APY is two trends coinciding (APY vs year r = 0.74-0.78; detrended r about 0.10). As a feature it acts as a year index and adds nothing (pooled LOYO R^2 0.381 vs 0.379).
