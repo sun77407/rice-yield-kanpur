@@ -61,7 +61,11 @@ class ExportJob:
 def service_credentials() -> service_account.Credentials:
     """Load service-account credentials from ``GEE_SERVICE_ACCOUNT_KEY`` (see ADR-022)."""
     key = Path(os.environ.get("GEE_SERVICE_ACCOUNT_KEY", DEFAULT_KEY_PATH))
-    return service_account.Credentials.from_service_account_file(str(key), scopes=list(SCOPES))
+    # google-auth ships no type information for this classmethod, hence the narrow ignores
+    creds: service_account.Credentials = service_account.Credentials.from_service_account_file(  # type: ignore[no-untyped-call]
+        str(key), scopes=list(SCOPES)
+    )
+    return creds
 
 
 def init_ee(project: str) -> None:
@@ -106,7 +110,8 @@ def ee_region(districts: dict[str, dict[str, Any]]) -> ee.Geometry:
     polys: list[Any] = []
     for g in districts.values():
         polys.extend(g["coordinates"] if g["type"] == "MultiPolygon" else [g["coordinates"]])
-    return ee.Geometry.MultiPolygon(polys, geodesic=False)
+    geom: ee.Geometry = ee.Geometry.MultiPolygon(polys, geodesic=False)  # ee is untyped (Any)
+    return geom
 
 
 def modis_grid() -> tuple[str, list[float]]:
@@ -118,18 +123,19 @@ def modis_grid() -> tuple[str, list[float]]:
 def kharif_composites(year: int) -> ee.ImageCollection:
     """Server-side filter: MOD13Q1 composites whose start DOY lies in the Kharif window."""
     lo, hi = KHARIF_DOY
-    return (
+    col: ee.ImageCollection = (  # ee is untyped (Any); annotate so callers get a real type
         ee.ImageCollection(MODIS_COLLECTION)
         .filterDate(f"{year}-01-01", f"{year + 1}-01-01")
         .filter(ee.Filter.calendarRange(lo, hi, "day_of_year"))
         .select(list(BANDS))
     )
+    return col
 
 
 def year_stack(year: int, region: ee.Geometry) -> tuple[ee.Image, list[int]]:
     """Stack one year's composites into a single int16 multi-band image clipped to ``region``."""
     col = kharif_composites(year)
-    times = col.aggregate_array("system:time_start").getInfo()
+    times: list[int] = col.aggregate_array("system:time_start").getInfo() or []  # getInfo: Any|None
     doys = [datetime.fromtimestamp(t / 1000, UTC).timetuple().tm_yday for t in times]
     stack: ee.Image | None = None
     for t, doy in zip(times, doys, strict=True):
@@ -150,12 +156,16 @@ def cropland_fraction(tile: ee.Geometry) -> ee.Image:
     """
     wc = ee.ImageCollection(WORLDCOVER).first().select("Map").clip(tile)
     frac = wc.eq(40).reduceResolution(ee.Reducer.mean(), maxPixels=1024).rename("cropland_frac")
-    return frac.multiply(1000).unmask(NODATA).toInt16()
+    out: ee.Image = frac.multiply(1000).unmask(NODATA).toInt16()  # ee is untyped (Any)
+    return out
 
 
 def tile_regions(region: ee.Geometry, nx: int, ny: int) -> list[ee.Geometry]:
     """Split the bounding box of ``region`` into an ``nx`` x ``ny`` grid of rectangles."""
-    ring = region.bounds().coordinates().getInfo()[0]
+    coords = region.bounds().coordinates().getInfo()  # getInfo is typed Any | None
+    if not coords:
+        raise RuntimeError("could not read region bounds from Earth Engine")
+    ring = coords[0]
     xs, ys = [c[0] for c in ring], [c[1] for c in ring]
     x0, x1, y0, y1 = min(xs), max(xs), min(ys), max(ys)
     dx, dy = (x1 - x0) / nx, (y1 - y0) / ny
@@ -285,7 +295,9 @@ def _district_raster(
             ],
         }
         shapes.append((sinu, DISTRICTS[name]))
-    return rasterize(shapes, out_shape=shape, transform=transform, fill=0, dtype="uint8")
+    return np.asarray(
+        rasterize(shapes, out_shape=shape, transform=transform, fill=0, dtype="uint8")
+    )
 
 
 def mosaic_tiles(
@@ -333,8 +345,8 @@ def stack_to_frame(
 
     by_doy: dict[int, dict[str, np.ndarray]] = {}
     for n, arr in bands.items():
-        band, doy = n.rsplit("_", 1)
-        by_doy.setdefault(int(doy), {})[band] = arr
+        band, doy_s = n.rsplit("_", 1)
+        by_doy.setdefault(int(doy_s), {})[band] = arr
     pid = np.array([f"{r}_{c}" for r, c in zip(row_g[m], col_g[m], strict=True)])
     district = np.array([inv[d] for d in dist[m]])
     frames = []

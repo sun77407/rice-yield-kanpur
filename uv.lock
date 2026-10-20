@@ -2373,6 +2373,29 @@ wheels = [
 ]
 
 [[package]]
+name = "imdlib"
+version = "0.4.0"
+source = { registry = "https://pypi.org/simple" }
+dependencies = [
+    { name = "matplotlib" },
+    { name = "numpy", version = "2.4.6", source = { registry = "https://pypi.org/simple" }, marker = "python_full_version < '3.12'" },
+    { name = "numpy", version = "2.5.4", source = { registry = "https://pypi.org/simple" }, marker = "python_full_version >= '3.12'" },
+    { name = "pandas" },
+    { name = "python-dateutil" },
+    { name = "pytz" },
+    { name = "requests" },
+    { name = "scipy", version = "1.17.1", source = { registry = "https://pypi.org/simple" }, marker = "python_full_version < '3.12'" },
+    { name = "scipy", version = "1.18.1", source = { registry = "https://pypi.org/simple" }, marker = "python_full_version >= '3.12'" },
+    { name = "six" },
+    { name = "urllib3" },
+    { name = "xarray" },
+]
+sdist = { url = "https://files.pythonhosted.org/packages/0c/ca/954ee522d0025471b5496eafa95b67d1c5bfe61d0d50b8088d2f37925231/imdlib-0.4.0.tar.gz", hash = "sha256:d5d124fd45dfe515a18ca8515312b4c422ef1df47077d6b6174f727d451dd54a", size = 4977894, upload-time = "2026-10-19T21:55:37.737Z" }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/e4/76/ab989a96461e8ead975bceef6d2488b99cfce9276bb6dd9b7560b17fa69c/imdlib-0.4.0-py3-none-any.whl", hash = "sha256:28b94198e54d96b5c1504ab304991541ad8542b91fbc6acd99b37334eeaef954", size = 4918717, upload-time = "2026-10-19T21:55:36.028Z" },
+]
+
+[[package]]
 name = "importlib-resources"
 version = "7.1.0"
 source = { registry = "https://pypi.org/simple" }
@@ -5045,6 +5068,7 @@ dependencies = [
     { name = "geemap", version = "0.37.2", source = { registry = "https://pypi.org/simple" }, marker = "python_full_version < '3.12'" },
     { name = "geemap", version = "0.38.9", source = { registry = "https://pypi.org/simple" }, marker = "python_full_version >= '3.12'" },
     { name = "google-cloud-storage" },
+    { name = "imdlib" },
     { name = "lightgbm" },
     { name = "matplotlib" },
     { name = "netcdf4" },
@@ -5101,6 +5125,7 @@ requires-dist = [
     { name = "earthengine-api", specifier = ">=1.0" },
     { name = "geemap", specifier = ">=0.34" },
     { name = "google-cloud-storage", specifier = ">=3.17.1" },
+    { name = "imdlib", specifier = ">=0.4.0" },
     { name = "lightgbm", specifier = ">=4.5" },
     { name = "matplotlib", specifier = ">=3.9" },
     { name = "netcdf4", specifier = ">=1.7" },

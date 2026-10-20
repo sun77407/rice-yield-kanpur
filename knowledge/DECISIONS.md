@@ -365,3 +365,25 @@ Each entry follows the ADR format: **Context → Options → Decision → Ration
 - A lon/lat rectangle is slanted on the MODIS sinusoidal grid, so each tile's bounding box carries ~40% masked padding (-32768). The mosaic must paste only valid pixels.
 - `getDownloadURL` returns one unnamed multi-band GeoTIFF; band names are saved in a `<zip>.bands.json` sidecar at download time.
 - Measured cost: year stack 11.2 EECU-s; one-off cropland tiles 104 EECU-s total.
+
+## ADR-025: MODIS QA policy and temporal gap-filling (Savitzky-Golay)
+
+**Status:** Accepted (user-approved 2026-10-20). Implemented in Phase 2.
+
+**Context.** The 2020 dry run showed SummaryQA shares of 18.4% good (0), 37.4% marginal (1) and 44.2% cloudy (3) over the Kharif window. Keeping only QA = 0 leaves ~18% of observations and breaks the phenology curve.
+
+**Decision.**
+1. Accept QA <= 1 (good + marginal). Observations with QA = 3, or NDVI missing, are set to NaN.
+2. Gap-fill NaNs by linear interpolation in time (edge gaps by nearest valid value), then smooth with a Savitzky-Golay filter, polynomial order 2, window 5 composites (`scipy.signal.savgol_filter`).
+3. Pixels with fewer than 5 valid raw observations in the window are dropped (the filter would be mostly interpolation).
+4. Raw values and a `was_filled` flag are kept next to the smoothed series.
+
+**Why Savitzky-Golay over Whittaker.** Both are defensible. SG is in SciPy (no extra dependency, tested), is vectorisable over ~100k pixels, and the window/order are the user's specified values. Whittaker handles gaps natively through weights but needs a custom or third-party solver. SG has no native gap handling, hence the interpolation step in (2).
+
+**Caveats.** With 16-day composites and a window of 5 (~80 days) the filter can flatten a short peak and lower the peak NDVI slightly. This is checked in Phase 2 by comparing raw and smoothed peak NDVI. Window 5 / order 2 is fixed by the user, not tuned.
+
+**References (verified by web search 2026-10-20).**
+- Chen, J., Jonsson, P., Tamura, M., Gu, Z., Matsushita, B., Eklundh, L. (2004). A simple method for reconstructing a high-quality NDVI time-series data set based on the Savitzky-Golay filter. *Remote Sensing of Environment* 91(3-4), 332-344. doi:10.1016/j.rse.2004.03.014.
+- Son, N.-T., Chen, C.-F., Chen, C.-R., Duc, H.-N., Chang, L.-Y. (2014). A phenology-based classification of time-series MODIS data for rice crop monitoring in Mekong Delta, Vietnam. *Remote Sensing* 6(1), 135-156. doi:10.3390/rs6010135.
+
+**Citation note.** Son et al. (2014) smooths MODIS EVI with *empirical mode decomposition*, not Savitzky-Golay. It is cited here only as precedent for smoothing MODIS series before rice-phenology analysis; the SG method itself rests on Chen et al. (2004). The request to cite Son et al. for the SG methodology could not be honoured as stated.
