@@ -120,9 +120,9 @@ def modis_grid() -> tuple[str, list[float]]:
     return str(proj["wkt"] if "wkt" in proj else proj["crs"]), list(proj["transform"])
 
 
-def kharif_composites(year: int) -> ee.ImageCollection:
+def kharif_composites(year: int, doy_end: int | None = None) -> ee.ImageCollection:
     """Server-side filter: MOD13Q1 composites whose start DOY lies in the Kharif window."""
-    lo, hi = KHARIF_DOY
+    lo, hi = KHARIF_DOY[0], doy_end or KHARIF_DOY[1]
     col: ee.ImageCollection = (  # ee is untyped (Any); annotate so callers get a real type
         ee.ImageCollection(MODIS_COLLECTION)
         .filterDate(f"{year}-01-01", f"{year + 1}-01-01")
@@ -132,9 +132,11 @@ def kharif_composites(year: int) -> ee.ImageCollection:
     return col
 
 
-def year_stack(year: int, region: ee.Geometry) -> tuple[ee.Image, list[int]]:
+def year_stack(
+    year: int, region: ee.Geometry, doy_end: int | None = None
+) -> tuple[ee.Image, list[int]]:
     """Stack one year's composites into a single int16 multi-band image clipped to ``region``."""
-    col = kharif_composites(year)
+    col = kharif_composites(year, doy_end)
     times: list[int] = col.aggregate_array("system:time_start").getInfo() or []  # getInfo: Any|None
     doys = [datetime.fromtimestamp(t / 1000, UTC).timetuple().tm_yday for t in times]
     stack: ee.Image | None = None
@@ -244,8 +246,15 @@ def download_asset(
         }
     )
     out_zip.parent.mkdir(parents=True, exist_ok=True)
-    resp = requests.get(url, timeout=600)
-    resp.raise_for_status()
+    for attempt in range(1, 4):  # transient 503s from the EE download endpoint
+        try:
+            resp = requests.get(url, timeout=600)
+            resp.raise_for_status()
+            break
+        except requests.RequestException:
+            if attempt == 3:
+                raise
+            time.sleep(2**attempt)
     out_zip.write_bytes(resp.content)
     save_band_names(asset, out_zip)
     return out_zip
@@ -381,8 +390,9 @@ def write_modis_manifest(
     rows: int | None,
     notes: dict[str, Any],
     asset_ids: dict[str, str],
+    name: str = "manifest.json",
 ) -> Path:
-    """Write ``manifest.json`` for ``raw_dir``."""
+    """Write the manifest (default ``manifest.json``) for ``raw_dir``."""
     m = DataManifest.build(
         source="Google Earth Engine: MOD13Q1 v061 + ESA WorldCover v200",
         source_url="https://developers.google.com/earth-engine/datasets/catalog/MODIS_061_MOD13Q1",
@@ -391,4 +401,4 @@ def write_modis_manifest(
         notes=notes,
         asset_ids=asset_ids,
     )
-    return m.write(raw_dir / "manifest.json")
+    return m.write(raw_dir / name)

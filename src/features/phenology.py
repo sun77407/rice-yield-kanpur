@@ -2,6 +2,7 @@
 
 from __future__ import annotations
 
+import argparse
 from pathlib import Path
 
 import numpy as np
@@ -34,7 +35,9 @@ def _first_cross(day: np.ndarray, curve: np.ndarray, start: int, up: bool) -> fl
     return float("nan")
 
 
-def year_features(df: pd.DataFrame, year: int) -> pd.DataFrame:
+def year_features(
+    df: pd.DataFrame, year: int, window: int = SG_WINDOW, order: int = SG_ORDER
+) -> pd.DataFrame:
     """Phenology features for one year of pixel-time rows (cropland pixels only)."""
     df = df[df.cropland_frac >= CROP_MIN].sort_values(["pixel_id", "doy"])
     doys = np.sort(df.doy.unique())
@@ -56,7 +59,7 @@ def year_features(df: pd.DataFrame, year: int) -> pd.DataFrame:
     rows = []
     for k in np.flatnonzero(keep):
         filled = _fill_row(ndvi[k], x)
-        sm = savgol_filter(filled, SG_WINDOW, SG_ORDER)
+        sm = savgol_filter(filled, window, order)
         curve = np.interp(day, x, sm)
         ipk = int(np.argmax(curve))
         green = _first_cross(day, curve, 1, up=True)
@@ -73,6 +76,7 @@ def year_features(df: pd.DataFrame, year: int) -> pd.DataFrame:
                 float(gf.mean()),
                 float(np.nanmax(ndvi[k])),
                 int(n_valid[k]),
+                float(np.abs(np.diff(sm, 2)).mean()),
             )
         )
     cols = [
@@ -85,6 +89,7 @@ def year_features(df: pd.DataFrame, year: int) -> pd.DataFrame:
         "grain_filling_ndvi",
         "raw_peak_ndvi",
         "n_valid_obs",
+        "smooth_roughness",
     ]
     out = pd.concat([meta[keep].reset_index(drop=True), pd.DataFrame(rows, columns=cols)], axis=1)
     out.insert(2, "year", year)
@@ -96,10 +101,18 @@ def year_features(df: pd.DataFrame, year: int) -> pd.DataFrame:
 
 
 def main() -> None:
-    """Build ``pixel_year_phenology.parquet`` for 2010-2024 and print per-year sanity stats."""
+    """Build the phenology parquet; ``--suffix ext330`` reads the extended-window pulls."""
+    ap = argparse.ArgumentParser()
+    ap.add_argument("--suffix", default="")
+    ap.add_argument("--window", type=int, default=SG_WINDOW)
+    ap.add_argument("--order", type=int, default=SG_ORDER)
+    ap.add_argument("--out", default=str(OUT))
+    a = ap.parse_args()
+    sfx = f"_{a.suffix}" if a.suffix else ""
     parts, stats = [], []
     for y in range(2010, 2025):
-        res = year_features(pd.read_parquet(INTERIM / f"modis_ndvi_pixel_{y}.parquet"), y)
+        raw = pd.read_parquet(INTERIM / f"modis_ndvi_pixel_{y}{sfx}.parquet")
+        res = year_features(raw, y, a.window, a.order)
         parts.append(res)
         stats.append(
             {
@@ -109,15 +122,18 @@ def main() -> None:
                 "kept": len(res),
                 "med_peak_day": res.peak_ndvi_day.median(),
                 "med_peak_ndvi": res.peak_ndvi.median(),
+                "med_raw_peak_ndvi": res.raw_peak_ndvi.median(),
                 "share_peak_ndvi_065_085": res.peak_ndvi.between(0.65, 0.85).mean(),
                 "greenup_nan": res.greenup_censored.mean(),
                 "senescence_nan": res.senescence_censored.mean(),
+                "med_roughness": res.smooth_roughness.median(),
             }
         )
         print(stats[-1], flush=True)
-    OUT.parent.mkdir(parents=True, exist_ok=True)
-    pd.concat(parts, ignore_index=True).to_parquet(OUT, index=False)
-    pd.DataFrame(stats).to_csv("data/processed/phenology_year_checks.csv", index=False)
+    out = Path(a.out)
+    out.parent.mkdir(parents=True, exist_ok=True)
+    pd.concat(parts, ignore_index=True).to_parquet(out, index=False)
+    pd.DataFrame(stats).to_csv(out.with_suffix(".checks.csv"), index=False)
 
 
 if __name__ == "__main__":

@@ -23,7 +23,10 @@ def main() -> None:
     ap = argparse.ArgumentParser()
     ap.add_argument("--start", type=int, default=2010)
     ap.add_argument("--end", type=int, default=2024)
+    ap.add_argument("--doy-end", type=int, default=None, help="extend window (ADR-025 addendum)")
+    ap.add_argument("--tag", default="", help="suffix for assets/files, e.g. ext330")
     args = ap.parse_args()
+    sfx = f"_{args.tag}" if args.tag else ""
     years = list(range(args.start, args.end + 1))
     load_dotenv()
     project = os.environ["GEE_PROJECT"]
@@ -42,15 +45,15 @@ def main() -> None:
     if missing:
         raise SystemExit(f"cropland tiles missing locally (not re-exporting): {missing}")
 
-    assets = {y: sat.asset_id(project, "modis_mod13q1", y, "kharif_stack") for y in years}
+    assets = {y: sat.asset_id(project, "modis_mod13q1", y, f"kharif_stack{sfx}") for y in years}
     doys_by_year: dict[int, list[int]] = {}
     jobs: list[sat.ExportJob] = []
     for y in years:
-        eid = f"modis_mod13q1_{y}"
+        eid = f"modis_mod13q1_{y}{sfx}"
         if (live := sat.adopt_running(eid, assets[y])) is not None:
             jobs.append(live)
         elif not _exists(assets[y]):
-            stack, doys = sat.year_stack(y, region)
+            stack, doys = sat.year_stack(y, region, args.doy_end)
             doys_by_year[y] = doys
             jobs.append(
                 sat.start_export(
@@ -79,11 +82,11 @@ def main() -> None:
     year_info: dict[str, Any] = {}
     zips: list[Path] = []
     for y in ok_years:
-        zp = RAW / f"modis_mod13q1_{y}.zip"
+        zp = RAW / f"modis_mod13q1_{y}{sfx}.zip"
         if not zp.exists():
             sat.download_asset(assets[y], region, crs, transform, zp)
         zips.append(zp)
-        out = INTERIM / f"modis_ndvi_pixel_{y}.parquet"
+        out = INTERIM / f"modis_ndvi_pixel_{y}{sfx}.parquet"
         df = sat.stack_to_frame(zp, [RAW / n for n in crop_assets], districts, y)
         df.to_parquet(out, index=False)
         crop = df[df.cropland_frac >= 0.5]
@@ -103,7 +106,7 @@ def main() -> None:
         }
         print(y, year_info[str(y)]["rows"], year_info[str(y)]["share_qa_le_1_kharif"])
     ids = {n: a for n, a in crop_assets.items()}
-    ids.update({z.name: assets[int(z.stem.rsplit("_", 1)[1])] for z in zips})
+    ids.update({z.name: assets[y] for z, y in zip(zips, ok_years, strict=True)})
     total_rows = sum(v["rows"] for v in year_info.values())
     sat.write_modis_manifest(
         RAW,
@@ -111,13 +114,14 @@ def main() -> None:
         total_rows,
         {"years_ok": ok_years, "failures": failures, "per_year": year_info},
         ids,
+        name=f"manifest{sfx}.json",
     )
     pd.DataFrame(
         [
             {"year": y, **{k: v for k, v in i.items() if not isinstance(v, dict | list)}}
             for y, i in year_info.items()
         ]
-    ).to_csv(INTERIM / "modis_year_summary.csv", index=False)
+    ).to_csv(INTERIM / f"modis_year_summary{sfx}.csv", index=False)
     if failures:
         raise SystemExit("failed: " + "; ".join(failures))
 

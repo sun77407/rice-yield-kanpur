@@ -12,6 +12,8 @@ import matplotlib.pyplot as plt
 import numpy as np
 import pandas as pd
 
+from src.models.feature_sets import FULL
+
 P = Path("data/processed")
 FIG = Path("figures/phase2_diagnostics.png")
 TARGET = "yield_est_t_ha"
@@ -60,8 +62,7 @@ def vif(df: pd.DataFrame) -> pd.Series:
 
 def diagnostics(x: pd.DataFrame, xd: pd.DataFrame) -> dict[str, Any]:
     """Null counts, duplicate check, correlations, VIF; save the figure."""
-    num = x.select_dtypes("number").columns
-    feats = [c for c in num if c not in {"year", "lat", "lon", TARGET, "district_kanpur_nagar"}]
+    feats = [c for c in FULL if c in x.columns]  # leaky NDVI features excluded (ADR-028)
     nulls = x.isna().mean().mul(100).round(2)
     dup = int(x.duplicated(["pixel_id", "year"]).sum())
     corr = x[feats].corr()

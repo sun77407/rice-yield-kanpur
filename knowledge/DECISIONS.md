@@ -418,3 +418,56 @@ After the QA <= 1 rule and before gap-filling, each pixel-year must have **at le
 - **Weather deviations from the spec text:** `monsoon_onset_day` = first day >= 5 mm on or after Jun 1 (all 30 district-years fell in June); dry spell = run of >= 7 days with < 1 mm (each run counted once); `kharif_gwetroot_mean` and IMD secondary columns are added. Temperature and humidity are one NASA POWER point shared by both districts.
 - **SoilGrids:** 0-5 cm mean, nearest-neighbour onto the MODIS grid; 3.8% of pixels have no soil value (masked in SoilGrids). The `nitrogen` column (catalog unit cg/kg divided by 100) has an implausible magnitude (mean 15 g/kg against SOC 18 g/kg) and is unverified; use it only as a relative covariate until checked.
 - **Circularity warning:** the pixel target is alpha + beta * `grain_filling_ndvi` per district, so a model that sees `grain_filling_ndvi` can recover the target exactly. Phase 3 must exclude it (and review `integrated_ndvi`, `peak_ndvi`) from the feature set.
+
+---
+
+## ADR-025 addendum 2 (2026-10-20): Kharif window to DOY 330, SG window sensitivity
+
+**Window.** The composite window now ends at start-DOY 330 (composites starting DOY 161 ... 321, 11 per year; the last is centred on DOY 329). Two extra composites per year were pulled from Earth Engine as new assets `.../modis_mod13q1/<year>/kharif_stack_ext330` (about 3-7 EECU-s each; the original 9-composite assets are kept). Result: `senescence_day` null fell from 67% to 19% of pixel-years; `length_of_season` from 74% to 38%; `greenup_day` null is 24% (pixels already >= 0.4 at the first composite).
+
+**Side effect on the 4-observation rule.** With 11 composites, the minimum-4-valid rule drops almost nothing (e.g. 2018: 10 pixels instead of 40,720), because the two added Oct/Nov composites are mostly clear. A pixel can now pass the rule with valid points only after the monsoon, so its peak is interpolated across the cloudy period. The rule is kept as specified; median valid observations per pixel-year is 7 (min 4).
+
+**Sensitivity test (pre-registered rule: switch to window 3 only if the mean over years of the yearly median smoothed peak NDVI improves by >= 0.05 and median roughness, the mean absolute second difference of the smoothed series, rises by no more than 50%).**
+
+| Filter | Mean of yearly median peak NDVI | Median roughness | Years with median peak in 0.65-0.85 |
+|---|---|---|---|
+| SG window 5, order 2 (current) | 0.627 | 0.035 | 4 of 15 |
+| SG window 3, order 2 | 0.645 | 0.057 | 6 of 15 |
+| SG window 3, order 1 (3-point linear fit) | 0.605 | 0.028 | 2 of 15 |
+
+Window 3 with order 2 is the identity filter (a parabola through 3 points reproduces them), so that row is the gap-filled series with no smoothing. It raises the peak by only 0.018 (< 0.05) and roughness by 63%. **Decision: keep window 5, order 2.** The raw (unsmoothed, QA <= 1) peak median equals the window-3/order-2 numbers (identity filter), so the low peak NDVI is mostly in the data (cloud/marginal-QA contamination, mixed cropland, the 16-day composite peak), not an artifact of smoothing. Median peak day is DOY 249 in 8 years and 265 in 7 (composite-centre granularity).
+
+---
+
+## ADR-026 correction (2026-10-20)
+
+The IMD shortfall is about **30%** below CHIRPS (629 mm vs 884-918 mm), not the 25% quoted in the original request. ADR-026 already states 30%; this note records that the 25% figure was a misstatement.
+
+---
+
+## ADR-028: Exclude calibration-derived and target-correlated NDVI features from model inputs
+
+**Status:** Accepted (user decision 2026-10-20). Most important methodological ADR of the project.
+
+**Context.** Per ADR-002 the pixel-level training target is `yield_est = alpha_d + beta_d * grain_filling_ndvi` (district-specific alpha, beta fitted on 13 APY years). The target is therefore an exact linear function of `grain_filling_ndvi` within each district. A model given that feature can recover the target with R^2 = 1.0 without learning anything about yield.
+
+**Decision.**
+1. `grain_filling_ndvi` is never a model input.
+2. `integrated_ndvi` and `peak_ndvi` (smoothed) are removed too. Measured Pearson r with `grain_filling_ndvi` over 1,394,144 pixel-years: `peak_ndvi` 0.876, `integrated_ndvi` 0.866 (0.872 and 0.871 after removing district-year means). These are below the "0.9" quoted in the review request; they are removed on the grounds that they are the same smoothed-curve signal, not because they cross 0.9.
+3. Allowed phenology inputs: `greenup_day`, `peak_ndvi_day`, `senescence_day`, `length_of_season`, `raw_peak_ndvi`. All weather features and all soil features are allowed.
+4. Enforced in code: `src/models/feature_sets.py` defines the forbidden set and a test fails if any model's features include it.
+
+**Known residual leakage (not resolved by this ADR).** `raw_peak_ndvi` has r = 0.848 with `grain_filling_ndvi` (0.844 within district-year), i.e. a model using it alone can explain roughly 70% of the target variance. The timing features correlate at -0.50 (`greenup_day`), -0.33 (`peak_ndvi_day`), 0.42 (`senescence_day`) and 0.51 (`length_of_season`). Keeping `raw_peak_ndvi` was the user's decision; it is noisier than the smoothed peak but it is not independent of the target. Consequences for reporting:
+- Pixel-level R^2 measures how well NDVI-derived phenology plus weather and soil predict a calibrated NDVI quantity. It is **not** evidence of yield-prediction skill. The target contains no information that is not in the satellite signal.
+- The independent evidence is the district-level comparison against the 13 APY years per district (aggregate predictions vs APY, leave-one-year-out). That is the headline metric.
+- Phase 3 must report an ablation with and without `raw_peak_ndvi` (and a satellite-free weather+soil model) so the leakage contribution is visible.
+
+**Per-model feature policy (weather collinearity).** Linear, Lasso and ElasticNet drop `gdd_kharif` (r = 0.99 with `kharif_tmax_mean`) and keep `kharif_tmax_mean` and `kharif_rh_mean`; Ridge, RF, XGBoost and the other models use the full allowed set. Note `kharif_tmax_mean` and `kharif_rh_mean` correlate at about -0.99 in the district-year table, so VIF stays high for the linear baselines; this was accepted. The weather table has 9 engineered features (the request said 8), plus `kharif_gwetroot_mean` and the IMD secondary columns.
+
+**Rationale.** Evaluating a model on a target that is a deterministic function of its inputs inflates every metric and would invalidate the manuscript. Removing the source feature is necessary; because other NDVI features carry most of its information, the reporting rules above are also necessary.
+
+---
+
+## ADR-027 update (2026-10-20): SoilGrids nitrogen scale
+
+SoilGrids' catalog labels nitrogen as cg/kg, but the raw median over Kanpur is 1,465. Taken as cg/kg that is 14.7 g/kg, which with SOC at 17.4 g/kg gives C:N of about 1.2 (real topsoil is about 8-15). Dividing by 100 (the first fix) therefore left an implausible value. The column now holds raw / 10,000 = **0.15** (mean over pixels, range 0.12-0.30), which equals 1.5 g/kg or 0.15% N (C:N about 12). **The unit of the `nitrogen` column is percent N (g per 100 g), not g/kg**; the request's expectation of "0.1-0.3 g/kg" matches the number but 0.15 g/kg would be implausibly low for a topsoil, so the label is % N. The catalog unit/scale discrepancy was not independently confirmed with ISRIC.

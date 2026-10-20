@@ -23,7 +23,10 @@ SPEC = {
     "clay_pct": ("clay", 10.0),  # g/kg -> %
     "sand_pct": ("sand", 10.0),  # g/kg -> %
     "cec": ("cec", 10.0),  # mmol(c)/kg -> cmol(c)/kg
-    "nitrogen": ("nitrogen", 100.0),  # cg/kg -> g/kg
+    # Catalog says cg/kg, but raw median is ~1465 (= 14.7 g/kg if taken at face value, with SOC
+    # at 17 g/kg: C:N ~ 1.2, impossible). Read as mg/kg it is 1.47 g/kg (C:N ~ 12), so raw/1e4 is
+    # percent N (g per 100 g), the 0.1-0.3 range expected for topsoil. See ADR-028 note.
+    "nitrogen": ("nitrogen", 10000.0),
 }
 YEAR = 2020  # SoilGrids 2.0 release year, used as the asset-path vintage
 
@@ -85,7 +88,7 @@ def main() -> None:
         {
             "depth": "0-5cm",
             "stat": "mean",
-            "units": "ph; soc g/kg; clay,sand %; cec cmol/kg; N g/kg",
+            "units": "ph; soc g/kg; clay,sand %; cec cmol/kg; N % (g/100g)",
         },
         {zp.name: asset},
     ).write(RAW / "manifest.json")
