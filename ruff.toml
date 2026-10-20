@@ -1,0 +1,17 @@
+line-length = 100
+target-version = "py311"
+src = ["src", "tests"]
+
+[lint]
+select = ["E", "F", "I", "UP", "B", "D", "N", "SIM", "TID"]
+ignore = ["D203", "D213"]
+
+[lint.per-file-ignores]
+"tests/**" = ["D"]
+"**/__init__.py" = ["D104"]
+
+# ADR-018: no cloud LLM SDKs in the shipped pipeline
+[lint.flake8-tidy-imports.banned-api]
+"openai".msg = "ADR-018: cloud LLMs are forbidden in src/llm/. Use Ollama."
+"anthropic".msg = "ADR-018: cloud LLMs are forbidden in src/llm/. Use Ollama."
+"google.generativeai".msg = "ADR-018: cloud LLMs are forbidden in src/llm/. Use Ollama."

@@ -1,0 +1,9 @@
+cff-version: 1.2.0
+message: "If you use this software, please cite it as below."
+title: "Rice Yield Prediction and Advisory System for Kanpur"
+authors:
+  - family-names: Chandel
+    given-names: Tejas Singh
+repository-code: "https://github.com/sun77407/rice-yield-kanpur"
+license: MIT
+version: 0.1.0
