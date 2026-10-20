@@ -305,3 +305,56 @@ Each entry follows the ADR format: **Context → Options → Decision → Ration
 **Rationale.** Decisions deferred without record become hidden technical debt.
 
 **Consequences.** `DECISIONS.md` becomes the single source of truth for the project's design rationale.
+
+---
+
+## ADR-021: SHAP and dependency versions are pinned via uv.lock, not hand-pinned
+
+**Context.** ADR-014 pinned `shap==0.44.x` for XGBoost compatibility. The dev machine runs Python 3.13, for which 0.44 very likely has no wheel.
+
+**Decision.** Declare ranges in `pyproject.toml` (`shap>=0.46`) and pin exact versions in the committed `uv.lock`. Verify SHAP-on-XGBoost works against the locked versions in Phase 3 before relying on it.
+
+**Consequences.** ADR-014's intent (SHAP must work with XGBoost) is kept; its literal version pin is superseded.
+
+---
+
+## ADR-022: GEE access via service account; MODIS design
+
+**Status.** ACTIVE for auth, spatial scope and MODIS design. Item 2 (Cloud Storage export) is SUPERSEDED by ADR-024. Replaces the earlier draft (user OAuth + Export to Google Drive), which never ran.
+
+**Context.** A service account cannot write to a personal Google Drive, and a user OAuth token cannot be refreshed unattended. The Community-tier EECU budget is 150 h with a 100 h usable ceiling (user rule).
+
+**Decision.**
+1. Auth: `google.oauth2.service_account.Credentials.from_service_account_file()` with `rice-yield-worker@notifyproj-a28b2.iam.gserviceaccount.com`; key path from `GEE_SERVICE_ACCOUNT_KEY` (default `.secrets/gee-key.json`, gitignored). IAM roles granted by the user: Earth Engine Resource Writer, Service Usage Consumer, Storage Admin. APIs enabled: Earth Engine, Cloud Storage.
+2. Export route: originally `Export.image.toCloudStorage` into bucket `rice-yield-kanpur-exports` (asia-south1, NEARLINE). Superseded by ADR-024 (Earth Engine assets).
+3. Spatial scope: GADM 4.1 level-2 polygons for Kanpur Nagar and Kanpur Dehat (not a bounding box).
+4. Native MOD13Q1 (v061) 16-day composites on the native 231.66 m sinusoidal grid, Kharif window DOY 150-300, bands NDVI/EVI/SummaryQA/DayOfYear. Monthly aggregation was rejected for phenology (it blurs the 0.4-threshold crossings) and would not reduce EECU, since no reducers run.
+5. Cropland (WorldCover 2021 class 40) is exported once as a fraction raster on the MODIS grid and applied locally.
+6. EECU: a-priori estimates are logged before each export and the metered `batch_eecu_usage_seconds` after; the guard in `src/data/gee_quota.py` stops at 100 h.
+7. `force_ipv4()` is applied before any Google client is built: the dev machine's IPv6 route is black-holed and stalled every connection.
+
+**Consequences.** (1) Creating the bucket failed with `403: The billing account for the owning project is disabled`, which led to ADR-024. (2) Key hygiene: `.secrets/` is gitignored; the key must never be committed. Verified before the first key-related commit: `git log --all --full-history -- .secrets/gee-key.json` and `git ls-files .secrets/` are both empty, and no object named like the key exists in any ref.
+
+---
+
+## ADR-023: Force IPv4 for all Google client traffic
+
+**Context.** The dev machine's IPv6 route is black-holed: connecting to any Google API over IPv6 times out (about 8 s measured with raw sockets) before IPv4 succeeds. `ee.Initialize` makes several sequential connections (including google-auth's regional-access-boundary lookup) and appeared to hang indefinitely.
+
+**Decision.** `src/utils/net.force_ipv4()` sets `urllib3.util.connection.HAS_IPV6 = False`; it is called from `satellite.init_ee` before any client is created.
+
+**Consequences.** Affects every library built on urllib3/requests in-process (earthengine-api, google-auth, requests). Harmless on dual-stack machines. Remove if IPv6 is repaired and this shim is no longer needed.
+
+---
+
+## ADR-024: Export GEE results to Earth Engine assets, not Cloud Storage
+
+**Context.** `Export.image.toCloudStorage` needs a GCS bucket, and creating one failed: the project `notifyproj-a28b2` has no billing account. Service accounts also cannot export to a personal Drive (ADR-022).
+
+**Options.** (a) Link a billing account and use GCS. (b) `Export.image.toAsset` into the project's own asset store, then pull pixels with `Image.getDownloadURL`. (c) Skip batch export and call `getDownloadURL` on the computed image directly.
+
+**Decision.** (b). Assets live at `projects/notifyproj-a28b2/assets/kanpur_rice/<source>/<year>/<name>`. Folders are created idempotently. The `google-cloud-storage` dependency is kept for now but is unused (marked in `pyproject.toml`).
+
+**Rationale.** No billing account is attached, which keeps the project on the free Community tier and strengthens the zero-cost claim of the paper. A batch export (unlike (c)) reports a metered `batch_eecu_usage_seconds`, which the quota ledger needs (the 100 EECU-hour ceiling).
+
+**Consequences.** (1) The download from the asset is an interactive request and is not metered in batch EECU; it is limited to about 48 MB per request, which is why exports are per year. (2) Asset storage counts against the Earth Engine asset quota (verify the quota before the full-range export). (3) Manifest entries record the `ee_asset_id` instead of a `gs://` URL.
