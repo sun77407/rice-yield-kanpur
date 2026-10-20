@@ -20,7 +20,9 @@ COMPOSITE_CENTER = 8  # 16-day composite starting at DOY d is centred on d + 8
 
 def _fill_row(y: np.ndarray, x: np.ndarray) -> np.ndarray:
     ok = ~np.isnan(y)
-    return np.interp(x, x[ok], y[ok])  # interior gaps linear, edge gaps nearest valid value
+    return np.asarray(
+        np.interp(x, x[ok], y[ok])
+    )  # interior gaps linear, edge gaps nearest valid value
 
 
 def _first_cross(day: np.ndarray, curve: np.ndarray, start: int, up: bool) -> float:
