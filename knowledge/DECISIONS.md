@@ -405,3 +405,16 @@ After the QA <= 1 rule and before gap-filling, each pixel-year must have **at le
 **Rationale.** CHIRPS' totals agree with the Kanpur climatological normal range (820-900 mm, as stated by the project owner; not independently re-checked here) and with NASA POWER, and CHIRPS is validated over South Asia (Funk et al. 2015, R15). The suggested mechanism for the IMD shortfall (0.25 deg gridding under-representing convective peaks) is a hypothesis; it was not tested.
 
 **Consequences.** IMD-based sensitivity features can be added later without re-acquisition. The CHIRPS-vs-IMD gap is disclosed in the manuscript's limitations.
+
+---
+
+## ADR-027: Phase 2 conventions (cropland mask, time axis, phenology edge cases)
+
+**Status:** Accepted by the implementer in Phase 2 (self-decision, flagged for review).
+
+- **Cropland mask:** pixels with WorldCover-2021 cropland fraction >= 0.5 (92,969 of 113,733). 0.75 would keep 76,412; 0.25 would keep 102,630. Not tuned against any outcome.
+- **Time axis:** each 16-day composite is placed at its centre (start DOY + 8); the filled series is linearly interpolated to daily values for threshold crossings, peak, integral and the Aug 15 - Sep 15 window (DOY 227-258, 228-259 in leap years).
+- **Edge cases:** `greenup_day` is NaN if the smoothed curve is already >= 0.4 at the first composite or never reaches it; `senescence_day` is NaN if it is still >= 0.4 at the window end (DOY 297). `length_of_season` is NaN if either is NaN. Censoring flags `greenup_censored` / `senescence_censored` are kept. The Kharif window ends at DOY 300, so senescence is censored for most pixels (see Phase 2 report).
+- **Weather deviations from the spec text:** `monsoon_onset_day` = first day >= 5 mm on or after Jun 1 (all 30 district-years fell in June); dry spell = run of >= 7 days with < 1 mm (each run counted once); `kharif_gwetroot_mean` and IMD secondary columns are added. Temperature and humidity are one NASA POWER point shared by both districts.
+- **SoilGrids:** 0-5 cm mean, nearest-neighbour onto the MODIS grid; 3.8% of pixels have no soil value (masked in SoilGrids). The `nitrogen` column (catalog unit cg/kg divided by 100) has an implausible magnitude (mean 15 g/kg against SOC 18 g/kg) and is unverified; use it only as a relative covariate until checked.
+- **Circularity warning:** the pixel target is alpha + beta * `grain_filling_ndvi` per district, so a model that sees `grain_filling_ndvi` can recover the target exactly. Phase 3 must exclude it (and review `integrated_ndvi`, `peak_ndvi`) from the feature set.
