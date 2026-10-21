@@ -1,0 +1,12 @@
+\subsection{Why cosine similarity is insufficient for RAG faithfulness in domain-specific advisory}
+\label{sec:cosine_insufficient}
+Many applied retrieval-augmented generation systems accept a generated sentence as grounded if its embedding lies within a cosine threshold of a retrieved passage. We tested this against hand-labelled unsupported sentences, which such papers rarely do. Our initial threshold of 0.6 (carried over from ADR-010; RAGAS~\cite{es2023ragas} verifies claims with an LLM and does not specify it) rejected none of 20 plausible but unsupported sentences. A threshold tuned on 61 labelled sentences (0.78) was fitted to those sentences and did not transfer to generated advice.
+
+\paragraph{Failure mode (a): lexical overlap hides a semantic unit mismatch.}
+Passage J3 states that the nitrogen split dose at ``60 DAT'' (days after transplanting) becomes optional in a bad year. In 7 of 30 first-run advisories the writer produced ``reduce nitrogen to 60 kg per hectare''. Their cosine similarity to the source passage was 0.74--0.80, in the range of correct sentences, because the two share entities and a numeral; the score cannot see that a time has become a mass per area. The slip persisted after a glossary was added to the prompt (5 of 30 in the final run), and the Llama~3 claim-level judge also accepted it in three of those five.
+
+\paragraph{Failure mode (b): no discrimination on real output.}
+On the 141 advice sentences of the glossary run, a same-model judge separated fully supported from partly supported sentences, yet the mean maximum cosine was 0.790 for the former and 0.797 for the latter. In the final run with a different judge, the mean was 0.782 for judge-supported and 0.799 for the remaining sentences (138 sentences), and sentence-level agreement between ``cosine $\geq 0.78$'' and ``judge supported'' was 45\%. Cosine measures topical closeness, which advice sentences have by construction; it does not measure whether each claim is stated by the source.
+
+\paragraph{Consequence.}
+We report faithfulness only through a claim-level judge that is a different model from the writer and sees only the passages each sentence cites, keep cosine as a relevance diagnostic, and state the judge's limits (it also missed failure mode (a) in some cases, rarely answers ``unsupported'', and was validated on 61 sentences) as a limitation.

@@ -51,7 +51,7 @@ More than two-thirds of applied phosphorus can become fixed in the soil and unav
 
 Source: Phytojournal 2018 NDUAT trial.
 
-Azotobacter and phosphate-solubilizing bacteria (PSB) can supplement chemical fertilizer. Standard application method: dip the roots of 23-day-old rice seedlings in biofertilizer inoculant solution for approximately half an hour before transplanting. The 2018 NDUAT trial found that half the recommended NPK dose plus 50% nitrogen as farmyard manure plus 5 kg Zn per hectare produced equivalent yields to 100% NPK plus zinc (36.60 t/ha vs 33.56 t/ha in the trial — note the trial reports t/ha but these appear to be total biomass figures not grain yield; standard grain yields are much lower). The benefit-cost ratio favored the integrated nutrient management approach at 1.86.
+Azotobacter and phosphate-solubilizing bacteria (PSB) can supplement chemical fertilizer. Standard application method: dip the roots of 23-day-old rice seedlings in biofertilizer inoculant solution for approximately half an hour before transplanting. The 2018 NDUAT trial found that half the recommended NPK dose plus 50% nitrogen as farmyard manure plus 5 kg Zn per hectare produced yields statistically equivalent to 100% NPK plus zinc; the NDUAT trial reported these as plot-scale total biomass values, so they are not grain yields. Typical grain yields for Pusa Basmati 1 in Uttar Pradesh are 3-4 t/ha. The benefit-cost ratio favored the integrated nutrient management approach at 1.86.
 
 ---
 

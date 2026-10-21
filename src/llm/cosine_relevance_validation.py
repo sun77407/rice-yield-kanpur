@@ -1,4 +1,4 @@
-"""Validate the grounding threshold on 10 handcrafted advisory samples (ADR-010, ADR-034).
+"""Validate the cosine_relevance threshold on 10 handcrafted advisory samples (ADR-010, ADR-034).
 
 Each sample is a set of KB passages plus sentences written by hand and labelled before any
 similarity was computed: ``True`` = supported by those passages, ``False`` = plausible agronomy
@@ -12,11 +12,11 @@ from pathlib import Path
 
 import numpy as np
 
+from src.llm.cosine_relevance import strip_citations
 from src.llm.embed import embed
-from src.llm.grounding import strip_citations
 from src.rag.retriever import Passage
 
-OUT = Path("kb/index/grounding_validation.json")
+OUT = Path("kb/index/cosine_relevance_validation.json")
 CHUNKS = Path("kb/chunks/kb.jsonl")
 
 SAMPLES: list[tuple[list[str], list[tuple[str, bool]]]] = [
@@ -245,7 +245,7 @@ def load_passages() -> dict[str, Passage]:
 
 
 def sweep() -> dict[str, object]:
-    """Threshold sweep: balanced accuracy, and precision/recall of the ``grounded`` call."""
+    """Threshold sweep: balanced accuracy, and precision/recall of the ``relevant`` call."""
     kb = load_passages()
     maxsim: list[float] = []
     label: list[bool] = []
@@ -267,10 +267,10 @@ def sweep() -> dict[str, object]:
         rows.append(
             {
                 "threshold": float(t),
-                "grounded_recall": round(tpr, 3),  # supported sentences correctly kept
+                "relevant_recall": round(tpr, 3),  # supported sentences correctly kept
                 "unsupported_rejected": round(tnr, 3),
                 "balanced_accuracy": round((tpr + tnr) / 2, 3),
-                "false_negatives": fn,  # supported but flagged as ungrounded
+                "false_negatives": fn,  # supported but flagged as unrelevant
                 "false_positives": fp,  # unsupported but passed
             }
         )

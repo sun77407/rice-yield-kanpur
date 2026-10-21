@@ -1,0 +1,332 @@
+{
+ "summary": {
+  "n": 61,
+  "supported_labelled": 41,
+  "unsupported_labelled": 20,
+  "supported_judged_supported": 27,
+  "supported_judged_partial": 14,
+  "supported_judged_unsupported": 0,
+  "unsupported_judged_supported": 0,
+  "unsupported_judged_partial": 16,
+  "unsupported_judged_unsupported": 4
+ },
+ "unit_probes": [
+  {
+   "sentence": "Reduce nitrogen to 60 kg per hectare in a forecast bad year [1].",
+   "judge": "supported",
+   "expected": "unsupported"
+  },
+  {
+   "sentence": "Make the nitrogen split dose at 60 DAT optional in a forecast bad year [1].",
+   "judge": "supported",
+   "expected": "supported"
+  }
+ ],
+ "rows": [
+  {
+   "sentence": "The standard Kharif dose in eastern UP is 120 kg nitrogen, 60 kg P2O5 and 60 kg K2O per hectare, plus 5 kg zinc as zinc sulphate.",
+   "label_supported": true,
+   "judge": "supported"
+  },
+  {
+   "sentence": "Apply half of the nitrogen with all the phosphorus, potash and zinc as basal dressing before transplanting.",
+   "label_supported": true,
+   "judge": "supported"
+  },
+  {
+   "sentence": "Give the remaining nitrogen in two equal top-dressings at 40 and 60 days after transplanting.",
+   "label_supported": true,
+   "judge": "supported"
+  },
+  {
+   "sentence": "On alkaline soils a foliar zinc sulphate spray at tillering and panicle initiation is more reliable than soil application.",
+   "label_supported": true,
+   "judge": "partial"
+  },
+  {
+   "sentence": "Apply 200 kg of potash per hectare at flowering to improve grain filling.",
+   "label_supported": false,
+   "judge": "partial"
+  },
+  {
+   "sentence": "Sulphur deficiency is the main reason for yellow leaves in Kanpur soils.",
+   "label_supported": false,
+   "judge": "partial"
+  },
+  {
+   "sentence": "Keep about 3 cm of water after transplanting and raise it gradually to 5 to 10 cm.",
+   "label_supported": true,
+   "judge": "partial"
+  },
+  {
+   "sentence": "Keep 5 cm of standing water from heading until the end of flowering, because water shortage then causes spikelet sterility.",
+   "label_supported": true,
+   "judge": "partial"
+  },
+  {
+   "sentence": "Drain the field 7 to 10 days before harvest.",
+   "label_supported": true,
+   "judge": "supported"
+  },
+  {
+   "sentence": "Alternate wetting and drying can save roughly 30 to 35% of irrigation water but should be paused during flowering.",
+   "label_supported": true,
+   "judge": "supported"
+  },
+  {
+   "sentence": "Irrigate every 3 days with 10 cm of water throughout the season.",
+   "label_supported": false,
+   "judge": "partial"
+  },
+  {
+   "sentence": "Apply gypsum at 500 kg per hectare to improve water holding.",
+   "label_supported": false,
+   "judge": "partial"
+  },
+  {
+   "sentence": "Brown planthopper is the most damaging rice insect in Asia and can cause yield losses up to 60% in susceptible varieties.",
+   "label_supported": true,
+   "judge": "supported"
+  },
+  {
+   "sentence": "Circular patches of dead yellow plants, known as hopper burn, mean the infestation is already severe, so scout weekly from panicle initiation.",
+   "label_supported": true,
+   "judge": "supported"
+  },
+  {
+   "sentence": "Avoid excess urea and broad-spectrum insecticides such as cypermethrin, which can trigger planthopper outbreaks.",
+   "label_supported": true,
+   "judge": "supported"
+  },
+  {
+   "sentence": "Resistant varieties such as IR64 and natural enemies like spiders help suppress the pest.",
+   "label_supported": true,
+   "judge": "supported"
+  },
+  {
+   "sentence": "Spray imidacloprid at 0.5 ml per litre every 10 days as a preventive measure.",
+   "label_supported": false,
+   "judge": "partial"
+  },
+  {
+   "sentence": "Release Trichogramma wasps at 50,000 per hectare to control planthoppers.",
+   "label_supported": false,
+   "judge": "partial"
+  },
+  {
+   "sentence": "Blast shows as white to grey spindle-shaped lesions with dark borders and can break the stem at the neck during panicle development.",
+   "label_supported": true,
+   "judge": "supported"
+  },
+  {
+   "sentence": "Humid weather, temperatures around 25 to 28 degrees and excess nitrogen favour blast.",
+   "label_supported": true,
+   "judge": "partial"
+  },
+  {
+   "sentence": "Plant resistant varieties, remove crop residue and rotate fungicides with different modes of action.",
+   "label_supported": true,
+   "judge": "supported"
+  },
+  {
+   "sentence": "Sheath blight begins as water-soaked greenish-grey lesions on lower leaves and no fully resistant cultivar is known.",
+   "label_supported": true,
+   "judge": "supported"
+  },
+  {
+   "sentence": "Lower plant density and balanced nitrogen reduce sheath blight.",
+   "label_supported": true,
+   "judge": "partial"
+  },
+  {
+   "sentence": "Apply tricyclazole at 0.6 g per litre at the boot leaf stage.",
+   "label_supported": false,
+   "judge": "unsupported"
+  },
+  {
+   "sentence": "Blast cannot occur in alkaline soils.",
+   "label_supported": false,
+   "judge": "unsupported"
+  },
+  {
+   "sentence": "Narendra-80 matures in 110 to 112 days, yields about 5.0 t/ha and is resistant to blast, tungro, sheath blight and stem borer.",
+   "label_supported": true,
+   "judge": "supported"
+  },
+  {
+   "sentence": "If the monsoon is delayed beyond July 5, choose a short-duration variety of 90 to 110 days.",
+   "label_supported": true,
+   "judge": "supported"
+  },
+  {
+   "sentence": "Salt-tolerant options for sodic soils are CSR-10, CSR-13, CSR-30 and the Narendra Usar varieties.",
+   "label_supported": true,
+   "judge": "supported"
+  },
+  {
+   "sentence": "Pant Dhan-6 is a taller variety of 113 to 120 days averaging 4.1 t/ha.",
+   "label_supported": true,
+   "judge": "partial"
+  },
+  {
+   "sentence": "Pusa 44 is the highest-yielding variety for Kanpur at 9 t/ha.",
+   "label_supported": false,
+   "judge": "partial"
+  },
+  {
+   "sentence": "Hybrid rice gives double the yield of Narendra-80 under Kanpur conditions.",
+   "label_supported": false,
+   "judge": "partial"
+  },
+  {
+   "sentence": "Sow the nursery from mid-May to early June and transplant 23 to 25 day old seedlings by the first week of July.",
+   "label_supported": true,
+   "judge": "supported"
+  },
+  {
+   "sentence": "Flowers exposed to 35 degrees or more for over an hour can fail to set grain.",
+   "label_supported": true,
+   "judge": "supported"
+  },
+  {
+   "sentence": "Treat seed with carbendazim or thiram at 2 g per kg before sowing.",
+   "label_supported": true,
+   "judge": "partial"
+  },
+  {
+   "sentence": "Transplanted rice needs about 40 kg of seed per hectare in the nursery.",
+   "label_supported": true,
+   "judge": "supported"
+  },
+  {
+   "sentence": "Use 150 kg of seed per hectare for a denser stand.",
+   "label_supported": false,
+   "judge": "partial"
+  },
+  {
+   "sentence": "Soak seed in cold water for 3 days before sowing to break dormancy.",
+   "label_supported": false,
+   "judge": "partial"
+  },
+  {
+   "sentence": "In a forecast bad year, register for PMFBY crop insurance before the cut-off date.",
+   "label_supported": true,
+   "judge": "supported"
+  },
+  {
+   "sentence": "In a bad year the second nitrogen top-dressing at 60 days after transplanting becomes optional.",
+   "label_supported": true,
+   "judge": "partial"
+  },
+  {
+   "sentence": "In a good year apply the full 120-60-60 NPK plus 5 kg zinc and watch for planthopper outbreaks.",
+   "label_supported": true,
+   "judge": "partial"
+  },
+  {
+   "sentence": "The PMFBY premium for Kharif foodgrains is 1.5% of the sum insured.",
+   "label_supported": true,
+   "judge": "supported"
+  },
+  {
+   "sentence": "Sell the entire crop to private traders before harvest to avoid price risk.",
+   "label_supported": false,
+   "judge": "partial"
+  },
+  {
+   "sentence": "Switch the whole farm to sugarcane in a bad year.",
+   "label_supported": false,
+   "judge": "partial"
+  },
+  {
+   "sentence": "Irrigated lowland rice typically needs 1,300 to 1,500 mm of water per season across Asia.",
+   "label_supported": true,
+   "judge": "partial"
+  },
+  {
+   "sentence": "Bunds should be at least 20 cm high and sealed against cracks and rat holes.",
+   "label_supported": true,
+   "judge": "supported"
+  },
+  {
+   "sentence": "Kanpur gets most of its rain between June and September, with normal monsoon onset around June 20 to 25.",
+   "label_supported": true,
+   "judge": "supported"
+  },
+  {
+   "sentence": "A dry spell of 10 or more days in July and August is the most damaging rainfall anomaly and may need pump irrigation.",
+   "label_supported": true,
+   "judge": "partial"
+  },
+  {
+   "sentence": "Install drip irrigation to cut water use by 70 percent in transplanted rice.",
+   "label_supported": false,
+   "judge": "unsupported"
+  },
+  {
+   "sentence": "Rainfall in Kanpur has declined by 40% since 2000.",
+   "label_supported": false,
+   "judge": "partial"
+  },
+  {
+   "sentence": "Soils of the Ganges plain near Kanpur are typically clay loam with pH 7.2 to 8.4, low in available nitrogen and high in potassium.",
+   "label_supported": true,
+   "judge": "supported"
+  },
+  {
+   "sentence": "More than two thirds of applied phosphorus can become fixed, so residual phosphorus from the previous season counts.",
+   "label_supported": true,
+   "judge": "supported"
+  },
+  {
+   "sentence": "Combining 5 to 10 tonnes of farmyard manure per hectare with chemical NPK keeps soil organic carbon up.",
+   "label_supported": true,
+   "judge": "supported"
+  },
+  {
+   "sentence": "Half the recommended NPK with half of the nitrogen as farmyard manure plus zinc gave equivalent results in the NDUAT trial.",
+   "label_supported": true,
+   "judge": "partial"
+  },
+  {
+   "sentence": "Potassium is deficient in Kanpur soils, so double the MOP dose.",
+   "label_supported": false,
+   "judge": "unsupported"
+  },
+  {
+   "sentence": "Green manuring with Sesbania is required before every rice crop.",
+   "label_supported": false,
+   "judge": "partial"
+  },
+  {
+   "sentence": "Harvest when grain moisture is about 20 to 25% and dry quickly to 14% or below.",
+   "label_supported": true,
+   "judge": "supported"
+  },
+  {
+   "sentence": "Field losses can reach 10 to 20% and storage losses a further 5 to 15% under smallholder conditions.",
+   "label_supported": true,
+   "judge": "partial"
+  },
+  {
+   "sentence": "Community-level rodent control works better than treating single plots.",
+   "label_supported": true,
+   "judge": "supported"
+  },
+  {
+   "sentence": "Selling paddy to the mandi at MSP depends on moisture content and procurement timing.",
+   "label_supported": true,
+   "judge": "partial"
+  },
+  {
+   "sentence": "Store paddy at 20% moisture in jute bags for up to a year.",
+   "label_supported": false,
+   "judge": "partial"
+  },
+  {
+   "sentence": "Harvest at 35% moisture to reduce shattering.",
+   "label_supported": false,
+   "judge": "partial"
+  }
+ ]
+}

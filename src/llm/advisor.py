@@ -3,7 +3,7 @@
 Only Ollama is used (ADR-018: no cloud LLMs). Primary model ``qwen2.5:14b-instruct-q6_K``,
 fallback ``llama3:latest`` (ADR-007). The prompt allows the model to restate the scenario
 facts it is given in one separate "Scenario:" paragraph; every sentence under "Advice:" must
-cite a numbered passage, and only those sentences are grounding-checked.
+cite a numbered passage, and only those sentences are cosine_relevance-checked.
 """
 
 from __future__ import annotations
@@ -16,15 +16,15 @@ from dataclasses import dataclass, field
 from datetime import UTC, datetime
 from pathlib import Path
 
-from src.llm.embed import client
-from src.llm.grounding import (
+from src.llm.cosine_relevance import (
     THRESHOLD,
-    GroundingResult,
-    grounding_detail,
+    CosineRelevanceResult,
+    cosine_relevance_detail,
     passage_vectors,
     split_sentences,
     strip_citations,
 )
+from src.llm.embed import client
 from src.rag.retriever import Passage, retrieve
 
 PRIMARY_MODEL = os.environ.get("LLM_PRIMARY") or "qwen2.5:14b-instruct-q6_K"
@@ -84,9 +84,9 @@ class Advisory:
     sentences: list[str]
     citations: dict[int, list[int]]  # advice-sentence index -> passage numbers
     passages: list[Passage]
-    grounding: GroundingResult
-    grounding_score: float  # share of advice sentences with max cosine >= THRESHOLD
-    grounding_at_060: float
+    cosine_relevance: CosineRelevanceResult
+    cosine_relevance_score: float  # share of advice sentences with max cosine >= THRESHOLD
+    cosine_relevance_at_060: float
     n_distinct_citations: int
     uncited_sentences: list[int]
     invalid_citations: list[int]
@@ -193,7 +193,7 @@ def generate_advisory(
     model: str | None = None,
     threshold: float = THRESHOLD,
 ) -> Advisory:
-    """Retrieve (unless given), generate, and run the citation and grounding checks."""
+    """Retrieve (unless given), generate, and run the citation and cosine_relevance checks."""
     t0 = time.time()
     passages = retrieved if retrieved is not None else retrieve_for_scenario(prediction)
     t_ret = time.time() - t0
@@ -215,17 +215,17 @@ def generate_advisory(
     n_pass = len(passages)
     invalid = sorted({n for v in cites.values() for n in v if not 1 <= n <= n_pass})
     pvecs = passage_vectors(passages) if passages else None
-    g = grounding_detail(check, passages, threshold, pvecs)
-    g060 = grounding_detail(check, passages, 0.6, pvecs)
+    g = cosine_relevance_detail(check, passages, threshold, pvecs)
+    g060 = cosine_relevance_detail(check, passages, 0.6, pvecs)
     adv = Advisory(
         text=text,
         scenario_text=scenario,
         sentences=check,
         citations=cites,
         passages=passages,
-        grounding=g,
-        grounding_score=g.grounded_fraction,
-        grounding_at_060=g060.grounded_fraction,
+        cosine_relevance=g,
+        cosine_relevance_score=g.relevant_fraction,
+        cosine_relevance_at_060=g060.relevant_fraction,
         n_distinct_citations=len({n for v in cites.values() for n in v if 1 <= n <= n_pass}),
         uncited_sentences=[i for i, v in cites.items() if not v],
         invalid_citations=invalid,
@@ -243,8 +243,8 @@ def generate_advisory(
             "scenario": prediction.scenario,
             "analog_year": prediction.analog_year,
             "model": used,
-            "grounding": adv.grounding_score,
-            "grounding_at_0.6": adv.grounding_at_060,
+            "cosine_relevance": adv.cosine_relevance_score,
+            "cosine_relevance_at_0.6": adv.cosine_relevance_at_060,
             "mean_max_cosine": g.mean_max_cosine,
             "distinct_citations": adv.n_distinct_citations,
             "latency_s": round(adv.latency_s, 2),

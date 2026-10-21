@@ -1,114 +1,169 @@
-"""LLM-as-judge faithfulness check of generated advice sentences (calibration for ADR-034).
+"""Claim-level LLM-as-judge faithfulness ("grounding") of advisory sentences (ADR-035).
 
-The judge is the same local model that wrote the advisories (qwen2.5:14b), so it is biased toward
-its own output; it is used only to see how the cosine score relates to a stricter, semantic
-reading, and a sample of its verdicts is checked by hand in the report.
+RAGAS-style (Es et al. 2023, R13): each advice sentence is decomposed into atomic claims, and
+each claim is judged against ONLY the passages the sentence cites. The judge (llama3, 8B) is a
+different model from the writer (qwen2.5:14b) to avoid self-preference. A sentence is
+
+* ``supported``  - every claim is supported by its cited passages;
+* ``unsupported`` - no claim is supported, or the sentence cites no valid passage;
+* ``partial``    - anything in between.
+
+"Grounding" and "faithfulness" in this project mean this metric and nothing else; the cosine
+score in ``cosine_relevance.py`` is a relevance diagnostic only.
 """
 
 from __future__ import annotations
 
 import json
 import re
-from pathlib import Path
+from dataclasses import asdict, dataclass, field
 from typing import Any
 
-import numpy as np
-
-from src.llm.advisor import PRIMARY_MODEL
+from src.llm.cosine_relevance import strip_citations
 from src.llm.embed import client
 
-RUNS = Path("logs/advisory_runs_full.jsonl")
-OUT = Path("models/results/advisory_judge.json")
+JUDGE_MODEL = "llama3:latest"
 CITE = re.compile(r"\[(\d+)\]")
+VERDICTS = ("supported", "partially_supported", "unsupported")
 
-PROMPT = """You check whether a sentence of farm advice is supported by numbered source passages.
-Passages:
-{passages}
+DECOMPOSE_PROMPT = """Split the sentence into atomic factual claims. Each claim states ONE fact \
+(a number with its unit, an action, a timing, a condition) and must make sense on its own. Keep \
+numbers, units and names exactly as written. Do not add facts.
+
+Example sentence: Apply 120 kg nitrogen per hectare in three splits and keep 5 cm of standing water.
+Example output: {{"claims": ["Apply 120 kg nitrogen per hectare.", \
+"The nitrogen is applied in three splits.", "Keep 5 cm of standing water."]}}
 
 Sentence: {sentence}
+Output JSON only: {{"claims": [...]}}"""
 
-Is every factual claim in the sentence (numbers, units, crops, stages, actions) stated by or \
-directly implied by the passages above? Answer with JSON only: \
-{{"verdict": "supported" | "partly" | "unsupported", "reason": "<=20 words"}}"""
+VERDICT_PROMPT = """You are a strict fact checker. Decide whether the CLAIM is supported by the \
+PASSAGES, using only the passages.
+
+Rubric:
+- supported: the passages state the claim, with the same numbers, units, stages and meaning.
+- partially_supported: part of the claim is stated, or the passages imply it but a number, unit, \
+condition or detail in the claim is missing from them.
+- unsupported: the passages do not state it, contradict it, or use a number or abbreviation with a \
+different meaning (for example 60 days vs 60 kg).
+
+PASSAGES:
+{passages}
+
+CLAIM: {claim}
+Output JSON only: {{"verdict": "supported" | "partially_supported" | "unsupported", \
+"reason": "<=20 words"}}"""
 
 
-def judge(sentence: str, passages: list[str]) -> dict[str, Any]:
-    """Return the judge's verdict for ``sentence`` against ``passages``."""
-    body = "\n".join(f"[{i + 1}] {p}" for i, p in enumerate(passages))
+@dataclass
+class ClaimVerdict:
+    """Verdict for one atomic claim."""
+
+    claim: str
+    verdict: str
+    reason: str
+
+
+@dataclass
+class SentenceVerdict:
+    """Verdict for one advice sentence."""
+
+    sentence: str
+    cited: list[int]
+    claims: list[ClaimVerdict] = field(default_factory=list)
+    verdict: str = "unsupported"
+
+
+@dataclass
+class Faithfulness:
+    """LLM-judge faithfulness of one advisory."""
+
+    sentences: list[SentenceVerdict]
+    frac_supported: float
+    frac_partial: float
+    frac_unsupported: float
+    claim_supported: float  # share of atomic claims judged supported (RAGAS-style)
+    judge_model: str
+
+    def as_dict(self) -> dict[str, Any]:
+        """JSON-serialisable form."""
+        return asdict(self)
+
+
+def _ask(prompt: str, num_predict: int = 300) -> dict[str, Any]:
     resp = client().chat(
-        model=PRIMARY_MODEL,
-        messages=[{"role": "user", "content": PROMPT.format(passages=body, sentence=sentence)}],
-        options={"temperature": 0.0, "seed": 42, "num_ctx": 4096, "num_predict": 120},
+        model=JUDGE_MODEL,
+        messages=[{"role": "user", "content": prompt}],
+        options={"temperature": 0.0, "seed": 42, "num_ctx": 4096, "num_predict": num_predict},
         format="json",
         keep_alive="30m",
     )
     try:
-        out: dict[str, Any] = json.loads(resp["message"]["content"])
-        if out.get("verdict") not in {"supported", "partly", "unsupported"}:
-            out["verdict"] = "unsupported"
-        return out
+        out = json.loads(resp["message"]["content"])
+        return out if isinstance(out, dict) else {}
     except json.JSONDecodeError:
-        return {"verdict": "unsupported", "reason": "unparseable judge output"}
+        return {}
 
 
-def main() -> None:
-    """Judge every advice sentence against its cited passages and against all retrieved ones."""
-    rows = []
-    for line in RUNS.read_text(encoding="utf-8").splitlines():
-        run = json.loads(line)
-        texts = [f"{p['title']}. {p['text']}" for p in run["passages"]]
-        for s, sim, best in run["sentence_sims"]:
-            cited = sorted({int(n) for n in CITE.findall(s) if 1 <= int(n) <= len(texts)})
-            v_all = judge(s, texts)
-            v_cited = (
-                judge(s, [texts[n - 1] for n in cited]) if cited else {"verdict": "unsupported"}
-            )
-            rows.append(
-                {
-                    "run": run["i"],
-                    "district": run["district"],
-                    "scenario": run["scenario"],
-                    "analog_year": run["analog_year"],
-                    "sentence": s,
-                    "cited": cited,
-                    "max_cosine": sim,
-                    "best_passage": best,
-                    "judge_any": v_all["verdict"],
-                    "judge_cited": v_cited["verdict"],
-                    "judge_reason": v_all.get("reason", ""),
-                }
-            )
-        print("run", run["i"], flush=True)
-    sup_any = np.array([r["judge_any"] == "supported" for r in rows])
-    sup_cited = np.array([r["judge_cited"] == "supported" for r in rows])
-    cos = np.array([r["max_cosine"] for r in rows])
-    sweep = []
-    for t in np.round(np.arange(0.5, 0.9, 0.02), 2):
-        pred = cos >= t
-        sweep.append(
-            {
-                "threshold": float(t),
-                "share_grounded": float(pred.mean()),
-                "agree_with_judge_any": float((pred == sup_any).mean()),
-                "grounded_but_judged_unsupported": int((pred & ~sup_any).sum()),
-                "ungrounded_but_judged_supported": int((~pred & sup_any).sum()),
-            }
-        )
-    summary = {
-        "n_sentences": len(rows),
-        "judge_supported_any": float(sup_any.mean()),
-        "judge_supported_cited": float(sup_cited.mean()),
-        "verdict_counts_any": {
-            v: int(sum(r["judge_any"] == v for r in rows))
-            for v in ("supported", "partly", "unsupported")
-        },
-        "mean_cosine_supported": float(cos[sup_any].mean()) if sup_any.any() else None,
-        "mean_cosine_not_supported": float(cos[~sup_any].mean()) if (~sup_any).any() else None,
-        "sweep": sweep,
-    }
-    OUT.write_text(json.dumps({"summary": summary, "rows": rows}, indent=1), encoding="utf-8")
-    print(json.dumps({k: v for k, v in summary.items() if k != "sweep"}, indent=1))
+def decompose(sentence: str) -> list[str]:
+    """Atomic claims of ``sentence`` (the sentence itself if the judge returns nothing usable)."""
+    plain = strip_citations(sentence)
+    claims = _ask(DECOMPOSE_PROMPT.format(sentence=plain)).get("claims")
+    if isinstance(claims, list):
+        out = [str(c).strip() for c in claims if str(c).strip()]
+        if out:
+            return out[:6]
+    return [plain]
 
 
-if __name__ == "__main__":
-    main()
+def judge_claim(claim: str, passages: list[tuple[int, str]]) -> ClaimVerdict:
+    """Verdict for ``claim`` against the cited ``passages``; unparseable output is unsupported."""
+    body = "\n\n".join(f"[{n}] {p}" for n, p in passages)
+    out = _ask(VERDICT_PROMPT.format(passages=body, claim=claim), 120)
+    v = (
+        str(out.get("verdict", ""))
+        .strip()
+        .lower()
+        .replace(" ", "_")
+        .replace("partly", "partially_supported")
+    )
+    if v == "partial":
+        v = "partially_supported"
+    if v not in VERDICTS:
+        return ClaimVerdict(claim, "unsupported", "unparseable judge output")
+    return ClaimVerdict(claim, v, str(out.get("reason", ""))[:200])
+
+
+def judge_sentence(sentence: str, passage_texts: list[str]) -> SentenceVerdict:
+    """Judge one advice sentence against the passages it cites (indices into ``passage_texts``)."""
+    cited = sorted({int(n) for n in CITE.findall(sentence) if 1 <= int(n) <= len(passage_texts)})
+    sv = SentenceVerdict(sentence=sentence, cited=cited)
+    if not cited:
+        return sv
+    texts = [(n, passage_texts[n - 1]) for n in cited]
+    sv.claims = [judge_claim(c, texts) for c in decompose(sentence)]
+    verdicts = [c.verdict for c in sv.claims]
+    if all(v == "supported" for v in verdicts):
+        sv.verdict = "supported"
+    elif all(v == "unsupported" for v in verdicts):
+        sv.verdict = "unsupported"
+    else:
+        sv.verdict = "partial"
+    return sv
+
+
+def judge_advisory(sentences: list[str], passage_texts: list[str]) -> Faithfulness:
+    """Faithfulness of all advice ``sentences`` against the numbered ``passage_texts``."""
+    svs = [judge_sentence(s, passage_texts) for s in sentences]
+    n = max(len(svs), 1)
+    claims = [c for sv in svs for c in sv.claims]
+    return Faithfulness(
+        sentences=svs,
+        frac_supported=sum(sv.verdict == "supported" for sv in svs) / n,
+        frac_partial=sum(sv.verdict == "partial" for sv in svs) / n,
+        frac_unsupported=sum(sv.verdict == "unsupported" for sv in svs) / n,
+        claim_supported=(sum(c.verdict == "supported" for c in claims) / len(claims))
+        if claims
+        else 0.0,
+        judge_model=JUDGE_MODEL,
+    )

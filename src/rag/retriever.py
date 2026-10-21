@@ -2,6 +2,7 @@
 
 from __future__ import annotations
 
+import re
 from dataclasses import dataclass
 from pathlib import Path
 from typing import Any
@@ -13,6 +14,10 @@ from src.rag.chunking import Chunk, build_chunks
 
 INDEX_DIR = Path("kb/index/chroma_nomic")
 DEFAULT_COLLECTION = "kb_w150"
+# Inputs the deployed system does not have (it has no NDVI feed at advisory time; ADR-035).
+# A comma-separated clause that names one is dropped from the passage the LLM sees; the corpus
+# and the index are unchanged.
+UNAVAILABLE_INPUT = re.compile(r",\s*[^,;()]*\bNDVI\b[^,;()]*")
 
 
 @dataclass
@@ -26,6 +31,11 @@ class Passage:
     source_citation: str
     source_type: str
     score: float  # cosine similarity to the query
+
+
+def redact_unavailable_inputs(text: str) -> str:
+    """Drop clauses that refer to inputs the system lacks at runtime (see ADR-035)."""
+    return UNAVAILABLE_INPUT.sub("", text)
 
 
 def _citation(c: Chunk) -> str:
@@ -70,8 +80,8 @@ def retrieve(query: str, k: int = 5, collection: str = DEFAULT_COLLECTION) -> li
             Passage(
                 chunk_id=cid,
                 section=meta["section"],
-                title=meta["title"],
-                text=doc,
+                title=redact_unavailable_inputs(meta["title"]),
+                text=redact_unavailable_inputs(doc),
                 source_citation=meta["citation"],
                 source_type=meta["source_type"],
                 score=1.0 - float(dist),

@@ -1,0 +1,4812 @@
+{
+ "summary": {
+  "n_runs": 30,
+  "n_sentences": 138,
+  "mean_frac_supported": 0.8155555555555556,
+  "mean_frac_partial": 0.18444444444444444,
+  "mean_frac_unsupported": 0.0,
+  "mean_claim_supported": 0.9470668524789201,
+  "runs_below_70pct_supported": [
+   3,
+   9,
+   10,
+   25,
+   26,
+   28
+  ],
+  "by_scenario": {
+   "bad": 0.74,
+   "average": 0.8666666666666668,
+   "good": 0.8400000000000001
+  },
+  "cosine_relevance_mean": 0.513888888888889,
+  "cosine_threshold": 0.78,
+  "mean_cosine_judged_supported": 0.7816775604686906,
+  "mean_cosine_judged_not_supported": 0.7989487528800965,
+  "sentence_level_agreement": 0.4492753623188406
+ },
+ "runs": [
+  {
+   "i": 0,
+   "district": "Kanpur Dehat",
+   "scenario": "bad",
+   "analog_year": 2010,
+   "frac_supported": 1.0,
+   "frac_partial": 0.0,
+   "frac_unsupported": 0.0,
+   "claim_supported": 1.0,
+   "cosine_relevance": 0.0,
+   "n_sentences": 5,
+   "max_cosine": [
+    0.7533609867095947,
+    0.7577027082443237,
+    0.7742984890937805,
+    0.7625138163566589,
+    0.7146172523498535
+   ],
+   "faithfulness": {
+    "sentences": [
+     {
+      "sentence": "Reduce input intensity by making the nitrogen split dose at 60 DAT optional [2].",
+      "cited": [
+       2
+      ],
+      "claims": [
+       {
+        "claim": "Reduce input intensity.",
+        "verdict": "supported",
+        "reason": "The passage explicitly states to 'reduce input intensity' in a bad year scenario."
+       },
+       {
+        "claim": "Make the nitrogen split dose optional at 60 DAT.",
+        "verdict": "supported",
+        "reason": "Passage [2] states 'nitrogen split dose at 60 DAT becomes optional'."
+       }
+      ],
+      "verdict": "supported"
+     },
+     {
+      "sentence": "Prioritize insecticide application only after confirming BPH presence through scouting [2].",
+      "cited": [
+       2
+      ],
+      "claims": [
+       {
+        "claim": "Prioritize insecticide application.",
+        "verdict": "supported",
+        "reason": "The passages state to prioritize insecticide only on scouting-confirmed BPH presence."
+       },
+       {
+        "claim": "Confirm BPH presence through scouting.",
+        "verdict": "supported",
+        "reason": "The passages state to prioritize insecticide only on scouting-confirmed BPH presence."
+       },
+       {
+        "claim": "Insecticide application is confirmed after BPH presence.",
+        "verdict": "supported",
+        "reason": "The passages state 'prioritize insecticide only on scouting-confirmed BPH presence', which confirms the claim."
+       }
+      ],
+      "verdict": "supported"
+     },
+     {
+      "sentence": "Register for PMFBY insurance before the cut-off date as recommended in a forecast bad year scenario [2].",
+      "cited": [
+       2
+      ],
+      "claims": [
+       {
+        "claim": "Register for PMFBY insurance.",
+        "verdict": "supported",
+        "reason": "The passage explicitly states 'register PMFBY insurance before cut-off'."
+       },
+       {
+        "claim": "The registration is done before the cut-off date.",
+        "verdict": "supported",
+        "reason": "The passages state 'register PMFBY insurance before cut-off'."
+       },
+       {
+        "claim": "This action is recommended in a forecast bad year scenario.",
+        "verdict": "supported",
+        "reason": "The passage explicitly states 'forecast bad year (below-normal monsoon, high heat stress days)' which matches the claim's scenario."
+       }
+      ],
+      "verdict": "supported"
+     },
+     {
+      "sentence": "Consider early contract with mandi to secure whatever harvest materializes this season [2].",
+      "cited": [
+       2
+      ],
+      "claims": [
+       {
+        "claim": "Consider an early contract.",
+        "verdict": "supported",
+        "reason": "The passage suggests considering an early contract 'for whatever harvest materializes' in a bad year scenario."
+       },
+       {
+        "claim": "The contract is with mandi.",
+        "verdict": "supported",
+        "reason": "The passages explicitly state 'consider early contract with mandi'."
+       },
+       {
+        "claim": "Secure whatever harvest materializes this season.",
+        "verdict": "supported",
+        "reason": "The passage suggests 'consider early contract with mandi for whatever harvest materializes', which directly supports the claim."
+       }
+      ],
+      "verdict": "supported"
+     },
+     {
+      "sentence": "Maintain 5 cm standing water during flowering to act as a thermal buffer against heat stress days above 35\u00b0C [6].",
+      "cited": [
+       6
+      ],
+      "claims": [
+       {
+        "claim": "Maintain 5 cm standing water.",
+        "verdict": "supported",
+        "reason": "Passage [6] explicitly states 'maintain 5 cm standing water as a thermal buffer'."
+       },
+       {
+        "claim": "The standing water is maintained during flowering.",
+        "verdict": "supported",
+        "reason": "The passages state that heat wave forecast during flowering \u2192 maintain 5 cm standing water as a thermal buffer."
+       },
+       {
+        "claim": "Act as a thermal buffer against heat stress days above 35\u00b0C.",
+        "verdict": "supported",
+        "reason": "Passage [6] explicitly states 'heat wave forecast during flowering \u2192 maintain 5 cm standing water as a thermal buffer'."
+       }
+      ],
+      "verdict": "supported"
+     }
+    ],
+    "frac_supported": 1.0,
+    "frac_partial": 0.0,
+    "frac_unsupported": 0.0,
+    "claim_supported": 1.0,
+    "judge_model": "llama3:latest"
+   }
+  },
+  {
+   "i": 1,
+   "district": "Kanpur Dehat",
+   "scenario": "good",
+   "analog_year": 2011,
+   "frac_supported": 1.0,
+   "frac_partial": 0.0,
+   "frac_unsupported": 0.0,
+   "claim_supported": 1.0,
+   "cosine_relevance": 0.4,
+   "n_sentences": 5,
+   "max_cosine": [
+    0.8207969069480896,
+    0.7769471406936646,
+    0.832415759563446,
+    0.7637801766395569,
+    0.7635124921798706
+   ],
+   "faithfulness": {
+    "sentences": [
+     {
+      "sentence": "Follow the full NPK recommendation of 120 kg Nitrogen per hectare, 60 kg Phosphorus (as P2O5) per hectare, and 60 kg Potassium (as K2O) per hectare along with 5 kg Zinc per hectare [1][2].",
+      "cited": [
+       1,
+       2
+      ],
+      "claims": [
+       {
+        "claim": "Follow the full NPK recommendation.",
+        "verdict": "supported",
+        "reason": "Passage [1] states the full recommended fertilizer dose as 120-60-60 NPK."
+       },
+       {
+        "claim": "The NPK recommendation is for 120 kg Nitrogen per hectare.",
+        "verdict": "supported",
+        "reason": "Passage [1] states the full recommended fertilizer dose for Kharif rice in eastern Uttar Pradesh plains is 120 kg Nitrogen per hectare."
+       },
+       {
+        "claim": "The NPK recommendation is for 60 kg Phosphorus (as P2O5) per hectare.",
+        "verdict": "supported",
+        "reason": "Passage [1] states the full recommended fertilizer dose for Kharif rice in eastern Uttar Pradesh plains is 60 kg Phosphorus (as P2O5) per hectare."
+       },
+       {
+        "claim": "The NPK recommendation is for 60 kg Potassium (as K2O) per hectare.",
+        "verdict": "supported",
+        "reason": "Passage [1] states the NPK recommendation as 60 kg Potassium (as K2O) per hectare."
+       },
+       {
+        "claim": "Follow the full NPK recommendation along with 5 kg Zinc per hectare.",
+        "verdict": "supported",
+        "reason": "Passage [1] states the full recommended fertilizer dose, including 5 kg Zinc per hectare."
+       }
+      ],
+      "verdict": "supported"
+     },
+     {
+      "sentence": "Consider adding a third top-dress nitrogen split at 75 DAT if the canopy remains green and vigorous to support robust growth in this good year scenario [2].",
+      "cited": [
+       2
+      ],
+      "claims": [
+       {
+        "claim": "Consider adding a third top-dress nitrogen split.",
+        "verdict": "supported",
+        "reason": "The passage suggests adding a third top-dress nitrogen split at 75 DAT if the canopy stays green and vigorous."
+       },
+       {
+        "claim": "The top-dress is at 75 DAT.",
+        "verdict": "supported",
+        "reason": "The passage explicitly states the top-dress nitrogen split at 75 DAT."
+       },
+       {
+        "claim": "The canopy remains green and vigorous.",
+        "verdict": "supported",
+        "reason": "The passages state 'canopy stays green and vigorous' as a condition for applying a third top-dress nitrogen split."
+       },
+       {
+        "claim": "Support robust growth in this good year scenario.",
+        "verdict": "supported",
+        "reason": "The passage explicitly states to apply the full NPK schedule for robust growth in a good year scenario."
+       }
+      ],
+      "verdict": "supported"
+     },
+     {
+      "sentence": "Be vigilant for BPH outbreaks as ideal weather conditions for the pest coincide with vigorous rice growth, which is common in this scenario [2][3].",
+      "cited": [
+       2,
+       3
+      ],
+      "claims": [
+       {
+        "claim": "Be vigilant for BPH outbreaks.",
+        "verdict": "supported",
+        "reason": "Passage [2] explicitly states 'be vigilant for BPH outbreak'."
+       },
+       {
+        "claim": "Ideal weather conditions for the pest coincide with vigorous rice growth.",
+        "verdict": "supported",
+        "reason": "Passage [2] states 'ideal weather for the pest coincides with vigorous rice growth'."
+       },
+       {
+        "claim": "This scenario is common.",
+        "verdict": "supported",
+        "reason": "The passage [2] describes a 'good year' scenario, which implies that this type of scenario is common."
+       }
+      ],
+      "verdict": "supported"
+     },
+     {
+      "sentence": "Plan storage capacity ahead of time to avoid distress sale at harvest due to potentially higher yields in a good monsoon year [2].",
+      "cited": [
+       2
+      ],
+      "claims": [
+       {
+        "claim": "Plan storage capacity ahead of time.",
+        "verdict": "supported",
+        "reason": "Passage [2] explicitly states to plan storage capacity ahead of time."
+       },
+       {
+        "claim": "Avoid distress sale at harvest.",
+        "verdict": "supported",
+        "reason": "Passage [2] explicitly states 'plan storage capacity ahead of time to avoid distress sale at harvest'."
+       },
+       {
+        "claim": "Potentially higher yields occur in a good monsoon year.",
+        "verdict": "supported",
+        "reason": "The passage mentions 'good year scenario' with potentially higher yields, implying a positive correlation between monsoon and yield."
+       }
+      ],
+      "verdict": "supported"
+     },
+     {
+      "sentence": "Weekly scouting from panicle initiation stage onward is crucial to detect BPH early and prevent hopper burn damage [4].",
+      "cited": [
+       4
+      ],
+      "claims": [
+       {
+        "claim": "Weekly scouting occurs.",
+        "verdict": "supported",
+        "reason": "Passage [4] explicitly states 'Weekly scouting from the panicle initiation stage onward is the recommended early-warning practice.'"
+       },
+       {
+        "claim": "Scouting starts from the panicle initiation stage onward.",
+        "verdict": "supported",
+        "reason": "The passages state that 'Weekly scouting from the panicle initiation stage onward is the recommended early-warning practice.'"
+       },
+       {
+        "claim": "Detecting BPH early is crucial.",
+        "verdict": "supported",
+        "reason": "Passage [4] states that 'curative action is difficult' by the time hopper burn is visible, implying that detecting BPH early is crucial."
+       },
+       {
+        "claim": "Preventing hopper burn damage is crucial.",
+        "verdict": "supported",
+        "reason": "Passage [4] states that 'hopper burn' is a symptom of BPH damage, implying preventing it is crucial."
+       }
+      ],
+      "verdict": "supported"
+     }
+    ],
+    "frac_supported": 1.0,
+    "frac_partial": 0.0,
+    "frac_unsupported": 0.0,
+    "claim_supported": 1.0,
+    "judge_model": "llama3:latest"
+   }
+  },
+  {
+   "i": 2,
+   "district": "Kanpur Dehat",
+   "scenario": "average",
+   "analog_year": 2012,
+   "frac_supported": 1.0,
+   "frac_partial": 0.0,
+   "frac_unsupported": 0.0,
+   "claim_supported": 1.0,
+   "cosine_relevance": 0.6,
+   "n_sentences": 5,
+   "max_cosine": [
+    0.8249142169952393,
+    0.720732569694519,
+    0.8231269717216492,
+    0.7025757431983948,
+    0.8040348291397095
+   ],
+   "faithfulness": {
+    "sentences": [
+     {
+      "sentence": "Follow the standard NPK recommendation of 120 kg Nitrogen, 60 kg Phosphorus (as P2O5), and 60 kg Potassium (as K2O) per hectare [1].",
+      "cited": [
+       1
+      ],
+      "claims": [
+       {
+        "claim": "Follow the standard NPK recommendation.",
+        "verdict": "supported",
+        "reason": "Passage states 'Standard NPK schedule (120:60:60) is the baseline...' and recommends following it."
+       },
+       {
+        "claim": "The standard NPK recommendation is for 120 kg Nitrogen per hectare.",
+        "verdict": "supported",
+        "reason": "Passage explicitly states the standard NPK recommendation is for 120 kg Nitrogen per hectare."
+       },
+       {
+        "claim": "The Nitrogen is as P2O5.",
+        "verdict": "supported",
+        "reason": "Passage [1] states '60 kg Phosphorus (as P2O5) per hectare'."
+       },
+       {
+        "claim": "The standard NPK recommendation is for 60 kg Phosphorus (as P2O5) per hectare.",
+        "verdict": "supported",
+        "reason": "Passage states '60 kg Phosphorus (as P2O5) per hectare' as part of the standard NPK recommendation."
+       },
+       {
+        "claim": "The standard NPK recommendation is for 60 kg Potassium (as K2O) per hectare.",
+        "verdict": "supported",
+        "reason": "Passage states '60 kg Potassium (as K2O) per hectare' as part of the standard NPK recommendation."
+       }
+      ],
+      "verdict": "supported"
+     },
+     {
+      "sentence": "Add a zinc application as recommended at 5 kg Zn per hectare to support plant health [1].",
+      "cited": [
+       1
+      ],
+      "claims": [
+       {
+        "claim": "Add a zinc application.",
+        "verdict": "supported",
+        "reason": "Passage states '5 kg Zinc per hectare applied as zinc sulphate'."
+       },
+       {
+        "claim": "The zinc application is as recommended.",
+        "verdict": "supported",
+        "reason": "Passage states '5 kg Zinc per hectare applied as zinc sulphate' which matches the claim."
+       },
+       {
+        "claim": "Apply 5 kg Zn per hectare.",
+        "verdict": "supported",
+        "reason": "Passage explicitly states '5 kg Zinc per hectare applied as zinc sulphate'."
+       },
+       {
+        "claim": "This supports plant health.",
+        "verdict": "supported",
+        "reason": "Passage states that the NPK schedule is for Kharif rice, implying support for plant health."
+       }
+      ],
+      "verdict": "supported"
+     },
+     {
+      "sentence": "Scout for brown planthopper weekly starting from the panicle initiation stage, as BPH can cause significant damage if not detected early [3][4].",
+      "cited": [
+       3,
+       4
+      ],
+      "claims": [
+       {
+        "claim": "Scout for brown planthopper weekly.",
+        "verdict": "supported",
+        "reason": "Passage [3] recommends 'weekly scouting' from panicle initiation stage onward."
+       },
+       {
+        "claim": "Start scouting from the panicle initiation stage.",
+        "verdict": "supported",
+        "reason": "Passage [3] recommends weekly scouting from the panicle initiation stage onward."
+       },
+       {
+        "claim": "Brown planthopper can cause significant damage if not detected early.",
+        "verdict": "supported",
+        "reason": "Passage [3] states that by the time hopper burn is visible, population levels are already very high and curative action is difficult, implying significant damage if not detected early."
+       }
+      ],
+      "verdict": "supported"
+     },
+     {
+      "sentence": "Ensure that irrigation practices are consistent with standard split irrigation methods or AWD techniques to manage water efficiently and prevent pest proliferation [5].",
+      "cited": [
+       5
+      ],
+      "claims": [
+       {
+        "claim": "Ensure that irrigation practices are consistent with standard split irrigation methods.",
+        "verdict": "supported",
+        "reason": "Passage [5] states 'standard practice \u2014 recommended NPK, ... standard split irrigation'."
+       },
+       {
+        "claim": "Irrigation practices are consistent with AWD techniques.",
+        "verdict": "supported",
+        "reason": "Passage [5] mentions 'standard split irrigation (continuous flooding or AWD)', which matches the claim's description of irrigation practices being consistent with AWD techniques."
+       },
+       {
+        "claim": "Manage water efficiently.",
+        "verdict": "supported",
+        "reason": "Passage [5] mentions 'standard split irrigation' and 'drain 7 to 10 days before harvest', indicating efficient water management."
+       },
+       {
+        "claim": "Prevent pest proliferation.",
+        "verdict": "supported",
+        "reason": "Passage [5] mentions scouting weekly from panicle initiation to prevent pest proliferation."
+       }
+      ],
+      "verdict": "supported"
+     },
+     {
+      "sentence": "Plan ahead for potential storage needs given the forecasted average monsoon conditions to avoid any distress sales at harvest time [4].",
+      "cited": [
+       4
+      ],
+      "claims": [
+       {
+        "claim": "Plan ahead for potential storage needs.",
+        "verdict": "supported",
+        "reason": "Passage [4] explicitly states 'plan storage capacity ahead of time' to avoid distress sale at harvest."
+       },
+       {
+        "claim": "The forecast is for average monsoon conditions.",
+        "verdict": "supported",
+        "reason": "The passage mentions a 'good year scenario' which implies average or above-normal monsoon conditions."
+       },
+       {
+        "claim": "Avoid any distress sales at harvest time.",
+        "verdict": "supported",
+        "reason": "The passage explicitly states 'plan storage capacity ahead of time to avoid distress sale at harvest'."
+       }
+      ],
+      "verdict": "supported"
+     }
+    ],
+    "frac_supported": 1.0,
+    "frac_partial": 0.0,
+    "frac_unsupported": 0.0,
+    "claim_supported": 1.0,
+    "judge_model": "llama3:latest"
+   }
+  },
+  {
+   "i": 3,
+   "district": "Kanpur Dehat",
+   "scenario": "good",
+   "analog_year": 2013,
+   "frac_supported": 0.6,
+   "frac_partial": 0.4,
+   "frac_unsupported": 0.0,
+   "claim_supported": 0.8947368421052632,
+   "cosine_relevance": 0.6,
+   "n_sentences": 5,
+   "max_cosine": [
+    0.822829008102417,
+    0.7614390254020691,
+    0.83480304479599,
+    0.6969703435897827,
+    0.8382999897003174
+   ],
+   "faithfulness": {
+    "sentences": [
+     {
+      "sentence": "Follow the full NPK recommendation of 120 kg Nitrogen per hectare, 60 kg Phosphorus (as P2O5) per hectare, and 60 kg Potassium (as K2O) per hectare plus 5 kg Zinc per hectare as zinc sulphate [1][2].",
+      "cited": [
+       1,
+       2
+      ],
+      "claims": [
+       {
+        "claim": "Follow the full NPK recommendation.",
+        "verdict": "supported",
+        "reason": "Passage [1] states the full recommended fertilizer dose as 120-60-60 NPK."
+       },
+       {
+        "claim": "The NPK recommendation is for 120 kg Nitrogen per hectare.",
+        "verdict": "supported",
+        "reason": "Passage [1] explicitly states the NPK recommendation for Kharif rice in Uttar Pradesh as 120 kg Nitrogen per hectare."
+       },
+       {
+        "claim": "The NPK recommendation is for 60 kg Phosphorus (as P2O5) per hectare.",
+        "verdict": "supported",
+        "reason": "Passage [1] states the full recommended fertilizer dose for Kharif rice in eastern Uttar Pradesh plains is 60 kg Phosphorus (as P2O5) per hectare."
+       },
+       {
+        "claim": "The NPK recommendation is for 60 kg Potassium (as K2O) per hectare.",
+        "verdict": "supported",
+        "reason": "Passage [1] states the NPK recommendation as 60 kg Potassium (as K2O) per hectare."
+       },
+       {
+        "claim": "Add 5 kg Zinc per hectare as zinc sulphate.",
+        "verdict": "supported",
+        "reason": "Passage [1] explicitly states '5 kg Zinc per hectare applied as zinc sulphate'."
+       }
+      ],
+      "verdict": "supported"
+     },
+     {
+      "sentence": "Add a third top-dress nitrogen split at 75 DAT if the canopy remains green and vigorous to support good growth conditions [2].",
+      "cited": [
+       2
+      ],
+      "claims": [
+       {
+        "claim": "Add a third top-dress nitrogen split.",
+        "verdict": "supported",
+        "reason": "Passage [2] explicitly states to add a third top-dress nitrogen split at 75 DAT."
+       },
+       {
+        "claim": "The third top-dress is at 75 DAT.",
+        "verdict": "supported",
+        "reason": "The passage explicitly states the third top-dress nitrogen split at 75 DAT."
+       },
+       {
+        "claim": "If the canopy remains green and vigorous.",
+        "verdict": "supported",
+        "reason": "The passages state 'if canopy stays green and vigorous' which matches the claim."
+       },
+       {
+        "claim": "Support good growth conditions.",
+        "verdict": "supported",
+        "reason": "Passage [2] states 'good year scenario' and mentions applying a fertilizer schedule for good growth conditions."
+       }
+      ],
+      "verdict": "supported"
+     },
+     {
+      "sentence": "Be vigilant for BPH outbreaks, given ideal weather conditions for this pest coinciding with vigorous rice growth; start weekly scouting from panicle initiation stage onward [2][3].",
+      "cited": [
+       2,
+       3
+      ],
+      "claims": [
+       {
+        "claim": "Be vigilant for BPH outbreaks.",
+        "verdict": "supported",
+        "reason": "Passage [2] explicitly states 'be vigilant for BPH outbreak'."
+       },
+       {
+        "claim": "Ideal weather conditions for this pest coincide with vigorous rice growth.",
+        "verdict": "supported",
+        "reason": "Passage [2] states 'ideal weather for the pest coincides with vigorous rice growth'."
+       },
+       {
+        "claim": "Start weekly scouting from the panicle initiation stage onward.",
+        "verdict": "partially_supported",
+        "reason": "Passage [2] mentions '75 DAT' as a stage for nitrogen top-dress, but does not specify the exact stage to start scouting."
+       }
+      ],
+      "verdict": "partial"
+     },
+     {
+      "sentence": "Plan storage capacity ahead of time to avoid distress sale at harvest due to anticipated higher yields in a good year scenario [2].",
+      "cited": [
+       2
+      ],
+      "claims": [
+       {
+        "claim": "Plan storage capacity ahead of time.",
+        "verdict": "supported",
+        "reason": "Passage [2] explicitly states to plan storage capacity ahead of time."
+       },
+       {
+        "claim": "Avoid distress sale at harvest.",
+        "verdict": "supported",
+        "reason": "Passage [2] explicitly states 'plan storage capacity ahead of time to avoid distress sale at harvest'."
+       },
+       {
+        "claim": "Anticipate higher yields in a good year scenario.",
+        "verdict": "supported",
+        "reason": "The passage mentions 'good year scenario' and 'above-normal monsoon', implying higher yields."
+       }
+      ],
+      "verdict": "supported"
+     },
+     {
+      "sentence": "Ensure timely transplanting and monitor the field closely for any signs of BPH damage, as hopper burn symptoms indicate high population levels requiring immediate action [4].",
+      "cited": [
+       4
+      ],
+      "claims": [
+       {
+        "claim": "Ensure timely transplanting.",
+        "verdict": "partially_supported",
+        "reason": "The passage recommends weekly scouting from the panicle initiation stage onward, implying the importance of timely monitoring and potentially transplanting."
+       },
+       {
+        "claim": "Monitor the field closely.",
+        "verdict": "supported",
+        "reason": "Passage [4] recommends 'weekly scouting' from panicle initiation stage onward, which implies monitoring the field closely."
+       },
+       {
+        "claim": "Hopper burn symptoms indicate high population levels.",
+        "verdict": "supported",
+        "reason": "Passage [4] states that by the time hopper burn is visible, population levels are already very high."
+       },
+       {
+        "claim": "High population levels require immediate action.",
+        "verdict": "supported",
+        "reason": "Passage states that by the time hopper burn is visible, population levels are already very high and curative action is difficult."
+       }
+      ],
+      "verdict": "partial"
+     }
+    ],
+    "frac_supported": 0.6,
+    "frac_partial": 0.4,
+    "frac_unsupported": 0.0,
+    "claim_supported": 0.8947368421052632,
+    "judge_model": "llama3:latest"
+   }
+  },
+  {
+   "i": 4,
+   "district": "Kanpur Dehat",
+   "scenario": "bad",
+   "analog_year": 2014,
+   "frac_supported": 1.0,
+   "frac_partial": 0.0,
+   "frac_unsupported": 0.0,
+   "claim_supported": 1.0,
+   "cosine_relevance": 0.4,
+   "n_sentences": 5,
+   "max_cosine": [
+    0.8242353796958923,
+    0.762548565864563,
+    0.7855747938156128,
+    0.7263988852500916,
+    0.7151445150375366
+   ],
+   "faithfulness": {
+    "sentences": [
+     {
+      "sentence": "Reduce nitrogen split dose at 60 DAT as it is optional during a forecast bad year [2].",
+      "cited": [
+       2
+      ],
+      "claims": [
+       {
+        "claim": "Reduce the nitrogen split dose.",
+        "verdict": "supported",
+        "reason": "The passage states 'nitrogen split dose at 60 DAT becomes optional'."
+       },
+       {
+        "claim": "Do so at 60 DAT.",
+        "verdict": "supported",
+        "reason": "The passage states 'nitrogen split dose at 60 DAT becomes optional' which matches the claim 'Do so at 60 DAT'."
+       },
+       {
+        "claim": "This reduction is optional.",
+        "verdict": "supported",
+        "reason": "The passage states 'nitrogen split dose at 60 DAT becomes optional' which implies the reduction is optional."
+       },
+       {
+        "claim": "A forecast bad year exists.",
+        "verdict": "supported",
+        "reason": "The passage explicitly mentions 'forecast bad year' scenario."
+       }
+      ],
+      "verdict": "supported"
+     },
+     {
+      "sentence": "Prioritize insecticide application only when BPH presence is confirmed through scouting to conserve resources [2].",
+      "cited": [
+       2
+      ],
+      "claims": [
+       {
+        "claim": "Prioritize insecticide application.",
+        "verdict": "supported",
+        "reason": "The passages state to prioritize insecticide only on scouting-confirmed BPH presence, which implies prioritizing its application."
+       },
+       {
+        "claim": "Insecticide application occurs only when BPH presence is confirmed through scouting.",
+        "verdict": "supported",
+        "reason": "The passage states 'prioritize insecticide only on scouting-confirmed BPH presence'."
+       },
+       {
+        "claim": "Conserve resources.",
+        "verdict": "supported",
+        "reason": "The passage explicitly states to 'conserve cash' and 'reduce input intensity', which supports the claim to conserve resources."
+       }
+      ],
+      "verdict": "supported"
+     },
+     {
+      "sentence": "Register for PMFBY insurance before the cut-off date to mitigate financial risk associated with low yields [2].",
+      "cited": [
+       2
+      ],
+      "claims": [
+       {
+        "claim": "Register for PMFBY insurance.",
+        "verdict": "supported",
+        "reason": "The passage explicitly states to 'register PMFBY insurance before cut-off'."
+       },
+       {
+        "claim": "The registration is done before the cut-off date.",
+        "verdict": "supported",
+        "reason": "The passages state 'register PMFBY insurance before cut-off'."
+       },
+       {
+        "claim": "This helps to mitigate financial risk associated with low yields.",
+        "verdict": "supported",
+        "reason": "The passage explicitly mentions reducing input intensity and registering PMFBY insurance to mitigate financial risk associated with low yields."
+       }
+      ],
+      "verdict": "supported"
+     },
+     {
+      "sentence": "Consider early contract agreements with mandis for whatever harvest materializes, ensuring a market outlet [2].",
+      "cited": [
+       2
+      ],
+      "claims": [
+       {
+        "claim": "Consider early contract agreements.",
+        "verdict": "supported",
+        "reason": "The passage explicitly suggests considering an early contract with mandi for whatever harvest materializes."
+       },
+       {
+        "claim": "Agreements are with mandis.",
+        "verdict": "supported",
+        "reason": "The passage suggests considering an early contract with a mandi for whatever harvest materializes, supporting the claim that agreements are with mandis."
+       },
+       {
+        "claim": "The contracts are for whatever harvest materializes.",
+        "verdict": "supported",
+        "reason": "The passages explicitly state 'consider early contract with mandi for whatever harvest materializes'."
+       },
+       {
+        "claim": "Ensure a market outlet.",
+        "verdict": "supported",
+        "reason": "The passage suggests considering an early contract with mandi for whatever harvest materializes, implying a market outlet is ensured."
+       }
+      ],
+      "verdict": "supported"
+     },
+     {
+      "sentence": "Maintain 5 cm standing water during flowering (August-September) as a thermal buffer against heat stress [6].",
+      "cited": [
+       6
+      ],
+      "claims": [
+       {
+        "claim": "Maintain 5 cm standing water.",
+        "verdict": "supported",
+        "reason": "Passage [6] explicitly states 'maintain 5 cm standing water as a thermal buffer'."
+       },
+       {
+        "claim": "The standing water is maintained during flowering.",
+        "verdict": "supported",
+        "reason": "The passages state that heat wave forecast during flowering \u2192 maintain 5 cm standing water as a thermal buffer."
+       },
+       {
+        "claim": "Flowering occurs in August-September.",
+        "verdict": "supported",
+        "reason": "Passage [6] states 'flowering-stage heat stress (daily max > 35\u00b0C) causing spikelet sterility in August-September', implying flowering occurs during this period."
+       },
+       {
+        "claim": "This is done as a thermal buffer against heat stress.",
+        "verdict": "supported",
+        "reason": "Passage [6] explicitly states 'maintain 5 cm standing water as a thermal buffer' against heat stress."
+       },
+       {
+        "claim": "Heat stress is a condition that needs to be addressed.",
+        "verdict": "supported",
+        "reason": "Passage [6] explicitly states 'flowering-stage heat stress causing spikelet sterility in August-September'."
+       }
+      ],
+      "verdict": "supported"
+     }
+    ],
+    "frac_supported": 1.0,
+    "frac_partial": 0.0,
+    "frac_unsupported": 0.0,
+    "claim_supported": 1.0,
+    "judge_model": "llama3:latest"
+   }
+  },
+  {
+   "i": 5,
+   "district": "Kanpur Dehat",
+   "scenario": "bad",
+   "analog_year": 2015,
+   "frac_supported": 0.8,
+   "frac_partial": 0.2,
+   "frac_unsupported": 0.0,
+   "claim_supported": 0.9375,
+   "cosine_relevance": 0.2,
+   "n_sentences": 5,
+   "max_cosine": [
+    0.752029299736023,
+    0.763796329498291,
+    0.7075709700584412,
+    0.7855738401412964,
+    0.7160218954086304
+   ],
+   "faithfulness": {
+    "sentences": [
+     {
+      "sentence": "Reduce the nitrogen split dose at 60 DAT to conserve cash [2].",
+      "cited": [
+       2
+      ],
+      "claims": [
+       {
+        "claim": "Reduce the nitrogen split dose.",
+        "verdict": "supported",
+        "reason": "The passage states 'nitrogen split dose at 60 DAT becomes optional'."
+       },
+       {
+        "claim": "The reduction occurs at 60 DAT.",
+        "verdict": "supported",
+        "reason": "The passage states 'nitrogen split dose at 60 DAT becomes optional'."
+       },
+       {
+        "claim": "Conserve cash.",
+        "verdict": "supported",
+        "reason": "The passage explicitly states 'reduce input intensity to conserve cash'."
+       }
+      ],
+      "verdict": "supported"
+     },
+     {
+      "sentence": "Prioritize insecticide application only if BPH is confirmed through scouting [2][3].",
+      "cited": [
+       2,
+       3
+      ],
+      "claims": [
+       {
+        "claim": "Prioritize insecticide application.",
+        "verdict": "partially_supported",
+        "reason": "The passages suggest prioritizing insecticide application 'only on scouting-confirmed BPH presence'."
+       },
+       {
+        "claim": "Insecticide application is done only if BPH is confirmed through scouting.",
+        "verdict": "supported",
+        "reason": "Passage [2] states 'prioritize insecticide only on scouting-confirmed BPH presence'."
+       },
+       {
+        "claim": "BPH is confirmed through scouting.",
+        "verdict": "supported",
+        "reason": "Passage [2] mentions 'scouting-confirmed' BPH presence, implying that scouting is used to confirm the presence of BPH."
+       }
+      ],
+      "verdict": "partial"
+     },
+     {
+      "sentence": "Register for PMFBY insurance before the cut-off date to secure financial protection [2].",
+      "cited": [
+       2
+      ],
+      "claims": [
+       {
+        "claim": "Register for PMFBY insurance.",
+        "verdict": "supported",
+        "reason": "The passage explicitly states to 'register PMFBY insurance before cut-off'."
+       },
+       {
+        "claim": "The registration is done before the cut-off date.",
+        "verdict": "supported",
+        "reason": "The passage states 'register PMFBY insurance before cut-off'."
+       },
+       {
+        "claim": "Securing financial protection is the goal.",
+        "verdict": "supported",
+        "reason": "The passage states that 'register PMFBY insurance before cut-off' and 'consider early contract with mandi for whatever harvest materializes', implying the goal is to secure financial protection."
+       }
+      ],
+      "verdict": "supported"
+     },
+     {
+      "sentence": "Consider early contract with mandi for whatever harvest materializes due to uncertain yield outcomes [2].",
+      "cited": [
+       2
+      ],
+      "claims": [
+       {
+        "claim": "Consider an early contract.",
+        "verdict": "supported",
+        "reason": "The passage suggests considering an early contract 'for whatever harvest materializes' in a bad year scenario."
+       },
+       {
+        "claim": "The contract is with mandi.",
+        "verdict": "supported",
+        "reason": "The passages explicitly state 'consider early contract with mandi'."
+       },
+       {
+        "claim": "Harvest materializes due to uncertain yield outcomes.",
+        "verdict": "supported",
+        "reason": "The passage mentions 'whatever harvest materializes' in the context of a bad year, implying that the yield outcome is uncertain."
+       }
+      ],
+      "verdict": "supported"
+     },
+     {
+      "sentence": "Maintain 5 cm standing water during flowering stage (August-September) to mitigate heat stress effects [5].",
+      "cited": [
+       5
+      ],
+      "claims": [
+       {
+        "claim": "Maintain 5 cm standing water.",
+        "verdict": "supported",
+        "reason": "Passage [5] explicitly states 'maintain 5 cm standing water as a thermal buffer'."
+       },
+       {
+        "claim": "The maintenance is done during the flowering stage.",
+        "verdict": "supported",
+        "reason": "Passage [5] states 'heat wave forecast during flowering \u2192 maintain 5 cm standing water as a thermal buffer'."
+       },
+       {
+        "claim": "The flowering stage occurs in August-September.",
+        "verdict": "supported",
+        "reason": "Passage [5] explicitly states 'flowering-stage heat stress (daily max > 35\u00b0C) causing spikelet sterility in August-September'."
+       },
+       {
+        "claim": "Mitigate heat stress effects.",
+        "verdict": "supported",
+        "reason": "Passage [5] explicitly states 'flowering-stage heat stress (daily max > 35\u00b0C) causing spikelet sterility in August-September' and advises maintaining 5 cm standing water as a thermal buffer, which mit"
+       }
+      ],
+      "verdict": "supported"
+     }
+    ],
+    "frac_supported": 0.8,
+    "frac_partial": 0.2,
+    "frac_unsupported": 0.0,
+    "claim_supported": 0.9375,
+    "judge_model": "llama3:latest"
+   }
+  },
+  {
+   "i": 6,
+   "district": "Kanpur Dehat",
+   "scenario": "good",
+   "analog_year": 2016,
+   "frac_supported": 0.75,
+   "frac_partial": 0.25,
+   "frac_unsupported": 0.0,
+   "claim_supported": 0.9285714285714286,
+   "cosine_relevance": 0.75,
+   "n_sentences": 4,
+   "max_cosine": [
+    0.7825860977172852,
+    0.819562554359436,
+    0.8539172410964966,
+    0.6969119310379028
+   ],
+   "faithfulness": {
+    "sentences": [
+     {
+      "sentence": "Apply the full recommended NPK schedule of 120:60:60 along with 5 kg Zinc per hectare as zinc sulphate [1][2].",
+      "cited": [
+       1,
+       2
+      ],
+      "claims": [
+       {
+        "claim": "Apply the full recommended NPK schedule.",
+        "verdict": "supported",
+        "reason": "Passage [1] states 'Standard fertilizer sources are urea for nitrogen, diammonium phosphate (DAP) for phosphorus, muriate of potash (MOP) for potassium, and zinc sulphate for zinc. This NPK schedule ("
+       },
+       {
+        "claim": "The NPK schedule is 120:60:60.",
+        "verdict": "supported",
+        "reason": "Passage [1] explicitly states the NPK schedule as 120 kg Nitrogen per hectare, 60 kg Phosphorus (as P2O5) per hectare, and 60 kg Potassium (as K2O) per hectare."
+       },
+       {
+        "claim": "Use 5 kg Zinc per hectare as zinc sulphate.",
+        "verdict": "supported",
+        "reason": "Passage [1] explicitly states '5 kg Zinc per hectare applied as zinc sulphate'."
+       }
+      ],
+      "verdict": "supported"
+     },
+     {
+      "sentence": "Add an extra top-dress nitrogen split at 75 DAT if the rice canopy remains green and vigorous to support growth during this good year scenario [2].",
+      "cited": [
+       2
+      ],
+      "claims": [
+       {
+        "claim": "Add an extra top-dress nitrogen split.",
+        "verdict": "supported",
+        "reason": "The passage suggests adding a third top-dress nitrogen split at 75 DAT if the canopy stays green and vigorous."
+       },
+       {
+        "claim": "The extra top-dress is at 75 DAT.",
+        "verdict": "supported",
+        "reason": "The passages state the extra top-dress nitrogen split at 75 DAT if canopy stays green and vigorous."
+       },
+       {
+        "claim": "The rice canopy remains green and vigorous.",
+        "verdict": "supported",
+        "reason": "The passages state 'canopy stays green and vigorous' as a condition for applying a third top-dress nitrogen split."
+       },
+       {
+        "claim": "Support growth during a good year scenario.",
+        "verdict": "supported",
+        "reason": "Passage [2] explicitly states to apply full NPK schedule for good year scenario, supporting growth."
+       }
+      ],
+      "verdict": "supported"
+     },
+     {
+      "sentence": "Be vigilant for brown planthopper (BPH) outbreaks, which are more likely in a good monsoon year with ideal temperatures for population growth [3][4].",
+      "cited": [
+       3,
+       4
+      ],
+      "claims": [
+       {
+        "claim": "Be vigilant for brown planthopper (BPH) outbreaks.",
+        "verdict": "supported",
+        "reason": "Passage [3] states that yield losses up to 60% are common during outbreak years, implying the need for vigilance."
+       },
+       {
+        "claim": "Outbreaks of BPH are more likely in a good monsoon year.",
+        "verdict": "partially_supported",
+        "reason": "Passage [3] mentions that yield losses up to 60% are common during outbreak years, but it does not explicitly state that good monsoon years lead to outbreaks."
+       },
+       {
+        "claim": "Ideal temperatures facilitate population growth of BPH.",
+        "verdict": "supported",
+        "reason": "Passage [3] states that population growth peaks at approximately 28 to 30\u00b0C, which facilitates population growth of BPH."
+       }
+      ],
+      "verdict": "partial"
+     },
+     {
+      "sentence": "Plan storage capacity ahead of time to avoid distress sale at harvest due to the anticipated better yield from favorable weather conditions [2].",
+      "cited": [
+       2
+      ],
+      "claims": [
+       {
+        "claim": "Plan storage capacity ahead of time.",
+        "verdict": "supported",
+        "reason": "Passage [2] explicitly states to plan storage capacity ahead of time."
+       },
+       {
+        "claim": "Avoid a distress sale at harvest.",
+        "verdict": "supported",
+        "reason": "The passage explicitly states 'plan storage capacity ahead of time to avoid distress sale at harvest'."
+       },
+       {
+        "claim": "The anticipated yield is better.",
+        "verdict": "supported",
+        "reason": "The passage mentions a 'good year scenario' with above-normal monsoon, implying a better yield."
+       },
+       {
+        "claim": "Favorable weather conditions are expected.",
+        "verdict": "supported",
+        "reason": "The passage mentions 'good year scenario' with above-normal monsoon, indicating favorable weather conditions."
+       }
+      ],
+      "verdict": "supported"
+     }
+    ],
+    "frac_supported": 0.75,
+    "frac_partial": 0.25,
+    "frac_unsupported": 0.0,
+    "claim_supported": 0.9285714285714286,
+    "judge_model": "llama3:latest"
+   }
+  },
+  {
+   "i": 7,
+   "district": "Kanpur Dehat",
+   "scenario": "average",
+   "analog_year": 2017,
+   "frac_supported": 0.8,
+   "frac_partial": 0.2,
+   "frac_unsupported": 0.0,
+   "claim_supported": 0.9565217391304348,
+   "cosine_relevance": 0.6,
+   "n_sentences": 5,
+   "max_cosine": [
+    0.9579560160636902,
+    0.7304873466491699,
+    0.9005119800567627,
+    0.7342312932014465,
+    0.7962760925292969
+   ],
+   "faithfulness": {
+    "sentences": [
+     {
+      "sentence": "Follow the standard NPK recommendation for Kharif rice in Uttar Pradesh, which is 120 kg Nitrogen per hectare, 60 kg Phosphorus as P2O5, and 60 kg Potassium as K2O [1].",
+      "cited": [
+       1
+      ],
+      "claims": [
+       {
+        "claim": "Follow the standard NPK recommendation for Kharif rice in Uttar Pradesh.",
+        "verdict": "supported",
+        "reason": "Passage [1] states the standard NPK recommendation for Kharif rice in Uttar Pradesh as 120:60:60, matching the claim."
+       },
+       {
+        "claim": "The standard NPK recommendation is 120 kg Nitrogen per hectare.",
+        "verdict": "supported",
+        "reason": "Passage [1] states the standard NPK recommendation for Kharif rice in Uttar Pradesh is 120 kg Nitrogen per hectare."
+       },
+       {
+        "claim": "The Nitrogen is recommended as P2O5.",
+        "verdict": "supported",
+        "reason": "Passage [1] states '60 kg Phosphorus (as P2O5) per hectare'."
+       },
+       {
+        "claim": "The Phosphorus is recommended as 60 kg P2O5.",
+        "verdict": "supported",
+        "reason": "Passage explicitly states '60 kg Phosphorus (as P2O5) per hectare'."
+       },
+       {
+        "claim": "The Potassium is recommended as 60 kg K2O.",
+        "verdict": "supported",
+        "reason": "Passage explicitly states '60 kg Potassium (as K2O) per hectare'."
+       }
+      ],
+      "verdict": "supported"
+     },
+     {
+      "sentence": "Apply zinc sulphate at a rate of 5 kg per hectare to ensure adequate micronutrient availability for the crop [1].",
+      "cited": [
+       1
+      ],
+      "claims": [
+       {
+        "claim": "Apply zinc sulphate.",
+        "verdict": "supported",
+        "reason": "Passage explicitly states '5 kg Zinc per hectare applied as zinc sulphate'."
+       },
+       {
+        "claim": "The rate is 5 kg per hectare.",
+        "verdict": "supported",
+        "reason": "The passages state the rate as 5 kg Zinc per hectare applied as zinc sulphate."
+       },
+       {
+        "claim": "Ensure adequate micronutrient availability for the crop.",
+        "verdict": "supported",
+        "reason": "Passage mentions application of zinc sulphate as a source of zinc, ensuring micronutrient availability for the crop."
+       }
+      ],
+      "verdict": "supported"
+     },
+     {
+      "sentence": "Scout weekly from panicle initiation onward for brown planthopper (BPH) damage symptoms such as hopper burn, which typically starts in small areas and spreads outward rapidly [3][2].",
+      "cited": [
+       2,
+       3
+      ],
+      "claims": [
+       {
+        "claim": "Scout weekly.",
+        "verdict": "supported",
+        "reason": "Weekly scouting from panicle initiation stage onward is the recommended early-warning practice."
+       },
+       {
+        "claim": "Scouting begins from panicle initiation onward.",
+        "verdict": "supported",
+        "reason": "Weekly scouting from the panicle initiation stage onward is recommended."
+       },
+       {
+        "claim": "Look for brown planthopper (BPH) damage symptoms.",
+        "verdict": "supported",
+        "reason": "Passage [3] explicitly states to look for BPH damage symptoms, specifically 'hopper burn'."
+       },
+       {
+        "claim": "Hopper burn is a symptom of BPH damage.",
+        "verdict": "supported",
+        "reason": "Passage [3] explicitly states that 'Feeding by BPH at the base of tillers causes plants to turn yellow and dry out, producing circular patches of dead plants known as "
+       },
+       {
+        "claim": "Hopper burn typically starts in small areas.",
+        "verdict": "supported",
+        "reason": "Passage [3] states 'Hopper burn typically starts in a small area'."
+       },
+       {
+        "claim": "Hopper burn spreads outward rapidly.",
+        "verdict": "supported",
+        "reason": "Passage [3] states 'hopper burn typically starts in a small area and radiates outward as the infestation spreads'."
+       }
+      ],
+      "verdict": "supported"
+     },
+     {
+      "sentence": "Maintain standard split irrigation practices, including alternate wetting and drying (AWD), to conserve water while ensuring the crop has adequate moisture during critical growth stages [5].",
+      "cited": [
+       5
+      ],
+      "claims": [
+       {
+        "claim": "Maintain standard split irrigation practices.",
+        "verdict": "supported",
+        "reason": "Passage [5] states 'standard practice \u2014 recommended NPK, ... standard split irrigation'."
+       },
+       {
+        "claim": "Use alternate wetting and drying (AWD).",
+        "verdict": "supported",
+        "reason": "Passage [5] explicitly states 'standard split irrigation (continuous flooding or AWD)'."
+       },
+       {
+        "claim": "Conserve water.",
+        "verdict": "supported",
+        "reason": "Passage [5] mentions 'standard split irrigation (continuous flooding or AWD)', implying water conservation."
+       },
+       {
+        "claim": "Ensure the crop has adequate moisture during critical growth stages.",
+        "verdict": "supported",
+        "reason": "Passage [5] states 'standard split irrigation (continuous flooding or AWD)', implying adequate moisture during critical growth stages."
+       }
+      ],
+      "verdict": "supported"
+     },
+     {
+      "sentence": "Given that there were no days above 35\u00b0C between August 15 and September 15, focus on managing mid-season dry spells by having your pump irrigation system ready at least 48 hours in advance of any forecasted dry spell to protect tillering and panicle initiation [6].",
+      "cited": [
+       6
+      ],
+      "claims": [
+       {
+        "claim": "There were no days above 35\u00b0C between August 15 and September 15.",
+        "verdict": "supported",
+        "reason": "Passage [6] states 'flowering-stage heat stress (daily max > 35\u00b0C) causing spikelet sterility in August-September', implying no days above 35\u00b0C between August 15 and September 15."
+       },
+       {
+        "claim": "Focus on managing mid-season dry spells.",
+        "verdict": "supported",
+        "reason": "Passage [6] explicitly mentions mid-season dry spells as a climate-driven risk and advises activating pump irrigation at least 48 hours in advance when forecasted."
+       },
+       {
+        "claim": "Have your pump irrigation system ready at least 48 hours in advance of any forecasted dry spell.",
+        "verdict": "supported",
+        "reason": "Passage [6] explicitly states 'dry spell forecast \u2192 activate pump irrigation at least 48 hours in advance'."
+       },
+       {
+        "claim": "Protect tillering.",
+        "verdict": "partially_supported",
+        "reason": "Passage [6] mentions mid-season dry spells during July-August threatening tillering, but does not explicitly state 'protect'."
+       },
+       {
+        "claim": "Protect panicle initiation.",
+        "verdict": "supported",
+        "reason": "Passage [6] mentions mid-season dry spells during July-August threatening tillering and panicle initiation, which implies protecting panicle initiation."
+       }
+      ],
+      "verdict": "partial"
+     }
+    ],
+    "frac_supported": 0.8,
+    "frac_partial": 0.2,
+    "frac_unsupported": 0.0,
+    "claim_supported": 0.9565217391304348,
+    "judge_model": "llama3:latest"
+   }
+  },
+  {
+   "i": 8,
+   "district": "Kanpur Dehat",
+   "scenario": "good",
+   "analog_year": 2018,
+   "frac_supported": 1.0,
+   "frac_partial": 0.0,
+   "frac_unsupported": 0.0,
+   "claim_supported": 1.0,
+   "cosine_relevance": 0.4,
+   "n_sentences": 5,
+   "max_cosine": [
+    0.8215042948722839,
+    0.7641505002975464,
+    0.8577998280525208,
+    0.7456910610198975,
+    0.726701557636261
+   ],
+   "faithfulness": {
+    "sentences": [
+     {
+      "sentence": "Follow the full standard NPK recommendation of 120 kg Nitrogen per hectare, 60 kg Phosphorus (as P2O5) per hectare, and 60 kg Potassium (as K2O) per hectare, plus 5 kg Zinc per hectare [1][2].",
+      "cited": [
+       1,
+       2
+      ],
+      "claims": [
+       {
+        "claim": "Follow the full standard NPK recommendation.",
+        "verdict": "supported",
+        "reason": "Passage [1] states the full recommended fertilizer dose as 120-60-60 NPK."
+       },
+       {
+        "claim": "The standard NPK recommendation is for 120 kg Nitrogen per hectare.",
+        "verdict": "supported",
+        "reason": "Passage [1] states the standard NPK recommendation as 120 kg Nitrogen per hectare."
+       },
+       {
+        "claim": "The standard NPK recommendation is for 60 kg Phosphorus (as P2O5) per hectare.",
+        "verdict": "supported",
+        "reason": "Passage [1] states the standard NPK recommendation as 60 kg Phosphorus (as P2O5) per hectare."
+       },
+       {
+        "claim": "The standard NPK recommendation is for 60 kg Potassium (as K2O) per hectare.",
+        "verdict": "supported",
+        "reason": "Passage [1] states the standard NPK recommendation as 60 kg Potassium (as K2O) per hectare."
+       },
+       {
+        "claim": "Plus, apply 5 kg Zinc per hectare.",
+        "verdict": "supported",
+        "reason": "Passage [1] explicitly states the recommended zinc application as 5 kg per hectare."
+       }
+      ],
+      "verdict": "supported"
+     },
+     {
+      "sentence": "Consider adding a third top-dress nitrogen split at 75 DAT if the canopy remains green and vigorous to support robust growth [2].",
+      "cited": [
+       2
+      ],
+      "claims": [
+       {
+        "claim": "Consider adding a third top-dress nitrogen split.",
+        "verdict": "supported",
+        "reason": "The passage suggests adding a third top-dress nitrogen split at 75 DAT if the canopy stays green and vigorous."
+       },
+       {
+        "claim": "The third top-dress is at 75 DAT.",
+        "verdict": "supported",
+        "reason": "The passage explicitly states the third top-dress nitrogen split at 75 DAT."
+       },
+       {
+        "claim": "The canopy remains green and vigorous.",
+        "verdict": "supported",
+        "reason": "The passages state 'canopy stays green and vigorous' as a condition for applying a third top-dress nitrogen split."
+       },
+       {
+        "claim": "Supporting robust growth supports the plant's health.",
+        "verdict": "supported",
+        "reason": "The passage states that a good year scenario requires applying full NPK + 5 Zn schedule, which implies supporting robust growth supports the plant's health."
+       }
+      ],
+      "verdict": "supported"
+     },
+     {
+      "sentence": "Be vigilant for brown planthopper outbreaks as ideal weather conditions for this pest coincide with vigorous rice growth in Kanpur during August and September [3].",
+      "cited": [
+       3
+      ],
+      "claims": [
+       {
+        "claim": "Be vigilant for brown planthopper outbreaks.",
+        "verdict": "supported",
+        "reason": "The passage states that yield losses up to 60% are common during outbreak years, implying the need for vigilance."
+       },
+       {
+        "claim": "Ideal weather conditions for the brown planthopper coincide with vigorous rice growth.",
+        "verdict": "supported",
+        "reason": "Passage [3] states that population growth peaks at approximately 28 to 30\u00b0C, which coincides with vigorous rice growth in August and September."
+       },
+       {
+        "claim": "The outbreak occurs in Kanpur.",
+        "verdict": "supported",
+        "reason": "Passage [3] mentions 'Kanpur during August and September' as the time when temperatures routinely reached 28 to 30\u00b0C, which is relevant to population growth peaks."
+       },
+       {
+        "claim": "The outbreak occurs in August and September.",
+        "verdict": "supported",
+        "reason": "Passage [3] states that the pest's adults migrate on seasonal winds and colonize new fields, which peaks at approximately 28 to 30\u00b0C temperatures routinely reached in Kanpur during August and Septembe"
+       }
+      ],
+      "verdict": "supported"
+     },
+     {
+      "sentence": "Weekly scouting from the panicle initiation stage onward is recommended to detect early signs of BPH infestation, which can cause severe damage if not addressed promptly [4].",
+      "cited": [
+       4
+      ],
+      "claims": [
+       {
+        "claim": "Weekly scouting is recommended.",
+        "verdict": "supported",
+        "reason": "Passage explicitly states 'Weekly scouting from the panicle initiation stage onward is the recommended early-warning practice'."
+       },
+       {
+        "claim": "Scouting starts from the panicle initiation stage onward.",
+        "verdict": "supported",
+        "reason": "The passages state that 'Weekly scouting from the panicle initiation stage onward is the recommended early-warning practice.'"
+       },
+       {
+        "claim": "Early signs of BPH infestation can be detected through scouting.",
+        "verdict": "supported",
+        "reason": "Passage [4] recommends weekly scouting from panicle initiation stage onward for early detection of BPH infestation."
+       },
+       {
+        "claim": "BPH infestation can cause severe damage if not addressed promptly.",
+        "verdict": "supported",
+        "reason": "Passage [4] states that by the time hopper burn is visible, population levels are already very high and curative action is difficult, implying severe damage if not addressed promptly."
+       }
+      ],
+      "verdict": "supported"
+     },
+     {
+      "sentence": "Given the good year scenario, plan storage capacity ahead of time to avoid distress sale at harvest due to potentially higher yields [2].",
+      "cited": [
+       2
+      ],
+      "claims": [
+       {
+        "claim": "Plan storage capacity ahead of time.",
+        "verdict": "supported",
+        "reason": "Passage [2] explicitly states to plan storage capacity ahead of time."
+       },
+       {
+        "claim": "Avoid a distress sale at harvest.",
+        "verdict": "supported",
+        "reason": "Passage [2] explicitly states 'plan storage capacity ahead of time to avoid distress sale at harvest'."
+       },
+       {
+        "claim": "Given the good year scenario.",
+        "verdict": "supported",
+        "reason": "Passage [2] states to apply 120-60-60 NPK + 5 Zn schedule in a good year scenario, matching the claim."
+       },
+       {
+        "claim": "Potentially higher yields may occur.",
+        "verdict": "supported",
+        "reason": "The passage mentions a 'good year scenario' with potentially higher yields, implying that good weather can lead to increased yields."
+       }
+      ],
+      "verdict": "supported"
+     }
+    ],
+    "frac_supported": 1.0,
+    "frac_partial": 0.0,
+    "frac_unsupported": 0.0,
+    "claim_supported": 1.0,
+    "judge_model": "llama3:latest"
+   }
+  },
+  {
+   "i": 9,
+   "district": "Kanpur Dehat",
+   "scenario": "average",
+   "analog_year": 2019,
+   "frac_supported": 0.6,
+   "frac_partial": 0.4,
+   "frac_unsupported": 0.0,
+   "claim_supported": 0.85,
+   "cosine_relevance": 0.8,
+   "n_sentences": 5,
+   "max_cosine": [
+    0.9647504687309265,
+    0.8533183336257935,
+    0.8249450922012329,
+    0.7703726291656494,
+    0.7833370566368103
+   ],
+   "faithfulness": {
+    "sentences": [
+     {
+      "sentence": "Follow the standard NPK recommendation for Kharif rice in Uttar Pradesh, applying 120 kg Nitrogen per hectare, 60 kg Phosphorus as P2O5, and 60 kg Potassium as K2O, with 5 kg Zinc [1][5].",
+      "cited": [
+       1,
+       5
+      ],
+      "claims": [
+       {
+        "claim": "Follow the standard NPK recommendation for Kharif rice in Uttar Pradesh.",
+        "verdict": "supported",
+        "reason": "Passage [1] states the standard NPK recommendation for Kharif rice in Uttar Pradesh as 120:60:60, matching the claim."
+       },
+       {
+        "claim": "Apply 120 kg Nitrogen per hectare.",
+        "verdict": "supported",
+        "reason": "Passage [1] states the recommended fertilizer dose for Kharif rice in eastern Uttar Pradesh plains, including 120 kg Nitrogen per hectare."
+       },
+       {
+        "claim": "Apply 60 kg Phosphorus as P2O5.",
+        "verdict": "supported",
+        "reason": "Passage [1] states '60 kg Phosphorus (as P2O5) per hectare'."
+       },
+       {
+        "claim": "Apply 60 kg Potassium as K2O.",
+        "verdict": "supported",
+        "reason": "Passage [1] recommends 60 kg Potassium (as K2O) per hectare for Kharif rice in Uttar Pradesh."
+       },
+       {
+        "claim": "Apply 5 kg Zinc.",
+        "verdict": "supported",
+        "reason": "Passage [1] explicitly states '5 kg Zinc per hectare applied as zinc sulphate'."
+       }
+      ],
+      "verdict": "supported"
+     },
+     {
+      "sentence": "Scout weekly from the panicle initiation stage onward for brown planthopper (BPH) to prevent hopper burn damage [3][5].",
+      "cited": [
+       3,
+       5
+      ],
+      "claims": [
+       {
+        "claim": "Scout weekly.",
+        "verdict": "supported",
+        "reason": "Passages [3] and [5] both recommend scouting weekly from panicle initiation stage onward."
+       },
+       {
+        "claim": "Scouting starts from the panicle initiation stage onward.",
+        "verdict": "supported",
+        "reason": "Passages [3] and [5] both state that scouting starts from the panicle initiation stage onward."
+       },
+       {
+        "claim": "The target of scouting is brown planthopper (BPH).",
+        "verdict": "supported",
+        "reason": "Passage [3] mentions 'Weekly scouting from the panicle initiation stage onward' as an early-warning practice for brown planthopper damage symptoms."
+       },
+       {
+        "claim": "Prevent hopper burn damage.",
+        "verdict": "supported",
+        "reason": "Passage [3] recommends weekly scouting from panicle initiation stage onward to detect hopper burn early, preventing damage."
+       }
+      ],
+      "verdict": "supported"
+     },
+     {
+      "sentence": "Ensure timely irrigation management by maintaining alternate wetting and drying (AWD) or continuous flooding methods as per standard practice, draining 7 to 10 days before harvest [5].",
+      "cited": [
+       5
+      ],
+      "claims": [
+       {
+        "claim": "Ensure timely irrigation management.",
+        "verdict": "supported",
+        "reason": "Passage [5] states 'standard split irrigation (continuous flooding or AWD)', implying timely irrigation management."
+       },
+       {
+        "claim": "Maintain AWD or continuous flooding methods as per standard practice.",
+        "verdict": "supported",
+        "reason": "Passage [5] states 'standard split irrigation (continuous flooding or AWD)', which matches the claim to maintain AWD or continuous flooding methods as per standard practice."
+       },
+       {
+        "claim": "Drain 7 to 10 days before harvest.",
+        "verdict": "supported",
+        "reason": "Passage [5] explicitly states 'drain 7 to 10 days before harvest'."
+       }
+      ],
+      "verdict": "supported"
+     },
+     {
+      "sentence": "Since the scenario is an average year with no forecasted heat waves during flowering, maintain regular irrigation practices without special thermal buffering measures [6].",
+      "cited": [
+       6
+      ],
+      "claims": [
+       {
+        "claim": "Since the scenario is an average year.",
+        "verdict": "supported",
+        "reason": "Passage [6] explicitly states climate-related risks for Kanpur Kharif rice outcomes, including delayed monsoon onset and heat stress during flowering stage."
+       },
+       {
+        "claim": "There are no forecasted heat waves during flowering.",
+        "verdict": "supported",
+        "reason": "Passage [6] states 'heat wave forecast during flowering \u2192 maintain 5 cm standing water as a thermal buffer', implying no forecasted heat waves during flowering."
+       },
+       {
+        "claim": "Maintain regular irrigation practices.",
+        "verdict": "unsupported",
+        "reason": "The passages suggest specific irrigation strategies for different climate-related risks, but do not support regular irrigation practices in general."
+       },
+       {
+        "claim": "No special thermal buffering measures are needed.",
+        "verdict": "unsupported",
+        "reason": "The passages explicitly mention the need for a 'thermal buffer' during heat wave forecast, contradicting the claim."
+       }
+      ],
+      "verdict": "partial"
+     },
+     {
+      "sentence": "Given that there were two dry spells of 7+ days but no extreme temperatures above 35\u00b0C between August 15 and September 15, be prepared to activate pump irrigation at least 48 hours in advance if a forecasted dry spell threatens the crop's growth stages [6].",
+      "cited": [
+       6
+      ],
+      "claims": [
+       {
+        "claim": "There were two dry spells of 7+ days.",
+        "verdict": "partially_supported",
+        "reason": "Passage [6] mentions 'mid-season dry spells during July-August' but does not specify the duration of these dry spells."
+       },
+       {
+        "claim": "No extreme temperatures above 35\u00b0C between August 15 and September 15.",
+        "verdict": "supported",
+        "reason": "Passage [6] states 'flowering-stage heat stress (daily max > 35\u00b0C) causing spikelet sterility in August-September', implying no extreme temperatures above 35\u00b0C between August 15 and September 15."
+       },
+       {
+        "claim": "The period is from August 15 to September 15.",
+        "verdict": "supported",
+        "reason": "Passage [6] mentions 'August-September' which includes August 15 to September 15."
+       },
+       {
+        "claim": "Be prepared to activate pump irrigation at least 48 hours in advance if a forecasted dry spell threatens the crop's growth stages.",
+        "verdict": "supported",
+        "reason": "Passage [6] explicitly states 'dry spell forecast \u2192 activate pump irrigation at least 48 hours in advance'."
+       }
+      ],
+      "verdict": "partial"
+     }
+    ],
+    "frac_supported": 0.6,
+    "frac_partial": 0.4,
+    "frac_unsupported": 0.0,
+    "claim_supported": 0.85,
+    "judge_model": "llama3:latest"
+   }
+  },
+  {
+   "i": 10,
+   "district": "Kanpur Dehat",
+   "scenario": "bad",
+   "analog_year": 2020,
+   "frac_supported": 0.25,
+   "frac_partial": 0.75,
+   "frac_unsupported": 0.0,
+   "claim_supported": 0.8,
+   "cosine_relevance": 0.5,
+   "n_sentences": 4,
+   "max_cosine": [
+    0.7820708751678467,
+    0.7395068407058716,
+    0.7527569532394409,
+    0.8010720610618591
+   ],
+   "faithfulness": {
+    "sentences": [
+     {
+      "sentence": "Adjust your nitrogen application to 60 kg per hectare, as full dose may not be necessary in a forecasted low-yield season [2].",
+      "cited": [
+       2
+      ],
+      "claims": [
+       {
+        "claim": "Adjust your nitrogen application.",
+        "verdict": "partially_supported",
+        "reason": "The passage suggests adjusting nitrogen application, specifically making the 60 DAT dose optional in a bad year scenario."
+       },
+       {
+        "claim": "The adjusted amount is 60 kg per hectare.",
+        "verdict": "supported",
+        "reason": "The passage mentions 'nitrogen split dose at 60 DAT' which implies a specific amount of nitrogen, equivalent to 60 kg per hectare."
+       },
+       {
+        "claim": "A full dose of nitrogen may not be necessary.",
+        "verdict": "supported",
+        "reason": "The passage states that in a bad year scenario, the nitrogen split dose at 60 DAT becomes optional."
+       },
+       {
+        "claim": "The season is forecasted to be low-yield.",
+        "verdict": "supported",
+        "reason": "The passage explicitly states 'bad year scenario' and 'below-normal monsoon', indicating a low-yield season."
+       }
+      ],
+      "verdict": "partial"
+     },
+     {
+      "sentence": "Prioritize scouting for BPH starting from the panicle initiation stage due to its potential for rapid population growth under favorable temperatures [3][4].",
+      "cited": [
+       3,
+       4
+      ],
+      "claims": [
+       {
+        "claim": "Prioritize scouting for BPH.",
+        "verdict": "supported",
+        "reason": "Passage [4] recommends weekly scouting from panicle initiation stage onward, which implies prioritizing scouting for BPH."
+       },
+       {
+        "claim": "Scouting is done for BPH starting from the panicle initiation stage.",
+        "verdict": "supported",
+        "reason": "Weekly scouting from the panicle initiation stage onward is recommended."
+       },
+       {
+        "claim": "The potential for rapid population growth of BPH exists under favorable temperatures.",
+        "verdict": "supported",
+        "reason": "Passage [3] states that population growth peaks at approximately 28 to 30\u00b0C, indicating favorable temperatures for rapid population growth."
+       }
+      ],
+      "verdict": "supported"
+     },
+     {
+      "sentence": "Maintain alternate wetting and drying (AWD) practices but ensure that water levels are sufficient during flowering to mitigate any heat stress effects, even though no days above 35\u00b0C were recorded in late August and September [2][5].",
+      "cited": [
+       2,
+       5
+      ],
+      "claims": [
+       {
+        "claim": "Maintain AWD practices.",
+        "verdict": "partially_supported",
+        "reason": "Passage [2] mentions reducing input intensity, prioritizing insecticide, and registering PMFBY insurance, which are AWD practices. However, it does not explicitly state 'maintain' AWD practices."
+       },
+       {
+        "claim": "Ensure water levels are sufficient during flowering.",
+        "verdict": "supported",
+        "reason": "Passage [5] mentions maintaining 5 cm standing water as a thermal buffer during heat wave forecast during flowering, which ensures water levels are sufficient."
+       },
+       {
+        "claim": "Mitigate heat stress effects.",
+        "verdict": "supported",
+        "reason": "Passage [5] mentions 'flowering-stage heat stress (daily max > 35\u00b0C) causing spikelet sterility in August-September' and advises to maintain 5 cm standing water as a thermal buffer during heat wave fo"
+       },
+       {
+        "claim": "No days above 35\u00b0C were recorded in late August and September.",
+        "verdict": "supported",
+        "reason": "Passage [5] mentions heat wave forecast during flowering (August-September) with daily max > 35\u00b0C, which supports the claim that no days above 35\u00b0C were recorded in late August and September."
+       }
+      ],
+      "verdict": "partial"
+     },
+     {
+      "sentence": "Consider reducing the use of insecticides unless BPH is confirmed through scouting; this will help conserve resources while still protecting your crop from potential outbreaks [2].",
+      "cited": [
+       2
+      ],
+      "claims": [
+       {
+        "claim": "Consider reducing the use of insecticides.",
+        "verdict": "supported",
+        "reason": "The passage suggests prioritizing insecticide application only on scouting-confirmed BPH presence, implying reduced use of insecticides."
+       },
+       {
+        "claim": "BPH must be confirmed through scouting.",
+        "verdict": "supported",
+        "reason": "The passages state that prioritize insecticide only on scouting-confirmed BPH presence, implying that BPH must be confirmed through scouting."
+       },
+       {
+        "claim": "This will help conserve resources.",
+        "verdict": "supported",
+        "reason": "The passage explicitly states the intention to 'conserve cash' and 'conserve resources', which aligns with the claim."
+       },
+       {
+        "claim": "This will protect your crop from potential outbreaks.",
+        "verdict": "partially_supported",
+        "reason": "The passages mention reducing input intensity to conserve cash, prioritizing insecticide on scouting-confirmed BPH presence, and registering PMFBY insurance before cut-off. However, it does not explic"
+       }
+      ],
+      "verdict": "partial"
+     }
+    ],
+    "frac_supported": 0.25,
+    "frac_partial": 0.75,
+    "frac_unsupported": 0.0,
+    "claim_supported": 0.8,
+    "judge_model": "llama3:latest"
+   }
+  },
+  {
+   "i": 11,
+   "district": "Kanpur Dehat",
+   "scenario": "average",
+   "analog_year": 2021,
+   "frac_supported": 0.8,
+   "frac_partial": 0.2,
+   "frac_unsupported": 0.0,
+   "claim_supported": 0.95,
+   "cosine_relevance": 0.4,
+   "n_sentences": 5,
+   "max_cosine": [
+    0.8145455718040466,
+    0.7529423236846924,
+    0.8402981162071228,
+    0.7687745094299316,
+    0.7349715232849121
+   ],
+   "faithfulness": {
+    "sentences": [
+     {
+      "sentence": "Follow the standard NPK recommendation of 120 kg Nitrogen per hectare, 60 kg Phosphorus per hectare, and 60 kg Potassium per hectare [1].",
+      "cited": [
+       1
+      ],
+      "claims": [
+       {
+        "claim": "Follow the standard NPK recommendation.",
+        "verdict": "supported",
+        "reason": "Passage explicitly states 'Standard NPK schedule (120:60:60)' as the baseline recommendation."
+       },
+       {
+        "claim": "The standard NPK recommendation is for 120 kg Nitrogen per hectare.",
+        "verdict": "supported",
+        "reason": "Passage [1] states the standard NPK recommendation for Kharif rice in Uttar Pradesh is 120 kg Nitrogen per hectare."
+       },
+       {
+        "claim": "The standard NPK recommendation is for 60 kg Phosphorus per hectare.",
+        "verdict": "supported",
+        "reason": "Passage states '60 kg Phosphorus (as P2O5) per hectare'."
+       },
+       {
+        "claim": "The standard NPK recommendation is for 60 kg Potassium per hectare.",
+        "verdict": "supported",
+        "reason": "Passage states '60 kg Potassium (as K2O) per hectare'."
+       }
+      ],
+      "verdict": "supported"
+     },
+     {
+      "sentence": "Add a third top-dress nitrogen split at 75 DAT if the canopy remains green and vigorous to support plant health [4].",
+      "cited": [
+       4
+      ],
+      "claims": [
+       {
+        "claim": "Add a third top-dress nitrogen split.",
+        "verdict": "supported",
+        "reason": "Passage [4] explicitly states to add a third top-dress nitrogen split at 75 DAT."
+       },
+       {
+        "claim": "The third top-dress is at 75 DAT.",
+        "verdict": "supported",
+        "reason": "The passage explicitly states the third top-dress nitrogen split at 75 DAT."
+       },
+       {
+        "claim": "If the canopy remains green and vigorous.",
+        "verdict": "supported",
+        "reason": "The passages state 'canopy stays green and vigorous' as a condition for adding a third top-dress nitrogen split."
+       },
+       {
+        "claim": "Support plant health.",
+        "verdict": "supported",
+        "reason": "Passage [4] states 'apply the full 120-60-60 NPK + 5 Zn schedule' to support plant health."
+       }
+      ],
+      "verdict": "supported"
+     },
+     {
+      "sentence": "Begin weekly scouting for brown planthopper (BPH) from panicle initiation onward as BPH can cause significant damage during this period [3][2].",
+      "cited": [
+       2,
+       3
+      ],
+      "claims": [
+       {
+        "claim": "Begin weekly scouting.",
+        "verdict": "supported",
+        "reason": "Weekly scouting from panicle initiation stage onward is recommended."
+       },
+       {
+        "claim": "Scouting is for brown planthopper (BPH).",
+        "verdict": "supported",
+        "reason": "Passage [3] recommends weekly scouting from panicle initiation stage onward for BPH."
+       },
+       {
+        "claim": "Start scouting from panicle initiation onward.",
+        "verdict": "supported",
+        "reason": "Passage [3] recommends weekly scouting from the panicle initiation stage onward."
+       },
+       {
+        "claim": "Brown planthopper (BPH) can cause significant damage during this period.",
+        "verdict": "supported",
+        "reason": "Passage [2] states yield losses up to 60% are common in susceptible cultivars during outbreak years."
+       }
+      ],
+      "verdict": "supported"
+     },
+     {
+      "sentence": "Ensure that irrigation is managed properly, with standing water maintained up until 7 to 10 days before harvest to avoid stress on the plants [5].",
+      "cited": [
+       5
+      ],
+      "claims": [
+       {
+        "claim": "Ensure that irrigation is managed properly.",
+        "verdict": "supported",
+        "reason": "Passage [5] states 'standard split irrigation (continuous flooding or AWD)', implying proper management of irrigation."
+       },
+       {
+        "claim": "Maintain standing water up until 7 to 10 days before harvest.",
+        "verdict": "supported",
+        "reason": "Passage [5] states 'drain 7 to 10 days before harvest', implying maintaining standing water until then."
+       },
+       {
+        "claim": "Avoid stress on the plants.",
+        "verdict": "supported",
+        "reason": "Passage [5] recommends standard practice with scout weekly from panicle initiation, implying avoiding stress on plants."
+       }
+      ],
+      "verdict": "supported"
+     },
+     {
+      "sentence": "Since there were no days above 35\u00b0C between August 15 and September 15, focus on managing other climate risks such as mid-season dry spells by having a backup irrigation plan ready [6].",
+      "cited": [
+       6
+      ],
+      "claims": [
+       {
+        "claim": "There were no days above 35\u00b0C.",
+        "verdict": "supported",
+        "reason": "Passage [6] states 'flowering-stage heat stress (daily max > 35\u00b0C)' which implies that there were no days above 35\u00b0C."
+       },
+       {
+        "claim": "The period of time is from August 15 to September 15.",
+        "verdict": "supported",
+        "reason": "Passage [6] mentions 'August-September' which includes August 15 to September 15."
+       },
+       {
+        "claim": "Focus on managing other climate risks.",
+        "verdict": "partially_supported",
+        "reason": "The passages mention three specific climate-driven risks, but the claim focuses on 'other' climate risks, implying that not all risks are mentioned."
+       },
+       {
+        "claim": "Mid-season dry spells are a risk.",
+        "verdict": "supported",
+        "reason": "Passage [6] explicitly states 'mid-season dry spells during July-August threatening tillering and panicle initiation'."
+       },
+       {
+        "claim": "Have a backup irrigation plan ready.",
+        "verdict": "supported",
+        "reason": "Passage [6] advises to activate pump irrigation at least 48 hours in advance during dry spell forecast, implying a backup plan."
+       }
+      ],
+      "verdict": "partial"
+     }
+    ],
+    "frac_supported": 0.8,
+    "frac_partial": 0.2,
+    "frac_unsupported": 0.0,
+    "claim_supported": 0.95,
+    "judge_model": "llama3:latest"
+   }
+  },
+  {
+   "i": 12,
+   "district": "Kanpur Dehat",
+   "scenario": "average",
+   "analog_year": 2022,
+   "frac_supported": 1.0,
+   "frac_partial": 0.0,
+   "frac_unsupported": 0.0,
+   "claim_supported": 1.0,
+   "cosine_relevance": 0.4,
+   "n_sentences": 5,
+   "max_cosine": [
+    0.8145455718040466,
+    0.8321136236190796,
+    0.7375607490539551,
+    0.7677227854728699,
+    0.7223080992698669
+   ],
+   "faithfulness": {
+    "sentences": [
+     {
+      "sentence": "Follow the standard NPK recommendation of 120 kg Nitrogen per hectare, 60 kg Phosphorus per hectare, and 60 kg Potassium per hectare [1].",
+      "cited": [
+       1
+      ],
+      "claims": [
+       {
+        "claim": "Follow the standard NPK recommendation.",
+        "verdict": "supported",
+        "reason": "Passage states 'Standard NPK schedule (120:60:60) is the baseline...' and recommends following it."
+       },
+       {
+        "claim": "The standard NPK recommendation is for 120 kg Nitrogen per hectare.",
+        "verdict": "supported",
+        "reason": "Passage explicitly states the standard NPK recommendation is for 120 kg Nitrogen per hectare."
+       },
+       {
+        "claim": "The standard NPK recommendation is for 60 kg Phosphorus per hectare.",
+        "verdict": "supported",
+        "reason": "Passage states '60 kg Phosphorus (as P2O5) per hectare'."
+       },
+       {
+        "claim": "The standard NPK recommendation is for 60 kg Potassium per hectare.",
+        "verdict": "supported",
+        "reason": "Passage states '60 kg Potassium (as K2O) per hectare'."
+       }
+      ],
+      "verdict": "supported"
+     },
+     {
+      "sentence": "Scout for brown planthopper (BPH) weekly starting from panicle initiation as it is a critical period for BPH outbreaks [3][5].",
+      "cited": [
+       3,
+       5
+      ],
+      "claims": [
+       {
+        "claim": "Scout for brown planthopper weekly.",
+        "verdict": "supported",
+        "reason": "Passages [3] and [5] both recommend scouting for BPH weekly from panicle initiation stage onward."
+       },
+       {
+        "claim": "The scouting starts from panicle initiation.",
+        "verdict": "supported",
+        "reason": "Passages [3] and [5] both mention scouting starting from the panicle initiation stage."
+       },
+       {
+        "claim": "It is a critical period for BPH outbreaks.",
+        "verdict": "supported",
+        "reason": "Passage [3] mentions 'panicle initiation stage onward' as the recommended early-warning practice for BPH, implying a critical period."
+       }
+      ],
+      "verdict": "supported"
+     },
+     {
+      "sentence": "Maintain vigilant irrigation practices to avoid the impact of dry spells by ensuring adequate water availability during tillering and panicle initiation stages [6].",
+      "cited": [
+       6
+      ],
+      "claims": [
+       {
+        "claim": "Maintain vigilant irrigation practices.",
+        "verdict": "supported",
+        "reason": "Passage [6] advises to activate pump irrigation at least 48 hours in advance during dry spells and maintain 5 cm standing water as a thermal buffer during heat stress, supporting vigilant irrigation p"
+       },
+       {
+        "claim": "Avoid the impact of dry spells.",
+        "verdict": "supported",
+        "reason": "Passage [6] mentions mid-season dry spells during July-August threatening tillering and panicle initiation, advising to activate pump irrigation at least 48 hours in advance."
+       },
+       {
+        "claim": "Ensure adequate water availability during tillering.",
+        "verdict": "supported",
+        "reason": "Passage [6] mentions mid-season dry spells during July-August threatening tillering and panicle initiation, implying the need for adequate water availability during this stage."
+       },
+       {
+        "claim": "Ensure adequate water availability during panicle initiation stages.",
+        "verdict": "supported",
+        "reason": "Passage [6] mentions mid-season dry spells threatening tillering and panicle initiation, implying the need for adequate water availability during this stage."
+       }
+      ],
+      "verdict": "supported"
+     },
+     {
+      "sentence": "Apply zinc at 5 kg per hectare as zinc sulphate to complement your NPK application, enhancing overall plant health [1].",
+      "cited": [
+       1
+      ],
+      "claims": [
+       {
+        "claim": "Apply zinc.",
+        "verdict": "supported",
+        "reason": "Passage states '5 kg Zinc per hectare applied as zinc sulphate'."
+       },
+       {
+        "claim": "The zinc is applied at 5 kg per hectare.",
+        "verdict": "supported",
+        "reason": "Passage explicitly states '5 kg Zinc per hectare applied as zinc sulphate'."
+       },
+       {
+        "claim": "The zinc is applied as zinc sulphate.",
+        "verdict": "supported",
+        "reason": "Passage explicitly states 'applied as zinc sulphate'."
+       },
+       {
+        "claim": "This complements the NPK application.",
+        "verdict": "supported",
+        "reason": "Passage states that site-specific adjustments are made based on soil testing, implying complementing the NPK application."
+       },
+       {
+        "claim": "This enhances overall plant health.",
+        "verdict": "supported",
+        "reason": "Passage states that the NPK schedule 'enhances' overall plant health, aligning with the claim."
+       }
+      ],
+      "verdict": "supported"
+     },
+     {
+      "sentence": "Keep an eye on temperatures in August and September; if a day above 35\u00b0C is forecasted, maintain standing water at 5 cm depth during the flowering stage to protect against heat stress [6].",
+      "cited": [
+       6
+      ],
+      "claims": [
+       {
+        "claim": "Keep an eye on temperatures.",
+        "verdict": "supported",
+        "reason": "Passage [6] mentions 'flowering-stage heat stress (daily max > 35\u00b0C) causing spikelet sterility in August-September', which implies keeping an eye on temperatures."
+       },
+       {
+        "claim": "The monitoring period includes August and September.",
+        "verdict": "supported",
+        "reason": "Passage [6] mentions flowering-stage heat stress in August-September, indicating the monitoring period includes these months."
+       },
+       {
+        "claim": "Forecast a day above 35\u00b0C.",
+        "verdict": "supported",
+        "reason": "Passage [6] mentions 'flowering-stage heat stress (daily max > 35\u00b0C) causing spikelet sterility in August-September'."
+       },
+       {
+        "claim": "Maintain standing water at 5 cm depth.",
+        "verdict": "supported",
+        "reason": "Passage [6] explicitly states 'maintain 5 cm standing water as a thermal buffer'."
+       },
+       {
+        "claim": "The maintenance is done during the flowering stage.",
+        "verdict": "supported",
+        "reason": "Passage [6] states 'heat wave forecast during flowering \u2192 maintain 5 cm standing water as a thermal buffer'."
+       },
+       {
+        "claim": "Protect against heat stress.",
+        "verdict": "supported",
+        "reason": "Passage [6] explicitly mentions 'flowering-stage heat stress (daily max > 35\u00b0C) causing spikelet sterility in August-September' and advises maintaining 5 cm standing water as a thermal buffer."
+       }
+      ],
+      "verdict": "supported"
+     }
+    ],
+    "frac_supported": 1.0,
+    "frac_partial": 0.0,
+    "frac_unsupported": 0.0,
+    "claim_supported": 1.0,
+    "judge_model": "llama3:latest"
+   }
+  },
+  {
+   "i": 13,
+   "district": "Kanpur Dehat",
+   "scenario": "bad",
+   "analog_year": 2023,
+   "frac_supported": 1.0,
+   "frac_partial": 0.0,
+   "frac_unsupported": 0.0,
+   "claim_supported": 1.0,
+   "cosine_relevance": 0.25,
+   "n_sentences": 4,
+   "max_cosine": [
+    0.795982837677002,
+    0.7595120668411255,
+    0.6835935115814209,
+    0.7476823329925537
+   ],
+   "faithfulness": {
+    "sentences": [
+     {
+      "sentence": "Adjust the nitrogen split dose to be optional at 60 DAT as per [2] to conserve cash in this low-yield forecasted season.",
+      "cited": [
+       2
+      ],
+      "claims": [
+       {
+        "claim": "Adjust the nitrogen split dose.",
+        "verdict": "supported",
+        "reason": "The passage states 'nitrogen split dose at 60 DAT becomes optional' which supports the claim to adjust the nitrogen split dose."
+       },
+       {
+        "claim": "The adjustment is optional.",
+        "verdict": "supported",
+        "reason": "The passage states 'nitrogen split dose at 60 DAT becomes optional'."
+       },
+       {
+        "claim": "The option takes place at 60 DAT.",
+        "verdict": "supported",
+        "reason": "The passages state the option of nitrogen split dose at 60 DAT."
+       },
+       {
+        "claim": "The adjustment is made to conserve cash.",
+        "verdict": "supported",
+        "reason": "The passage explicitly states the adjustment is made 'to conserve cash'."
+       },
+       {
+        "claim": "This is a low-yield forecasted season.",
+        "verdict": "supported",
+        "reason": "The passage mentions 'bad year scenario' and 'below-normal monsoon', which implies a low-yield forecasted season."
+       }
+      ],
+      "verdict": "supported"
+     },
+     {
+      "sentence": "Prioritize insecticide use only when BPH presence is confirmed through scouting, following advice from [2].",
+      "cited": [
+       2
+      ],
+      "claims": [
+       {
+        "claim": "Prioritize insecticide use.",
+        "verdict": "supported",
+        "reason": "The passages state to prioritize insecticide use 'only on scouting-confirmed BPH presence'."
+       },
+       {
+        "claim": "Insecticide use is only when BPH presence is confirmed through scouting.",
+        "verdict": "supported",
+        "reason": "The passages state that prioritize insecticide only on scouting-confirmed BPH presence."
+       },
+       {
+        "claim": "Follow advice from [name].",
+        "verdict": "supported",
+        "reason": "The passage advises to follow certain steps in a bad year scenario, which matches the claim's suggestion to follow advice."
+       },
+       {
+        "claim": "BPH presence is confirmed through scouting.",
+        "verdict": "supported",
+        "reason": "The passages state that prioritize insecticide only on scouting-confirmed BPH presence."
+       }
+      ],
+      "verdict": "supported"
+     },
+     {
+      "sentence": "Maintain standing water at a depth of 5 cm during flowering stage to act as a thermal buffer against heat stress as advised by [5].",
+      "cited": [
+       5
+      ],
+      "claims": [
+       {
+        "claim": "Maintain standing water at a depth of 5 cm.",
+        "verdict": "supported",
+        "reason": "Passage [5] explicitly states 'maintain 5 cm standing water as a thermal buffer'."
+       },
+       {
+        "claim": "The standing water is maintained during the flowering stage.",
+        "verdict": "supported",
+        "reason": "Passage [5] states 'heat wave forecast during flowering \u2192 maintain 5 cm standing water as a thermal buffer'."
+       },
+       {
+        "claim": "This is done to act as a thermal buffer against heat stress.",
+        "verdict": "supported",
+        "reason": "Passage [5] explicitly states 'heat wave forecast during flowering \u2192 maintain 5 cm standing water as a thermal buffer'."
+       },
+       {
+        "claim": "This advice comes from as advised by.",
+        "verdict": "supported",
+        "reason": "The passages state the climate-related risks and advisory recommendations, matching the claim's structure and content."
+       }
+      ],
+      "verdict": "supported"
+     },
+     {
+      "sentence": "Activate pump irrigation at least 48 hours in advance if dry spells are forecasted between July and August to protect tillering and panicle initiation stages, according to [5].",
+      "cited": [
+       5
+      ],
+      "claims": [
+       {
+        "claim": "Activate pump irrigation.",
+        "verdict": "supported",
+        "reason": "Passage [5] advises to activate pump irrigation during mid-season dry spells, at least 48 hours in advance."
+       },
+       {
+        "claim": "Do so at least 48 hours in advance.",
+        "verdict": "supported",
+        "reason": "Passage [5] advises to activate pump irrigation at least 48 hours in advance during dry spell forecast."
+       },
+       {
+        "claim": "Forecast dry spells between July and August.",
+        "verdict": "supported",
+        "reason": "Passage [5] mentions 'mid-season dry spells during July-August' threatening tillering and panicle initiation."
+       },
+       {
+        "claim": "This is done to protect tillering and panicle initiation stages.",
+        "verdict": "supported",
+        "reason": "Passage [5] mentions mid-season dry spells during July-August threatening tillering and panicle initiation."
+       },
+       {
+        "claim": "According to [unknown source].",
+        "verdict": "supported",
+        "reason": "Passage [5] states three climate-driven risks that dominate Kanpur Kharif rice outcomes, including delayed monsoon onset, mid-season dry spells, and flowering-stage heat stress."
+       }
+      ],
+      "verdict": "supported"
+     }
+    ],
+    "frac_supported": 1.0,
+    "frac_partial": 0.0,
+    "frac_unsupported": 0.0,
+    "claim_supported": 1.0,
+    "judge_model": "llama3:latest"
+   }
+  },
+  {
+   "i": 14,
+   "district": "Kanpur Dehat",
+   "scenario": "good",
+   "analog_year": 2024,
+   "frac_supported": 0.8,
+   "frac_partial": 0.2,
+   "frac_unsupported": 0.0,
+   "claim_supported": 0.95,
+   "cosine_relevance": 0.6,
+   "n_sentences": 5,
+   "max_cosine": [
+    0.8213582038879395,
+    0.7641505002975464,
+    0.8207703232765198,
+    0.7217047214508057,
+    0.8378250002861023
+   ],
+   "faithfulness": {
+    "sentences": [
+     {
+      "sentence": "Follow the full NPK recommendation of 120 kg Nitrogen per hectare, 60 kg Phosphorus (as P2O5) per hectare, and 60 kg Potassium (as K2O) per hectare plus 5 kg Zinc per hectare [2][1].",
+      "cited": [
+       1,
+       2
+      ],
+      "claims": [
+       {
+        "claim": "Follow the full NPK recommendation.",
+        "verdict": "supported",
+        "reason": "Passage [1] states the full recommended fertilizer dose as 120-60-60 NPK."
+       },
+       {
+        "claim": "The NPK recommendation is for 120 kg Nitrogen per hectare.",
+        "verdict": "supported",
+        "reason": "Passage [1] states the NPK recommendation as 120 kg Nitrogen per hectare."
+       },
+       {
+        "claim": "The NPK recommendation is for 60 kg Phosphorus (as P2O5) per hectare.",
+        "verdict": "supported",
+        "reason": "Passage [1] states the full recommended fertilizer dose for Kharif rice in eastern Uttar Pradesh plains is 60 kg Phosphorus (as P2O5) per hectare."
+       },
+       {
+        "claim": "The NPK recommendation is for 60 kg Potassium (as K2O) per hectare.",
+        "verdict": "supported",
+        "reason": "Passage [1] states the NPK recommendation as 60 kg Potassium (as K2O) per hectare."
+       },
+       {
+        "claim": "Add 5 kg Zinc per hectare.",
+        "verdict": "supported",
+        "reason": "Passage [1] explicitly states '5 kg Zinc per hectare applied as zinc sulphate'."
+       }
+      ],
+      "verdict": "supported"
+     },
+     {
+      "sentence": "Consider adding a third top-dress nitrogen split at 75 DAT if the canopy remains green and vigorous to support robust growth [2].",
+      "cited": [
+       2
+      ],
+      "claims": [
+       {
+        "claim": "Consider adding a third top-dress nitrogen split.",
+        "verdict": "supported",
+        "reason": "The passage suggests adding a third top-dress nitrogen split at 75 DAT if the canopy stays green and vigorous."
+       },
+       {
+        "claim": "The third top-dress is at 75 DAT.",
+        "verdict": "supported",
+        "reason": "The passage explicitly states the third top-dress nitrogen split at 75 DAT."
+       },
+       {
+        "claim": "The canopy remains green and vigorous.",
+        "verdict": "supported",
+        "reason": "The passages state 'canopy stays green and vigorous' as a condition for applying a third top-dress nitrogen split."
+       },
+       {
+        "claim": "Supporting robust growth supports the plant's health.",
+        "verdict": "supported",
+        "reason": "The passage states that a good year scenario requires applying full NPK + 5 Zn schedule, which implies supporting robust growth supports the plant's health."
+       }
+      ],
+      "verdict": "supported"
+     },
+     {
+      "sentence": "Be vigilant for brown planthopper outbreaks due to ideal weather conditions coinciding with vigorous rice growth; scout weekly from panicle initiation onward [2][3].",
+      "cited": [
+       2,
+       3
+      ],
+      "claims": [
+       {
+        "claim": "Be vigilant for brown planthopper outbreaks.",
+        "verdict": "supported",
+        "reason": "Passage [2] mentions being vigilant for BPH outbreak, which is the same as the claim."
+       },
+       {
+        "claim": "Ideal weather conditions coincide with vigorous rice growth.",
+        "verdict": "supported",
+        "reason": "Passage [2] states 'ideal weather for the pest coincides with vigorous rice growth'."
+       },
+       {
+        "claim": "Scout weekly from panicle initiation onward.",
+        "verdict": "partially_supported",
+        "reason": "Passage [2] mentions being vigilant for BPH outbreak, but does not specify the frequency of scouting."
+       }
+      ],
+      "verdict": "partial"
+     },
+     {
+      "sentence": "Plan storage capacity ahead of time to avoid distress sale at harvest, given the forecasted good year scenario [2].",
+      "cited": [
+       2
+      ],
+      "claims": [
+       {
+        "claim": "Plan storage capacity ahead of time.",
+        "verdict": "supported",
+        "reason": "Passage [2] explicitly states to plan storage capacity ahead of time."
+       },
+       {
+        "claim": "Avoid a distress sale at harvest.",
+        "verdict": "supported",
+        "reason": "The passage explicitly states 'plan storage capacity ahead of time to avoid distress sale at harvest'."
+       },
+       {
+        "claim": "The forecast is for a good year.",
+        "verdict": "supported",
+        "reason": "The passage explicitly states 'good year scenario' and provides guidance for that scenario."
+       }
+      ],
+      "verdict": "supported"
+     },
+     {
+      "sentence": "Ensure timely and thorough scouting for BPH damage symptoms such as hopper burn starting from the panicle initiation stage to prevent severe yield losses [4].",
+      "cited": [
+       4
+      ],
+      "claims": [
+       {
+        "claim": "Ensure timely scouting.",
+        "verdict": "supported",
+        "reason": "Passage [4] recommends weekly scouting from panicle initiation stage onward, which implies timely scouting."
+       },
+       {
+        "claim": "Scouting is for BPH damage symptoms.",
+        "verdict": "supported",
+        "reason": "Passage [4] mentions scouting for 'hopper burn' and 'BPH damage symptoms', which matches the claim."
+       },
+       {
+        "claim": "Symptoms include hopper burn.",
+        "verdict": "supported",
+        "reason": "Passage [4] explicitly states 'hopper burn' as a symptom of BPH damage."
+       },
+       {
+        "claim": "Start scouting from the panicle initiation stage.",
+        "verdict": "supported",
+        "reason": "Passage [4] explicitly states 'Weekly scouting from the panicle initiation stage onward'."
+       },
+       {
+        "claim": "Prevent severe yield losses.",
+        "verdict": "supported",
+        "reason": "Passage [4] states that 'curative action is difficult' when hopper burn is visible, implying the need to prevent severe yield losses."
+       }
+      ],
+      "verdict": "supported"
+     }
+    ],
+    "frac_supported": 0.8,
+    "frac_partial": 0.2,
+    "frac_unsupported": 0.0,
+    "claim_supported": 0.95,
+    "judge_model": "llama3:latest"
+   }
+  },
+  {
+   "i": 15,
+   "district": "Kanpur Nagar",
+   "scenario": "bad",
+   "analog_year": 2010,
+   "frac_supported": 0.75,
+   "frac_partial": 0.25,
+   "frac_unsupported": 0.0,
+   "claim_supported": 0.9411764705882353,
+   "cosine_relevance": 0.5,
+   "n_sentences": 4,
+   "max_cosine": [
+    0.7902283668518066,
+    0.7627293467521667,
+    0.8945267200469971,
+    0.7119653820991516
+   ],
+   "faithfulness": {
+    "sentences": [
+     {
+      "sentence": "Reduce nitrogen application to 60 kg per hectare as recommended in a forecast bad year [2].",
+      "cited": [
+       2
+      ],
+      "claims": [
+       {
+        "claim": "Reduce nitrogen application.",
+        "verdict": "supported",
+        "reason": "Nitrogen split dose at 60 DAT becomes optional in a bad year scenario."
+       },
+       {
+        "claim": "Nitrogen application will be reduced to 60 kg per hectare.",
+        "verdict": "supported",
+        "reason": "Nitrogen split dose at 60 DAT becomes optional."
+       },
+       {
+        "claim": "The reduction is as recommended.",
+        "verdict": "supported",
+        "reason": "The passage states 'reduce input intensity to conserve cash' and recommends reducing nitrogen split dose at 60 DAT, which matches the claim's recommendation."
+       },
+       {
+        "claim": "A forecast indicates it will be a bad year.",
+        "verdict": "supported",
+        "reason": "The passage explicitly states 'bad year scenario' and 'forecast bad year', which matches the claim."
+       }
+      ],
+      "verdict": "supported"
+     },
+     {
+      "sentence": "Prioritize insecticide use only when BPH presence is confirmed through scouting practices starting from the panicle initiation stage [4][2].",
+      "cited": [
+       2,
+       4
+      ],
+      "claims": [
+       {
+        "claim": "Prioritize insecticide use.",
+        "verdict": "supported",
+        "reason": "The passage [2] recommends prioritizing insecticide use 'only on scouting-confirmed BPH presence'."
+       },
+       {
+        "claim": "Insecticide use is only when BPH presence is confirmed.",
+        "verdict": "supported",
+        "reason": "Passage [2] states 'prioritize insecticide only on scouting-confirmed BPH presence'."
+       },
+       {
+        "claim": "BPH presence is confirmed through scouting practices.",
+        "verdict": "supported",
+        "reason": "Passage [4] explicitly states 'Weekly scouting from the panicle initiation stage onward is the recommended early-warning practice'."
+       },
+       {
+        "claim": "Scouting practices start from the panicle initiation stage.",
+        "verdict": "supported",
+        "reason": "Passage [4] explicitly states 'Weekly scouting from the panicle initiation stage onward'."
+       }
+      ],
+      "verdict": "supported"
+     },
+     {
+      "sentence": "Maintain vigilant monitoring for brown planthopper damage symptoms, such as hopper burn, due to favorable temperatures for population growth [3][6].",
+      "cited": [
+       3,
+       6
+      ],
+      "claims": [
+       {
+        "claim": "Maintain vigilant monitoring.",
+        "verdict": "partially_supported",
+        "reason": "Passage [6] advises on proactive responses to climate-related risks, implying the need for vigilant monitoring."
+       },
+       {
+        "claim": "Monitor for brown planthopper damage symptoms.",
+        "verdict": "supported",
+        "reason": "Passage [3] mentions yield losses up to 60% and population growth peaks at approximately 28-30\u00b0C, which implies monitoring for damage symptoms."
+       },
+       {
+        "claim": "The symptoms include hopper burn.",
+        "verdict": "supported",
+        "reason": "Passage [3] mentions 'Yield losses up to 60% are common in susceptible cultivars during outbreak years' which matches the claim's mention of hopper burn."
+       },
+       {
+        "claim": "Favorable temperatures exist for brown planthopper population growth.",
+        "verdict": "supported",
+        "reason": "Passage [3] states that population growth peaks at approximately 28 to 30\u00b0C, which is a favorable temperature for brown planthopper population growth."
+       }
+      ],
+      "verdict": "partial"
+     },
+     {
+      "sentence": "Ensure timely irrigation during dry spells by activating pump systems at least 48 hours in advance to protect tillering and panicle initiation stages [6].",
+      "cited": [
+       6
+      ],
+      "claims": [
+       {
+        "claim": "Ensure timely irrigation.",
+        "verdict": "supported",
+        "reason": "Passage [6] advises to activate pump irrigation at least 48 hours in advance during dry spell forecast, which implies timely irrigation."
+       },
+       {
+        "claim": "Irrigation is done during dry spells.",
+        "verdict": "supported",
+        "reason": "Passage [6] states 'dry spell forecast \u2192 activate pump irrigation at least 48 hours in advance'."
+       },
+       {
+        "claim": "Activate pump systems at least 48 hours in advance.",
+        "verdict": "supported",
+        "reason": "Passage [6] advises to activate pump irrigation at least 48 hours in advance during mid-season dry spells."
+       },
+       {
+        "claim": "Protect tillering stage.",
+        "verdict": "supported",
+        "reason": "Passage [6] mentions mid-season dry spells during July-August threatening tillering and panicle initiation."
+       },
+       {
+        "claim": "Protect panicle initiation stage.",
+        "verdict": "supported",
+        "reason": "Passage [6] mentions mid-season dry spells during July-August threatening tillering and panicle initiation, which implies protecting the panicle initiation stage."
+       }
+      ],
+      "verdict": "supported"
+     }
+    ],
+    "frac_supported": 0.75,
+    "frac_partial": 0.25,
+    "frac_unsupported": 0.0,
+    "claim_supported": 0.9411764705882353,
+    "judge_model": "llama3:latest"
+   }
+  },
+  {
+   "i": 16,
+   "district": "Kanpur Nagar",
+   "scenario": "good",
+   "analog_year": 2011,
+   "frac_supported": 0.75,
+   "frac_partial": 0.25,
+   "frac_unsupported": 0.0,
+   "claim_supported": 0.9285714285714286,
+   "cosine_relevance": 0.75,
+   "n_sentences": 4,
+   "max_cosine": [
+    0.7825860977172852,
+    0.819562554359436,
+    0.8539172410964966,
+    0.7003248929977417
+   ],
+   "faithfulness": {
+    "sentences": [
+     {
+      "sentence": "Apply the full recommended NPK schedule of 120:60:60 along with 5 kg Zinc per hectare as zinc sulphate [1][2].",
+      "cited": [
+       1,
+       2
+      ],
+      "claims": [
+       {
+        "claim": "Apply the full recommended NPK schedule.",
+        "verdict": "supported",
+        "reason": "Passage [1] states 'Apply the full recommended fertilizer dose...' which matches the claim."
+       },
+       {
+        "claim": "The NPK schedule is 120:60:60.",
+        "verdict": "supported",
+        "reason": "Passage [1] explicitly states the NPK schedule as 120 kg Nitrogen per hectare, 60 kg Phosphorus (as P2O5) per hectare, and 60 kg Potassium (as K2O) per hectare."
+       },
+       {
+        "claim": "Use 5 kg Zinc per hectare as zinc sulphate.",
+        "verdict": "supported",
+        "reason": "Passage [1] explicitly states '5 kg Zinc per hectare applied as zinc sulphate'."
+       }
+      ],
+      "verdict": "supported"
+     },
+     {
+      "sentence": "Add an extra top-dress nitrogen split at 75 DAT if the rice canopy remains green and vigorous to support growth during this good year scenario [2].",
+      "cited": [
+       2
+      ],
+      "claims": [
+       {
+        "claim": "Add an extra top-dress nitrogen split.",
+        "verdict": "supported",
+        "reason": "The passage suggests adding a third top-dress nitrogen split at 75 DAT if the canopy stays green and vigorous."
+       },
+       {
+        "claim": "The extra top-dress is at 75 DAT.",
+        "verdict": "supported",
+        "reason": "The passages state the extra top-dress nitrogen split at 75 DAT if canopy stays green and vigorous."
+       },
+       {
+        "claim": "The rice canopy remains green and vigorous.",
+        "verdict": "supported",
+        "reason": "The passages state 'canopy stays green and vigorous' as a condition for applying a third top-dress nitrogen split."
+       },
+       {
+        "claim": "Support growth during a good year scenario.",
+        "verdict": "supported",
+        "reason": "Passage [2] explicitly states to apply full NPK schedule for good year scenario, supporting growth."
+       }
+      ],
+      "verdict": "supported"
+     },
+     {
+      "sentence": "Be vigilant for brown planthopper (BPH) outbreaks, which are more likely in a good monsoon year with ideal temperatures for population growth [3][4].",
+      "cited": [
+       3,
+       4
+      ],
+      "claims": [
+       {
+        "claim": "Be vigilant for brown planthopper (BPH) outbreaks.",
+        "verdict": "supported",
+        "reason": "Passage [3] states that yield losses up to 60% are common during outbreak years, implying the need for vigilance."
+       },
+       {
+        "claim": "Outbreaks of BPH are more likely in a good monsoon year.",
+        "verdict": "partially_supported",
+        "reason": "Passage [3] mentions that yield losses up to 60% are common during outbreak years, but it does not explicitly state that good monsoon years lead to outbreaks."
+       },
+       {
+        "claim": "Ideal temperatures facilitate population growth of BPH.",
+        "verdict": "supported",
+        "reason": "Passage [3] states that population growth peaks at approximately 28 to 30\u00b0C, which facilitates population growth of BPH."
+       }
+      ],
+      "verdict": "partial"
+     },
+     {
+      "sentence": "Plan storage capacity ahead of time to avoid distress sales at harvest due to potentially higher yields from the favorable weather conditions [2].",
+      "cited": [
+       2
+      ],
+      "claims": [
+       {
+        "claim": "Plan storage capacity ahead of time.",
+        "verdict": "supported",
+        "reason": "Passage [2] explicitly states to plan storage capacity ahead of time."
+       },
+       {
+        "claim": "Avoid distress sales at harvest.",
+        "verdict": "supported",
+        "reason": "Passage [2] explicitly states 'plan storage capacity ahead of time to avoid distress sale at harvest'."
+       },
+       {
+        "claim": "Harvest occurs due to potentially higher yields.",
+        "verdict": "supported",
+        "reason": "The passage mentions 'harvest' and 'higher yields' in the context of a good year scenario, supporting the claim."
+       },
+       {
+        "claim": "The favorable weather conditions lead to potentially higher yields.",
+        "verdict": "supported",
+        "reason": "The passage mentions 'good year scenario' with above-normal monsoon, implying favorable weather conditions leading to potentially higher yields."
+       }
+      ],
+      "verdict": "supported"
+     }
+    ],
+    "frac_supported": 0.75,
+    "frac_partial": 0.25,
+    "frac_unsupported": 0.0,
+    "claim_supported": 0.9285714285714286,
+    "judge_model": "llama3:latest"
+   }
+  },
+  {
+   "i": 17,
+   "district": "Kanpur Nagar",
+   "scenario": "good",
+   "analog_year": 2012,
+   "frac_supported": 0.75,
+   "frac_partial": 0.25,
+   "frac_unsupported": 0.0,
+   "claim_supported": 0.9375,
+   "cosine_relevance": 0.5,
+   "n_sentences": 4,
+   "max_cosine": [
+    0.8316465020179749,
+    0.7694621086120605,
+    0.8649212121963501,
+    0.6937475204467773
+   ],
+   "faithfulness": {
+    "sentences": [
+     {
+      "sentence": "Apply the full recommended NPK dose of 120 kg Nitrogen per hectare, 60 kg Phosphorus (as P2O5) per hectare, and 60 kg Potassium (as K2O) per hectare along with 5 kg Zinc as zinc sulphate [1][2].",
+      "cited": [
+       1,
+       2
+      ],
+      "claims": [
+       {
+        "claim": "Apply the full recommended NPK dose.",
+        "verdict": "supported",
+        "reason": "Passage [1] states 'Apply the full recommended fertilizer dose...' which matches the claim."
+       },
+       {
+        "claim": "The full recommended NPK dose is 120 kg Nitrogen per hectare.",
+        "verdict": "supported",
+        "reason": "Passage [1] explicitly states the full recommended NPK dose as 120 kg Nitrogen per hectare."
+       },
+       {
+        "claim": "The full recommended NPK dose is 60 kg Phosphorus (as P2O5) per hectare.",
+        "verdict": "supported",
+        "reason": "Passage [1] states the full recommended fertilizer dose as 60 kg Phosphorus (as P2O5) per hectare."
+       },
+       {
+        "claim": "The full recommended NPK dose is 60 kg Potassium (as K2O) per hectare.",
+        "verdict": "supported",
+        "reason": "Passage [1] states the full recommended fertilizer dose as 60 kg Potassium (as K2O) per hectare."
+       },
+       {
+        "claim": "Apply 5 kg Zinc as zinc sulphate.",
+        "verdict": "supported",
+        "reason": "Passage [1] explicitly states '5 kg Zinc per hectare applied as zinc sulphate'."
+       }
+      ],
+      "verdict": "supported"
+     },
+     {
+      "sentence": "Add a third top-dress nitrogen split at 75 DAT if the canopy remains green and vigorous to support healthy growth in this good year scenario [2].",
+      "cited": [
+       2
+      ],
+      "claims": [
+       {
+        "claim": "Add a third top-dress nitrogen split.",
+        "verdict": "supported",
+        "reason": "Passage [2] explicitly states to add a third top-dress nitrogen split at 75 DAT."
+       },
+       {
+        "claim": "The third top-dress nitrogen split is at 75 DAT.",
+        "verdict": "supported",
+        "reason": "The passage explicitly states the third top-dress nitrogen split as 'at 75 DAT'."
+       },
+       {
+        "claim": "The canopy remains green and vigorous.",
+        "verdict": "supported",
+        "reason": "The passages state 'canopy stays green and vigorous' as a condition for applying a third top-dress nitrogen split."
+       },
+       {
+        "claim": "Support healthy growth in this good year scenario.",
+        "verdict": "supported",
+        "reason": "The passage explicitly states to apply the full NPK schedule and add a third top-dress nitrogen split for healthy growth in a good year scenario."
+       }
+      ],
+      "verdict": "supported"
+     },
+     {
+      "sentence": "Be vigilant for brown planthopper (BPH) outbreaks, which are more likely under conditions of above-normal monsoon rainfall and vigorous rice growth; start weekly scouting from the panicle initiation stage onward [2][3].",
+      "cited": [
+       2,
+       3
+      ],
+      "claims": [
+       {
+        "claim": "Be vigilant for brown planthopper (BPH) outbreaks.",
+        "verdict": "supported",
+        "reason": "Passage [2] explicitly mentions being vigilant for BPH outbreak."
+       },
+       {
+        "claim": "Brown planthopper (BPH) outbreaks are more likely under conditions of above-normal monsoon rainfall.",
+        "verdict": "supported",
+        "reason": "Passage [2] mentions ideal weather for BPH outbreak coincides with vigorous rice growth, which is likely to occur under conditions of above-normal monsoon rainfall."
+       },
+       {
+        "claim": "Brown planthopper (BPH) outbreaks are more likely under conditions of vigorous rice growth.",
+        "verdict": "supported",
+        "reason": "Passage [2] mentions ideal weather for BPH outbreak coincides with vigorous rice growth, implying increased likelihood of outbreaks under such conditions."
+       },
+       {
+        "claim": "Start weekly scouting from the panicle initiation stage onward.",
+        "verdict": "partially_supported",
+        "reason": "Passage [2] mentions '75 DAT' as a stage for nitrogen top-dress, but does not specify the exact stage to start scouting."
+       }
+      ],
+      "verdict": "partial"
+     },
+     {
+      "sentence": "Plan storage capacity ahead of time to avoid distress sale at harvest due to anticipated higher yields in this good year scenario [2].",
+      "cited": [
+       2
+      ],
+      "claims": [
+       {
+        "claim": "Plan storage capacity ahead of time.",
+        "verdict": "supported",
+        "reason": "Passage [2] explicitly states to plan storage capacity ahead of time."
+       },
+       {
+        "claim": "Avoid a distress sale at harvest.",
+        "verdict": "supported",
+        "reason": "The passage explicitly states 'plan storage capacity ahead of time to avoid distress sale at harvest'."
+       },
+       {
+        "claim": "Anticipate higher yields in this good year scenario.",
+        "verdict": "supported",
+        "reason": "The passage mentions a 'good year' with above-normal monsoon, implying higher yields."
+       }
+      ],
+      "verdict": "supported"
+     }
+    ],
+    "frac_supported": 0.75,
+    "frac_partial": 0.25,
+    "frac_unsupported": 0.0,
+    "claim_supported": 0.9375,
+    "judge_model": "llama3:latest"
+   }
+  },
+  {
+   "i": 18,
+   "district": "Kanpur Nagar",
+   "scenario": "good",
+   "analog_year": 2013,
+   "frac_supported": 1.0,
+   "frac_partial": 0.0,
+   "frac_unsupported": 0.0,
+   "claim_supported": 1.0,
+   "cosine_relevance": 0.8,
+   "n_sentences": 5,
+   "max_cosine": [
+    0.8307405710220337,
+    0.8227436542510986,
+    0.8271384239196777,
+    0.7609248161315918,
+    0.7817983627319336
+   ],
+   "faithfulness": {
+    "sentences": [
+     {
+      "sentence": "Apply the full recommended NPK schedule of 120 kg Nitrogen per hectare, 60 kg Phosphorus (as P2O5) per hectare, and 60 kg Potassium (as K2O) per hectare along with 5 kg Zinc per hectare as zinc sulphate [2][1].",
+      "cited": [
+       1,
+       2
+      ],
+      "claims": [
+       {
+        "claim": "Apply the full recommended NPK schedule.",
+        "verdict": "supported",
+        "reason": "Passage [1] states 'Standard fertilizer sources are urea for nitrogen, diammonium phosphate (DAP) for phosphorus, muriate of potash (MOP) for potassium, and zinc sulphate for zinc. This NPK schedule ("
+       },
+       {
+        "claim": "The recommended NPK schedule includes 120 kg Nitrogen per hectare.",
+        "verdict": "supported",
+        "reason": "Passage [1] explicitly states the recommended NPK schedule as 120 kg Nitrogen per hectare."
+       },
+       {
+        "claim": "The recommended NPK schedule includes 60 kg Phosphorus (as P2O5) per hectare.",
+        "verdict": "supported",
+        "reason": "Passage [1] explicitly states the recommended NPK schedule as 60 kg Phosphorus (as P2O5) per hectare."
+       },
+       {
+        "claim": "The recommended NPK schedule includes 60 kg Potassium (as K2O) per hectare.",
+        "verdict": "supported",
+        "reason": "Passage [1] explicitly states the recommended NPK schedule as 120 kg Nitrogen, 60 kg Phosphorus (as P2O5), and 60 kg Potassium (as K2O) per hectare."
+       },
+       {
+        "claim": "Apply 5 kg Zinc per hectare as zinc sulphate.",
+        "verdict": "supported",
+        "reason": "Passage [1] explicitly states the recommended dose of 5 kg Zinc per hectare as zinc sulphate."
+       }
+      ],
+      "verdict": "supported"
+     },
+     {
+      "sentence": "Consider adding a third top-dress nitrogen split at 75 DAT if the rice canopy remains green and vigorous to support robust growth during this good year scenario [2].",
+      "cited": [
+       2
+      ],
+      "claims": [
+       {
+        "claim": "Consider adding a third top-dress nitrogen split.",
+        "verdict": "supported",
+        "reason": "Passage [2] explicitly mentions adding a third top-dress nitrogen split at 75 DAT."
+       },
+       {
+        "claim": "The third top-dress nitrogen split is at 75 DAT.",
+        "verdict": "supported",
+        "reason": "The passage explicitly states the third top-dress nitrogen split as 'at 75 DAT'."
+       },
+       {
+        "claim": "The rice canopy remains green and vigorous.",
+        "verdict": "supported",
+        "reason": "The passages state that the claim is ideal for BPH outbreak, implying a healthy and green canopy."
+       },
+       {
+        "claim": "Support robust growth during this good year scenario.",
+        "verdict": "supported",
+        "reason": "The passage explicitly states to apply the full NPK schedule for robust growth during a good year scenario."
+       }
+      ],
+      "verdict": "supported"
+     },
+     {
+      "sentence": "Be vigilant for potential BPH outbreaks, given that ideal weather conditions for the pest coincide with vigorous rice growth stages in Kanpur's climate [3][2].",
+      "cited": [
+       2,
+       3
+      ],
+      "claims": [
+       {
+        "claim": "Be vigilant for potential BPH outbreaks.",
+        "verdict": "supported",
+        "reason": "Passage [2] explicitly advises to be vigilant for BPH outbreak."
+       },
+       {
+        "claim": "Ideal weather conditions for the pest exist.",
+        "verdict": "supported",
+        "reason": "Ideal weather coincides with vigorous rice growth, as stated in passage [2]."
+       },
+       {
+        "claim": "The ideal weather conditions for the pest coincide with vigorous rice growth stages.",
+        "verdict": "supported",
+        "reason": "Passage [2] states 'ideal weather for the pest coincides with vigorous rice growth'."
+       },
+       {
+        "claim": "Kanpur's climate exists.",
+        "verdict": "supported",
+        "reason": "Passage [3] mentions Kanpur, stating temperature conditions in August and September."
+       },
+       {
+        "claim": "Vigorous rice growth stages occur in Kanpur's climate.",
+        "verdict": "supported",
+        "reason": "Passage [3] mentions 'vigorously' rice growth, which implies that such stages occur in Kanpur's climate."
+       }
+      ],
+      "verdict": "supported"
+     },
+     {
+      "sentence": "Plan storage capacity ahead of time to avoid distress sale at harvest due to anticipated higher yields in a good monsoon year [2].",
+      "cited": [
+       2
+      ],
+      "claims": [
+       {
+        "claim": "Plan storage capacity ahead of time.",
+        "verdict": "supported",
+        "reason": "Passage [2] explicitly states to plan storage capacity ahead of time."
+       },
+       {
+        "claim": "Avoid distress sale at harvest.",
+        "verdict": "supported",
+        "reason": "Passage [2] explicitly states 'plan storage capacity ahead of time to avoid distress sale at harvest'."
+       },
+       {
+        "claim": "Anticipate higher yields in a good monsoon year.",
+        "verdict": "supported",
+        "reason": "The passage mentions 'good year scenario' and 'above-normal monsoon', implying higher yields."
+       }
+      ],
+      "verdict": "supported"
+     },
+     {
+      "sentence": "Weekly scouting from the panicle initiation stage onward is crucial to detect BPH early, as visible hopper burn indicates high population levels and makes curative action difficult [4].",
+      "cited": [
+       4
+      ],
+      "claims": [
+       {
+        "claim": "Weekly scouting occurs.",
+        "verdict": "supported",
+        "reason": "Passage [4] explicitly states 'Weekly scouting from the panicle initiation stage onward is the recommended early-warning practice.'"
+       },
+       {
+        "claim": "Scouting starts from the panicle initiation stage onward.",
+        "verdict": "supported",
+        "reason": "The passages state that 'Weekly scouting from the panicle initiation stage onward is the recommended early-warning practice.'"
+       },
+       {
+        "claim": "Detecting BPH early is crucial.",
+        "verdict": "supported",
+        "reason": "Passage [4] states that 'curative action is difficult' by the time hopper burn is visible, implying that detecting BPH early is crucial."
+       },
+       {
+        "claim": "Visible hopper burn indicates high population levels.",
+        "verdict": "supported",
+        "reason": "Passage [4] states that by the time hopper burn is visible, population levels are already very high."
+       },
+       {
+        "claim": "High population levels make curative action difficult.",
+        "verdict": "supported",
+        "reason": "Passage [4] states that by the time hopper burn is visible, population levels are already very high and curative action is difficult."
+       }
+      ],
+      "verdict": "supported"
+     }
+    ],
+    "frac_supported": 1.0,
+    "frac_partial": 0.0,
+    "frac_unsupported": 0.0,
+    "claim_supported": 1.0,
+    "judge_model": "llama3:latest"
+   }
+  },
+  {
+   "i": 19,
+   "district": "Kanpur Nagar",
+   "scenario": "bad",
+   "analog_year": 2014,
+   "frac_supported": 0.8,
+   "frac_partial": 0.2,
+   "frac_unsupported": 0.0,
+   "claim_supported": 0.9411764705882353,
+   "cosine_relevance": 0.4,
+   "n_sentences": 5,
+   "max_cosine": [
+    0.8008060455322266,
+    0.7498043775558472,
+    0.7353824377059937,
+    0.780226469039917,
+    0.7621830701828003
+   ],
+   "faithfulness": {
+    "sentences": [
+     {
+      "sentence": "Adjust your nitrogen application by splitting the dose at 60 DAT as this may be optional in a forecasted bad year [2].",
+      "cited": [
+       2
+      ],
+      "claims": [
+       {
+        "claim": "Adjust your nitrogen application.",
+        "verdict": "partially_supported",
+        "reason": "The passage suggests adjusting nitrogen application, specifically making the 60 DAT dose optional in a bad year scenario."
+       },
+       {
+        "claim": "Split the dose at 60 DAT.",
+        "verdict": "supported",
+        "reason": "The passages state 'nitrogen split dose at 60 DAT becomes optional'."
+       },
+       {
+        "claim": "This may be optional in a forecasted bad year.",
+        "verdict": "supported",
+        "reason": "The passage states that nitrogen split dose at 60 DAT becomes optional in a forecasted bad year, supporting the claim."
+       }
+      ],
+      "verdict": "partial"
+     },
+     {
+      "sentence": "Prioritize scouting for BPH starting from the panicle initiation stage, given that temperatures are conducive for population growth [3][4].",
+      "cited": [
+       3,
+       4
+      ],
+      "claims": [
+       {
+        "claim": "Prioritize scouting for BPH.",
+        "verdict": "supported",
+        "reason": "Passage [4] recommends weekly scouting from panicle initiation stage onward, which implies prioritizing scouting for BPH."
+       },
+       {
+        "claim": "Scouting starts from the panicle initiation stage.",
+        "verdict": "supported",
+        "reason": "Weekly scouting from the panicle initiation stage onward is recommended."
+       },
+       {
+        "claim": "Temperatures are conducive for population growth.",
+        "verdict": "supported",
+        "reason": "Passage [3] states that population growth peaks at approximately 28 to 30\u00b0C, which are conducive temperatures for population growth."
+       }
+      ],
+      "verdict": "supported"
+     },
+     {
+      "sentence": "Ensure timely irrigation during dry spells to mitigate threats to tillering and panicle initiation [6].",
+      "cited": [
+       6
+      ],
+      "claims": [
+       {
+        "claim": "Ensure timely irrigation.",
+        "verdict": "supported",
+        "reason": "Passage [6] advises to activate pump irrigation at least 48 hours in advance during dry spell forecast, which implies timely irrigation."
+       },
+       {
+        "claim": "Irrigation occurs during dry spells.",
+        "verdict": "supported",
+        "reason": "Passage [6] states 'dry spell forecast \u2192 activate pump irrigation at least 48 hours in advance'."
+       },
+       {
+        "claim": "This is done to mitigate threats to tillering.",
+        "verdict": "supported",
+        "reason": "Passage [6] mentions mid-season dry spells during July-August threatening tillering, and advisory suggests activating pump irrigation at least 48 hours in advance to mitigate this threat."
+       },
+       {
+        "claim": "This is done to mitigate threats to panicle initiation.",
+        "verdict": "supported",
+        "reason": "Passage [6] mentions mid-season dry spells threatening tillering and panicle initiation, which is the specific threat to panicle initiation mentioned in the claim."
+       }
+      ],
+      "verdict": "supported"
+     },
+     {
+      "sentence": "Consider registering for PMFBY insurance before the cut-off date as a financial safeguard against low yields [2].",
+      "cited": [
+       2
+      ],
+      "claims": [
+       {
+        "claim": "Consider registering for PMFBY insurance.",
+        "verdict": "supported",
+        "reason": "Passage [2] explicitly states 'register PMFBY insurance before cut-off'."
+       },
+       {
+        "claim": "The cut-off date exists.",
+        "verdict": "supported",
+        "reason": "The passage mentions 'register PMFBY insurance before cut-off'."
+       },
+       {
+        "claim": "Registering is a financial safeguard against low yields.",
+        "verdict": "supported",
+        "reason": "The passage states that registering PMFBY insurance before the cut-off is a financial safeguard against low yields."
+       }
+      ],
+      "verdict": "supported"
+     },
+     {
+      "sentence": "Maintain 5 cm of standing water during flowering stages (Aug-Sep) to protect rice from heat stress [6].",
+      "cited": [
+       6
+      ],
+      "claims": [
+       {
+        "claim": "Maintain 5 cm of standing water.",
+        "verdict": "supported",
+        "reason": "Passage [6] explicitly states 'maintain 5 cm standing water as a thermal buffer'."
+       },
+       {
+        "claim": "The maintenance is done during flowering stages.",
+        "verdict": "supported",
+        "reason": "Passage [6] states 'heat wave forecast during flowering \u2192 maintain 5 cm standing water as a thermal buffer'."
+       },
+       {
+        "claim": "Flowering stages occur in Aug-Sep.",
+        "verdict": "supported",
+        "reason": "Passage [6] explicitly states 'flowering-stage heat stress (daily max > 35\u00b0C) causing spikelet sterility in August-September'."
+       },
+       {
+        "claim": "Protect rice from heat stress.",
+        "verdict": "supported",
+        "reason": "Passage [6] explicitly states 'flowering-stage heat stress (daily max > 35\u00b0C) causing spikelet sterility in August-September', which supports the claim to protect rice from heat stress."
+       }
+      ],
+      "verdict": "supported"
+     }
+    ],
+    "frac_supported": 0.8,
+    "frac_partial": 0.2,
+    "frac_unsupported": 0.0,
+    "claim_supported": 0.9411764705882353,
+    "judge_model": "llama3:latest"
+   }
+  },
+  {
+   "i": 20,
+   "district": "Kanpur Nagar",
+   "scenario": "bad",
+   "analog_year": 2015,
+   "frac_supported": 0.8,
+   "frac_partial": 0.2,
+   "frac_unsupported": 0.0,
+   "claim_supported": 0.9444444444444444,
+   "cosine_relevance": 0.4,
+   "n_sentences": 5,
+   "max_cosine": [
+    0.7640188932418823,
+    0.7468713521957397,
+    0.7300620079040527,
+    0.8115711212158203,
+    0.7975616455078125
+   ],
+   "faithfulness": {
+    "sentences": [
+     {
+      "sentence": "Reduce nitrogen application to 60 kg per hectare as recommended for low yield scenarios [2][1].",
+      "cited": [
+       1,
+       2
+      ],
+      "claims": [
+       {
+        "claim": "Reduce nitrogen application.",
+        "verdict": "supported",
+        "reason": "The passage suggests reducing input intensity, including nitrogen, in a bad year scenario."
+       },
+       {
+        "claim": "Nitrogen application is reduced to 60 kg per hectare.",
+        "verdict": "supported",
+        "reason": "Passage [1] states 'nitrogen split dose at 60 DAT becomes optional' which implies reducing nitrogen application to 60 kg per hectare."
+       },
+       {
+        "claim": "The reduction is recommended for low yield scenarios.",
+        "verdict": "supported",
+        "reason": "The passage [2] explicitly states 'reduce input intensity to conserve cash' for a bad year scenario, which implies reducing fertilizer application."
+       }
+      ],
+      "verdict": "supported"
+     },
+     {
+      "sentence": "Prioritize scouting for BPH starting from panicle initiation stage due to favorable temperature conditions for population growth [3][4].",
+      "cited": [
+       3,
+       4
+      ],
+      "claims": [
+       {
+        "claim": "Prioritize scouting for BPH.",
+        "verdict": "supported",
+        "reason": "Passage [4] recommends weekly scouting from panicle initiation stage onward, which implies prioritizing scouting for BPH."
+       },
+       {
+        "claim": "Scouting starts from the panicle initiation stage.",
+        "verdict": "supported",
+        "reason": "Weekly scouting from the panicle initiation stage onward is recommended."
+       },
+       {
+        "claim": "Favorable temperature conditions exist for population growth.",
+        "verdict": "supported",
+        "reason": "Passage [3] states that population growth peaks at approximately 28 to 30\u00b0C, which are favorable temperature conditions for population growth."
+       }
+      ],
+      "verdict": "supported"
+     },
+     {
+      "sentence": "Ensure timely irrigation, especially before and during dry spells, maintaining soil moisture levels critical for tillering and panicle development [6].",
+      "cited": [
+       6
+      ],
+      "claims": [
+       {
+        "claim": "Ensure timely irrigation.",
+        "verdict": "supported",
+        "reason": "Passage [6] advises to activate pump irrigation at least 48 hours in advance during dry spell forecast, which implies timely irrigation."
+       },
+       {
+        "claim": "Irrigation is especially important before and during dry spells.",
+        "verdict": "supported",
+        "reason": "Passage [6] advises to activate pump irrigation at least 48 hours in advance during dry spell forecast."
+       },
+       {
+        "claim": "Maintaining soil moisture levels is critical for tillering.",
+        "verdict": "supported",
+        "reason": "Passage [6] mentions mid-season dry spells threatening tillering, implying maintaining soil moisture levels is crucial for this stage."
+       },
+       {
+        "claim": "Soil moisture levels are critical for panicle development.",
+        "verdict": "supported",
+        "reason": "Passage [6] mentions mid-season dry spells threatening tillering and panicle initiation, implying soil moisture levels are critical for panicle development."
+       }
+      ],
+      "verdict": "supported"
+     },
+     {
+      "sentence": "Consider applying zinc sulphate at the recommended rate of 5 kg per hectare as part of your NPK regimen despite reduced overall fertilizer intensity [1].",
+      "cited": [
+       1
+      ],
+      "claims": [
+       {
+        "claim": "Consider applying zinc sulphate.",
+        "verdict": "supported",
+        "reason": "Passage mentions 5 kg Zinc per hectare applied as zinc sulphate, which supports considering applying zinc sulphate."
+       },
+       {
+        "claim": "The recommended rate is 5 kg per hectare.",
+        "verdict": "unsupported",
+        "reason": "The passages recommend 5 kg Zinc per hectare, not nitrogen or phosphorus."
+       },
+       {
+        "claim": "Apply zinc sulphate as part of your NPK regimen.",
+        "verdict": "supported",
+        "reason": "Passage explicitly states '5 kg Zinc per hectare applied as zinc sulphate'."
+       },
+       {
+        "claim": "Despite reduced overall fertilizer intensity, consider applying zinc sulphate.",
+        "verdict": "supported",
+        "reason": "Passage explicitly mentions 5 kg Zinc per hectare applied as zinc sulphate."
+       }
+      ],
+      "verdict": "partial"
+     },
+     {
+      "sentence": "Register for PMFBY insurance to mitigate financial risk associated with lower expected yields due to adverse weather conditions [2].",
+      "cited": [
+       2
+      ],
+      "claims": [
+       {
+        "claim": "Register for PMFBY insurance.",
+        "verdict": "supported",
+        "reason": "The passage explicitly states to 'register PMFBY insurance before cut-off'."
+       },
+       {
+        "claim": "Mitigate financial risk.",
+        "verdict": "supported",
+        "reason": "The passage suggests reducing input intensity to conserve cash, prioritizing insecticide use based on scouting-confirmed BPH presence, and registering PMFBY insurance before the cut-off date to mitiga"
+       },
+       {
+        "claim": "The financial risk is associated with lower expected yields.",
+        "verdict": "supported",
+        "reason": "The passage mentions a 'bad year scenario' and reducing input intensity to conserve cash, implying financial risk is associated with lower expected yields."
+       },
+       {
+        "claim": "Lower expected yields are due to adverse weather conditions.",
+        "verdict": "supported",
+        "reason": "The passage mentions a 'bad year scenario' with below-normal monsoon and high heat stress days, indicating adverse weather conditions."
+       }
+      ],
+      "verdict": "supported"
+     }
+    ],
+    "frac_supported": 0.8,
+    "frac_partial": 0.2,
+    "frac_unsupported": 0.0,
+    "claim_supported": 0.9444444444444444,
+    "judge_model": "llama3:latest"
+   }
+  },
+  {
+   "i": 21,
+   "district": "Kanpur Nagar",
+   "scenario": "average",
+   "analog_year": 2016,
+   "frac_supported": 1.0,
+   "frac_partial": 0.0,
+   "frac_unsupported": 0.0,
+   "claim_supported": 1.0,
+   "cosine_relevance": 1.0,
+   "n_sentences": 2,
+   "max_cosine": [
+    0.9620036482810974,
+    0.8469396829605103
+   ],
+   "faithfulness": {
+    "sentences": [
+     {
+      "sentence": "Follow the standard NPK recommendation for Kharif rice in Uttar Pradesh, which is 120 kg Nitrogen per hectare, 60 kg Phosphorus as P2O5, and 60 kg Potassium as K2O, along with 5 kg Zinc [1][5].",
+      "cited": [
+       1,
+       5
+      ],
+      "claims": [
+       {
+        "claim": "Follow the standard NPK recommendation for Kharif rice in Uttar Pradesh.",
+        "verdict": "supported",
+        "reason": "Passage [1] states the standard NPK recommendation for Kharif rice in Uttar Pradesh as 120:60:60, matching the claim."
+       },
+       {
+        "claim": "The standard NPK recommendation is 120 kg Nitrogen per hectare.",
+        "verdict": "supported",
+        "reason": "Passage [1] states the standard NPK recommendation for Kharif rice in Uttar Pradesh as 120 kg Nitrogen per hectare."
+       },
+       {
+        "claim": "The standard NPK recommendation is 60 kg Phosphorus as P2O5.",
+        "verdict": "supported",
+        "reason": "Passage [1] states the standard NPK recommendation for Kharif rice in Uttar Pradesh as 60 kg Phosphorus (as P2O5) per hectare."
+       },
+       {
+        "claim": "The standard NPK recommendation is 60 kg Potassium as K2O.",
+        "verdict": "supported",
+        "reason": "Passage [1] states the standard NPK recommendation includes 60 kg Potassium as K2O per hectare."
+       },
+       {
+        "claim": "Apply 5 kg Zinc.",
+        "verdict": "supported",
+        "reason": "Passage [1] explicitly states '5 kg Zinc per hectare applied as zinc sulphate'."
+       }
+      ],
+      "verdict": "supported"
+     },
+     {
+      "sentence": "Scout fields weekly from the panicle initiation stage onward to detect early signs of brown planthopper (BPH) infestation, which can cause significant damage if not controlled promptly [3][5].",
+      "cited": [
+       3,
+       5
+      ],
+      "claims": [
+       {
+        "claim": "Scout fields weekly.",
+        "verdict": "supported",
+        "reason": "Passages [3] and [5] both recommend scouting fields weekly."
+       },
+       {
+        "claim": "Scouting starts from the panicle initiation stage onward.",
+        "verdict": "supported",
+        "reason": "Passages [3] and [5] both state that scouting starts from the panicle initiation stage onward."
+       },
+       {
+        "claim": "Detect early signs of brown planthopper (BPH) infestation.",
+        "verdict": "supported",
+        "reason": "Passage [3] recommends weekly scouting from panicle initiation stage onward to detect early signs of BPH infestation."
+       },
+       {
+        "claim": "Brown planthopper (BPH) infestation can cause significant damage if not controlled promptly.",
+        "verdict": "supported",
+        "reason": "Passage [3] describes hopper burn symptoms and the difficulty of curative action, implying significant damage if not controlled promptly."
+       }
+      ],
+      "verdict": "supported"
+     }
+    ],
+    "frac_supported": 1.0,
+    "frac_partial": 0.0,
+    "frac_unsupported": 0.0,
+    "claim_supported": 1.0,
+    "judge_model": "llama3:latest"
+   }
+  },
+  {
+   "i": 22,
+   "district": "Kanpur Nagar",
+   "scenario": "average",
+   "analog_year": 2017,
+   "frac_supported": 1.0,
+   "frac_partial": 0.0,
+   "frac_unsupported": 0.0,
+   "claim_supported": 1.0,
+   "cosine_relevance": 0.6,
+   "n_sentences": 5,
+   "max_cosine": [
+    0.8193979263305664,
+    0.7293288707733154,
+    0.8446173667907715,
+    0.7913209199905396,
+    0.7735146284103394
+   ],
+   "faithfulness": {
+    "sentences": [
+     {
+      "sentence": "Follow the standard NPK recommendation of 120 kg Nitrogen per hectare, 60 kg Phosphorus (as P2O5) per hectare, and 60 kg Potassium (as K2O) per hectare [1].",
+      "cited": [
+       1
+      ],
+      "claims": [
+       {
+        "claim": "Follow the standard NPK recommendation.",
+        "verdict": "supported",
+        "reason": "Passage explicitly states the standard NPK recommendation as 120:60:60, matching the claim."
+       },
+       {
+        "claim": "The standard NPK recommendation is for 120 kg Nitrogen per hectare.",
+        "verdict": "supported",
+        "reason": "Passage [1] states the standard NPK recommendation for Kharif rice in Uttar Pradesh is 120 kg Nitrogen per hectare."
+       },
+       {
+        "claim": "The standard NPK recommendation is for 60 kg Phosphorus (as P2O5) per hectare.",
+        "verdict": "supported",
+        "reason": "Passage states '60 kg Phosphorus (as P2O5) per hectare' as part of the standard NPK recommendation."
+       },
+       {
+        "claim": "The standard NPK recommendation is for 60 kg Potassium (as K2O) per hectare.",
+        "verdict": "supported",
+        "reason": "Passage states '60 kg Potassium (as K2O) per hectare' as part of the standard NPK recommendation."
+       }
+      ],
+      "verdict": "supported"
+     },
+     {
+      "sentence": "Add zinc sulphate at a rate of 5 kg per hectare to ensure adequate micronutrient availability for the crop [1].",
+      "cited": [
+       1
+      ],
+      "claims": [
+       {
+        "claim": "Add zinc sulphate.",
+        "verdict": "supported",
+        "reason": "Passage explicitly states '5 kg Zinc per hectare applied as zinc sulphate'."
+       },
+       {
+        "claim": "The rate is 5 kg per hectare.",
+        "verdict": "supported",
+        "reason": "The passage states '5 kg Zinc per hectare applied as zinc sulphate'."
+       },
+       {
+        "claim": "This is done to ensure adequate micronutrient availability for the crop.",
+        "verdict": "supported",
+        "reason": "Passage states that zinc sulphate is applied as a micronutrient, ensuring adequate availability for the crop."
+       }
+      ],
+      "verdict": "supported"
+     },
+     {
+      "sentence": "Scout fields weekly from panicle initiation onwards to detect early signs of brown planthopper infestation and prevent hopper burn [3][2].",
+      "cited": [
+       2,
+       3
+      ],
+      "claims": [
+       {
+        "claim": "Scout fields weekly.",
+        "verdict": "supported",
+        "reason": "Weekly scouting from panicle initiation stage onward is recommended."
+       },
+       {
+        "claim": "Scouting starts from panicle initiation onwards.",
+        "verdict": "supported",
+        "reason": "Weekly scouting from the panicle initiation stage onward is recommended."
+       },
+       {
+        "claim": "Detect early signs of brown planthopper infestation.",
+        "verdict": "supported",
+        "reason": "Passage [3] recommends weekly scouting from panicle initiation stage onward to detect early signs of brown planthopper infestation."
+       },
+       {
+        "claim": "Prevent hopper burn.",
+        "verdict": "supported",
+        "reason": "Passage [3] recommends weekly scouting from panicle initiation stage onward to detect hopper burn early, implying prevention is possible."
+       }
+      ],
+      "verdict": "supported"
+     },
+     {
+      "sentence": "Maintain standard split irrigation practices, ensuring that you drain the field 7 to 10 days before harvest to prepare for drying [5].",
+      "cited": [
+       5
+      ],
+      "claims": [
+       {
+        "claim": "Maintain standard split irrigation practices.",
+        "verdict": "supported",
+        "reason": "Passage [5] states 'standard practice \u2014 recommended NPK, ... standard split irrigation'."
+       },
+       {
+        "claim": "Ensure that you drain the field.",
+        "verdict": "supported",
+        "reason": "Passage [5] states 'drain 7 to 10 days before harvest'."
+       },
+       {
+        "claim": "Drain the field 7 to 10 days before harvest.",
+        "verdict": "supported",
+        "reason": "Passage [5] states 'drain 7 to 10 days before harvest' which matches the claim."
+       },
+       {
+        "claim": "Prepare for drying.",
+        "verdict": "supported",
+        "reason": "Passage [5] mentions 'drain 7 to 10 days before harvest', implying preparation for drying."
+       }
+      ],
+      "verdict": "supported"
+     },
+     {
+      "sentence": "Be vigilant about BPH as temperatures in Kanpur during August and September are ideal for population growth [2].",
+      "cited": [
+       2
+      ],
+      "claims": [
+       {
+        "claim": "Be vigilant about BPH.",
+        "verdict": "supported",
+        "reason": "The passage states that Brown planthopper is the most damaging insect pest of rice in Asia, implying vigilance is necessary."
+       },
+       {
+        "claim": "Temperatures in Kanpur are ideal for population growth.",
+        "verdict": "supported",
+        "reason": "Passage [2] states that temperature peaks at approximately 28 to 30\u00b0C, which is ideal for population growth."
+       },
+       {
+        "claim": "The ideal temperatures occur in August and September.",
+        "verdict": "supported",
+        "reason": "Passage [2] states that population growth peaks at approximately 28 to 30\u00b0C, which are temperatures routinely reached in Kanpur during August and September."
+       }
+      ],
+      "verdict": "supported"
+     }
+    ],
+    "frac_supported": 1.0,
+    "frac_partial": 0.0,
+    "frac_unsupported": 0.0,
+    "claim_supported": 1.0,
+    "judge_model": "llama3:latest"
+   }
+  },
+  {
+   "i": 23,
+   "district": "Kanpur Nagar",
+   "scenario": "good",
+   "analog_year": 2018,
+   "frac_supported": 1.0,
+   "frac_partial": 0.0,
+   "frac_unsupported": 0.0,
+   "claim_supported": 1.0,
+   "cosine_relevance": 0.5,
+   "n_sentences": 4,
+   "max_cosine": [
+    0.8262447118759155,
+    0.7566702365875244,
+    0.8181013464927673,
+    0.7217047214508057
+   ],
+   "faithfulness": {
+    "sentences": [
+     {
+      "sentence": "Follow the full standard NPK recommendation of 120 kg Nitrogen per hectare, 60 kg Phosphorus (as P2O5) per hectare, and 60 kg Potassium (as K2O) per hectare, plus 5 kg Zinc as zinc sulphate [1][2].",
+      "cited": [
+       1,
+       2
+      ],
+      "claims": [
+       {
+        "claim": "Follow the full standard NPK recommendation.",
+        "verdict": "supported",
+        "reason": "Passage [1] states the full recommended fertilizer dose as 120-60-60 NPK."
+       },
+       {
+        "claim": "The standard NPK recommendation is for 120 kg Nitrogen per hectare.",
+        "verdict": "supported",
+        "reason": "Passage [1] states the standard NPK recommendation as 120 kg Nitrogen per hectare."
+       },
+       {
+        "claim": "The standard NPK recommendation is for 60 kg Phosphorus (as P2O5) per hectare.",
+        "verdict": "supported",
+        "reason": "Passage [1] states the standard NPK recommendation for Kharif rice in Uttar Pradesh as 60 kg Phosphorus (as P2O5) per hectare."
+       },
+       {
+        "claim": "The standard NPK recommendation is for 60 kg Potassium (as K2O) per hectare.",
+        "verdict": "supported",
+        "reason": "Passage [1] states the standard NPK recommendation as 60 kg Potassium (as K2O) per hectare."
+       },
+       {
+        "claim": "Plus apply 5 kg Zinc as zinc sulphate.",
+        "verdict": "supported",
+        "reason": "Passage [1] explicitly states the recommendation to apply 5 kg Zinc as zinc sulphate."
+       }
+      ],
+      "verdict": "supported"
+     },
+     {
+      "sentence": "Add a third top-dress nitrogen split at 75 DAT if the canopy remains green and vigorous to support healthy growth [2].",
+      "cited": [
+       2
+      ],
+      "claims": [
+       {
+        "claim": "Add a third top-dress nitrogen split.",
+        "verdict": "supported",
+        "reason": "Passage [2] explicitly states to add a third top-dress nitrogen split at 75 DAT."
+       },
+       {
+        "claim": "The third top-dress nitrogen split is at 75 DAT.",
+        "verdict": "supported",
+        "reason": "The passage explicitly states the third top-dress nitrogen split as 'at 75 DAT'."
+       },
+       {
+        "claim": "If the canopy remains green and vigorous.",
+        "verdict": "supported",
+        "reason": "The passages state 'if canopy stays green and vigorous' which matches the claim."
+       },
+       {
+        "claim": "Supporting healthy growth is necessary.",
+        "verdict": "supported",
+        "reason": "The passage states that applying the full NPK schedule and adding a third top-dress nitrogen split is necessary for good year scenario, implying supporting healthy growth."
+       }
+      ],
+      "verdict": "supported"
+     },
+     {
+      "sentence": "Be vigilant for brown planthopper outbreaks due to ideal weather conditions coinciding with vigorous rice growth; scout fields weekly from panicle initiation stage onward [2][3][4].",
+      "cited": [
+       2,
+       3,
+       4
+      ],
+      "claims": [
+       {
+        "claim": "Be vigilant for brown planthopper outbreaks.",
+        "verdict": "supported",
+        "reason": "Passage [2] explicitly advises to be vigilant for BPH outbreak."
+       },
+       {
+        "claim": "Ideal weather conditions coincide with vigorous rice growth.",
+        "verdict": "supported",
+        "reason": "Passage [2] states 'ideal weather for the pest coincides with vigorous rice growth'."
+       },
+       {
+        "claim": "Scout fields weekly.",
+        "verdict": "supported",
+        "reason": "Passage [4] recommends weekly scouting from panicle initiation stage onward."
+       },
+       {
+        "claim": "Scouting starts from the panicle initiation stage onward.",
+        "verdict": "supported",
+        "reason": "Passage [4] explicitly states scouting starts from panicle initiation stage onward."
+       }
+      ],
+      "verdict": "supported"
+     },
+     {
+      "sentence": "Plan storage capacity ahead of time to avoid distress sale at harvest, given the forecasted good year scenario [2].",
+      "cited": [
+       2
+      ],
+      "claims": [
+       {
+        "claim": "Plan storage capacity ahead of time.",
+        "verdict": "supported",
+        "reason": "Passage [2] explicitly states to plan storage capacity ahead of time."
+       },
+       {
+        "claim": "Avoid a distress sale at harvest.",
+        "verdict": "supported",
+        "reason": "Passage [2] explicitly states 'plan storage capacity ahead of time to avoid distress sale at harvest'."
+       },
+       {
+        "claim": "The forecast is for a good year.",
+        "verdict": "supported",
+        "reason": "The passage explicitly states 'good year scenario' and provides guidance for that scenario."
+       }
+      ],
+      "verdict": "supported"
+     }
+    ],
+    "frac_supported": 1.0,
+    "frac_partial": 0.0,
+    "frac_unsupported": 0.0,
+    "claim_supported": 1.0,
+    "judge_model": "llama3:latest"
+   }
+  },
+  {
+   "i": 24,
+   "district": "Kanpur Nagar",
+   "scenario": "average",
+   "analog_year": 2019,
+   "frac_supported": 0.8,
+   "frac_partial": 0.2,
+   "frac_unsupported": 0.0,
+   "claim_supported": 0.9545454545454546,
+   "cosine_relevance": 0.8,
+   "n_sentences": 5,
+   "max_cosine": [
+    0.8275734186172485,
+    0.8653009533882141,
+    0.8285588026046753,
+    0.7670856714248657,
+    0.781355619430542
+   ],
+   "faithfulness": {
+    "sentences": [
+     {
+      "sentence": "Follow the standard NPK recommendation of 120 kg Nitrogen per hectare, 60 kg Phosphorus (as P2O5) and Potassium (as K2O) each, along with 5 kg Zinc as zinc sulphate [1][5].",
+      "cited": [
+       1,
+       5
+      ],
+      "claims": [
+       {
+        "claim": "Follow the standard NPK recommendation.",
+        "verdict": "supported",
+        "reason": "Passage [1] states the standard NPK recommendation as 120:60:60, matching the claim."
+       },
+       {
+        "claim": "The standard NPK recommendation is for 120 kg Nitrogen per hectare.",
+        "verdict": "supported",
+        "reason": "Passage [1] states the standard NPK recommendation for Kharif rice in Uttar Pradesh as 120 kg Nitrogen per hectare."
+       },
+       {
+        "claim": "The standard NPK recommendation is for 60 kg Phosphorus (as P2O5) per hectare.",
+        "verdict": "supported",
+        "reason": "Passage [1] states the standard NPK recommendation for Kharif rice in Uttar Pradesh as 60 kg Phosphorus (as P2O5) per hectare."
+       },
+       {
+        "claim": "The standard NPK recommendation is for Potassium (as K2O) each per hectare.",
+        "verdict": "supported",
+        "reason": "Passage [1] states the standard NPK recommendation for Kharif rice in Uttar Pradesh is 60 kg Potassium (as K2O) per hectare."
+       },
+       {
+        "claim": "Apply 5 kg Zinc as zinc sulphate.",
+        "verdict": "supported",
+        "reason": "Passage [1] explicitly states '5 kg Zinc per hectare applied as zinc sulphate'."
+       }
+      ],
+      "verdict": "supported"
+     },
+     {
+      "sentence": "Be vigilant for brown planthopper (BPH) outbreaks starting from the panicle initiation stage onwards due to ideal weather conditions in Kanpur during August and September [2][3].",
+      "cited": [
+       2,
+       3
+      ],
+      "claims": [
+       {
+        "claim": "Be vigilant for brown planthopper (BPH) outbreaks.",
+        "verdict": "supported",
+        "reason": "Passage [2] states that yield losses up to 60% are common during outbreak years, implying the need for vigilance."
+       },
+       {
+        "claim": "The BPH outbreaks start from the panicle initiation stage onwards.",
+        "verdict": "partially_supported",
+        "reason": "The passages state that 'Weekly scouting from the panicle initiation stage onward is the recommended early-warning practice.' but do not explicitly state when BPH outbreaks start."
+       },
+       {
+        "claim": "The ideal weather conditions are present in Kanpur.",
+        "verdict": "supported",
+        "reason": "Passage [2] states that population growth peaks at approximately 28 to 30\u00b0C, which are temperatures routinely reached in Kanpur during August and September."
+       },
+       {
+        "claim": "The ideal weather conditions occur during August and September.",
+        "verdict": "supported",
+        "reason": "Passage [2] mentions that population growth peaks at approximately 28 to 30\u00b0C, temperatures routinely reached in Kanpur during August and September."
+       }
+      ],
+      "verdict": "partial"
+     },
+     {
+      "sentence": "Scout fields weekly for BPH damage symptoms such as hopper burn, which typically starts small but spreads rapidly if not controlled early [3].",
+      "cited": [
+       3
+      ],
+      "claims": [
+       {
+        "claim": "Scout fields weekly",
+        "verdict": "supported",
+        "reason": "Passage [3] recommends 'weekly scouting' as the early-warning practice."
+       },
+       {
+        "claim": "Look for BPH damage symptoms",
+        "verdict": "supported",
+        "reason": "Passage [3] explicitly states to look for 'damage symptoms' of BPH, which includes hopper burn."
+       },
+       {
+        "claim": "Hopper burn is a symptom of BPH damage",
+        "verdict": "supported",
+        "reason": "Passage [3] explicitly states that 'feeding by BPH at the base of tillers causes plants to turn yellow and dry out, producing circular patches of dead plants known as "
+       },
+       {
+        "claim": "BPH damage symptoms start small",
+        "verdict": "supported",
+        "reason": "Passage [3] states 'hopper burn typically starts in a small area'."
+       },
+       {
+        "claim": "BPH damage symptoms spread rapidly if not controlled early",
+        "verdict": "supported",
+        "reason": "Passage [3] states that hopper burn typically starts in a small area and radiates outward as the infestation spreads, indicating rapid spread if not controlled early."
+       }
+      ],
+      "verdict": "supported"
+     },
+     {
+      "sentence": "Plan irrigation based on soil moisture levels; maintain alternate wetting and drying (AWD) or continuous flooding to avoid stress during critical growth stages like panicle initiation and flowering [5].",
+      "cited": [
+       5
+      ],
+      "claims": [
+       {
+        "claim": "Plan irrigation.",
+        "verdict": "supported",
+        "reason": "Passage [5] states 'standard split irrigation (continuous flooding or AWD)', which is planning irrigation."
+       },
+       {
+        "claim": "Maintain AWD or continuous flooding.",
+        "verdict": "supported",
+        "reason": "Passage [5] recommends standard split irrigation, which includes AWD."
+       },
+       {
+        "claim": "Avoid stress during critical growth stages.",
+        "verdict": "supported",
+        "reason": "Passage [5] recommends scouting weekly from panicle initiation to avoid stress during critical growth stages."
+       },
+       {
+        "claim": "The critical growth stages are panicle initiation and flowering.",
+        "verdict": "supported",
+        "reason": "Passage [5] mentions scout weekly from panicle initiation, implying panicle initiation is a critical growth stage."
+       }
+      ],
+      "verdict": "supported"
+     },
+     {
+      "sentence": "Ensure timely drainage 7 to 10 days before harvest to prevent waterlogging-related diseases and facilitate grain maturation [5].",
+      "cited": [
+       5
+      ],
+      "claims": [
+       {
+        "claim": "Ensure timely drainage.",
+        "verdict": "supported",
+        "reason": "Passage [5] states 'drain 7 to 10 days before harvest', explicitly mentioning timely drainage."
+       },
+       {
+        "claim": "Drainage is ensured 7 to 10 days before harvest.",
+        "verdict": "supported",
+        "reason": "Passage [5] explicitly states 'drain 7 to 10 days before harvest'."
+       },
+       {
+        "claim": "Timely drainage prevents waterlogging-related diseases.",
+        "verdict": "supported",
+        "reason": "Passage [5] mentions 'drain 7 to 10 days before harvest' which implies timely drainage prevents waterlogging-related diseases."
+       },
+       {
+        "claim": "Timely drainage facilitates grain maturation.",
+        "verdict": "supported",
+        "reason": "Passage [5] states 'drain 7 to 10 days before harvest', implying timely drainage facilitates grain maturation."
+       }
+      ],
+      "verdict": "supported"
+     }
+    ],
+    "frac_supported": 0.8,
+    "frac_partial": 0.2,
+    "frac_unsupported": 0.0,
+    "claim_supported": 0.9545454545454546,
+    "judge_model": "llama3:latest"
+   }
+  },
+  {
+   "i": 25,
+   "district": "Kanpur Nagar",
+   "scenario": "bad",
+   "analog_year": 2020,
+   "frac_supported": 0.5,
+   "frac_partial": 0.5,
+   "frac_unsupported": 0.0,
+   "claim_supported": 0.8666666666666667,
+   "cosine_relevance": 0.75,
+   "n_sentences": 4,
+   "max_cosine": [
+    0.7950499653816223,
+    0.7833377718925476,
+    0.7163311839103699,
+    0.8090723752975464
+   ],
+   "faithfulness": {
+    "sentences": [
+     {
+      "sentence": "Reduce nitrogen input to 60 kg per hectare as the forecast indicates a low yield scenario [2].",
+      "cited": [
+       2
+      ],
+      "claims": [
+       {
+        "claim": "Reduce nitrogen input.",
+        "verdict": "supported",
+        "reason": "The passage states to reduce input intensity, which includes reducing nitrogen input in a bad year scenario."
+       },
+       {
+        "claim": "Nitrogen input will be reduced to 60 kg per hectare.",
+        "verdict": "supported",
+        "reason": "The passage states 'nitrogen split dose at 60 DAT becomes optional', which implies reducing nitrogen input to 60 kg per hectare."
+       },
+       {
+        "claim": "The forecast indicates a low yield scenario.",
+        "verdict": "supported",
+        "reason": "The passage explicitly states 'bad year scenario' and 'below-normal monsoon', indicating a low yield forecast."
+       }
+      ],
+      "verdict": "supported"
+     },
+     {
+      "sentence": "Prioritize insecticide application only if BPH presence is confirmed through scouting, given that curative action becomes difficult once hopper burn symptoms appear [4][3].",
+      "cited": [
+       3,
+       4
+      ],
+      "claims": [
+       {
+        "claim": "Prioritize insecticide application.",
+        "verdict": "partially_supported",
+        "reason": "The passages suggest that yield losses are common during outbreak years, implying the need for control measures like insecticide application."
+       },
+       {
+        "claim": "Insecticide application should be done only if BPH presence is confirmed through scouting.",
+        "verdict": "supported",
+        "reason": "Passage [4] recommends weekly scouting from panicle initiation stage onward, implying confirmation of BPH presence before insecticide application."
+       },
+       {
+        "claim": "BPH presence confirmation is achieved through scouting.",
+        "verdict": "supported",
+        "reason": "Weekly scouting from the panicle initiation stage onward is recommended for early warning."
+       },
+       {
+        "claim": "Curative action becomes difficult once hopper burn symptoms appear.",
+        "verdict": "supported",
+        "reason": "Passage [4] states that by the time hopper burn is visible, population levels are already very high and curative action is difficult."
+       }
+      ],
+      "verdict": "partial"
+     },
+     {
+      "sentence": "Maintain standing water at 5 cm during flowering stage to act as a thermal buffer against potential heat stress despite the absence of high temperatures in August and September [5].",
+      "cited": [
+       5
+      ],
+      "claims": [
+       {
+        "claim": "Maintain standing water at 5 cm.",
+        "verdict": "supported",
+        "reason": "Passage [5] explicitly states 'maintain 5 cm standing water as a thermal buffer'."
+       },
+       {
+        "claim": "The standing water is maintained during the flowering stage.",
+        "verdict": "supported",
+        "reason": "Passage [5] states 'heat wave forecast during flowering \u2192 maintain 5 cm standing water as a thermal buffer'."
+       },
+       {
+        "claim": "This helps act as a thermal buffer against potential heat stress.",
+        "verdict": "supported",
+        "reason": "Passage [5] explicitly states 'heat wave forecast during flowering \u2192 maintain 5 cm standing water as a thermal buffer'."
+       },
+       {
+        "claim": "There is no high temperature in August and September.",
+        "verdict": "unsupported",
+        "reason": "Passage [5] mentions 'flowering-stage heat stress (daily max > 35\u00b0C) causing spikelet sterility in August-September', contradicting the claim."
+       }
+      ],
+      "verdict": "partial"
+     },
+     {
+      "sentence": "Consider registering for PMFBY insurance before the cut-off date to mitigate financial risk associated with low yields due to unfavorable weather conditions [2].",
+      "cited": [
+       2
+      ],
+      "claims": [
+       {
+        "claim": "Consider registering for PMFBY insurance.",
+        "verdict": "supported",
+        "reason": "Passage [2] explicitly states 'register PMFBY insurance before cut-off'."
+       },
+       {
+        "claim": "The cut-off date exists.",
+        "verdict": "supported",
+        "reason": "The passage mentions 'register PMFBY insurance before cut-off'."
+       },
+       {
+        "claim": "Mitigate financial risk is a goal.",
+        "verdict": "supported",
+        "reason": "The passage mentions 'conserve cash' and 'register PMFBY insurance before cut-off', indicating a goal to mitigate financial risk."
+       },
+       {
+        "claim": "Low yields occur due to unfavorable weather conditions.",
+        "verdict": "supported",
+        "reason": "The passage mentions 'bad year scenario' with 'below-normal monsoon, high heat stress days', implying unfavorable weather conditions leading to low yields."
+       }
+      ],
+      "verdict": "supported"
+     }
+    ],
+    "frac_supported": 0.5,
+    "frac_partial": 0.5,
+    "frac_unsupported": 0.0,
+    "claim_supported": 0.8666666666666667,
+    "judge_model": "llama3:latest"
+   }
+  },
+  {
+   "i": 26,
+   "district": "Kanpur Nagar",
+   "scenario": "average",
+   "analog_year": 2021,
+   "frac_supported": 0.6666666666666666,
+   "frac_partial": 0.3333333333333333,
+   "frac_unsupported": 0.0,
+   "claim_supported": 0.8695652173913043,
+   "cosine_relevance": 0.16666666666666666,
+   "n_sentences": 6,
+   "max_cosine": [
+    0.7932852506637573,
+    0.7643834948539734,
+    0.7397610545158386,
+    0.7217693328857422,
+    0.7572861313819885,
+    0.735649585723877
+   ],
+   "faithfulness": {
+    "sentences": [
+     {
+      "sentence": "Follow the standard NPK recommendation of 120:60:60 kg per hectare along with 5 kg zinc as mentioned in [1].",
+      "cited": [
+       1
+      ],
+      "claims": [
+       {
+        "claim": "Follow the standard NPK recommendation.",
+        "verdict": "supported",
+        "reason": "Passage states 'Standard NPK schedule (120:60:60) is the baseline...' and recommends following it."
+       },
+       {
+        "claim": "The standard NPK recommendation is for 120:60:60 kg per hectare.",
+        "verdict": "supported",
+        "reason": "Passage explicitly states the standard NPK recommendation as 120:60:60 kg per hectare."
+       },
+       {
+        "claim": "Apply 5 kg zinc as mentioned.",
+        "verdict": "supported",
+        "reason": "Passage explicitly states '5 kg Zinc per hectare applied as zinc sulphate'."
+       }
+      ],
+      "verdict": "supported"
+     },
+     {
+      "sentence": "Scout for brown planthoppers weekly from panicle initiation stage onwards to catch any potential outbreaks early, as advised in [3] and [5].",
+      "cited": [
+       3,
+       5
+      ],
+      "claims": [
+       {
+        "claim": "Scout for brown planthoppers weekly.",
+        "verdict": "supported",
+        "reason": "Passages recommend scouting from panicle initiation stage onward, which implies weekly scouting."
+       },
+       {
+        "claim": "Scouting starts from the panicle initiation stage onwards.",
+        "verdict": "supported",
+        "reason": "Passages [3] and [5] both state that scouting starts from the panicle initiation stage onwards."
+       },
+       {
+        "claim": "The goal is to catch any potential outbreaks early.",
+        "verdict": "supported",
+        "reason": "Passages recommend weekly scouting from panicle initiation stage onward, indicating the goal is to catch potential outbreaks early."
+       },
+       {
+        "claim": "This approach is as advised in and.",
+        "verdict": "supported",
+        "reason": "Passages [3] and [5] recommend scouting weekly from panicle initiation stage onward, which matches the claim."
+       }
+      ],
+      "verdict": "supported"
+     },
+     {
+      "sentence": "Use alternate wetting and drying (AWD) or continuous flooding methods for irrigation based on the standard practice outlined in [5].",
+      "cited": [
+       5
+      ],
+      "claims": [
+       {
+        "claim": "Use AWD or continuous flooding methods for irrigation.",
+        "verdict": "supported",
+        "reason": "Passage [5] states 'standard split irrigation (continuous flooding or AWD)' which supports the claim to use AWD or continuous flooding methods for irrigation."
+       },
+       {
+        "claim": "The method is based on the standard practice outlined in.",
+        "verdict": "supported",
+        "reason": "The passages state that the method is based on the standard practice outlined, which matches the claim."
+       }
+      ],
+      "verdict": "supported"
+     },
+     {
+      "sentence": "Since there are no days above 35\u00b0C between August 15 and September 15, maintain a vigilant watch over BPH as temperatures are ideal for its population growth according to [2], despite the absence of extreme heat.",
+      "cited": [
+       2
+      ],
+      "claims": [
+       {
+        "claim": "There are no days above 35\u00b0C.",
+        "verdict": "supported",
+        "reason": "Passage [2] states that population growth peaks at approximately 28 to 30\u00b0C, which is below 35\u00b0C."
+       },
+       {
+        "claim": "The period is between August 15 and September 15.",
+        "verdict": "supported",
+        "reason": "Passage mentions 'August and September' as the time period, which matches the claim's dates."
+       },
+       {
+        "claim": "Maintain a vigilant watch over BPH.",
+        "verdict": "supported",
+        "reason": "The passages state that the Brown planthopper is the most damaging insect pest of rice in Asia, implying the need for vigilance."
+       },
+       {
+        "claim": "Temperatures are ideal for BPH's population growth according to.",
+        "verdict": "supported",
+        "reason": "Passage [2] states that population growth peaks at approximately 28 to 30\u00b0C, which is ideal for BPH's population growth according to the claim."
+       },
+       {
+        "claim": "Despite the absence of extreme heat.",
+        "verdict": "supported",
+        "reason": "The passage states that population growth peaks at approximately 28 to 30\u00b0C, which is a moderate temperature range."
+       }
+      ],
+      "verdict": "supported"
+     },
+     {
+      "sentence": "No need to adjust fertilizer application beyond the standard recommendation due to the average year scenario; however, ensure timely top-dressing if the canopy remains green and vigorous at 75 DAT as suggested in [4].",
+      "cited": [
+       4
+      ],
+      "claims": [
+       {
+        "claim": "No need to adjust fertilizer application beyond the standard recommendation.",
+        "verdict": "unsupported",
+        "reason": "The passage suggests adjusting fertilizer application based on weather conditions, contradicting the claim that no adjustment is needed."
+       },
+       {
+        "claim": "The scenario is an average year.",
+        "verdict": "unsupported",
+        "reason": "The passage describes a 'good year' scenario, not an 'average year'."
+       },
+       {
+        "claim": "Ensure timely top-dressing.",
+        "verdict": "supported",
+        "reason": "The passage states 'add a third top-dress nitrogen split at 75 DAT if canopy stays green and vigorous'."
+       },
+       {
+        "claim": "The canopy remains green and vigorous at 75 DAT.",
+        "verdict": "supported",
+        "reason": "The passages state 'canopy stays green and vigorous' which matches the claim's condition at 75 DAT."
+       },
+       {
+        "claim": "Top-dressing is suggested.",
+        "verdict": "supported",
+        "reason": "The passage suggests applying a third top-dress nitrogen split at 75 DAT, which implies top-dressing is suggested."
+       }
+      ],
+      "verdict": "partial"
+     },
+     {
+      "sentence": "Plan ahead for storage capacity to avoid distress sales post-harvest, aligning with the good-year scenario advice applicable even under average conditions [4].",
+      "cited": [
+       4
+      ],
+      "claims": [
+       {
+        "claim": "Plan ahead for storage capacity.",
+        "verdict": "supported",
+        "reason": "Passage [4] explicitly states 'plan storage capacity ahead of time'."
+       },
+       {
+        "claim": "Avoid distress sales post-harvest.",
+        "verdict": "supported",
+        "reason": "The passage states to plan storage capacity ahead of time to avoid distress sale at harvest."
+       },
+       {
+        "claim": "The good-year scenario advice is applicable.",
+        "verdict": "supported",
+        "reason": "The passages state the claim, with the same numbers and meaning."
+       },
+       {
+        "claim": "This advice is applicable even under average conditions.",
+        "verdict": "partially_supported",
+        "reason": "The passage mentions 'good year scenario' and 'above-normal monsoon', but does not explicitly state that the advice is applicable under average conditions."
+       }
+      ],
+      "verdict": "partial"
+     }
+    ],
+    "frac_supported": 0.6666666666666666,
+    "frac_partial": 0.3333333333333333,
+    "frac_unsupported": 0.0,
+    "claim_supported": 0.8695652173913043,
+    "judge_model": "llama3:latest"
+   }
+  },
+  {
+   "i": 27,
+   "district": "Kanpur Nagar",
+   "scenario": "average",
+   "analog_year": 2022,
+   "frac_supported": 1.0,
+   "frac_partial": 0.0,
+   "frac_unsupported": 0.0,
+   "claim_supported": 1.0,
+   "cosine_relevance": 0.6,
+   "n_sentences": 5,
+   "max_cosine": [
+    0.8612582683563232,
+    0.8330193758010864,
+    0.7919709086418152,
+    0.761651873588562,
+    0.768934965133667
+   ],
+   "faithfulness": {
+    "sentences": [
+     {
+      "sentence": "Follow the standard NPK recommendation for Kharif rice in Uttar Pradesh as outlined [1].",
+      "cited": [
+       1
+      ],
+      "claims": [
+       {
+        "claim": "Follow the standard NPK recommendation.",
+        "verdict": "supported",
+        "reason": "Passage explicitly states 'Standard NPK schedule (120:60:60)' as the baseline recommendation."
+       },
+       {
+        "claim": "The standard NPK recommendation is for Kharif rice.",
+        "verdict": "supported",
+        "reason": "Passage explicitly states the standard NPK recommendation is for Kharif rice."
+       },
+       {
+        "claim": "The standard NPK recommendation is for Uttar Pradesh.",
+        "verdict": "supported",
+        "reason": "Passage explicitly states 'Standard NPK recommendation for Kharif rice in Uttar Pradesh'."
+       }
+      ],
+      "verdict": "supported"
+     },
+     {
+      "sentence": "Be vigilant for brown planthopper (BPH) outbreaks starting from panicle initiation stage due to ideal weather conditions for BPH growth [2][5].",
+      "cited": [
+       2,
+       5
+      ],
+      "claims": [
+       {
+        "claim": "Be vigilant for brown planthopper (BPH) outbreaks.",
+        "verdict": "supported",
+        "reason": "Passage [2] mentions BPH as the most damaging insect pest of rice in Asia, implying vigilance is necessary to prevent outbreaks."
+       },
+       {
+        "claim": "The outbreaks start from the panicle initiation stage.",
+        "verdict": "supported",
+        "reason": "Passage [2] mentions 'scout weekly from panicle initiation', implying that the pest's activity starts or increases during this stage."
+       },
+       {
+        "claim": "Ideal weather conditions are necessary for BPH growth.",
+        "verdict": "supported",
+        "reason": "Passage [2] states that population growth peaks at approximately 28 to 30\u00b0C, which implies ideal weather conditions are necessary for BPH growth."
+       }
+      ],
+      "verdict": "supported"
+     },
+     {
+      "sentence": "Scout fields weekly for early detection of hopper burn symptoms and take preventive measures if necessary [3].",
+      "cited": [
+       3
+      ],
+      "claims": [
+       {
+        "claim": "Scout fields weekly.",
+        "verdict": "supported",
+        "reason": "Passage [3] recommends 'weekly scouting' as the early-warning practice."
+       },
+       {
+        "claim": "Detect hopper burn symptoms.",
+        "verdict": "supported",
+        "reason": "Passage [3] explicitly states 'hopper burn' as a damage symptom, which is the same meaning and concept as the claim."
+       },
+       {
+        "claim": "Take preventive measures if necessary.",
+        "verdict": "supported",
+        "reason": "Passage [3] recommends weekly scouting from panicle initiation stage onward, implying the need for preventive measures."
+       }
+      ],
+      "verdict": "supported"
+     },
+     {
+      "sentence": "Ensure proper irrigation management, considering the possibility of mid-season dry spells by maintaining alternate wetting and drying (AWD) or continuous flooding as needed [5].",
+      "cited": [
+       5
+      ],
+      "claims": [
+       {
+        "claim": "Ensure proper irrigation management.",
+        "verdict": "supported",
+        "reason": "Passage [5] explicitly states 'standard split irrigation' as part of recommended practice for average year scenario."
+       },
+       {
+        "claim": "Consider the possibility of mid-season dry spells.",
+        "verdict": "supported",
+        "reason": "Passage mentions 'scout weekly from panicle initiation', implying possibility of mid-season dry spells."
+       },
+       {
+        "claim": "Maintain AWD or continuous flooding as needed.",
+        "verdict": "supported",
+        "reason": "Passage [5] states 'standard split irrigation (continuous flooding or AWD)', implying maintenance of AWD or continuous flooding as needed."
+       }
+      ],
+      "verdict": "supported"
+     },
+     {
+      "sentence": "Adjust nitrogen application based on crop health; a third top-dress may be considered if the canopy remains green and vigorous around 75 DAT [4].",
+      "cited": [
+       4
+      ],
+      "claims": [
+       {
+        "claim": "Adjust nitrogen application based on crop health.",
+        "verdict": "supported",
+        "reason": "The passage suggests adjusting nitrogen application based on crop health, specifically mentioning a third top-dress nitrogen split at 75 DAT if the canopy stays green and vigorous."
+       },
+       {
+        "claim": "A third top-dress may be considered.",
+        "verdict": "supported",
+        "reason": "The passage explicitly mentions a 'third top-dress nitrogen split at 75 DAT'."
+       },
+       {
+        "claim": "The canopy remains green and vigorous around 75 DAT.",
+        "verdict": "supported",
+        "reason": "The passages state 'if canopy stays green and vigorous' which implies the condition is met around 75 DAT."
+       }
+      ],
+      "verdict": "supported"
+     }
+    ],
+    "frac_supported": 1.0,
+    "frac_partial": 0.0,
+    "frac_unsupported": 0.0,
+    "claim_supported": 1.0,
+    "judge_model": "llama3:latest"
+   }
+  },
+  {
+   "i": 28,
+   "district": "Kanpur Nagar",
+   "scenario": "bad",
+   "analog_year": 2023,
+   "frac_supported": 0.5,
+   "frac_partial": 0.5,
+   "frac_unsupported": 0.0,
+   "claim_supported": 0.8235294117647058,
+   "cosine_relevance": 0.25,
+   "n_sentences": 4,
+   "max_cosine": [
+    0.771822988986969,
+    0.7984616756439209,
+    0.7333827018737793,
+    0.7340059876441956
+   ],
+   "faithfulness": {
+    "sentences": [
+     {
+      "sentence": "Adjust your nitrogen application by applying only half of the standard dose (60 kg N/ha) as per [2], which suggests reducing input intensity in forecasted low-yield scenarios.",
+      "cited": [
+       2
+      ],
+      "claims": [
+       {
+        "claim": "Adjust your nitrogen application.",
+        "verdict": "partially_supported",
+        "reason": "The passage suggests adjusting nitrogen application, specifically making the 60 DAT dose optional in a bad year scenario."
+       },
+       {
+        "claim": "Apply 60 kg N/ha.",
+        "verdict": "partially_supported",
+        "reason": "The passage mentions 'nitrogen split dose at 60 DAT becomes optional', which implies the use of nitrogen, but does not specify the amount (60 kg N/ha) or unit (kg N/ha)."
+       },
+       {
+        "claim": "The adjustment is based on a forecasted low-yield scenario.",
+        "verdict": "supported",
+        "reason": "The passage explicitly states 'forecast bad year' which matches the claim's 'forecasted low-yield scenario'."
+       }
+      ],
+      "verdict": "partial"
+     },
+     {
+      "sentence": "Prioritize scouting for brown planthoppers starting from the panicle initiation stage onwards, as recommended in [4] to prevent hopper burn and yield losses.",
+      "cited": [
+       4
+      ],
+      "claims": [
+       {
+        "claim": "Prioritize scouting for brown planthoppers.",
+        "verdict": "supported",
+        "reason": "Passage [4] recommends weekly scouting from panicle initiation stage onward, which prioritizes scouting for brown planthoppers."
+       },
+       {
+        "claim": "Scouting starts from the panicle initiation stage onwards.",
+        "verdict": "supported",
+        "reason": "The passages state that 'Weekly scouting from the panicle initiation stage onward is the recommended early-warning practice.'"
+       },
+       {
+        "claim": "This is done to prevent hopper burn.",
+        "verdict": "supported",
+        "reason": "Passage [4] states that weekly scouting from panicle initiation stage onward is the recommended early-warning practice to prevent hopper burn."
+       },
+       {
+        "claim": "This is also done to prevent yield losses.",
+        "verdict": "supported",
+        "reason": "Passage [4] states that hopper burn starts in a small area and radiates outward as the infestation spreads, indicating yield losses."
+       },
+       {
+        "claim": "The recommended approach is followed.",
+        "verdict": "supported",
+        "reason": "Passage [4] recommends weekly scouting from panicle initiation stage onward, which matches the claim."
+       }
+      ],
+      "verdict": "supported"
+     },
+     {
+      "sentence": "If dry spells are predicted during July-August, prepare to activate pump irrigation at least 48 hours in advance to ensure adequate moisture for tillering and panicle initiation [6].",
+      "cited": [
+       6
+      ],
+      "claims": [
+       {
+        "claim": "Dry spells are predicted during July-August.",
+        "verdict": "supported",
+        "reason": "Passage [6] states 'mid-season dry spells during July-August threatening tillering and panicle initiation'."
+       },
+       {
+        "claim": "Prepare to activate pump irrigation.",
+        "verdict": "partially_supported",
+        "reason": "The passage states 'activate pump irrigation at least 48 hours in advance' during dry spell forecast, but the claim is more general and does not specify a condition or time frame."
+       },
+       {
+        "claim": "Activate pump irrigation at least 48 hours in advance.",
+        "verdict": "supported",
+        "reason": "Passage [6] explicitly states 'dry spell forecast \u2192 activate pump irrigation at least 48 hours in advance'."
+       },
+       {
+        "claim": "Ensure adequate moisture for tillering.",
+        "verdict": "supported",
+        "reason": "Passage [6] mentions mid-season dry spells during July-August threatening tillering and panicle initiation, implying the need for adequate moisture during this stage."
+       },
+       {
+        "claim": "Ensure adequate moisture for panicle initiation.",
+        "verdict": "supported",
+        "reason": "Passage [6] mentions mid-season dry spells during July-August threatening tillering and panicle initiation, implying the need for adequate moisture."
+       }
+      ],
+      "verdict": "partial"
+     },
+     {
+      "sentence": "Given the forecasted high temperatures between August 15 and September 15, maintain a standing water level of about 5 cm to act as a thermal buffer during the flowering stage [6].",
+      "cited": [
+       6
+      ],
+      "claims": [
+       {
+        "claim": "Given the forecasted high temperatures.",
+        "verdict": "supported",
+        "reason": "Passage [6] states 'heat wave forecast during flowering \u2192 maintain 5 cm standing water as a thermal buffer' which supports the claim given the forecasted high temperatures."
+       },
+       {
+        "claim": "The forecasted high temperatures are between August 15 and September 15.",
+        "verdict": "supported",
+        "reason": "Passage [6] mentions 'heat wave forecast during flowering-stage heat stress (daily max > 35\u00b0C) causing spikelet sterility in August-September', which implies high temperatures between August 15 and Se"
+       },
+       {
+        "claim": "Maintain a standing water level of about 5 cm.",
+        "verdict": "supported",
+        "reason": "Passage [6] explicitly states 'maintain 5 cm standing water as a thermal buffer'."
+       },
+       {
+        "claim": "Act as a thermal buffer during the flowering stage.",
+        "verdict": "supported",
+        "reason": "Passage [6] explicitly states 'heat wave forecast during flowering \u2192 maintain 5 cm standing water as a thermal buffer'."
+       }
+      ],
+      "verdict": "supported"
+     }
+    ],
+    "frac_supported": 0.5,
+    "frac_partial": 0.5,
+    "frac_unsupported": 0.0,
+    "claim_supported": 0.8235294117647058,
+    "judge_model": "llama3:latest"
+   }
+  },
+  {
+   "i": 29,
+   "district": "Kanpur Nagar",
+   "scenario": "good",
+   "analog_year": 2024,
+   "frac_supported": 0.75,
+   "frac_partial": 0.25,
+   "frac_unsupported": 0.0,
+   "claim_supported": 0.9375,
+   "cosine_relevance": 0.5,
+   "n_sentences": 4,
+   "max_cosine": [
+    0.8307405710220337,
+    0.779303789138794,
+    0.8524210453033447,
+    0.7458667159080505
+   ],
+   "faithfulness": {
+    "sentences": [
+     {
+      "sentence": "Apply the full recommended NPK schedule of 120 kg Nitrogen per hectare, 60 kg Phosphorus (as P2O5) per hectare, and 60 kg Potassium (as K2O) per hectare along with 5 kg Zinc per hectare as zinc sulphate [2][1].",
+      "cited": [
+       1,
+       2
+      ],
+      "claims": [
+       {
+        "claim": "Apply the full recommended NPK schedule.",
+        "verdict": "supported",
+        "reason": "Passage [1] states 'Standard fertilizer sources are urea for nitrogen, diammonium phosphate (DAP) for phosphorus, muriate of potash (MOP) for potassium, and zinc sulphate for zinc. This NPK schedule ("
+       },
+       {
+        "claim": "The recommended NPK schedule includes 120 kg Nitrogen per hectare.",
+        "verdict": "supported",
+        "reason": "Passage [1] explicitly states the recommended NPK schedule as 120 kg Nitrogen per hectare."
+       },
+       {
+        "claim": "The recommended NPK schedule includes 60 kg Phosphorus (as P2O5) per hectare.",
+        "verdict": "supported",
+        "reason": "Passage [1] explicitly states the recommended NPK schedule as 60 kg Phosphorus (as P2O5) per hectare."
+       },
+       {
+        "claim": "The recommended NPK schedule includes 60 kg Potassium (as K2O) per hectare.",
+        "verdict": "supported",
+        "reason": "Passage [1] explicitly states the recommended NPK schedule as 120 kg Nitrogen, 60 kg Phosphorus (as P2O5), and 60 kg Potassium (as K2O) per hectare."
+       },
+       {
+        "claim": "Apply 5 kg Zinc per hectare as zinc sulphate.",
+        "verdict": "supported",
+        "reason": "Passage [1] explicitly states the recommended dose of 5 kg Zinc per hectare as zinc sulphate."
+       }
+      ],
+      "verdict": "supported"
+     },
+     {
+      "sentence": "Consider adding a third top-dress nitrogen split at 75 DAT if the canopy remains green and vigorous to support robust growth during this good year scenario [2].",
+      "cited": [
+       2
+      ],
+      "claims": [
+       {
+        "claim": "Consider adding a third top-dress nitrogen split.",
+        "verdict": "supported",
+        "reason": "The passage suggests adding a third top-dress nitrogen split at 75 DAT if the canopy stays green and vigorous."
+       },
+       {
+        "claim": "The top-dress is at 75 DAT.",
+        "verdict": "supported",
+        "reason": "The passage explicitly states the top-dress nitrogen split at 75 DAT."
+       },
+       {
+        "claim": "The canopy remains green and vigorous.",
+        "verdict": "supported",
+        "reason": "The passages state 'canopy stays green and vigorous' as a condition for applying a third top-dress nitrogen split."
+       },
+       {
+        "claim": "Support robust growth during this good year scenario.",
+        "verdict": "supported",
+        "reason": "The passage explicitly states to apply the full 120-60-60 NPK + 5 Zn schedule for robust growth during a good year scenario."
+       }
+      ],
+      "verdict": "supported"
+     },
+     {
+      "sentence": "Be vigilant for brown planthopper (BPH) outbreaks, which are more likely in years with above-normal monsoons due to ideal weather conditions for pest proliferation; start weekly scouting from panicle initiation stage onward [3][4].",
+      "cited": [
+       3,
+       4
+      ],
+      "claims": [
+       {
+        "claim": "Be vigilant for brown planthopper (BPH) outbreaks.",
+        "verdict": "supported",
+        "reason": "Passage [3] states that yield losses up to 60% are common during outbreak years, implying the need for vigilance."
+       },
+       {
+        "claim": "Outbreaks are more likely in years with above-normal monsoons.",
+        "verdict": "partially_supported",
+        "reason": "Passage [3] mentions seasonal winds and colonizing new fields, implying a connection to weather conditions like monsoons."
+       },
+       {
+        "claim": "Ideal weather conditions exist for pest proliferation.",
+        "verdict": "supported",
+        "reason": "Passage [3] states that population growth peaks at approximately 28 to 30\u00b0C, which are ideal weather conditions for pest proliferation."
+       },
+       {
+        "claim": "Start weekly scouting from panicle initiation stage onward.",
+        "verdict": "supported",
+        "reason": "Weekly scouting is recommended from the panicle initiation stage onward."
+       }
+      ],
+      "verdict": "partial"
+     },
+     {
+      "sentence": "Plan ahead for storage capacity as the forecasted good year may lead to higher yields than usual, avoiding distress sales at harvest time [2].",
+      "cited": [
+       2
+      ],
+      "claims": [
+       {
+        "claim": "Plan ahead for storage capacity.",
+        "verdict": "supported",
+        "reason": "Passage [2] explicitly states 'plan storage capacity ahead of time'."
+       },
+       {
+        "claim": "The forecasted good year may lead to higher yields than usual.",
+        "verdict": "supported",
+        "reason": "The passage mentions a 'good year scenario' with above-normal monsoon, implying higher yields than usual."
+       },
+       {
+        "claim": "Avoiding distress sales at harvest time.",
+        "verdict": "supported",
+        "reason": "Passage [2] explicitly states 'plan storage capacity ahead of time to avoid distress sale at harvest'."
+       }
+      ],
+      "verdict": "supported"
+     }
+    ],
+    "frac_supported": 0.75,
+    "frac_partial": 0.25,
+    "frac_unsupported": 0.0,
+    "claim_supported": 0.9375,
+    "judge_model": "llama3:latest"
+   }
+  }
+ ]
+}

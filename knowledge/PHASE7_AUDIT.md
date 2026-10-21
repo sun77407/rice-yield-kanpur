@@ -10,3 +10,5 @@ Items verified only partly (see `REFERENCES_AUDIT.md`). None blocks earlier phas
 - [ ] (f) **Full-text check of support.** Re-read R4, R5 and R17 in full to confirm the claims `paper/FRAMING.md` attributes to them (only abstract-level support was checked).
 - [ ] (g) **ADR-010 / RAGAS.** ADR-010 says a 0.6 cosine threshold is a "published heuristic (Es et al. 2023)". RAGAS faithfulness uses LLM claim verification, not a cosine threshold; do not cite R13 for the 0.6 value (see ADR-034).
 - [ ] (h) **Cloud-contamination figures.** Use the measured values in the Discussion: 45% cloudy (QA = 3) in DOY 150-300, 37% in DOY 150-330.
+
+- (i) Verify the "3-4 t/ha typical grain yield for Pusa Basmati 1 in UP" sentence added to KB passage A6 (SOURCES.md corpus corrections) against a citable source, or reword it.

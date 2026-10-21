@@ -161,6 +161,8 @@ Each entry follows the ADR format: **Context → Options → Decision → Ration
 
 ## ADR-010: Advisory grounding is enforced via post-hoc cosine check
 
+> **Deprecated in part by ADR-035:** the cosine >= 0.6 grounding check is replaced by an LLM-judge faithfulness metric; cosine remains only as a relevance diagnostic.
+
 **Context.** Even with a strict prompt, LLMs can inject un-grounded sentences.
 
 **Options.**
@@ -581,3 +583,34 @@ The advisory is decision support, not a substitute for an agronomist.
 **Other measured properties.** 24 of 30 advisories cite at least 3 distinct passages (6 cite 2); no citation number was out of range; every advisory follows the Scenario/Advice format. Median end-to-end latency (retrieve, generate, ground) 4.0 s, 95th percentile 4.6 s on the RTX 5070 Ti with the model already loaded. The judge, given only the passages each sentence cites, rated 36% fully supported, so citation numbers are often attached to the wrong or an incomplete passage.
 
 **Decision pending.** The cosine score cannot be shown to measure faithfulness on this system. Options: (a) keep cosine as a retrieval-relevance diagnostic only and report the claim-level judge (preferably a different model, to avoid self-judging bias) as the grounding metric; (b) add the second LLM pass of ADR-010 option (c); (c) keep 0.78 and report the failure. Nothing was changed beyond locking 0.78.
+
+---
+
+## ADR-035: Faithfulness is an LLM-judge metric; cosine is a relevance diagnostic; KB corrections
+
+**Status:** Accepted (user decision, Phase 4 review). Supersedes the grounding part of ADR-010 (cosine >= 0.6 is **deprecated**) and resolves the open decision in ADR-034.
+
+**Terminology.** "Grounding" and "faithfulness" refer only to the LLM-judge metric below. The cosine check is `cosine_relevance` everywhere (modules `cosine_relevance*.py`, fields `cosine_relevance*`, log keys, UI labels). Its threshold stays at 0.78 (ADR-034) and it is a diagnostic of whether a sentence is topically close to the retrieved passages, not of whether it is true to them.
+
+**Design.**
+- *Writer:* `qwen2.5:14b-instruct-q6_K`, temperature 0.2, seed 42. System prompt: "Use ONLY the following numbered passages. For every factual claim, cite the passage number [n]..."; output is a `Scenario:` paragraph plus 4-6 one-sentence `Advice:` bullets each ending in citations. User message = glossary + scenario facts + up to 6 numbered passages.
+- *Judge:* `llama3:latest` (Llama 3 8B), temperature 0, seed 42, JSON output. Step 1 decomposes an advice sentence (citations stripped) into atomic claims (one few-shot example). Step 2 judges each claim against **only the passages that sentence cites** (kept under their original numbers) with a strict rubric: `supported` (stated with the same numbers, units, stages, meaning), `partially_supported` (part stated, or implied with a missing number/unit/condition), `unsupported` (not stated, contradicted, or a number/abbreviation with a different meaning). Sentence verdict: `supported` if every claim is; `unsupported` if no claim is or the sentence has no valid citation; otherwise `partial`. Unparseable output counts as unsupported. The claim-level share supported is also stored (RAGAS-style, R13).
+- *Why a different model:* a self-judge (qwen judging qwen) shares the writer's blind spots and tends to approve its own phrasing; a different family removes self-preference. The cost is a smaller judge (8B vs 14B), which is a weakness.
+- *Not added:* the second rewrite pass of ADR-010 option (c): it would hide unfaithful sentences instead of measuring them.
+
+**Runtime-input filter (NDVI leak).** The deployed system has no NDVI feed at advisory time, yet J3/J4 mention "poor NDVI tracking" / "high NDVI tracking", and a good-year advisory repeated "high NDVI tracking". `src.rag.retriever.redact_unavailable_inputs` removes any comma-separated clause containing "NDVI" from retrieved titles and texts before the LLM sees them. This is a clause-level redaction rather than excluding whole passages, because J3/J4 are the only scenario-specific advice passages; the corpus and the index are untouched. No advisory in the final 30 runs contains "NDVI".
+
+**Corpus correction.** A6 no longer quotes 36.60 / 33.56 t/ha (plot-scale biomass in the NDUAT trial); see `kb/raw/SOURCES.md`. The added "3-4 t/ha for Pusa Basmati 1 in UP" was supplied by the project owner and is still to be cited (PHASE7_AUDIT item i).
+
+**Results (30 scenario advisories, 138 advice sentences; `models/results/advisory_faithfulness.json`).** Fully supported 81.6% (bad 74%, average 87%, good 84%), partially supported 18.4%, unsupported 0.0%; claim-level supported 94.7%; 6 advisories below 70% fully supported (`kb/index/advisory_flagged.md`). Cosine relevance on the same sentences: 51.4% at 0.78. Sentence-level agreement between "cosine >= 0.78" and "judge says supported": 45%. Mean max cosine of judge-supported sentences 0.782 vs 0.799 for the others, so cosine does not separate them (it slightly inverts).
+
+**Judge validation (61 hand-labelled sentences, `kb/index/judge_validation.json`).** Of 41 supported sentences, 27 were judged supported, 14 partial, 0 unsupported. Of 20 unsupported sentences, 0 were judged supported, 16 partial, 4 unsupported. A `supported` verdict was never wrong on this set (27/27), but the judge is conservative about granting it (recall 66%) and rarely says `unsupported` (4 of 20). The 0% unsupported rate on real advisories is therefore a floor on the true rate, not a measurement of zero.
+
+**Documented failure modes.**
+1. *Unit/abbreviation confusion passes both metrics.* J3 says the nitrogen split dose at "60 DAT" becomes optional. Advisories saying "reduce nitrogen to 60 kg per hectare" appeared in 5 of 30 final runs (10, 15, 20, 25, 28); the rate was 7/30 in the first run, 1/30 after the glossary, 5/30 after the corpus fix and NDVI redaction, so the glossary is not a reliable fix. Cosine scored these 0.71-0.80. The Llama 3 judge marked the "60 kg" claim supported in runs 15, 20 and 25 and only partial in runs 10 and 28; an isolated probe also came back supported. A deterministic number-and-unit check would catch this class; it is not implemented (a rule-based check is not a rewrite pass, so it needs a separate decision).
+2. *Decomposition inflates support.* Trivial claims ("it is a bad year") are judged supported from scenario wording and lift the claim-level share (94.7%) above the sentence-level share (81.6%). Report the sentence-level number.
+3. *The 8B judge reads loosely.* Some claims are rated partial by inference, and its reasons sometimes name the wrong passage. Human review of the 6 flagged advisories is advisable.
+4. *Range check.* 81.6% is just above the 55-80% range expected for this domain, from a judge validated on only 61 sentences (20 negatives) labelled by the author. Treat it as upper-leaning until a human agronomist samples it (no such evaluation exists; see Limitations).
+5. The earlier cited-only figure of 36% came from the qwen self-judge on whole sentences; the 82% here comes from a different judge with claim decomposition, so the two are not comparable, and the gap itself shows how much judge choice moves the number.
+
+**Retrieval (unchanged after the A6 correction and index rebuild):** P@3 0.50 (ceiling 0.65), R@5 0.85, hit@3 1.00, P@1 0.95.

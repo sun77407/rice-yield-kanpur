@@ -1,8 +1,8 @@
-"""Post-hoc grounding check (ADR-010, PROJECT_FLOW 3.8).
+"""Post-hoc cosine_relevance check (ADR-010, PROJECT_FLOW 3.8).
 
 For each advisory sentence take the maximum cosine similarity (nomic-embed-text, ADR-008) to the
-retrieved passages. A sentence is grounded when that maximum is at least ``threshold``. The score
-is the share of grounded sentences; the mean maximum cosine is reported alongside it.
+retrieved passages. A sentence is relevant when that maximum is at least ``threshold``. The score
+is the share of relevant sentences; the mean maximum cosine is reported alongside it.
 Sentences and passages are both embedded with the document prefix (a symmetric comparison).
 """
 
@@ -22,13 +22,13 @@ SENTENCE = re.compile(r"(?<=[.!?])\s+(?=[A-Z0-9\"(])")
 
 
 @dataclass
-class GroundingResult:
+class CosineRelevanceResult:
     """Per-sentence maximum similarities and the aggregate scores."""
 
     sentences: list[str]
     max_sim: list[float]
     best_passage: list[str]
-    grounded_fraction: float
+    relevant_fraction: float
     mean_max_cosine: float
 
 
@@ -52,30 +52,32 @@ def passage_vectors(passages: list[Passage]) -> np.ndarray:
     return embed([f"{p.title}. {p.text}" for p in passages])
 
 
-def grounding_detail(
+def cosine_relevance_detail(
     sentences: list[str],
     passages: list[Passage],
     threshold: float = THRESHOLD,
     pvecs: np.ndarray | None = None,
-) -> GroundingResult:
+) -> CosineRelevanceResult:
     """Score every sentence against ``passages``."""
     if not sentences or not passages:
-        return GroundingResult([], [], [], 0.0, 0.0)
+        return CosineRelevanceResult([], [], [], 0.0, 0.0)
     pv = pvecs if pvecs is not None else passage_vectors(passages)
     sv = embed([strip_citations(s) for s in sentences])
     sims = sv @ pv.T
     mx = sims.max(axis=1)
-    return GroundingResult(
+    return CosineRelevanceResult(
         sentences=sentences,
         max_sim=[float(v) for v in mx],
         best_passage=[passages[int(i)].chunk_id for i in sims.argmax(axis=1)],
-        grounded_fraction=float((mx >= threshold).mean()),
+        relevant_fraction=float((mx >= threshold).mean()),
         mean_max_cosine=float(mx.mean()),
     )
 
 
-def grounding_score(
+def cosine_relevance_score(
     advisory_sentences: list[str], retrieved_passages: list[Passage], threshold: float = THRESHOLD
 ) -> float:
     """Return the share of sentences whose best passage similarity is >= ``threshold``."""
-    return grounding_detail(advisory_sentences, retrieved_passages, threshold).grounded_fraction
+    return cosine_relevance_detail(
+        advisory_sentences, retrieved_passages, threshold
+    ).relevant_fraction

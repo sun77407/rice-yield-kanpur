@@ -32,9 +32,9 @@ def main() -> None:
             "predicted_yield": s.predicted_yield_t_ha,
             "model": adv.model,
             "used_fallback": adv.used_fallback,
-            "grounding": adv.grounding_score,
-            "grounding_at_0.6": adv.grounding_at_060,
-            "mean_max_cosine": adv.grounding.mean_max_cosine,
+            "cosine_relevance": adv.cosine_relevance_score,
+            "cosine_relevance_at_0.6": adv.cosine_relevance_at_060,
+            "mean_max_cosine": adv.cosine_relevance.mean_max_cosine,
             "n_sentences": len(adv.sentences),
             "distinct_citations": adv.n_distinct_citations,
             "uncited": len(adv.uncited_sentences),
@@ -58,8 +58,8 @@ def main() -> None:
                         "sentence_sims": list(
                             zip(
                                 adv.sentences,
-                                adv.grounding.max_sim,
-                                adv.grounding.best_passage,
+                                adv.cosine_relevance.max_sim,
+                                adv.cosine_relevance.best_passage,
                                 strict=True,
                             )
                         ),
@@ -69,23 +69,23 @@ def main() -> None:
             )
         print(
             f"{i:2d} {s.district[7:]:6s} {s.analog_year} {s.scenario:7s} "
-            f"g {adv.grounding_score:.2f} "
-            f"(@0.6 {adv.grounding_at_060:.2f}) cites {adv.n_distinct_citations} "
+            f"g {adv.cosine_relevance_score:.2f} "
+            f"(@0.6 {adv.cosine_relevance_at_060:.2f}) cites {adv.n_distinct_citations} "
             f"{adv.latency_s:5.1f}s {adv.model}",
             flush=True,
         )
-    g = np.array([r["grounding"] for r in rows])
-    g6 = np.array([r["grounding_at_0.6"] for r in rows])
+    g = np.array([r["cosine_relevance"] for r in rows])
+    g6 = np.array([r["cosine_relevance_at_0.6"] for r in rows])
     lat = np.array([r["latency_s"] for r in rows])
     summary = {
         "n_runs": len(rows),
-        "grounding": {
+        "cosine_relevance": {
             "mean": float(g.mean()),
             "median": float(np.median(g)),
             "p10": float(np.percentile(g, 10)),
             "min": float(g.min()),
         },
-        "grounding_at_0.6": {
+        "cosine_relevance_at_0.6": {
             "mean": float(g6.mean()),
             "median": float(np.median(g6)),
             "p10": float(np.percentile(g6, 10)),
@@ -98,7 +98,7 @@ def main() -> None:
             "first_call": float(lat[0]),
         },
         "with_ge_3_distinct_citations": int(sum(r["distinct_citations"] >= 3 for r in rows)),
-        "runs_below_70pct_grounding": [r["i"] for r in rows if r["grounding"] < 0.7],
+        "runs_below_70pct_cosine_relevance": [r["i"] for r in rows if r["cosine_relevance"] < 0.7],
         "fallback_used": int(sum(r["used_fallback"] for r in rows)),
         "invalid_citation_runs": int(sum(bool(r["invalid_citations"]) for r in rows)),
         "insufficient_runs": int(sum(r["insufficient"] for r in rows)),

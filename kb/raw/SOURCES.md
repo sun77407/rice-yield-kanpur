@@ -51,3 +51,7 @@ If/when the following become accessible, they should be added:
 - **Approximate size:** 37 KB
 - **Target use:** RAG retrieval for farmer advisory LLM generation
 - **Suggested chunk size for Phase 4:** 150-200 words with 30-word overlap, respecting the natural passage boundaries (## section headings) in this file.
+
+## Corpus corrections
+
+- 2026-10-21, passage A6 (Phytojournal 2018 NDUAT trial): removed the specific figures "36.60 t/ha vs 33.56 t/ha", which are plot-scale total biomass values, not grain yield. The text now states statistical equivalence of the integrated-nutrient-management and full-chemical treatments and gives "typical grain yields for Pusa Basmati 1 in UP are 3-4 t/ha"; that range was supplied by the project owner and has not yet been checked against a cited source (tracked in `knowledge/PHASE7_AUDIT.md`).

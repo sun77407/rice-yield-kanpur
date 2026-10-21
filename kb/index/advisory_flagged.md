@@ -1,128 +1,57 @@
-# Advisories below 70% grounding (cosine threshold 0.78)
+# Advisories below 70% fully-supported sentences (llama3 claim-level judge)
 
-Each entry: failing sentences (max cosine to any retrieved passage, closest passage), the
-self-judge verdict (LLM-as-judge, same model, lenient), and the retrieved passage ids.
+Each sentence is split into claims and judged against only the passages it cites.
+Cosine relevance (threshold 0.78) is shown as a diagnostic, not as faithfulness.
 
-## Run 0: Kanpur Dehat analog 2010 (bad), grounding 0.40, distinct citations 4
-Passages: [1] A1 Standard NPK recommendation for Kharif rice in Uttar Pradesh, [2] J3 For low expected yield (bad year scenario), [3] C1 Brown planthopper (Nilaparvata lugens), [4] C2 Brown planthopper damage symptoms, [5] F3 Nursery and transplanting timing for UP Kharif, [6] I3 Climate-related risk advisory
+## Run 3: Kanpur Dehat analog 2013 (good): supported 60%, partial 40%, unsupported 0%; cosine relevance 60%
+Passages: [1] A1 Standard NPK recommendation for Kharif rice in Uttar Pradesh, [2] J4 For good year scenario (above-normal monsoon), [3] C1 Brown planthopper (Nilaparvata lugens), [4] C2 Brown planthopper damage symptoms, [5] F3 Nursery and transplanting timing for UP Kharif, [6] J5 For average year scenario
 
-- cos 0.77 (closest J3; judge: supported): Register for PMFBY insurance before the cut-off date to mitigate financial risks associated with reduced yields [2].
-- cos 0.72 (closest I3; judge: supported): Maintain 5 cm standing water during flowering (August-September) as a thermal buffer against heat stress days exceeding 35°C [6].
-- cos 0.71 (closest I3; judge: supported): Activate pump irrigation at least 48 hours in advance of any predicted dry spells to protect tillering and panicle initiation stages [6].
+- **partial** (cites [2, 3], max cosine 0.83): Be vigilant for BPH outbreaks, given ideal weather conditions for this pest coinciding with vigorous rice growth; start weekly scouting from panicle initiation stage onward [2][3].
+  - partially_supported: Start weekly scouting from the panicle initiation stage onward. (Passage [2] mentions '75 DAT' as a stage for nitrogen top-dress, but does not specify the exact stage to start scouting.)
+- **partial** (cites [4], max cosine 0.84): Ensure timely transplanting and monitor the field closely for any signs of BPH damage, as hopper burn symptoms indicate high population levels requiring immediate action [4].
+  - partially_supported: Ensure timely transplanting. (The passage recommends weekly scouting from the panicle initiation stage onward, implying the importance of timely monitoring and potentially transplanting.)
 
-## Run 3: Kanpur Dehat analog 2013 (good), grounding 0.50, distinct citations 3
-Passages: [1] A1 Standard NPK recommendation for Kharif rice in Uttar Pradesh, [2] J4 For good year scenario (above-normal monsoon, high NDVI tracking), [3] C1 Brown planthopper (Nilaparvata lugens), [4] C2 Brown planthopper damage symptoms, [5] F3 Nursery and transplanting timing for UP Kharif, [6] J5 For average year scenario
+## Run 9: Kanpur Dehat analog 2019 (average): supported 60%, partial 40%, unsupported 0%; cosine relevance 80%
+Passages: [1] A1 Standard NPK recommendation for Kharif rice in Uttar Pradesh, [2] C1 Brown planthopper (Nilaparvata lugens), [3] C2 Brown planthopper damage symptoms, [4] J4 For good year scenario (above-normal monsoon), [5] J5 For average year scenario, [6] I3 Climate-related risk advisory
 
-- cos 0.77 (closest J4; judge: partly): Be vigilant for BPH outbreaks starting from the panicle initiation stage onwards due to ideal weather conditions for pest proliferation [2][3].
-- cos 0.77 (closest J4; judge: supported): Plan storage capacity ahead of time to avoid distress sale at harvest, given the forecasted high yield potential in a good monsoon year [2].
+- **partial** (cites [6], max cosine 0.77): Since the scenario is an average year with no forecasted heat waves during flowering, maintain regular irrigation practices without special thermal buffering measures [6].
+  - unsupported: Maintain regular irrigation practices. (The passages suggest specific irrigation strategies for different climate-related risks, but do not support regular irrigation practices in general.)
+  - unsupported: No special thermal buffering measures are needed. (The passages explicitly mention the need for a 'thermal buffer' during heat wave forecast, contradicting the claim.)
+- **partial** (cites [6], max cosine 0.78): Given that there were two dry spells of 7+ days but no extreme temperatures above 35°C between August 15 and September 15, be prepared to activate pump irrigation at least 48 hours in advance if a forecasted dry spell threatens the crop's growth stages [6].
+  - partially_supported: There were two dry spells of 7+ days. (Passage [6] mentions 'mid-season dry spells during July-August' but does not specify the duration of these dry spells.)
 
-## Run 4: Kanpur Dehat analog 2014 (bad), grounding 0.20, distinct citations 2
-Passages: [1] A1 Standard NPK recommendation for Kharif rice in Uttar Pradesh, [2] J3 For low expected yield (bad year scenario), [3] C1 Brown planthopper (Nilaparvata lugens), [4] C2 Brown planthopper damage symptoms, [5] F3 Nursery and transplanting timing for UP Kharif, [6] I3 Climate-related risk advisory
-
-- cos 0.77 (closest J3; judge: supported): Prioritize insecticide application only if BPH presence is confirmed through scouting, avoiding unnecessary expenses [2].
-- cos 0.76 (closest J3; judge: supported): Register for PMFBY insurance before the cut-off date to secure financial protection against potential losses due to adverse weather conditions [2].
-- cos 0.76 (closest J3; judge: supported): Consider early contract with local mandis for whatever harvest materializes to ensure a fair price and reduce market risks [2].
-- cos 0.71 (closest I3; judge: supported): Maintain 5 cm of standing water during flowering (August-September) as a thermal buffer against heat stress, which can cause spikelet sterility [6].
-
-## Run 5: Kanpur Dehat analog 2015 (bad), grounding 0.20, distinct citations 2
+## Run 10: Kanpur Dehat analog 2020 (bad): supported 25%, partial 75%, unsupported 0%; cosine relevance 50%
 Passages: [1] A1 Standard NPK recommendation for Kharif rice in Uttar Pradesh, [2] J3 For low expected yield (bad year scenario), [3] C1 Brown planthopper (Nilaparvata lugens), [4] C2 Brown planthopper damage symptoms, [5] I3 Climate-related risk advisory, [6] F3 Nursery and transplanting timing for UP Kharif
 
-- cos 0.76 (closest J3; judge: supported): Reduce the nitrogen split dose at 60 DAT to conserve cash [2].
-- cos 0.77 (closest J3; judge: supported): Prioritize insecticide application only if BPH is confirmed through scouting [2].
-- cos 0.71 (closest J3; judge: supported): Register for PMFBY insurance before the cut-off date to secure financial protection [2].
-- cos 0.69 (closest I3; judge: supported): Maintain 5 cm standing water during flowering stage to mitigate heat stress effects [5].
+- **partial** (cites [2], max cosine 0.78): Adjust your nitrogen application to 60 kg per hectare, as full dose may not be necessary in a forecasted low-yield season [2].
+  - partially_supported: Adjust your nitrogen application. (The passage suggests adjusting nitrogen application, specifically making the 60 DAT dose optional in a bad year scenario.)
+- **partial** (cites [2, 5], max cosine 0.75): Maintain alternate wetting and drying (AWD) practices but ensure that water levels are sufficient during flowering to mitigate any heat stress effects, even though no days above 35°C were recorded in late August and September [2][5].
+  - partially_supported: Maintain AWD practices. (Passage [2] mentions reducing input intensity, prioritizing insecticide, and registering PMFBY insurance, which are AWD practices. However, it does not explicitly state 'maintain' AWD practices.)
+- **partial** (cites [2], max cosine 0.80): Consider reducing the use of insecticides unless BPH is confirmed through scouting; this will help conserve resources while still protecting your crop from potential outbreaks [2].
+  - partially_supported: This will protect your crop from potential outbreaks. (The passages mention reducing input intensity to conserve cash, prioritizing insecticide on scouting-confirmed BPH presence, and registering PMFBY insurance before cut-off. However, it does not explic)
 
-## Run 6: Kanpur Dehat analog 2016 (good), grounding 0.60, distinct citations 4
-Passages: [1] A1 Standard NPK recommendation for Kharif rice in Uttar Pradesh, [2] J4 For good year scenario (above-normal monsoon, high NDVI tracking), [3] C1 Brown planthopper (Nilaparvata lugens), [4] C2 Brown planthopper damage symptoms, [5] F3 Nursery and transplanting timing for UP Kharif, [6] J5 For average year scenario
-
-- cos 0.78 (closest J4; judge: supported): Consider adding a third top-dress nitrogen split at 75 DAT if the canopy remains green and vigorous to support robust growth [2].
-- cos 0.76 (closest J4; judge: supported): Plan storage capacity ahead to avoid distress sale at harvest due to the anticipated good yield in a favorable monsoon year [2].
-
-## Run 9: Kanpur Dehat analog 2019 (average), grounding 0.50, distinct citations 4
-Passages: [1] A1 Standard NPK recommendation for Kharif rice in Uttar Pradesh, [2] C1 Brown planthopper (Nilaparvata lugens), [3] C2 Brown planthopper damage symptoms, [4] J4 For good year scenario (above-normal monsoon, high NDVI tracking), [5] J5 For average year scenario, [6] I3 Climate-related risk advisory
-
-- cos 0.78 (closest J5; judge: partly): Maintain a vigilant watch on irrigation practices; ensure the field is drained 7 to 10 days prior to harvest as per standard practice in an average year scenario [5].
-- cos 0.72 (closest J5; judge: supported): Given that there were no days above 35°C between August 15 and September 15, focus less on thermal buffering during flowering but remain prepared for any unexpected heat waves [6].
-
-## Run 10: Kanpur Dehat analog 2020 (bad), grounding 0.20, distinct citations 2
+## Run 25: Kanpur Nagar analog 2020 (bad): supported 50%, partial 50%, unsupported 0%; cosine relevance 75%
 Passages: [1] A1 Standard NPK recommendation for Kharif rice in Uttar Pradesh, [2] J3 For low expected yield (bad year scenario), [3] C1 Brown planthopper (Nilaparvata lugens), [4] C2 Brown planthopper damage symptoms, [5] I3 Climate-related risk advisory, [6] F3 Nursery and transplanting timing for UP Kharif
 
-- cos 0.77 (closest J3; judge: supported): Prioritize insecticide application only if BPH presence is confirmed through scouting, to conserve cash [2].
-- cos 0.73 (closest J3; judge: supported): Register for PMFBY insurance before the cut-off date to secure financial protection against potential losses [2].
-- cos 0.76 (closest J3; judge: supported): Consider early contract with mandi for whatever harvest materializes to ensure a market for your produce [2].
-- cos 0.70 (closest I3; judge: partly): Maintain 5 cm standing water during flowering as a thermal buffer since there are no days above 35°C, which could prevent spikelet sterility [5].
+- **partial** (cites [3, 4], max cosine 0.78): Prioritize insecticide application only if BPH presence is confirmed through scouting, given that curative action becomes difficult once hopper burn symptoms appear [4][3].
+  - partially_supported: Prioritize insecticide application. (The passages suggest that yield losses are common during outbreak years, implying the need for control measures like insecticide application.)
+- **partial** (cites [5], max cosine 0.72): Maintain standing water at 5 cm during flowering stage to act as a thermal buffer against potential heat stress despite the absence of high temperatures in August and September [5].
+  - unsupported: There is no high temperature in August and September. (Passage [5] mentions 'flowering-stage heat stress (daily max > 35°C) causing spikelet sterility in August-September', contradicting the claim.)
 
-## Run 11: Kanpur Dehat analog 2021 (average), grounding 0.60, distinct citations 5
-Passages: [1] A1 Standard NPK recommendation for Kharif rice in Uttar Pradesh, [2] C1 Brown planthopper (Nilaparvata lugens), [3] C2 Brown planthopper damage symptoms, [4] J4 For good year scenario (above-normal monsoon, high NDVI tracking), [5] J5 For average year scenario, [6] I3 Climate-related risk advisory
+## Run 26: Kanpur Nagar analog 2021 (average): supported 67%, partial 33%, unsupported 0%; cosine relevance 17%
+Passages: [1] A1 Standard NPK recommendation for Kharif rice in Uttar Pradesh, [2] C1 Brown planthopper (Nilaparvata lugens), [3] C2 Brown planthopper damage symptoms, [4] J4 For good year scenario (above-normal monsoon), [5] J5 For average year scenario, [6] J2 For delayed monsoon onset
 
-- cos 0.77 (closest J4; judge: supported): Add a third top-dress nitrogen split at 75 DAT if the canopy remains green and vigorous to ensure optimal growth [4].
-- cos 0.76 (closest J5; judge: partly): Since there were no days above 35°C between August 15 and September 15, focus on managing other climate risks like mid-season dry spells that can threaten tillering and panicle initiation as advised in [6].
+- **partial** (cites [4], max cosine 0.76): No need to adjust fertilizer application beyond the standard recommendation due to the average year scenario; however, ensure timely top-dressing if the canopy remains green and vigorous at 75 DAT as suggested in [4].
+  - unsupported: No need to adjust fertilizer application beyond the standard recommendation. (The passage suggests adjusting fertilizer application based on weather conditions, contradicting the claim that no adjustment is needed.)
+  - unsupported: The scenario is an average year. (The passage describes a 'good year' scenario, not an 'average year'.)
+- **partial** (cites [4], max cosine 0.74): Plan ahead for storage capacity to avoid distress sales post-harvest, aligning with the good-year scenario advice applicable even under average conditions [4].
+  - partially_supported: This advice is applicable even under average conditions. (The passage mentions 'good year scenario' and 'above-normal monsoon', but does not explicitly state that the advice is applicable under average conditions.)
 
-## Run 12: Kanpur Dehat analog 2022 (average), grounding 0.50, distinct citations 6
-Passages: [1] A1 Standard NPK recommendation for Kharif rice in Uttar Pradesh, [2] C1 Brown planthopper (Nilaparvata lugens), [3] C2 Brown planthopper damage symptoms, [4] J4 For good year scenario (above-normal monsoon, high NDVI tracking), [5] J5 For average year scenario, [6] I3 Climate-related risk advisory
-
-- cos 0.72 (closest J4; judge: supported): Maintain a vigilant watch on irrigation practices, ensuring adequate water availability during dry spells and maintaining 5 cm standing water during flowering stages to mitigate heat stress [6].
-- cos 0.75 (closest C2; judge: partly): Plan for potential pest outbreaks by being prepared with appropriate insecticides if brown planthopper populations are detected early [2][4].
-
-## Run 13: Kanpur Dehat analog 2023 (bad), grounding 0.40, distinct citations 2
-Passages: [1] A1 Standard NPK recommendation for Kharif rice in Uttar Pradesh, [2] J3 For low expected yield (bad year scenario), [3] C1 Brown planthopper (Nilaparvata lugens), [4] C2 Brown planthopper damage symptoms, [5] I3 Climate-related risk advisory, [6] F3 Nursery and transplanting timing for UP Kharif
-
-- cos 0.77 (closest J3; judge: supported): Prioritize insecticide application only when BPH presence is confirmed through scouting to avoid unnecessary expenses [2].
-- cos 0.76 (closest J3; judge: supported): Register for PMFBY insurance before the cut-off date to secure financial protection against potential losses due to adverse weather conditions [2].
-- cos 0.70 (closest I3; judge: supported): Maintain 5 cm standing water during flowering stage as a thermal buffer to mitigate heat stress effects on spikelet sterility [5].
-
-## Run 15: Kanpur Nagar analog 2010 (bad), grounding 0.60, distinct citations 4
+## Run 28: Kanpur Nagar analog 2023 (bad): supported 50%, partial 50%, unsupported 0%; cosine relevance 25%
 Passages: [1] A1 Standard NPK recommendation for Kharif rice in Uttar Pradesh, [2] J3 For low expected yield (bad year scenario), [3] C1 Brown planthopper (Nilaparvata lugens), [4] C2 Brown planthopper damage symptoms, [5] F3 Nursery and transplanting timing for UP Kharif, [6] I3 Climate-related risk advisory
 
-- cos 0.71 (closest I3; judge: supported): Maintain standing water at 5 cm during flowering (August-September) to act as a thermal buffer against heat stress days exceeding 35°C [6].
-- cos 0.74 (closest F3; judge: supported): Activate pump irrigation at least 48 hours in advance of any predicted dry spells during July-August to ensure adequate moisture for tillering and panicle initiation [6].
-
-## Run 19: Kanpur Nagar analog 2014 (bad), grounding 0.20, distinct citations 3
-Passages: [1] A1 Standard NPK recommendation for Kharif rice in Uttar Pradesh, [2] J3 For low expected yield (bad year scenario), [3] C1 Brown planthopper (Nilaparvata lugens), [4] C2 Brown planthopper damage symptoms, [5] F3 Nursery and transplanting timing for UP Kharif, [6] I3 Climate-related risk advisory
-
-- cos 0.77 (closest J3; judge: partly): Reduce nitrogen input intensity by applying only half of the standard recommendation at 60 DAT as per [2].
-- cos 0.77 (closest J3; judge: partly): Prioritize insecticide application for BPH control only if confirmed through scouting after panicle initiation stage, following advice in [2] and [3].
-- cos 0.74 (closest I3; judge: supported): Maintain standing water to a depth of 5 cm during heat waves between August 15 and September 15 to protect rice from high temperatures as per [6].
-- cos 0.77 (closest J3; judge: supported): Register PMFBY insurance before the cut-off date to mitigate financial risk associated with reduced yield expectations, following guidance in [2].
-
-## Run 20: Kanpur Nagar analog 2015 (bad), grounding 0.00, distinct citations 2
-Passages: [1] A1 Standard NPK recommendation for Kharif rice in Uttar Pradesh, [2] J3 For low expected yield (bad year scenario), [3] C1 Brown planthopper (Nilaparvata lugens), [4] C2 Brown planthopper damage symptoms, [5] F3 Nursery and transplanting timing for UP Kharif, [6] I3 Climate-related risk advisory
-
-- cos 0.78 (closest J3; judge: supported): Reduce input intensity to conserve cash; consider making the nitrogen split dose at 60 DAT optional [2].
-- cos 0.76 (closest J3; judge: supported): Prioritize insecticide application only if BPH presence is confirmed through scouting [2].
-- cos 0.75 (closest J3; judge: supported): Register for PMFBY insurance before the cut-off date as a risk management strategy [2].
-- cos 0.77 (closest J3; judge: supported): Consider early contract with mandi for whatever harvest materializes to secure prices and reduce market risks [2].
-- cos 0.71 (closest I3; judge: supported): Maintain 5 cm standing water during flowering (Aug-Sep) to act as a thermal buffer against heat stress [6].
-
-## Run 23: Kanpur Nagar analog 2018 (good), grounding 0.60, distinct citations 3
-Passages: [1] A1 Standard NPK recommendation for Kharif rice in Uttar Pradesh, [2] J4 For good year scenario (above-normal monsoon, high NDVI tracking), [3] C1 Brown planthopper (Nilaparvata lugens), [4] C2 Brown planthopper damage symptoms, [5] I3 Climate-related risk advisory, [6] J2 For delayed monsoon onset
-
-- cos 0.77 (closest J4; judge: supported): Add an additional top-dress nitrogen split at 75 DAT if the canopy remains green and vigorous to support growth [2].
-- cos 0.70 (closest J4; judge: supported): Plan storage capacity ahead of harvest to avoid distress sales due to anticipated good yields [2].
-
-## Run 24: Kanpur Nagar analog 2019 (average), grounding 0.40, distinct citations 6
-Passages: [1] A1 Standard NPK recommendation for Kharif rice in Uttar Pradesh, [2] C1 Brown planthopper (Nilaparvata lugens), [3] C2 Brown planthopper damage symptoms, [4] J4 For good year scenario (above-normal monsoon, high NDVI tracking), [5] J5 For average year scenario, [6] I3 Climate-related risk advisory
-
-- cos 0.77 (closest J5; judge: partly): Ensure timely irrigation management by maintaining alternate wetting and drying or continuous flooding methods, especially avoiding dry spells that could threaten tillering and panicle initiation [6][5].
-- cos 0.72 (closest J5; judge: partly): Since there are no days above 35°C between August 15 and September 15, focus on managing pests rather than heat stress during the flowering stage [2][6].
-- cos 0.76 (closest J5; judge: partly): Given the average rainfall scenario, plan for standard irrigation practices without additional top-dressing nitrogen splits unless the canopy remains exceptionally green and vigorous [4][5].
-
-## Run 25: Kanpur Nagar analog 2020 (bad), grounding 0.40, distinct citations 2
-Passages: [1] A1 Standard NPK recommendation for Kharif rice in Uttar Pradesh, [2] J3 For low expected yield (bad year scenario), [3] C1 Brown planthopper (Nilaparvata lugens), [4] C2 Brown planthopper damage symptoms, [5] I3 Climate-related risk advisory, [6] F3 Nursery and transplanting timing for UP Kharif
-
-- cos 0.76 (closest J3; judge: supported): Register for PMFBY insurance before the cut-off date to secure financial protection against potential yield losses [2].
-- cos 0.76 (closest J3; judge: supported): Consider early contract with mandi for whatever harvest materializes to ensure market access and price stability [2].
-- cos 0.72 (closest I3; judge: supported): Maintain 5 cm standing water during flowering as a thermal buffer, given no forecasted heat waves above 35°C in late August and September [5].
-
-## Run 27: Kanpur Nagar analog 2022 (average), grounding 0.40, distinct citations 5
-Passages: [1] A1 Standard NPK recommendation for Kharif rice in Uttar Pradesh, [2] C1 Brown planthopper (Nilaparvata lugens), [3] C2 Brown planthopper damage symptoms, [4] J4 For good year scenario (above-normal monsoon, high NDVI tracking), [5] J5 For average year scenario, [6] H5 Monsoon dependency for Kanpur Kharif rice
-
-- cos 0.78 (closest J5; judge: supported): Use alternate wetting and drying (AWD) or standard split irrigation methods as recommended for an average year scenario [5].
-- cos 0.78 (closest H5; judge: supported): Be vigilant about BPH population growth, which peaks at approximately 28 to 30°C, commonly reached in Kanpur during August and September [2].
-- cos 0.76 (closest J5; judge: supported): Ensure that the rice field is drained 7 to 10 days before harvest to prepare for the upcoming season [5].
-
-## Run 28: Kanpur Nagar analog 2023 (bad), grounding 0.60, distinct citations 4
-Passages: [1] A1 Standard NPK recommendation for Kharif rice in Uttar Pradesh, [2] J3 For low expected yield (bad year scenario), [3] C1 Brown planthopper (Nilaparvata lugens), [4] C2 Brown planthopper damage symptoms, [5] F3 Nursery and transplanting timing for UP Kharif, [6] I3 Climate-related risk advisory
-
-- cos 0.70 (closest I3; judge: supported): Maintain 5 cm of standing water during flowering stages in August and September to protect against heat stress days above 35°C [6].
-- cos 0.76 (closest I3; judge: supported): Ensure timely irrigation at least 48 hours before any forecasted dry spells in July-August to support tillering and panicle initiation [6].
+- **partial** (cites [2], max cosine 0.77): Adjust your nitrogen application by applying only half of the standard dose (60 kg N/ha) as per [2], which suggests reducing input intensity in forecasted low-yield scenarios.
+  - partially_supported: Adjust your nitrogen application. (The passage suggests adjusting nitrogen application, specifically making the 60 DAT dose optional in a bad year scenario.)
+  - partially_supported: Apply 60 kg N/ha. (The passage mentions 'nitrogen split dose at 60 DAT becomes optional', which implies the use of nitrogen, but does not specify the amount (60 kg N/ha) or unit (kg N/ha).)
+- **partial** (cites [6], max cosine 0.73): If dry spells are predicted during July-August, prepare to activate pump irrigation at least 48 hours in advance to ensure adequate moisture for tillering and panicle initiation [6].
+  - partially_supported: Prepare to activate pump irrigation. (The passage states 'activate pump irrigation at least 48 hours in advance' during dry spell forecast, but the claim is more general and does not specify a condition or time frame.)
